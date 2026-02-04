@@ -41,6 +41,11 @@ export default function AdvancedAnalytics({ partnerships }: AdvancedAnalyticsPro
     ? Math.round(partnerships.reduce((sum, p) => sum + (p.health_score || 0), 0) / partnerships.length)
     : 0;
 
+  const renderLabel = (entry: any) => {
+    const percent = entry.percent || 0;
+    return `${entry.name} ${(percent * 100).toFixed(0)}%`;
+  };
+
   return (
     <div className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -72,7 +77,7 @@ export default function AdvancedAnalytics({ partnerships }: AdvancedAnalyticsPro
                 cx="50%"
                 cy="50%"
                 labelLine={false}
-                label={({ name, percent }: any) => `${name} ${percent ? (percent * 100).toFixed(0) : 0}%`}
+                label={renderLabel}
                 outerRadius={80}
                 fill="#8884d8"
                 dataKey="value"
