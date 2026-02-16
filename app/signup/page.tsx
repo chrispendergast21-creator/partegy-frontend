@@ -4,24 +4,34 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import { API_URL } from '@/lib/api';
-import { Building2 } from 'lucide-react';
 
-export default function LoginPage() {
+export default function SignupPage() {
   const router = useRouter();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+  });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const handleLogin = async (e: React.FormEvent) => {
+  const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+
+    if (formData.password !== formData.confirmPassword) {
+      setError('Passwords do not match');
+      return;
+    }
+
     setLoading(true);
 
     try {
-      const response = await axios.post(`${API_URL}/api/auth/login`, {
-        email,
-        password
+      const response = await axios.post(`${API_URL}/api/auth/signup`, {
+        name: formData.name,
+        email: formData.email,
+        password: formData.password
       });
 
       // Store token
@@ -31,7 +41,7 @@ export default function LoginPage() {
       // Redirect to dashboard
       router.push('/dashboard');
     } catch (err: any) {
-      setError(err.response?.data?.error || 'Login failed');
+      setError(err.response?.data?.error || 'Signup failed');
     } finally {
       setLoading(false);
     }
@@ -40,19 +50,17 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#1e293b] to-[#334155] flex items-center justify-center px-4">
       <div className="max-w-md w-full">
-        {/* Logo */}
         <div className="text-center mb-8">
           <div className="flex items-center justify-center space-x-2 mb-4">
             <div className="w-12 h-12 bg-[#60a5fa] rounded"></div>
             <div className="w-12 h-12 bg-[#60e1fa] rounded"></div>
           </div>
           <h1 className="text-4xl font-bold text-white mb-2">Partegy</h1>
-          <p className="text-gray-400">Partnership Intelligence Platform</p>
+          <p className="text-gray-400">Create your account</p>
         </div>
 
-        {/* Login Card */}
         <div className="bg-white rounded-lg shadow-xl p-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Sign In</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">Sign Up</h2>
 
           {error && (
             <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm">
@@ -60,7 +68,21 @@ export default function LoginPage() {
             </div>
           )}
 
-          <form onSubmit={handleLogin} className="space-y-6">
+          <form onSubmit={handleSignup} className="space-y-6">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Full Name
+              </label>
+              <input
+                type="text"
+                required
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#60a5fa] focus:border-transparent"
+                placeholder="John Doe"
+              />
+            </div>
+
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Email Address
@@ -68,8 +90,8 @@ export default function LoginPage() {
               <input
                 type="email"
                 required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#60a5fa] focus:border-transparent"
                 placeholder="you@company.com"
               />
@@ -82,8 +104,23 @@ export default function LoginPage() {
               <input
                 type="password"
                 required
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                value={formData.password}
+                onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#60a5fa] focus:border-transparent"
+                placeholder="••••••••"
+                minLength={8}
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Confirm Password
+              </label>
+              <input
+                type="password"
+                required
+                value={formData.confirmPassword}
+                onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#60a5fa] focus:border-transparent"
                 placeholder="••••••••"
               />
@@ -94,28 +131,21 @@ export default function LoginPage() {
               disabled={loading}
               className="w-full px-4 py-3 bg-gradient-to-r from-[#60a5fa] to-[#60e1fa] text-white rounded-lg hover:opacity-90 font-semibold disabled:opacity-50"
             >
-              {loading ? 'Signing in...' : 'Sign In'}
+              {loading ? 'Creating account...' : 'Create Account'}
             </button>
           </form>
 
           <div className="mt-6 text-center">
             <p className="text-sm text-gray-600">
-              Don't have an account?{' '}
+              Already have an account?{' '}
               <button
-                onClick={() => router.push('/signup')}
+                onClick={() => router.push('/login')}
                 className="text-[#60a5fa] hover:text-[#60e1fa] font-medium"
               >
-                Sign up
+                Sign in
               </button>
             </p>
           </div>
-        </div>
-
-        {/* Demo Credentials */}
-        <div className="mt-6 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-4 text-white text-sm">
-          <p className="font-medium mb-2">Demo Credentials:</p>
-          <p>Email: owner@company.com</p>
-          <p>Password: password</p>
         </div>
       </div>
     </div>
