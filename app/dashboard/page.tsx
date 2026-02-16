@@ -21,7 +21,8 @@ import {
   Target,
   Zap,
   ChevronRight,
-  Plus
+  Plus,
+  Building2
 } from 'lucide-react';
 import { useAuth } from '@/lib/useAuth';
 import { API_URL } from '@/lib/api';
