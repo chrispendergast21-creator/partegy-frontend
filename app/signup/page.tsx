@@ -25,6 +25,11 @@ export default function SignupPage() {
       return;
     }
 
+    if (formData.password.length < 6) {
+      setError('Password must be at least 6 characters');
+      return;
+    }
+
     setLoading(true);
 
     try {
@@ -34,14 +39,21 @@ export default function SignupPage() {
         password: formData.password
       });
 
-      // Store token
-      localStorage.setItem('auth_token', response.data.token);
-      localStorage.setItem('user', JSON.stringify(response.data.user));
+      console.log('Signup response:', response.data);
+
+      // Store token and user
+      if (response.data.token) {
+        localStorage.setItem('auth_token', response.data.token);
+      }
+      if (response.data.user) {
+        localStorage.setItem('user', JSON.stringify(response.data.user));
+      }
 
       // Redirect to dashboard
-      router.push('/dashboard');
+      window.location.href = '/dashboard';
     } catch (err: any) {
-      setError(err.response?.data?.error || 'Signup failed');
+      console.error('Signup error:', err);
+      setError(err.response?.data?.error || err.message || 'Signup failed');
     } finally {
       setLoading(false);
     }
@@ -108,7 +120,7 @@ export default function SignupPage() {
                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#60a5fa] focus:border-transparent"
                 placeholder="••••••••"
-                minLength={8}
+                minLength={6}
               />
             </div>
 
