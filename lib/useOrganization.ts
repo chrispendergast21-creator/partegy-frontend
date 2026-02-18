@@ -19,11 +19,23 @@ interface OrganizationState {
   setOrganizations: (orgs: Organization[]) => void;
 }
 
+// Default demo organization for showcase
+const demoOrg: Organization = {
+  id: 1,
+  name: 'Demo Corporation',
+  slug: 'demo-corp',
+  subscription_tier: 'enterprise',
+  user_count: 5,
+  partnership_count: 100,
+  max_partnerships: 1000,
+  max_users: 50
+};
+
 export const useOrganization = create<OrganizationState>()(
   persist(
     (set) => ({
-      currentOrg: null,
-      organizations: [],
+      currentOrg: demoOrg, // Default to demo org with 100 partnerships
+      organizations: [demoOrg],
       setCurrentOrg: (org) => set({ currentOrg: org }),
       setOrganizations: (orgs) => set({ organizations: orgs }),
     }),
