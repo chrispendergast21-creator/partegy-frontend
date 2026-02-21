@@ -21,13 +21,20 @@ import {
   ExternalLink,
   ChevronDown,
   Menu,
-  X
+  X,
+  Eye,
+  ClipboardList,
+  Mail
 } from 'lucide-react';
 
 export default function LandingPage() {
   const router = useRouter();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [demoModalOpen, setDemoModalOpen] = useState(false);
+  const [evaluationModalOpen, setEvaluationModalOpen] = useState(false);
+  const [demoForm, setDemoForm] = useState({ name: '', company: '', role: '', email: '' });
+  const [evaluationForm, setEvaluationForm] = useState({ name: '', company: '', role: '', email: '' });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,6 +43,24 @@ export default function LandingPage() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleDemoSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // TODO: Send form data to backend
+    console.log('Demo request:', demoForm);
+    alert('Thank you! We\'ll contact you within 24 hours to schedule your executive demo.');
+    setDemoModalOpen(false);
+    setDemoForm({ name: '', company: '', role: '', email: '' });
+  };
+
+  const handleEvaluationSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // TODO: Send form data to backend
+    console.log('Evaluation request:', evaluationForm);
+    alert('Thank you! Our partnership intelligence team will contact you within 24 hours.');
+    setEvaluationModalOpen(false);
+    setEvaluationForm({ name: '', company: '', role: '', email: '' });
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden">
@@ -50,7 +75,7 @@ export default function LandingPage() {
                 <div className="w-8 h-8 bg-gradient-to-r from-blue-400 to-cyan-400 rounded"></div>
                 <div className="w-8 h-8 bg-gradient-to-r from-cyan-400 to-emerald-400 rounded"></div>
               </div>
-              <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">
+              <span className="text-2xl font-bold text-white">
                 Partegy
               </span>
             </div>
@@ -68,10 +93,10 @@ export default function LandingPage() {
                 Sign In
               </button>
               <button 
-                onClick={() => router.push('/signup')}
+                onClick={() => setEvaluationModalOpen(true)}
                 className="px-6 py-2 bg-gradient-to-r from-blue-500 to-emerald-500 text-white rounded-lg hover:shadow-lg transition-all"
               >
-                Get Started
+                Request Evaluation
               </button>
             </div>
 
@@ -93,7 +118,7 @@ export default function LandingPage() {
                 <a href="#customers" className="text-slate-300 hover:text-white transition-colors">customers</a>
                 <a href="#pricing" className="text-slate-300 hover:text-white transition-colors">Pricing</a>
                 <button onClick={() => router.push('/login')} className="text-left text-slate-300 hover:text-white transition-colors">Sign In</button>
-                <button onClick={() => router.push('/signup')} className="text-left px-6 py-2 bg-gradient-to-r from-blue-500 to-emerald-500 text-white rounded-lg w-fit">Get Started</button>
+                <button onClick={() => setEvaluationModalOpen(true)} className="text-left px-6 py-2 bg-gradient-to-r from-blue-500 to-emerald-500 text-white rounded-lg w-fit">Request Evaluation</button>
               </div>
             </div>
           )}
@@ -106,7 +131,7 @@ export default function LandingPage() {
           {/* Hero Badge */}
           <div className="inline-flex items-center px-4 py-2 bg-slate-800/50 border border-slate-700/50 rounded-full mb-8">
             <Zap className="w-4 h-4 text-emerald-400 mr-2" />
-            <span className="text-sm text-slate-300">Transform Partnership Intelligence with AI</span>
+            <span className="text-sm text-slate-300">Patent Pending AI-Powered Partnership Intelligence</span>
           </div>
 
           {/* Hero Headline */}
@@ -126,25 +151,19 @@ export default function LandingPage() {
           {/* CTA Buttons */}
           <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6 mb-12">
             <button 
-              onClick={() => router.push('/signup')}
+              onClick={() => setDemoModalOpen(true)}
               className="group flex items-center space-x-3 px-8 py-4 bg-gradient-to-r from-blue-500 to-emerald-500 text-white rounded-xl text-lg font-semibold hover:shadow-2xl hover:scale-105 transition-all"
             >
-              <span>Start Free Trial</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <Eye className="w-5 h-5" />
+              <span>Watch the Executive Demo</span>
             </button>
-            <button className="flex items-center space-x-3 px-8 py-4 bg-slate-800/50 border border-slate-700 text-white rounded-xl text-lg font-semibold hover:bg-slate-700/50 transition-all">
-              <Play className="w-5 h-5" />
-              <span>Watch Demo</span>
+            <button 
+              onClick={() => setEvaluationModalOpen(true)}
+              className="flex items-center space-x-3 px-8 py-4 bg-slate-800/50 border border-slate-700 text-white rounded-xl text-lg font-semibold hover:bg-slate-700/50 transition-all"
+            >
+              <ClipboardList className="w-5 h-5" />
+              <span>Evaluate your Partnership Portfolio</span>
             </button>
-          </div>
-
-          {/* Social Proof */}
-          <div className="text-slate-400 mb-4">Trusted by partnership teams at</div>
-          <div className="flex items-center justify-center space-x-8 opacity-60">
-            <div className="text-2xl font-bold">Microsoft</div>
-            <div className="text-2xl font-bold">Salesforce</div>
-            <div className="text-2xl font-bold">Adobe</div>
-            <div className="text-2xl font-bold">ServiceNow</div>
           </div>
         </div>
 
@@ -355,40 +374,63 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Pricing Preview */}
+      {/* Pricing Section */}
       <section id="pricing" className="py-20 px-6">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">
-              Enterprise Pricing
+              Partnership-Scaled Pricing
             </span>
           </h2>
-          <p className="text-xl text-slate-300 mb-12">
-            Subscription-based SaaS model aligned to the number of partnerships governed
+          <p className="text-xl text-slate-300 mb-4 max-w-4xl mx-auto">
+            Partegy's pricing scales with the number of partnerships governed, reflecting the 
+            operational complexity and financial risk under management.
+          </p>
+          <p className="text-lg text-slate-400 mb-12">
+            This aligns our value directly with the scope of strategic partnerships rather than user count.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <PricingCard
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <PricingTier
               tier="Growth"
-              price="$10K - $25K"
-              description="Up to 50 partnerships, basic AI, limited integrations"
+              partnerships="Up to 25"
+              price="$30k"
+              description="Perfect for growing organizations establishing their partnership program"
               features={["Health scoring", "Basic analytics", "Standard support", "Core integrations"]}
               popular={false}
             />
-            <PricingCard
-              tier="Professional"
-              price="$25K - $50K"
-              description="Up to 100 partnerships, standard AI, full integrations"
+            <PricingTier
+              tier="Scale"
+              partnerships="26-75"
+              price="$60k"
+              description="Built for companies with expanding partnership portfolios"
               features={["Advanced health scoring", "Predictive analytics", "Priority support", "Full API access"]}
               popular={true}
             />
-            <PricingCard
+            <PricingTier
               tier="Enterprise"
-              price="$50K - $100K"
-              description="500+ partnerships, advanced AI, custom integrations"
+              partnerships="76-200"
+              price="$120k"
+              description="Comprehensive solution for enterprise partnership programs"
               features={["Custom health models", "Advanced AI insights", "Dedicated success manager", "Custom integrations"]}
               popular={false}
             />
+            <PricingTier
+              tier="Global"
+              partnerships="200+"
+              price="$250k+"
+              description="Custom enterprise solution for global partnership operations"
+              features={["Fully customized platform", "White-label options", "24/7 dedicated support", "Custom development"]}
+              popular={false}
+              isCustom={true}
+            />
+          </div>
+
+          <div className="mt-12 p-6 bg-slate-800/50 rounded-xl border border-slate-700">
+            <p className="text-slate-300 text-center">
+              <strong>All tiers include:</strong> Multi-tenant architecture, role-based access control, 
+              real-time dashboards, partnership health monitoring, and comprehensive reporting.
+            </p>
           </div>
         </div>
       </section>
@@ -404,15 +446,18 @@ export default function LandingPage() {
           </p>
           <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6">
             <button 
-              onClick={() => router.push('/signup')}
+              onClick={() => setDemoModalOpen(true)}
               className="group flex items-center space-x-3 px-8 py-4 bg-white text-blue-600 rounded-xl text-lg font-semibold hover:shadow-2xl hover:scale-105 transition-all"
             >
-              <span>Start Your Free Trial</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <Eye className="w-5 h-5" />
+              <span>Watch the Executive Demo</span>
             </button>
-            <button className="flex items-center space-x-3 px-8 py-4 bg-transparent border-2 border-white text-white rounded-xl text-lg font-semibold hover:bg-white hover:text-blue-600 transition-all">
-              <span>Schedule Demo</span>
-              <ExternalLink className="w-5 h-5" />
+            <button 
+              onClick={() => setEvaluationModalOpen(true)}
+              className="flex items-center space-x-3 px-8 py-4 bg-transparent border-2 border-white text-white rounded-xl text-lg font-semibold hover:bg-white hover:text-blue-600 transition-all"
+            >
+              <ClipboardList className="w-5 h-5" />
+              <span>Evaluate your Partnership Portfolio</span>
             </button>
           </div>
         </div>
@@ -427,19 +472,153 @@ export default function LandingPage() {
                 <div className="w-8 h-8 bg-gradient-to-r from-blue-400 to-cyan-400 rounded"></div>
                 <div className="w-8 h-8 bg-gradient-to-r from-cyan-400 to-emerald-400 rounded"></div>
               </div>
-              <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">
+              <span className="text-2xl font-bold text-white">
                 Partegy
               </span>
             </div>
-            <div className="flex items-center space-x-6 text-slate-400">
+            <div className="flex items-center space-x-6 text-slate-400 text-sm">
               <a href="#" className="hover:text-white transition-colors">Privacy</a>
               <a href="#" className="hover:text-white transition-colors">Terms</a>
               <a href="#" className="hover:text-white transition-colors">Contact</a>
               <span>© 2026 Partegy, Inc.</span>
+              <span>•</span>
+              <span className="text-xs">Patent Pending</span>
             </div>
           </div>
         </div>
       </footer>
+
+      {/* Demo Modal */}
+      {demoModalOpen && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <div className="bg-slate-800 rounded-2xl p-8 max-w-md w-full border border-slate-700">
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="text-2xl font-bold text-white">Executive Demo Request</h3>
+              <button onClick={() => setDemoModalOpen(false)}>
+                <X className="w-6 h-6 text-slate-400 hover:text-white" />
+              </button>
+            </div>
+            <form onSubmit={handleDemoSubmit} className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-slate-300 mb-2">Full Name *</label>
+                <input
+                  type="text"
+                  required
+                  value={demoForm.name}
+                  onChange={(e) => setDemoForm({...demoForm, name: e.target.value})}
+                  className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-emerald-400 focus:border-transparent"
+                  placeholder="John Smith"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-slate-300 mb-2">Company *</label>
+                <input
+                  type="text"
+                  required
+                  value={demoForm.company}
+                  onChange={(e) => setDemoForm({...demoForm, company: e.target.value})}
+                  className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-emerald-400 focus:border-transparent"
+                  placeholder="Acme Corporation"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-slate-300 mb-2">Role *</label>
+                <input
+                  type="text"
+                  required
+                  value={demoForm.role}
+                  onChange={(e) => setDemoForm({...demoForm, role: e.target.value})}
+                  className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-emerald-400 focus:border-transparent"
+                  placeholder="VP of Partnerships"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-slate-300 mb-2">Email *</label>
+                <input
+                  type="email"
+                  required
+                  value={demoForm.email}
+                  onChange={(e) => setDemoForm({...demoForm, email: e.target.value})}
+                  className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-emerald-400 focus:border-transparent"
+                  placeholder="john@acme.com"
+                />
+              </div>
+              <button
+                type="submit"
+                className="w-full py-3 bg-gradient-to-r from-blue-500 to-emerald-500 text-white rounded-lg font-semibold hover:shadow-lg transition-all"
+              >
+                Request Executive Demo
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Evaluation Modal */}
+      {evaluationModalOpen && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <div className="bg-slate-800 rounded-2xl p-8 max-w-md w-full border border-slate-700">
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="text-2xl font-bold text-white">Partnership Portfolio Evaluation</h3>
+              <button onClick={() => setEvaluationModalOpen(false)}>
+                <X className="w-6 h-6 text-slate-400 hover:text-white" />
+              </button>
+            </div>
+            <form onSubmit={handleEvaluationSubmit} className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-slate-300 mb-2">Full Name *</label>
+                <input
+                  type="text"
+                  required
+                  value={evaluationForm.name}
+                  onChange={(e) => setEvaluationForm({...evaluationForm, name: e.target.value})}
+                  className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-emerald-400 focus:border-transparent"
+                  placeholder="Jane Doe"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-slate-300 mb-2">Company *</label>
+                <input
+                  type="text"
+                  required
+                  value={evaluationForm.company}
+                  onChange={(e) => setEvaluationForm({...evaluationForm, company: e.target.value})}
+                  className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-emerald-400 focus:border-transparent"
+                  placeholder="Tech Solutions Inc"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-slate-300 mb-2">Role *</label>
+                <input
+                  type="text"
+                  required
+                  value={evaluationForm.role}
+                  onChange={(e) => setEvaluationForm({...evaluationForm, role: e.target.value})}
+                  className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-emerald-400 focus:border-transparent"
+                  placeholder="Director of Strategic Partnerships"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-slate-300 mb-2">Email *</label>
+                <input
+                  type="email"
+                  required
+                  value={evaluationForm.email}
+                  onChange={(e) => setEvaluationForm({...evaluationForm, email: e.target.value})}
+                  className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-emerald-400 focus:border-transparent"
+                  placeholder="jane@techsolutions.com"
+                />
+              </div>
+              <button
+                type="submit"
+                className="w-full py-3 bg-gradient-to-r from-blue-500 to-emerald-500 text-white rounded-lg font-semibold hover:shadow-lg transition-all"
+              >
+                Request Portfolio Evaluation
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -526,34 +705,43 @@ function TargetCard({ title, description }: any) {
   );
 }
 
-function PricingCard({ tier, price, description, features, popular }: any) {
+function PricingTier({ tier, partnerships, price, description, features, popular, isCustom }: any) {
   return (
-    <div className={`relative p-8 rounded-2xl border-2 ${
+    <div className={`relative p-6 rounded-2xl border-2 ${
       popular 
-        ? 'border-emerald-400 bg-gradient-to-br from-slate-800 to-emerald-900/20' 
+        ? 'border-emerald-400 bg-gradient-to-br from-slate-800 to-emerald-900/20 scale-105' 
         : 'border-slate-700 bg-slate-900/50'
-    }`}>
+    } hover:border-emerald-400/50 transition-all duration-300`}>
       {popular && (
         <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-          <div className="bg-gradient-to-r from-emerald-400 to-cyan-400 text-slate-900 px-4 py-1 rounded-full text-sm font-semibold">
-            Most Popular
+          <div className="bg-gradient-to-r from-emerald-400 to-cyan-400 text-slate-900 px-3 py-1 rounded-full text-xs font-bold">
+            MOST POPULAR
           </div>
         </div>
       )}
       <div className="text-center">
-        <h3 className="text-2xl font-bold text-white mb-2">{tier}</h3>
-        <div className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent mb-2">
+        <h3 className="text-xl font-bold text-white mb-2">{tier}</h3>
+        <div className="text-sm text-slate-400 mb-3">{partnerships} partnerships</div>
+        <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent mb-1">
           {price}
         </div>
-        <p className="text-slate-400 mb-6">{description}</p>
-        <div className="space-y-3">
+        {isCustom && (
+          <div className="text-xs text-slate-500 mb-4">(custom pricing)</div>
+        )}
+        <p className="text-slate-400 text-sm mb-6 min-h-[3rem]">{description}</p>
+        <div className="space-y-2 mb-6">
           {features.map((feature: string, idx: number) => (
-            <div key={idx} className="flex items-center space-x-2">
-              <CheckCircle className="w-4 h-4 text-emerald-400" />
-              <span className="text-sm text-slate-300">{feature}</span>
+            <div key={idx} className="flex items-center space-x-2 text-left">
+              <CheckCircle className="w-3 h-3 text-emerald-400 flex-shrink-0" />
+              <span className="text-xs text-slate-300">{feature}</span>
             </div>
           ))}
         </div>
+        {isCustom && (
+          <div className="text-xs text-slate-500 mt-4">
+            Contact us for custom enterprise pricing
+          </div>
+        )}
       </div>
     </div>
   );
