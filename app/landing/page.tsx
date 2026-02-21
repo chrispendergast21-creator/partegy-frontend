@@ -6,6 +6,7 @@ import {
   ArrowRight,
   CheckCircle,
   TrendingUp,
+  TrendingDown,
   Shield,
   Zap,
   Globe,
