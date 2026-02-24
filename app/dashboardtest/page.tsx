@@ -9,24 +9,10 @@ import { PageNavigation } from '@/components/PageNavigation';
 import {
   TrendingUp,
   TrendingDown,
-  DollarSign,
-  AlertTriangle,
-  Target,
-  Crown,
-  Zap,
-  Shield,
-  Building2,
-  Activity,
   ArrowUpRight,
   ArrowDownRight,
-  Minus,
-  ChevronRight,
   Eye,
-  Users,
-  BarChart3,
-  PieChart,
-  Globe,
-  AlertCircle
+  Building2
 } from 'lucide-react';
 
 export default function ExecutiveCockpitPage() {
@@ -47,10 +33,10 @@ export default function ExecutiveCockpitPage() {
     try {
       const response = await axios.get(`${API_URL}/api/partnerships?org_id=${currentOrg.id}`);
       setPartnerships(response.data);
-      setTimeout(() => setLoading(false), 1500);
+      setTimeout(() => setLoading(false), 1000);
     } catch (error) {
       console.error('Failed to load data:', error);
-      setTimeout(() => setLoading(false), 1500);
+      setTimeout(() => setLoading(false), 1000);
     }
   };
 
@@ -89,30 +75,38 @@ export default function ExecutiveCockpitPage() {
 
   const strategicDecisions = [
     {
-      type: 'revenue_variance',
-      title: 'Revenue variance of -12% with TechFlow Systems',
-      impact: '$3.4M shortfall',
-      riskExposure: 'High',
-      recommendation: 'Escalate',
-      urgency: 'critical',
-      daysOpen: 3,
-      isPrimary: true
+      title: 'Revenue variance detected with TechFlow Systems',
+      detail: '$3.4M shortfall vs. forecast',
+      action: 'Escalate',
+      urgency: 'high',
+      daysOpen: 3
     },
     {
-      type: 'acquisition_candidate',
-      title: 'Acquisition candidate emerging (CloudEdge AI)',
-      impact: 'Strategic expansion opportunity',
-      riskExposure: 'Low',
-      recommendation: 'Acquire',
-      urgency: 'high',
-      daysOpen: 21,
-      isPrimary: true
+      title: 'Executive engagement decline in DataSync relationship',
+      detail: 'No C-level contact in 45 days',
+      action: 'Schedule Meeting',
+      urgency: 'medium',
+      daysOpen: 8
+    },
+    {
+      title: 'Acquisition opportunity identified',
+      detail: 'CloudEdge AI strategic fit analysis complete',
+      action: 'Review Proposal',
+      urgency: 'low',
+      daysOpen: 21
     }
   ];
 
+  const quadrantData = {
+    protect: 8,
+    financial: 6,
+    strategic: 12,
+    exit: 8
+  };
+
   const formatRevenue = (amount: number) => {
     if (loading) {
-      return <div className="animate-pulse bg-gray-300 rounded w-20 h-8"></div>;
+      return <div className="h-6 w-16 bg-gray-200 rounded animate-pulse"></div>;
     }
     if (isNaN(amount) || amount === null || amount === undefined) {
       return '$0.0M';
@@ -122,39 +116,38 @@ export default function ExecutiveCockpitPage() {
 
   if (!currentOrg) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
-          <Building2 className="w-16 h-16 mx-auto mb-4 text-gray-400" />
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">No Organization Selected</h2>
+          <Building2 className="w-12 h-12 mx-auto mb-4 text-gray-400" />
+          <h2 className="text-xl font-semibold text-gray-900 mb-2">No Organization Selected</h2>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
-      <header className="bg-gradient-to-r from-[#1e293b] via-[#334155] to-[#475569] border-b border-gray-700">
-        <div className="max-w-7xl mx-auto px-8 py-6">
+    <div className="min-h-screen bg-gray-50">
+      {/* Clean Header - Workday Style */}
+      <header className="bg-white border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-6">
+            <div className="flex items-center space-x-8">
               <div>
-                <h1 className="text-4xl font-bold bg-gradient-to-r from-[#60a5fa] to-[#60e1fa] bg-clip-text text-transparent">
-                  🧭 Executive Partnership Cockpit
-                </h1>
-                <p className="text-gray-300 text-lg mt-1">Strategic Partnership Capital Allocation • {currentOrg.name}</p>
+                <h1 className="text-2xl font-semibold text-gray-900">Executive Partnership Cockpit</h1>
+                <p className="text-sm text-gray-600 mt-1">{currentOrg.name} • Strategic Partnership Capital Allocation</p>
               </div>
               <PageNavigation />
             </div>
-            <div className="text-right text-white">
+            <div className="text-right">
               {loading ? (
-                <div className="space-y-2">
-                  <div className="h-12 w-32 bg-gray-600 rounded animate-pulse"></div>
-                  <div className="h-4 w-40 bg-gray-600 rounded animate-pulse"></div>
+                <div className="space-y-1">
+                  <div className="h-8 w-24 bg-gray-200 rounded animate-pulse"></div>
+                  <div className="h-4 w-32 bg-gray-200 rounded animate-pulse"></div>
                 </div>
               ) : (
                 <>
-                  <div className="text-6xl font-bold">{formatRevenue(enterpriseMetrics.partnerRevenue)}</div>
-                  <div className="text-lg">Partnership Revenue YTD</div>
+                  <div className="text-3xl font-semibold text-gray-900">{formatRevenue(enterpriseMetrics.partnerRevenue)}</div>
+                  <div className="text-sm text-gray-600">Partnership Revenue YTD</div>
                 </>
               )}
             </div>
@@ -162,142 +155,126 @@ export default function ExecutiveCockpitPage() {
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-8 py-8">
-        {/* Capital Allocation Snapshot */}
-        <div className="bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-2xl shadow-xl p-6 mb-8 text-white">
-          <div className="flex items-center justify-between">
+      <main className="max-w-7xl mx-auto px-6 py-8 space-y-8">
+        {/* Portfolio Performance Snapshot - Clean Workday Style */}
+        <div className="bg-white rounded-lg border border-gray-200 p-6">
+          <div className="flex items-center justify-between mb-6">
             <div>
-              <h2 className="text-2xl font-bold mb-2">💎 Portfolio Performance Snapshot</h2>
-              <p className="text-emerald-100">Capital allocation generating top-quartile returns</p>
+              <h2 className="text-lg font-semibold text-gray-900">Portfolio Performance Snapshot</h2>
+              <p className="text-sm text-gray-600">Capital allocation generating top-quartile returns</p>
             </div>
-            <div className="grid grid-cols-2 gap-8 text-center">
-              <div>
+            <div className="flex space-x-8">
+              <div className="text-center">
                 {loading ? (
-                  <div className="h-10 w-16 bg-emerald-400 rounded animate-pulse mx-auto"></div>
+                  <div className="h-8 w-12 bg-gray-200 rounded animate-pulse mx-auto mb-1"></div>
                 ) : (
-                  <div className="text-4xl font-bold">{enterpriseMetrics.portfolioROI}%</div>
+                  <div className="text-2xl font-semibold text-gray-900">{enterpriseMetrics.portfolioROI}%</div>
                 )}
-                <div className="text-emerald-100">Portfolio ROI</div>
-                <div className="text-xs text-emerald-200">+89% vs portfolio avg</div>
+                <div className="text-sm text-gray-600">Portfolio ROI</div>
+                <div className="text-xs text-gray-500">+89% vs portfolio avg</div>
               </div>
-              <div>
+              <div className="text-center">
                 {loading ? (
-                  <div className="h-10 w-20 bg-emerald-400 rounded animate-pulse mx-auto"></div>
+                  <div className="h-8 w-16 bg-gray-200 rounded animate-pulse mx-auto mb-1"></div>
                 ) : (
-                  <div className="text-4xl font-bold">${enterpriseMetrics.capitalEfficiency}M</div>
+                  <div className="text-2xl font-semibold text-gray-900">${enterpriseMetrics.capitalEfficiency}M</div>
                 )}
-                <div className="text-emerald-100">Capital Efficiency</div>
-                <div className="text-xs text-emerald-200">Revenue per $1M invested</div>
+                <div className="text-sm text-gray-600">Capital Efficiency</div>
+                <div className="text-xs text-gray-500">Revenue per $1M invested</div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Enterprise Impact Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-6">
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-green-400 to-green-600 flex items-center justify-center">
-                <DollarSign className="w-6 h-6 text-white" />
-              </div>
-              <h2 className="text-xl font-bold text-gray-900">Portfolio Enterprise Value</h2>
-            </div>
+        {/* Enterprise Impact Metrics - Flat Workday Cards */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="bg-white rounded-lg border border-gray-200 p-6">
+            <h3 className="text-base font-semibold text-gray-900 mb-4">Portfolio Enterprise Value</h3>
             <div className="space-y-4">
-              <div>
-                <div className="text-2xl font-bold text-gray-900">{formatRevenue(enterpriseMetrics.partnerRevenue)}</div>
-                <div className="text-sm font-medium text-gray-700">Revenue Attributed to Partnerships</div>
+              <div className="border-l-4 border-green-500 pl-3">
+                <div className="text-xl font-semibold text-gray-900">{formatRevenue(enterpriseMetrics.partnerRevenue)}</div>
+                <div className="text-sm text-gray-600">Revenue Attributed to Partnerships</div>
                 <div className="text-xs text-gray-500">YTD Performance</div>
-                <div className="flex items-center space-x-1 mt-1 text-green-600">
-                  <ArrowUpRight className="w-3 h-3" />
-                  <span className="text-xs font-semibold">+18.5%</span>
+                <div className="flex items-center mt-1">
+                  <ArrowUpRight className="w-3 h-3 text-green-600 mr-1" />
+                  <span className="text-xs text-green-600 font-medium">+18.5%</span>
                 </div>
               </div>
-            </div>
-            <div className="mt-4 p-3 bg-green-50 rounded-lg">
-              <div className="text-sm font-semibold text-green-800">✅ Partnerships are materially moving enterprise growth</div>
+              <div>
+                <div className="text-lg font-semibold text-gray-900">{enterpriseMetrics.companyRevenuePercent}%</div>
+                <div className="text-sm text-gray-600">of Total Company Revenue</div>
+              </div>
             </div>
           </div>
 
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-6">
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-red-400 to-red-600 flex items-center justify-center">
-                <Shield className="w-6 h-6 text-white" />
-              </div>
-              <h2 className="text-xl font-bold text-gray-900">Risk & Concentration</h2>
-            </div>
-            <div className="space-y-3 mb-4">
-              <div className="text-sm font-medium text-gray-700 mb-2">Top 3 Revenue Concentrations</div>
+          <div className="bg-white rounded-lg border border-gray-200 p-6">
+            <h3 className="text-base font-semibold text-gray-900 mb-4">Risk & Concentration</h3>
+            <div className="space-y-3">
+              <div className="text-sm font-medium text-gray-700">Top Revenue Concentrations</div>
               {enterpriseMetrics.topRevenueConcentrations.map((concentration, idx) => (
-                <div key={idx} className="flex items-center justify-between p-2 bg-gray-50 rounded-lg">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-6 h-6 rounded-full bg-gradient-to-r from-red-400 to-red-600 text-white text-xs font-bold flex items-center justify-center">
-                      {idx + 1}
-                    </div>
-                    <div className="text-sm font-medium text-gray-900">{concentration.name}</div>
+                <div key={idx} className="flex items-center justify-between py-2 border-b border-gray-100 last:border-b-0">
+                  <div className="flex items-center">
+                    <div className="w-2 h-2 rounded-full bg-orange-400 mr-3"></div>
+                    <span className="text-sm text-gray-900">{concentration.name}</span>
                   </div>
                   <div className="text-right">
-                    <div className="text-sm font-bold text-gray-900">{concentration.percentage}%</div>
+                    <div className="text-sm font-medium text-gray-900">{concentration.percentage}%</div>
                     <div className="text-xs text-gray-500">${(concentration.revenue / 1000000).toFixed(1)}M</div>
                   </div>
                 </div>
               ))}
             </div>
-            <div className="mt-4 p-3 bg-red-50 rounded-lg">
-              <div className="text-sm font-semibold text-red-800">⚠️ Concentration risk exceeds enterprise threshold</div>
-            </div>
           </div>
 
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-6">
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-blue-400 to-blue-600 flex items-center justify-center">
-                <Target className="w-6 h-6 text-white" />
-              </div>
-              <h2 className="text-xl font-bold text-gray-900">Strategic Alignment</h2>
-            </div>
+          <div className="bg-white rounded-lg border border-gray-200 p-6">
+            <h3 className="text-base font-semibold text-gray-900 mb-4">Strategic Alignment</h3>
             <div className="space-y-4">
               <div>
-                <div className="text-2xl font-bold text-gray-900">{enterpriseMetrics.strategicAlignmentPercent}%</div>
-                <div className="text-sm font-medium text-gray-700">% Aligned to Priority Initiatives</div>
+                <div className="text-xl font-semibold text-gray-900">{enterpriseMetrics.strategicAlignmentPercent}%</div>
+                <div className="text-sm text-gray-600">Aligned to Priority Initiatives</div>
                 <div className="text-xs text-gray-500">AI / Cloud / New Markets</div>
-                <div className="flex items-center space-x-1 mt-1 text-green-600">
-                  <ArrowUpRight className="w-3 h-3" />
-                  <span className="text-xs font-semibold">+5.2pts</span>
+                <div className="flex items-center mt-1">
+                  <ArrowUpRight className="w-3 h-3 text-green-600 mr-1" />
+                  <span className="text-xs text-green-600 font-medium">+5.2pts</span>
                 </div>
               </div>
-            </div>
-            <div className="mt-4 p-3 bg-blue-50 rounded-lg">
-              <div className="text-sm font-semibold text-blue-800">🎯 Strong strategic alignment supporting 3-year growth</div>
+              <div>
+                <div className="text-lg font-semibold text-gray-900">{enterpriseMetrics.innovationIndex}</div>
+                <div className="text-sm text-gray-600">Innovation Contribution Index</div>
+                <div className="text-xs text-gray-500">vs 100 baseline</div>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Strategic Decisions This Week */}
-        <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-6 mb-8">
-          <div className="flex items-center space-x-3 mb-6">
-            <div className="w-3 h-3 rounded-full bg-red-500 animate-pulse"></div>
-            <h2 className="text-2xl font-bold text-gray-900">🚨 Strategic Decisions This Week</h2>
-            <span className="px-3 py-1 bg-red-100 text-red-800 text-sm rounded-full font-medium">Executive Action Required</span>
+        {/* Strategic Decisions - Clean Workday Style */}
+        <div className="bg-white rounded-lg border border-gray-200 p-6">
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <h2 className="text-lg font-semibold text-gray-900">Strategic Decisions This Week</h2>
+              <p className="text-sm text-gray-600">Executive action required</p>
+            </div>
+            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">
+              3 pending
+            </span>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="space-y-3">
             {strategicDecisions.map((decision, idx) => (
-              <div key={idx} className="border-l-4 border-red-500 bg-red-50 rounded-lg p-4">
-                <div className="flex items-start justify-between mb-3">
-                  <div className="flex-1">
-                    <h3 className="font-semibold text-gray-900 mb-2">{decision.title}</h3>
-                    <div className="space-y-1 text-sm">
-                      <div><strong>Enterprise Impact:</strong> {decision.impact}</div>
-                      <div><strong>Risk Exposure:</strong> {decision.riskExposure}</div>
-                    </div>
+              <div key={idx} className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
+                <div className="flex-1">
+                  <div className="flex items-center">
+                    <div className={`w-2 h-2 rounded-full mr-3 ${decision.urgency === 'high' ? 'bg-red-500' : decision.urgency === 'medium' ? 'bg-yellow-500' : 'bg-blue-500'}`}></div>
+                    <h4 className="font-medium text-gray-900">{decision.title}</h4>
                   </div>
-                  <div className="text-xs text-gray-500">{decision.daysOpen} days open</div>
+                  <p className="text-sm text-gray-600 mt-1 ml-5">{decision.detail}</p>
+                  <div className="text-xs text-gray-500 mt-1 ml-5">{decision.daysOpen} days open</div>
                 </div>
-                <div className="flex items-center justify-between">
-                  <button className="px-4 py-2 bg-red-600 text-white rounded-lg text-sm font-semibold hover:bg-red-700 transition-all shadow-lg transform hover:scale-105">
-                    {decision.recommendation}
+                <div className="flex items-center space-x-3">
+                  <button className="px-4 py-2 text-sm font-medium text-blue-700 bg-blue-50 rounded-md hover:bg-blue-100 transition-colors">
+                    {decision.action}
                   </button>
-                  <button className="flex items-center space-x-2 px-3 py-1 bg-gray-200 text-gray-700 rounded-lg text-sm hover:bg-gray-300 transition-colors">
-                    <Eye className="w-3 h-3" />
-                    <span>Review</span>
+                  <button className="p-2 text-gray-400 hover:text-gray-600 transition-colors">
+                    <Eye className="w-4 h-4" />
                   </button>
                 </div>
               </div>
@@ -305,95 +282,76 @@ export default function ExecutiveCockpitPage() {
           </div>
         </div>
 
-        {/* Strategic Allocation Matrix */}
-        <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-8 mb-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">🧩 Strategic Allocation Matrix</h2>
-          <div className="grid grid-cols-2 gap-4 h-96">
-            <div className="bg-gradient-to-br from-purple-100 to-purple-200 border-2 border-purple-300 rounded-xl p-6 flex flex-col">
-              <div className="flex items-center space-x-2 mb-3">
-                <div className="w-3 h-3 rounded-full bg-purple-500"></div>
-                <h3 className="text-lg font-bold text-purple-900">Strategic Bet</h3>
+        {/* Strategic Allocation Matrix - Clean Grid */}
+        <div className="bg-white rounded-lg border border-gray-200 p-6">
+          <h2 className="text-lg font-semibold text-gray-900 mb-6">Strategic Allocation Matrix</h2>
+          <div className="grid grid-cols-2 gap-4">
+            <div className="p-4 border border-gray-200 rounded-lg bg-purple-50">
+              <div className="flex items-center mb-2">
+                <div className="w-3 h-3 rounded-full bg-purple-500 mr-2"></div>
+                <h4 className="font-medium text-gray-900">Strategic Bet</h4>
               </div>
-              <p className="text-sm text-purple-700 mb-4">Low Revenue • High Alignment</p>
-              <div className="text-2xl font-bold text-purple-900 mb-2">12</div>
-              <p className="text-sm text-purple-700">partnerships</p>
-              <div className="mt-auto pt-4 border-t border-purple-300">
-                <p className="text-xs font-medium text-purple-800">Invest for future value</p>
-              </div>
+              <p className="text-sm text-gray-600 mb-3">Low Revenue • High Alignment</p>
+              <div className="text-2xl font-semibold text-gray-900">{quadrantData.strategic}</div>
+              <p className="text-sm text-gray-600">partnerships</p>
             </div>
 
-            <div className="bg-gradient-to-br from-green-100 to-green-200 border-2 border-green-300 rounded-xl p-6 flex flex-col">
-              <div className="flex items-center space-x-2 mb-3">
-                <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                <h3 className="text-lg font-bold text-green-900">Protect & Expand</h3>
+            <div className="p-4 border border-gray-200 rounded-lg bg-green-50">
+              <div className="flex items-center mb-2">
+                <div className="w-3 h-3 rounded-full bg-green-500 mr-2"></div>
+                <h4 className="font-medium text-gray-900">Protect & Expand</h4>
               </div>
-              <p className="text-sm text-green-700 mb-4">High Revenue • High Alignment</p>
-              <div className="text-2xl font-bold text-green-900 mb-2">8</div>
-              <p className="text-sm text-green-700">partnerships</p>
-              <div className="mt-auto pt-4 border-t border-green-300">
-                <p className="text-xs font-medium text-green-800">Double down on investment</p>
-              </div>
+              <p className="text-sm text-gray-600 mb-3">High Revenue • High Alignment</p>
+              <div className="text-2xl font-semibold text-gray-900">{quadrantData.protect}</div>
+              <p className="text-sm text-gray-600">partnerships</p>
             </div>
 
-            <div className="bg-gradient-to-br from-gray-100 to-gray-200 border-2 border-gray-300 rounded-xl p-6 flex flex-col">
-              <div className="flex items-center space-x-2 mb-3">
-                <div className="w-3 h-3 rounded-full bg-gray-500"></div>
-                <h3 className="text-lg font-bold text-gray-900">Exit / Deprioritize</h3>
+            <div className="p-4 border border-gray-200 rounded-lg bg-gray-50">
+              <div className="flex items-center mb-2">
+                <div className="w-3 h-3 rounded-full bg-gray-500 mr-2"></div>
+                <h4 className="font-medium text-gray-900">Exit / Deprioritize</h4>
               </div>
-              <p className="text-sm text-gray-700 mb-4">Low Revenue • Low Alignment</p>
-              <div className="text-2xl font-bold text-gray-900 mb-2">8</div>
-              <p className="text-sm text-gray-700">partnerships</p>
-              <div className="mt-auto pt-4 border-t border-gray-300">
-                <p className="text-xs font-medium text-gray-800">Consider divestiture</p>
-              </div>
+              <p className="text-sm text-gray-600 mb-3">Low Revenue • Low Alignment</p>
+              <div className="text-2xl font-semibold text-gray-900">{quadrantData.exit}</div>
+              <p className="text-sm text-gray-600">partnerships</p>
             </div>
 
-            <div className="bg-gradient-to-br from-blue-100 to-blue-200 border-2 border-blue-300 rounded-xl p-6 flex flex-col">
-              <div className="flex items-center space-x-2 mb-3">
-                <div className="w-3 h-3 rounded-full bg-blue-500"></div>
-                <h3 className="text-lg font-bold text-blue-900">Financial Asset</h3>
+            <div className="p-4 border border-gray-200 rounded-lg bg-blue-50">
+              <div className="flex items-center mb-2">
+                <div className="w-3 h-3 rounded-full bg-blue-500 mr-2"></div>
+                <h4 className="font-medium text-gray-900">Financial Asset</h4>
               </div>
-              <p className="text-sm text-blue-700 mb-4">High Revenue • Low Alignment</p>
-              <div className="text-2xl font-bold text-blue-900 mb-2">6</div>
-              <p className="text-sm text-blue-700">partnerships</p>
-              <div className="mt-auto pt-4 border-t border-blue-300">
-                <p className="text-xs font-medium text-blue-800">Optimize for efficiency</p>
-              </div>
+              <p className="text-sm text-gray-600 mb-3">High Revenue • Low Alignment</p>
+              <div className="text-2xl font-semibold text-gray-900">{quadrantData.financial}</div>
+              <p className="text-sm text-gray-600">partnerships</p>
             </div>
           </div>
         </div>
 
-        {/* Capital Allocation Summary */}
-        <div className="bg-gradient-to-r from-slate-800 to-slate-900 rounded-2xl shadow-xl border border-slate-700 p-8 text-white">
-          <h2 className="text-2xl font-bold mb-6">📊 Capital Allocation Summary</h2>
+        {/* Capital Allocation Summary - Clean Table Style */}
+        <div className="bg-white rounded-lg border border-gray-200 p-6">
+          <h2 className="text-lg font-semibold text-gray-900 mb-6">Capital Allocation Summary</h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-white mb-1">$485K</div>
-              <div className="text-sm font-medium text-gray-300 mb-1">Investment per Partnership</div>
-              <div className="text-xs text-gray-400 mb-2">Average annual investment</div>
-              <div className="text-xs text-blue-400 font-medium">+12% vs industry</div>
+            <div className="text-center border-r border-gray-200 last:border-r-0">
+              <div className="text-2xl font-semibold text-gray-900 mb-1">$485K</div>
+              <div className="text-sm text-gray-600 mb-1">Investment per Partnership</div>
+              <div className="text-xs text-gray-500">Average annual investment</div>
+            </div>
+            <div className="text-center border-r border-gray-200 last:border-r-0">
+              <div className="text-2xl font-semibold text-gray-900 mb-1">23 FTEs</div>
+              <div className="text-sm text-gray-600 mb-1">Headcount Allocation</div>
+              <div className="text-xs text-gray-500">Partnership team size</div>
+            </div>
+            <div className="text-center border-r border-gray-200 last:border-r-0">
+              <div className="text-2xl font-semibold text-gray-900 mb-1">347%</div>
+              <div className="text-sm text-gray-600 mb-1">ROI Estimate</div>
+              <div className="text-xs text-gray-500">Blended portfolio ROI</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-white mb-1">23 FTEs</div>
-              <div className="text-sm font-medium text-gray-300 mb-1">Headcount Allocation</div>
-              <div className="text-xs text-gray-400 mb-2">Partnership team size</div>
-              <div className="text-xs text-blue-400 font-medium">1.2 FTE per $10M revenue</div>
+              <div className="text-2xl font-semibold text-gray-900 mb-1">$3.2M</div>
+              <div className="text-sm text-gray-600 mb-1">Capital Efficiency</div>
+              <div className="text-xs text-gray-500">Revenue per $1M invested</div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-white mb-1">347%</div>
-              <div className="text-sm font-medium text-gray-300 mb-1">ROI Estimate</div>
-              <div className="text-xs text-gray-400 mb-2">Blended portfolio ROI</div>
-              <div className="text-xs text-blue-400 font-medium">+89% vs portfolio avg</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-white mb-1">$3.2M</div>
-              <div className="text-sm font-medium text-gray-300 mb-1">Capital Efficiency</div>
-              <div className="text-xs text-gray-400 mb-2">Revenue per $1M invested</div>
-              <div className="text-xs text-blue-400 font-medium">Top quartile performance</div>
-            </div>
-          </div>
-          <div className="mt-6 p-4 bg-white/10 rounded-lg">
-            <div className="text-lg font-semibold">Executive Summary: Partnership capital allocation is generating top-quartile returns with manageable concentration risk.</div>
           </div>
         </div>
       </main>
