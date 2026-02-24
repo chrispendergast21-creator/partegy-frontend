@@ -33,10 +33,10 @@ export default function ExecutiveCockpitPage() {
     try {
       const response = await axios.get(`${API_URL}/api/partnerships?org_id=${currentOrg.id}`);
       setPartnerships(response.data);
-      setTimeout(() => setLoading(false), 1000);
+      setTimeout(() => setLoading(false), 800);
     } catch (error) {
       console.error('Failed to load data:', error);
-      setTimeout(() => setLoading(false), 1000);
+      setTimeout(() => setLoading(false), 800);
     }
   };
 
@@ -97,16 +97,9 @@ export default function ExecutiveCockpitPage() {
     }
   ];
 
-  const quadrantData = {
-    protect: 8,
-    financial: 6,
-    strategic: 12,
-    exit: 8
-  };
-
   const formatRevenue = (amount: number) => {
     if (loading) {
-      return <div className="h-7 w-20 bg-gray-200 rounded animate-pulse"></div>;
+      return <div className="h-10 w-24 bg-gray-200 rounded animate-pulse"></div>;
     }
     if (isNaN(amount) || amount === null || amount === undefined) {
       return '$0.0M';
@@ -116,175 +109,226 @@ export default function ExecutiveCockpitPage() {
 
   if (!currentOrg) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-center">
-          <Building2 className="w-12 h-12 mx-auto mb-4 text-gray-400" />
-          <h2 className="text-xl font-semibold text-gray-900 mb-2">No Organization Selected</h2>
+      <div className="min-h-screen" style={{ backgroundColor: 'var(--color-bg-app)' }}>
+        <div className="flex items-center justify-center h-screen">
+          <div className="text-center">
+            <Building2 className="w-12 h-12 mx-auto mb-4" style={{ color: 'var(--color-text-tertiary)' }} />
+            <h2 className="text-xl font-semibold" style={{ color: 'var(--color-text-primary)' }}>No Organization Selected</h2>
+          </div>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Strategic Brand Header Band - ONLY PLACE WITH GRADIENT */}
-      <div className="bg-gradient-to-r from-slate-700 via-slate-600 to-indigo-700 h-1"></div>
-      
-      {/* Clean Enterprise Header */}
-      <header className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-8 py-6">
+    <div className="min-h-screen" style={{ backgroundColor: 'var(--color-bg-app)' }}>
+      {/* DARK EXECUTIVE HEADER - $50M ARR Feel */}
+      <div style={{ backgroundColor: 'var(--color-brand-primary)' }} className="border-b-4" style={{ borderBottomColor: '#1E40AF' }}>
+        <div style={{ maxWidth: 'var(--layout-max-width)', padding: '0 var(--layout-padding-horizontal)' }} className="mx-auto py-6">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-12">
+            <div className="flex items-center" style={{ gap: 'var(--space-6)' }}>
               <div>
-                <h1 className="text-2xl font-semibold text-gray-900">Executive Partnership Cockpit</h1>
-                <div className="flex items-center mt-2">
-                  <div className="h-px w-16 bg-slate-600 mr-3"></div>
-                  <p className="text-sm text-gray-600">{currentOrg.name} • Strategic Partnership Capital Allocation</p>
-                </div>
+                <h1 className="text-white font-semibold" style={{ fontSize: 'var(--font-size-h1)', letterSpacing: '-0.2px' }}>
+                  Executive Partnership Cockpit
+                </h1>
+                <p className="text-blue-200 text-sm mt-1">{currentOrg.name} • Strategic Partnership Capital Allocation</p>
               </div>
               <PageNavigation />
             </div>
-            <div className="text-right">
+            <div className="text-right text-white">
               {loading ? (
                 <div className="space-y-2">
-                  <div className="h-9 w-28 bg-gray-200 rounded animate-pulse"></div>
-                  <div className="h-4 w-36 bg-gray-200 rounded animate-pulse"></div>
+                  <div className="h-12 w-32 bg-blue-700 rounded animate-pulse"></div>
+                  <div className="h-4 w-40 bg-blue-700 rounded animate-pulse"></div>
                 </div>
               ) : (
                 <>
-                  <div className="text-3xl font-semibold text-gray-900">{formatRevenue(enterpriseMetrics.partnerRevenue)}</div>
-                  <div className="text-sm text-gray-600">Partnership Revenue YTD</div>
+                  <div className="text-kpi-primary text-white">{formatRevenue(enterpriseMetrics.partnerRevenue)}</div>
+                  <div className="text-blue-200 text-sm">Partnership Revenue YTD</div>
                 </>
               )}
             </div>
           </div>
         </div>
-      </header>
+      </div>
 
-      <main className="max-w-7xl mx-auto px-8 py-10 space-y-10">
-        {/* Portfolio Performance Snapshot */}
-        <div className="bg-white rounded-xl border border-gray-200 p-8">
-          <div className="flex items-start justify-between mb-8">
+      <main style={{ maxWidth: 'var(--layout-max-width)', padding: `var(--space-5) var(--layout-padding-horizontal)` }} className="mx-auto space-y-8">
+        {/* PORTFOLIO PERFORMANCE SNAPSHOT - COMMAND CENTER */}
+        <div className="card-default card-highlight" style={{ backgroundColor: 'var(--color-bg-subtle)', padding: 'var(--space-4)' }}>
+          <div className="flex items-start justify-between" style={{ marginBottom: 'var(--space-4)' }}>
             <div>
-              <h2 className="text-xl font-semibold text-gray-900 mb-2">Portfolio Performance Snapshot</h2>
-              <div className="h-px w-24 bg-slate-600 mb-3"></div>
-              <p className="text-sm text-gray-600">Capital allocation generating top-quartile returns</p>
+              <h2 className="section-title">Portfolio Performance Snapshot</h2>
+              <div className="section-underline"></div>
+              <p style={{ color: 'var(--color-text-secondary)', fontSize: 'var(--font-size-body)' }}>
+                Capital allocation generating top-quartile returns
+              </p>
             </div>
-            <div className="flex space-x-12">
+            <div className="flex" style={{ gap: 'var(--space-6)' }}>
               <div className="text-center">
                 {loading ? (
-                  <div className="h-9 w-16 bg-gray-200 rounded animate-pulse mx-auto mb-2"></div>
+                  <div className="h-12 w-20 bg-gray-200 rounded animate-pulse mx-auto mb-2"></div>
                 ) : (
-                  <div className="text-3xl font-semibold text-gray-900 mb-1">{enterpriseMetrics.portfolioROI}%</div>
+                  <div>
+                    <div className="text-kpi-primary">{enterpriseMetrics.portfolioROI}%</div>
+                    <div className="flex items-center justify-center mt-1">
+                      <ArrowUpRight className="w-4 h-4 delta-positive mr-1" />
+                      <span className="delta-positive text-sm">+89% vs avg</span>
+                    </div>
+                  </div>
                 )}
-                <div className="text-sm font-medium text-gray-700">Portfolio ROI</div>
-                <div className="text-xs text-gray-500">+89% vs portfolio avg</div>
+                <div className="text-kpi-label mt-2">Portfolio ROI</div>
               </div>
               <div className="text-center">
                 {loading ? (
-                  <div className="h-9 w-20 bg-gray-200 rounded animate-pulse mx-auto mb-2"></div>
+                  <div className="h-12 w-24 bg-gray-200 rounded animate-pulse mx-auto mb-2"></div>
                 ) : (
-                  <div className="text-3xl font-semibold text-gray-900 mb-1">${enterpriseMetrics.capitalEfficiency}M</div>
+                  <div>
+                    <div className="text-kpi-primary">${enterpriseMetrics.capitalEfficiency}M</div>
+                    <div className="flex items-center justify-center mt-1">
+                      <ArrowUpRight className="w-4 h-4 delta-positive mr-1" />
+                      <span className="delta-positive text-sm">Top quartile</span>
+                    </div>
+                  </div>
                 )}
-                <div className="text-sm font-medium text-gray-700">Capital Efficiency</div>
-                <div className="text-xs text-gray-500">Revenue per $1M invested</div>
+                <div className="text-kpi-label mt-2">Capital Efficiency</div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Enterprise Impact Metrics */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="bg-white rounded-xl border border-gray-200 p-8">
-            <h3 className="text-lg font-semibold text-gray-900 mb-6">Portfolio Enterprise Value</h3>
-            <div className="space-y-6">
-              <div className="border-l-3 border-slate-600 pl-4">
-                <div className="text-2xl font-semibold text-gray-900 mb-1">{formatRevenue(enterpriseMetrics.partnerRevenue)}</div>
-                <div className="text-sm font-medium text-gray-700">Revenue Attributed to Partnerships</div>
-                <div className="text-xs text-gray-500">YTD Performance</div>
-                <div className="flex items-center mt-2">
-                  <ArrowUpRight className="w-4 h-4 text-green-600 mr-1" />
-                  <span className="text-sm text-green-600 font-medium">+18.5%</span>
-                </div>
+        {/* ENTERPRISE IMPACT METRICS - INCREASED DATA CONTRAST */}
+        <div className="grid grid-cols-1 lg:grid-cols-3" style={{ gap: 'var(--space-3)' }}>
+          <div className="card-default hover-lift">
+            <h3 className="section-title" style={{ marginBottom: 'var(--space-3)' }}>Portfolio Enterprise Value</h3>
+            <div style={{ marginBottom: 'var(--space-4)' }}>
+              <div className="text-kpi-secondary" style={{ marginBottom: 'var(--space-1)' }}>{formatRevenue(enterpriseMetrics.partnerRevenue)}</div>
+              <div style={{ color: 'var(--color-text-secondary)', fontSize: 'var(--font-size-body)', marginBottom: 'var(--space-1)' }}>
+                Revenue Attributed to Partnerships
               </div>
-              <div className="pt-4">
-                <div className="text-xl font-semibold text-gray-900 mb-1">{enterpriseMetrics.companyRevenuePercent}%</div>
-                <div className="text-sm font-medium text-gray-700">of Total Company Revenue</div>
-                <div className="text-xs text-gray-500">Material enterprise contribution</div>
+              <div style={{ color: 'var(--color-text-tertiary)', fontSize: 'var(--font-size-caption)' }}>YTD Performance</div>
+              <div className="flex items-center mt-2">
+                <ArrowUpRight className="w-4 h-4 delta-positive mr-1" />
+                <span className="delta-positive text-sm">+18.5%</span>
+              </div>
+            </div>
+            <div style={{ paddingTop: 'var(--space-2)', borderTop: `1px solid var(--color-border-subtle)` }}>
+              <div className="text-xl font-semibold" style={{ color: 'var(--color-text-primary)', marginBottom: 'var(--space-1)' }}>
+                {enterpriseMetrics.companyRevenuePercent}%
+              </div>
+              <div style={{ color: 'var(--color-text-secondary)', fontSize: 'var(--font-size-body)' }}>
+                of Total Company Revenue
               </div>
             </div>
           </div>
 
-          <div className="bg-white rounded-xl border border-gray-200 p-8">
-            <h3 className="text-lg font-semibold text-gray-900 mb-6">Risk & Concentration</h3>
-            <div className="space-y-4">
-              <div className="text-sm font-semibold text-gray-800">Top Revenue Concentrations</div>
+          <div className="card-default hover-lift">
+            <h3 className="section-title" style={{ marginBottom: 'var(--space-3)' }}>Risk & Concentration</h3>
+            <div style={{ marginBottom: 'var(--space-3)' }}>
+              <div style={{ color: 'var(--color-text-secondary)', fontSize: 'var(--font-size-caption)', fontWeight: 600, marginBottom: 'var(--space-2)' }}>
+                TOP REVENUE CONCENTRATIONS
+              </div>
               {enterpriseMetrics.topRevenueConcentrations.map((concentration, idx) => (
-                <div key={idx} className="flex items-center justify-between py-3 border-b border-gray-100 last:border-b-0">
+                <div key={idx} className="flex items-center justify-between py-2" style={{ borderBottom: idx < 2 ? `1px solid var(--color-border-subtle)` : 'none' }}>
                   <div className="flex items-center">
-                    <div className="w-2 h-2 rounded-full bg-amber-500 mr-4"></div>
-                    <span className="text-sm font-medium text-gray-900">{concentration.name}</span>
+                    <div 
+                      className="w-2 h-2 rounded-full mr-3"
+                      style={{ backgroundColor: 'var(--color-warning)' }}
+                    ></div>
+                    <span style={{ color: 'var(--color-text-primary)', fontSize: 'var(--font-size-body)', fontWeight: 500 }}>
+                      {concentration.name}
+                    </span>
                   </div>
                   <div className="text-right">
-                    <div className="text-sm font-semibold text-gray-900">{concentration.percentage}%</div>
-                    <div className="text-xs text-gray-500">${(concentration.revenue / 1000000).toFixed(1)}M</div>
+                    <div style={{ color: 'var(--color-text-primary)', fontSize: 'var(--font-size-body)', fontWeight: 600 }}>
+                      {concentration.percentage}%
+                    </div>
+                    <div style={{ color: 'var(--color-text-tertiary)', fontSize: 'var(--font-size-caption)' }}>
+                      ${(concentration.revenue / 1000000).toFixed(1)}M
+                    </div>
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="bg-white rounded-xl border border-gray-200 p-8">
-            <h3 className="text-lg font-semibold text-gray-900 mb-6">Strategic Alignment</h3>
-            <div className="space-y-6">
-              <div className="border-l-3 border-slate-600 pl-4">
-                <div className="text-2xl font-semibold text-gray-900 mb-1">{enterpriseMetrics.strategicAlignmentPercent}%</div>
-                <div className="text-sm font-medium text-gray-700">Aligned to Priority Initiatives</div>
-                <div className="text-xs text-gray-500">AI / Cloud / New Markets</div>
-                <div className="flex items-center mt-2">
-                  <ArrowUpRight className="w-4 h-4 text-green-600 mr-1" />
-                  <span className="text-sm text-green-600 font-medium">+5.2pts</span>
-                </div>
+          <div className="card-default hover-lift">
+            <h3 className="section-title" style={{ marginBottom: 'var(--space-3)' }}>Strategic Alignment</h3>
+            <div style={{ marginBottom: 'var(--space-4)' }}>
+              <div className="text-kpi-secondary" style={{ marginBottom: 'var(--space-1)' }}>
+                {enterpriseMetrics.strategicAlignmentPercent}%
               </div>
-              <div className="pt-4">
-                <div className="text-xl font-semibold text-gray-900 mb-1">{enterpriseMetrics.innovationIndex}</div>
-                <div className="text-sm font-medium text-gray-700">Innovation Contribution Index</div>
-                <div className="text-xs text-gray-500">vs 100 baseline</div>
+              <div style={{ color: 'var(--color-text-secondary)', fontSize: 'var(--font-size-body)', marginBottom: 'var(--space-1)' }}>
+                Aligned to Priority Initiatives
+              </div>
+              <div style={{ color: 'var(--color-text-tertiary)', fontSize: 'var(--font-size-caption)' }}>AI / Cloud / New Markets</div>
+              <div className="flex items-center mt-2">
+                <ArrowUpRight className="w-4 h-4 delta-positive mr-1" />
+                <span className="delta-positive text-sm">+5.2pts</span>
+              </div>
+            </div>
+            <div style={{ paddingTop: 'var(--space-2)', borderTop: `1px solid var(--color-border-subtle)` }}>
+              <div className="text-xl font-semibold" style={{ color: 'var(--color-text-primary)', marginBottom: 'var(--space-1)' }}>
+                {enterpriseMetrics.innovationIndex}
+              </div>
+              <div style={{ color: 'var(--color-text-secondary)', fontSize: 'var(--font-size-body)' }}>
+                Innovation Contribution Index
               </div>
             </div>
           </div>
         </div>
 
-        {/* Strategic Decisions - BRAND LEFT BORDERS */}
-        <div className="bg-white rounded-xl border border-gray-200 p-8">
-          <div className="flex items-start justify-between mb-8">
+        {/* STRATEGIC DECISIONS - ELEVATED COMMAND CENTER */}
+        <div className="card-strategic brand-accent-subtle">
+          <div className="flex items-start justify-between" style={{ marginBottom: 'var(--space-4)' }}>
             <div>
-              <h2 className="text-xl font-semibold text-gray-900 mb-2">Strategic Decisions This Week</h2>
-              <div className="h-px w-24 bg-slate-600 mb-3"></div>
-              <p className="text-sm text-gray-600">Executive action required</p>
+              <h2 className="section-title">Strategic Decisions This Week</h2>
+              <div className="section-underline"></div>
+              <p style={{ color: 'var(--color-text-secondary)', fontSize: 'var(--font-size-body)' }}>Executive action required</p>
             </div>
-            <span className="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-red-50 text-red-700">
+            <span 
+              className="inline-flex items-center px-3 py-1 rounded text-xs font-medium"
+              style={{ backgroundColor: 'var(--color-danger-subtle)', color: 'var(--color-danger)' }}
+            >
               3 pending
             </span>
           </div>
-          <div className="space-y-4">
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
             {strategicDecisions.map((decision, idx) => (
-              <div key={idx} className={`border-l-4 ${decision.urgency === 'high' ? 'border-slate-600' : decision.urgency === 'medium' ? 'border-amber-400' : 'border-blue-400'} pl-6 py-4 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors`}>
+              <div 
+                key={idx} 
+                className="hover-lift"
+                style={{
+                  borderLeft: `4px solid ${decision.urgency === 'high' ? 'var(--color-brand-primary)' : decision.urgency === 'medium' ? 'var(--color-warning)' : 'var(--color-text-tertiary)'}`,
+                  padding: 'var(--space-2)',
+                  backgroundColor: 'var(--color-bg-card)',
+                  border: `1px solid var(--color-border-subtle)`,
+                  borderRadius: 'var(--radius-md)'
+                }}
+              >
                 <div className="flex items-center justify-between">
                   <div className="flex-1">
-                    <div className="flex items-start">
-                      <div>
-                        <h4 className="font-semibold text-gray-900 mb-1">{decision.title}</h4>
-                        <p className="text-sm text-gray-600 mb-2">{decision.detail}</p>
-                        <div className="text-xs text-gray-500">{decision.daysOpen} days open</div>
-                      </div>
+                    <h4 style={{ color: 'var(--color-text-primary)', fontSize: 'var(--font-size-body)', fontWeight: 600, marginBottom: 'var(--space-1)' }}>
+                      {decision.title}
+                    </h4>
+                    <p style={{ color: 'var(--color-text-secondary)', fontSize: 'var(--font-size-caption)', marginBottom: 'var(--space-1)' }}>
+                      {decision.detail}
+                    </p>
+                    <div style={{ color: 'var(--color-text-tertiary)', fontSize: 'var(--font-size-caption)' }}>
+                      {decision.daysOpen} days open
                     </div>
                   </div>
-                  <div className="flex items-center space-x-4 ml-6">
-                    <button className="px-4 py-2 text-sm font-medium text-white bg-slate-700 rounded-lg hover:bg-slate-800 transition-colors">
+                  <div className="flex items-center" style={{ gap: 'var(--space-2)', marginLeft: 'var(--space-3)' }}>
+                    <button 
+                      className="brand-accent-bg brand-accent-hover hover-lift px-4 py-2 text-sm font-medium text-white rounded transition-all"
+                    >
                       {decision.action}
                     </button>
-                    <button className="p-2 text-gray-400 hover:text-slate-600 transition-colors">
+                    <button 
+                      className="p-2 rounded transition-colors"
+                      style={{ color: 'var(--color-text-tertiary)' }}
+                      onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-brand-primary)'}
+                      onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-text-tertiary)'}
+                    >
                       <Eye className="w-5 h-5" />
                     </button>
                   </div>
@@ -294,81 +338,125 @@ export default function ExecutiveCockpitPage() {
           </div>
         </div>
 
-        {/* Strategic Allocation Matrix */}
-        <div className="bg-white rounded-xl border border-gray-200 p-8">
-          <div className="mb-8">
-            <h2 className="text-xl font-semibold text-gray-900 mb-2">Strategic Allocation Matrix</h2>
-            <div className="h-px w-24 bg-slate-600"></div>
+        {/* STRATEGIC ALLOCATION MATRIX - SUBTLE TINTS */}
+        <div className="card-default">
+          <div style={{ marginBottom: 'var(--space-4)' }}>
+            <h2 className="section-title">Strategic Allocation Matrix</h2>
+            <div className="section-underline"></div>
           </div>
-          <div className="grid grid-cols-2 gap-6">
-            <div className="p-6 border border-gray-200 rounded-xl bg-purple-50">
-              <div className="flex items-center mb-3">
-                <div className="w-3 h-3 rounded-full bg-slate-600 mr-3"></div>
-                <h4 className="font-semibold text-gray-900">Strategic Bet</h4>
+          <div className="grid grid-cols-2" style={{ gap: 'var(--space-3)' }}>
+            <div 
+              className="matrix-strategic-bet hover-lift"
+              style={{
+                padding: 'var(--space-3)',
+                border: `1px solid var(--color-border-subtle)`,
+                borderRadius: 'var(--radius-md)'
+              }}
+            >
+              <div className="flex items-center" style={{ marginBottom: 'var(--space-2)' }}>
+                <div className="w-3 h-3 rounded-full mr-3 brand-accent-bg"></div>
+                <h4 style={{ color: 'var(--color-text-primary)', fontSize: 'var(--font-size-body)', fontWeight: 600 }}>Strategic Bet</h4>
               </div>
-              <p className="text-sm text-gray-600 mb-4">Low Revenue • High Alignment</p>
-              <div className="text-3xl font-semibold text-gray-900 mb-1">{quadrantData.strategic}</div>
-              <p className="text-sm text-gray-600">partnerships</p>
+              <p style={{ color: 'var(--color-text-secondary)', fontSize: 'var(--font-size-caption)', marginBottom: 'var(--space-2)' }}>
+                Low Revenue • High Alignment
+              </p>
+              <div className="text-kpi-secondary" style={{ marginBottom: 'var(--space-1)' }}>12</div>
+              <p style={{ color: 'var(--color-text-secondary)', fontSize: 'var(--font-size-caption)' }}>partnerships</p>
             </div>
 
-            <div className="p-6 border border-gray-200 rounded-xl bg-green-50">
-              <div className="flex items-center mb-3">
-                <div className="w-3 h-3 rounded-full bg-slate-600 mr-3"></div>
-                <h4 className="font-semibold text-gray-900">Protect & Expand</h4>
+            <div 
+              className="matrix-protect-expand hover-lift"
+              style={{
+                padding: 'var(--space-3)',
+                border: `1px solid var(--color-border-subtle)`,
+                borderRadius: 'var(--radius-md)'
+              }}
+            >
+              <div className="flex items-center" style={{ marginBottom: 'var(--space-2)' }}>
+                <div className="w-3 h-3 rounded-full mr-3 brand-accent-bg"></div>
+                <h4 style={{ color: 'var(--color-text-primary)', fontSize: 'var(--font-size-body)', fontWeight: 600 }}>Protect & Expand</h4>
               </div>
-              <p className="text-sm text-gray-600 mb-4">High Revenue • High Alignment</p>
-              <div className="text-3xl font-semibold text-gray-900 mb-1">{quadrantData.protect}</div>
-              <p className="text-sm text-gray-600">partnerships</p>
+              <p style={{ color: 'var(--color-text-secondary)', fontSize: 'var(--font-size-caption)', marginBottom: 'var(--space-2)' }}>
+                High Revenue • High Alignment
+              </p>
+              <div className="text-kpi-secondary" style={{ marginBottom: 'var(--space-1)' }}>8</div>
+              <p style={{ color: 'var(--color-text-secondary)', fontSize: 'var(--font-size-caption)' }}>partnerships</p>
             </div>
 
-            <div className="p-6 border border-gray-200 rounded-xl bg-gray-50">
-              <div className="flex items-center mb-3">
-                <div className="w-3 h-3 rounded-full bg-slate-600 mr-3"></div>
-                <h4 className="font-semibold text-gray-900">Exit / Deprioritize</h4>
+            <div 
+              className="matrix-exit hover-lift"
+              style={{
+                padding: 'var(--space-3)',
+                border: `1px solid var(--color-border-subtle)`,
+                borderRadius: 'var(--radius-md)'
+              }}
+            >
+              <div className="flex items-center" style={{ marginBottom: 'var(--space-2)' }}>
+                <div className="w-3 h-3 rounded-full mr-3 brand-accent-bg"></div>
+                <h4 style={{ color: 'var(--color-text-primary)', fontSize: 'var(--font-size-body)', fontWeight: 600 }}>Exit / Deprioritize</h4>
               </div>
-              <p className="text-sm text-gray-600 mb-4">Low Revenue • Low Alignment</p>
-              <div className="text-3xl font-semibold text-gray-900 mb-1">{quadrantData.exit}</div>
-              <p className="text-sm text-gray-600">partnerships</p>
+              <p style={{ color: 'var(--color-text-secondary)', fontSize: 'var(--font-size-caption)', marginBottom: 'var(--space-2)' }}>
+                Low Revenue • Low Alignment
+              </p>
+              <div className="text-kpi-secondary" style={{ marginBottom: 'var(--space-1)' }}>8</div>
+              <p style={{ color: 'var(--color-text-secondary)', fontSize: 'var(--font-size-caption)' }}>partnerships</p>
             </div>
 
-            <div className="p-6 border border-gray-200 rounded-xl bg-blue-50">
-              <div className="flex items-center mb-3">
-                <div className="w-3 h-3 rounded-full bg-slate-600 mr-3"></div>
-                <h4 className="font-semibold text-gray-900">Financial Asset</h4>
+            <div 
+              className="matrix-financial-asset hover-lift"
+              style={{
+                padding: 'var(--space-3)',
+                border: `1px solid var(--color-border-subtle)`,
+                borderRadius: 'var(--radius-md)'
+              }}
+            >
+              <div className="flex items-center" style={{ marginBottom: 'var(--space-2)' }}>
+                <div className="w-3 h-3 rounded-full mr-3 brand-accent-bg"></div>
+                <h4 style={{ color: 'var(--color-text-primary)', fontSize: 'var(--font-size-body)', fontWeight: 600 }}>Financial Asset</h4>
               </div>
-              <p className="text-sm text-gray-600 mb-4">High Revenue • Low Alignment</p>
-              <div className="text-3xl font-semibold text-gray-900 mb-1">{quadrantData.financial}</div>
-              <p className="text-sm text-gray-600">partnerships</p>
+              <p style={{ color: 'var(--color-text-secondary)', fontSize: 'var(--font-size-caption)', marginBottom: 'var(--space-2)' }}>
+                High Revenue • Low Alignment
+              </p>
+              <div className="text-kpi-secondary" style={{ marginBottom: 'var(--space-1)' }}>6</div>
+              <p style={{ color: 'var(--color-text-secondary)', fontSize: 'var(--font-size-caption)' }}>partnerships</p>
             </div>
           </div>
         </div>
 
-        {/* Capital Allocation Summary */}
-        <div className="bg-white rounded-xl border border-gray-200 p-8">
-          <div className="mb-8">
-            <h2 className="text-xl font-semibold text-gray-900 mb-2">Capital Allocation Summary</h2>
-            <div className="h-px w-24 bg-slate-600"></div>
+        {/* CAPITAL ALLOCATION SUMMARY - INCREASED DENSITY */}
+        <div className="card-default">
+          <div style={{ marginBottom: 'var(--space-3)' }}>
+            <h2 className="section-title">Capital Allocation Summary</h2>
+            <div className="section-underline"></div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="text-center border-r border-gray-200 last:border-r-0 pr-8 last:pr-0">
-              <div className="text-2xl font-semibold text-gray-900 mb-2">$485K</div>
-              <div className="text-sm font-medium text-gray-700 mb-1">Investment per Partnership</div>
-              <div className="text-xs text-gray-500">Average annual investment</div>
+          <div className="grid grid-cols-1 md:grid-cols-4" style={{ gap: 'var(--space-4)' }}>
+            <div className="text-center" style={{ borderRight: `1px solid var(--color-border-subtle)`, paddingRight: 'var(--space-4)' }}>
+              <div className="text-kxi-secondary" style={{ marginBottom: 'var(--space-1)' }}>$485K</div>
+              <div style={{ color: 'var(--color-text-secondary)', fontSize: 'var(--font-size-body)', fontWeight: 500, marginBottom: 'var(--space-1)' }}>
+                Investment per Partnership
+              </div>
+              <div style={{ color: 'var(--color-text-tertiary)', fontSize: 'var(--font-size-caption)' }}>Average annual investment</div>
             </div>
-            <div className="text-center border-r border-gray-200 last:border-r-0 pr-8 last:pr-0">
-              <div className="text-2xl font-semibold text-gray-900 mb-2">23 FTEs</div>
-              <div className="text-sm font-medium text-gray-700 mb-1">Headcount Allocation</div>
-              <div className="text-xs text-gray-500">Partnership team size</div>
+            <div className="text-center" style={{ borderRight: `1px solid var(--color-border-subtle)`, paddingRight: 'var(--space-4)' }}>
+              <div className="text-kpi-secondary" style={{ marginBottom: 'var(--space-1)' }}>23 FTEs</div>
+              <div style={{ color: 'var(--color-text-secondary)', fontSize: 'var(--font-size-body)', fontWeight: 500, marginBottom: 'var(--space-1)' }}>
+                Headcount Allocation
+              </div>
+              <div style={{ color: 'var(--color-text-tertiary)', fontSize: 'var(--font-size-caption)' }}>Partnership team size</div>
             </div>
-            <div className="text-center border-r border-gray-200 last:border-r-0 pr-8 last:pr-0">
-              <div className="text-2xl font-semibold text-gray-900 mb-2">347%</div>
-              <div className="text-sm font-medium text-gray-700 mb-1">ROI Estimate</div>
-              <div className="text-xs text-gray-500">Blended portfolio ROI</div>
+            <div className="text-center" style={{ borderRight: `1px solid var(--color-border-subtle)`, paddingRight: 'var(--space-4)' }}>
+              <div className="text-kpi-secondary" style={{ marginBottom: 'var(--space-1)' }}>347%</div>
+              <div style={{ color: 'var(--color-text-secondary)', fontSize: 'var(--font-size-body)', fontWeight: 500, marginBottom: 'var(--space-1)' }}>
+                ROI Estimate
+              </div>
+              <div style={{ color: 'var(--color-text-tertiary)', fontSize: 'var(--font-size-caption)' }}>Blended portfolio ROI</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-semibold text-gray-900 mb-2">$3.2M</div>
-              <div className="text-sm font-medium text-gray-700 mb-1">Capital Efficiency</div>
-              <div className="text-xs text-gray-500">Revenue per $1M invested</div>
+              <div className="text-kpi-secondary" style={{ marginBottom: 'var(--space-1)' }}>$3.2M</div>
+              <div style={{ color: 'var(--color-text-secondary)', fontSize: 'var(--font-size-body)', fontWeight: 500, marginBottom: 'var(--space-1)' }}>
+                Capital Efficiency
+              </div>
+              <div style={{ color: 'var(--color-text-tertiary)', fontSize: 'var(--font-size-caption)' }}>Revenue per $1M invested</div>
             </div>
           </div>
         </div>
