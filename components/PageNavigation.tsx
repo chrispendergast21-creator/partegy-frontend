@@ -20,7 +20,7 @@ export function PageNavigation() {
   const pathname = usePathname();
 
   return (
-    <div className="flex items-center space-x-2">
+    <div className="flex items-center space-x-1">
       {navigationItems.map((item) => {
         const isActive = pathname === item.href || 
                         (pathname.startsWith('/partnership/') && item.href === '/partnerships') ||
@@ -30,10 +30,10 @@ export function PageNavigation() {
           <button
             key={item.name}
             onClick={() => router.push(item.href)}
-            className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-all font-semibold text-sm ${
+            className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-all font-medium text-sm ${
               isActive
-                ? 'bg-white/20 text-white border border-white/30'
-                : 'text-gray-300 hover:bg-white/10 hover:text-white'
+                ? 'bg-slate-700 text-white'
+                : 'text-gray-600 hover:text-slate-700 hover:bg-slate-50'
             }`}
           >
             <item.icon className="w-4 h-4" />
