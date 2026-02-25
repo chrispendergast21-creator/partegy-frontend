@@ -8,12 +8,10 @@ import { API_URL } from '@/lib/api';
 import { PageNavigation } from '@/components/PageNavigation';
 import {
   TrendingUp,
-  TrendingDown,
   Building2,
   BarChart3,
   Target,
   Users,
-  ArrowUpRight,
   ArrowRight,
   Activity
 } from 'lucide-react';
@@ -56,7 +54,7 @@ export default function DashboardPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
+      {/* CONSISTENT HEADER ACROSS ALL PAGES */}
       <header className="bg-slate-900 border-b-2 border-slate-700">
         <div className="max-w-7xl mx-auto px-8 py-6">
           <div className="flex items-center justify-between">
@@ -66,6 +64,10 @@ export default function DashboardPage() {
                 <p className="text-slate-300 text-sm mt-1">{currentOrg.name} • Partnership Overview</p>
               </div>
               <PageNavigation />
+            </div>
+            <div className="text-right text-white">
+              <div className="text-5xl font-bold">$90.6M</div>
+              <div className="text-slate-300 text-sm">Partnership Revenue YTD</div>
             </div>
           </div>
         </div>

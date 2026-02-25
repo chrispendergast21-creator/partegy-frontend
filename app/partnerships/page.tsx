@@ -10,11 +10,7 @@ import {
   Building2,
   Search,
   Plus,
-  Filter,
-  Grid3X3,
-  List,
   TrendingUp,
-  TrendingDown,
   DollarSign
 } from 'lucide-react';
 
@@ -54,7 +50,7 @@ export default function PartnershipsPage() {
 
   if (!currentOrg) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <Building2 className="w-16 h-16 mx-auto mb-4 text-gray-400" />
           <h2 className="text-2xl font-bold text-gray-900 mb-2">No Organization Selected</h2>
@@ -64,50 +60,53 @@ export default function PartnershipsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
-      {/* Header with Navigation */}
-      <header className="bg-gradient-to-r from-[#1e293b] via-[#334155] to-[#475569] border-b border-gray-700">
+    <div className="min-h-screen bg-gray-50">
+      {/* CONSISTENT HEADER ACROSS ALL PAGES */}
+      <header className="bg-slate-900 border-b-2 border-slate-700">
         <div className="max-w-7xl mx-auto px-8 py-6">
-          <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center space-x-6">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-12">
               <div>
-                <h1 className="text-3xl font-bold bg-gradient-to-r from-[#60a5fa] to-[#60e1fa] bg-clip-text text-transparent">
-                  Partnerships
-                </h1>
+                <h1 className="text-2xl font-semibold text-white">Partnerships</h1>
+                <p className="text-slate-300 text-sm mt-1">{currentOrg.name} • Partnership Portfolio</p>
               </div>
               <PageNavigation />
             </div>
-          </div>
-          <div className="flex items-center justify-between">
-            <p className="text-gray-300">{currentOrg.name} Partnership Portfolio</p>
-            
-            <div className="flex items-center space-x-4">
-              <div className="relative">
-                <Search className="w-4 h-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                <input
-                  type="text"
-                  placeholder="Search partnerships..."
-                  className="pl-10 pr-4 py-2 bg-white/10 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#60a5fa]"
-                />
-              </div>
-              <button 
-                onClick={() => router.push('/partnerships/new')}
-                className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-[#60a5fa] to-[#60e1fa] text-white rounded-lg hover:shadow-lg transition-all"
-              >
-                <Plus className="w-4 h-4" />
-                <span>Add Partnership</span>
-              </button>
+            <div className="text-right text-white">
+              <div className="text-5xl font-bold">$90.6M</div>
+              <div className="text-slate-300 text-sm">Partnership Revenue YTD</div>
             </div>
           </div>
         </div>
       </header>
 
       <main className="max-w-7xl mx-auto px-8 py-8">
+        {/* Action Bar */}
+        <div className="flex items-center justify-between mb-8">
+          <div className="flex items-center space-x-4">
+            <div className="relative">
+              <Search className="w-4 h-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+              <input
+                type="text"
+                placeholder="Search partnerships..."
+                className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-700 focus:border-transparent"
+              />
+            </div>
+          </div>
+          <button 
+            onClick={() => router.push('/partnerships/new')}
+            className="flex items-center space-x-2 px-4 py-2 bg-slate-700 text-white rounded-lg hover:bg-slate-800 transition-colors"
+          >
+            <Plus className="w-4 h-4" />
+            <span>Add Partnership</span>
+          </button>
+        </div>
+
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-6">
+          <div className="bg-white border border-gray-200 rounded-xl shadow-sm p-6">
             <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-blue-400 to-blue-600 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-xl bg-blue-500 flex items-center justify-center">
                 <Building2 className="w-6 h-6 text-white" />
               </div>
               <div>
@@ -117,9 +116,9 @@ export default function PartnershipsPage() {
             </div>
           </div>
           
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-6">
+          <div className="bg-white border border-gray-200 rounded-xl shadow-sm p-6">
             <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-green-400 to-green-600 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-xl bg-green-500 flex items-center justify-center">
                 <TrendingUp className="w-6 h-6 text-white" />
               </div>
               <div>
@@ -129,9 +128,9 @@ export default function PartnershipsPage() {
             </div>
           </div>
           
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-6">
+          <div className="bg-white border border-gray-200 rounded-xl shadow-sm p-6">
             <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-purple-400 to-purple-600 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-xl bg-purple-500 flex items-center justify-center">
                 <DollarSign className="w-6 h-6 text-white" />
               </div>
               <div>
@@ -141,9 +140,9 @@ export default function PartnershipsPage() {
             </div>
           </div>
           
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-6">
+          <div className="bg-white border border-gray-200 rounded-xl shadow-sm p-6">
             <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-orange-400 to-orange-600 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-xl bg-orange-500 flex items-center justify-center">
                 <TrendingUp className="w-6 h-6 text-white" />
               </div>
               <div>
@@ -155,7 +154,7 @@ export default function PartnershipsPage() {
         </div>
 
         {/* Partnership Cards */}
-        <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-6">
+        <div className="bg-white border border-gray-200 rounded-xl shadow-sm p-6">
           <h2 className="text-xl font-bold text-gray-900 mb-6">Partnership Portfolio</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {displayPartnerships.map((partnership) => (
