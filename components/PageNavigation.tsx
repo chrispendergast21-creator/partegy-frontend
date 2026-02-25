@@ -32,8 +32,8 @@ export function PageNavigation() {
             onClick={() => router.push(item.href)}
             className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-all font-medium text-sm ${
               isActive
-                ? 'text-white bg-white/20 font-semibold border-b-2 border-white'
-                : 'text-blue-200 hover:text-white hover:bg-white/10'
+                ? 'text-white bg-white/20 font-semibold'
+                : 'text-slate-300 hover:text-white hover:bg-white/10'
             }`}
           >
             <item.icon className="w-4 h-4" />
