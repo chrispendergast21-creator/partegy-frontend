@@ -58,29 +58,6 @@ export default function LandingPage() {
     }
   ];
 
-  const testimonials = [
-    {
-      name: 'Sarah Chen',
-      role: 'VP of Partnerships',
-      company: 'TechFlow Systems',
-      content: 'Partegy transformed how we manage our $90M partnership portfolio. The governance insights give us visibility we never had before.',
-      rating: 5
-    },
-    {
-      name: 'Marcus Rodriguez',
-      role: 'Chief Revenue Officer',
-      company: 'DataSync Partners',
-      content: 'Finally, a platform to govern partnerships as strategic assets. Clear visibility into what partnerships are actually performing.',
-      rating: 5
-    },
-    {
-      name: 'Lisa Thompson',
-      role: 'Director of Alliances',
-      company: 'CloudTech Solutions',
-      content: 'Partegy helps us answer the questions leadership is asking - where to invest and which partnerships need intervention.',
-      rating: 5
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -89,15 +66,15 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-cyan-400 to-teal-400 flex items-center justify-center">
-                <Building2 className="w-6 h-6 text-white" />
+              <div className="flex space-x-1">
+                <div className="w-4 h-4 bg-cyan-400 rounded-sm"></div><div className="w-4 h-4 bg-teal-400 rounded-sm"></div>
               </div>
               <div className="text-2xl font-bold text-gray-900">Partegy</div>
             </div>
             <div className="flex items-center space-x-6">
               <nav className="hidden md:flex items-center space-x-8">
                 <a href="#features" className="text-gray-600 hover:text-gray-900">Features</a>
-                <a href="#testimonials" className="text-gray-600 hover:text-gray-900">Testimonials</a>
+                
                 <a href="#contact" className="text-gray-600 hover:text-gray-900">Contact</a>
               </nav>
               <button
@@ -353,42 +330,8 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section id="testimonials" className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Give leadership the answers they're asking for
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Partegy enables leadership teams to manage partnerships as a strategic portfolio.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-gray-50 rounded-xl p-8">
-                <div className="flex items-center space-x-1 mb-6">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                <p className="text-gray-600 mb-6 leading-relaxed italic">
-                  "{testimonial.content}"
-                </p>
-                <div>
-                  <div className="font-semibold text-gray-900">{testimonial.name}</div>
-                  <div className="text-gray-600 text-sm">{testimonial.role}</div>
-                  <div className="text-blue-600 text-sm font-medium">{testimonial.company}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-r from-blue-500 to-cyan-500 text-white">
+      <section className="py-24 bg-gray-900 text-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <p className="text-2xl lg:text-3xl font-medium mb-8 leading-relaxed">
             Partnerships have become one of the most important drivers of enterprise growth.
