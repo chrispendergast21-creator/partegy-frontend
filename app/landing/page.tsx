@@ -105,7 +105,7 @@ export default function LandingPage() {
                 className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-colors font-medium flex items-center space-x-2"
               >
                 <Play className="w-4 h-4" />
-                <span>Watch Demo</span>
+                <span>Watch the Executive Demo</span>
               </button>
             </div>
           </div>
