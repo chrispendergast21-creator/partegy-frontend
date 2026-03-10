@@ -264,6 +264,40 @@ export default function LandingPage() {
 
             <p className="text-xl text-gray-300 leading-relaxed">
               Without a system to govern partnerships, leadership lacks the insight needed to manage their ecosystem effectively.
+
+          <div className="max-w-6xl mx-auto mb-16">
+            <div className="bg-gray-800 rounded-xl p-8">
+              <h3 className="text-2xl font-semibold text-center mb-8 text-white">The Old Way vs The Partegy Way</h3>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div>
+                  <h4 className="text-xl font-semibold mb-6 text-red-400">❌ The Old Way</h4>
+                  <div className="space-y-4">
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-red-400 rounded-full mt-2"></div>
+                      <span className="text-gray-300">Spreadsheet tracking and manual updates</span>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-red-400 rounded-full mt-2"></div>
+                      <span className="text-gray-300">Quarterly business reviews to assess health</span>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <h4 className="text-xl font-semibold mb-6 text-cyan-400">✅ The Partegy Way</h4>
+                  <div className="space-y-4">
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-cyan-400 rounded-full mt-2"></div>
+                      <span className="text-gray-300">Real-time governance dashboard with live insights</span>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-cyan-400 rounded-full mt-2"></div>
+                      <span className="text-gray-300">Proactive intervention alerts before revenue impact</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
             </p>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
