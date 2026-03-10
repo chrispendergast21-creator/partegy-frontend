@@ -89,7 +89,7 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-blue-400 to-cyan-400 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center">
                 <Building2 className="w-6 h-6 text-white" />
               </div>
               <div className="text-2xl font-bold text-gray-900">Partegy</div>
@@ -102,7 +102,7 @@ export default function LandingPage() {
               </nav>
               <button
                 onClick={handleWatchDemo}
-                className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-colors font-medium flex items-center space-x-2"
+                className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium flex items-center space-x-2"
               >
                 <Play className="w-4 h-4" />
                 <span>Watch the Executive Demo</span>
@@ -113,7 +113,7 @@ export default function LandingPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-400 via-cyan-400 to-blue-600 text-white">
+      <section className="bg-gradient-to-br from-blue-600 via-purple-600 to-blue-800 text-white">
         <div className="max-w-7xl mx-auto px-6 py-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -213,7 +213,7 @@ export default function LandingPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             {features.map((feature, index) => (
               <div key={index} className="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition-shadow">
-                <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-blue-400 to-cyan-400 flex items-center justify-center mb-6">
+                <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center mb-6">
                   <feature.icon className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">{feature.title}</h3>
@@ -447,7 +447,7 @@ export default function LandingPage() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center space-x-3 mb-6">
-                <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-blue-400 to-cyan-400 flex items-center justify-center">
+                <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center">
                   <Building2 className="w-5 h-5 text-white" />
                 </div>
                 <div className="text-xl font-bold text-white">Partegy</div>
