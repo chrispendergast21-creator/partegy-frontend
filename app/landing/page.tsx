@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import {
   Building2,
@@ -19,12 +19,35 @@ import {
   FileText,
   AlertTriangle,
   Eye,
-  Brain
+  Brain,
+  Gauge,
+  Activity,
+  Database,
+  Link,
+  GitBranch,
+  Monitor,
+  Layers,
+  LineChart
 } from 'lucide-react';
 
 export default function LandingPage() {
   const router = useRouter();
   const [email, setEmail] = useState('');
+  const [currentMetric, setCurrentMetric] = useState(0);
+
+  // Animated metrics for the hero dashboard
+  const metrics = [
+    { value: '$90.6M', label: 'Portfolio Value YTD' },
+    { value: '87%', label: 'Strategic Alignment' },
+    { value: '$4.2M', label: 'At-Risk Revenue Found' }
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentMetric((prev) => (prev + 1) % metrics.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   const handleWatchDemo = () => {
     router.push('/dashboard');
@@ -40,346 +63,399 @@ export default function LandingPage() {
     setEmail('');
   };
 
-  const features = [
+  // System integrations for connectivity map
+  const systemIntegrations = [
+    { name: 'Salesforce', icon: Database },
+    { name: 'Workday', icon: Users },
+    { name: 'Oracle', icon: Building2 },
+    { name: 'SAP', icon: Layers },
+    { name: 'HubSpot', icon: Activity }
+  ];
+
+  // Governance features with micro-dashboards
+  const governanceFeatures = [
     {
-      icon: BarChart3,
-      title: 'CRM',
-      description: 'Tracks deals and pipeline.'
+      title: 'State vs Transaction Intelligence',
+      subtitle: 'Partnership Health Beyond Deal Flow',
+      description: 'Distinguish between transaction velocity (CRM) and partnership state (strategic health, alignment, execution)',
+      metrics: { transactionVel: '↗ 23%', partnershipHealth: '67%', strategicAlignment: '87%' },
+      status: 'healthy'
     },
     {
-      icon: Users,
-      title: 'PRM',
-      description: 'Tracks partner referrals and sourced revenue.'
+      title: 'Proactive Intervention Engine',
+      subtitle: 'Act Before Revenue Impact',
+      description: 'AI-powered early warning system that identifies strategic drift before it impacts revenue performance',
+      metrics: { riskSignals: '3 Active', interventionTime: '12 days', successRate: '89%' },
+      status: 'warning'
     },
     {
-      icon: FileText,
-      title: 'Spreadsheets & Slides',
-      description: 'Track partnership strategy and initiatives.'
+      title: 'Portfolio Performance Command',
+      subtitle: 'Executive-Grade Partnership Intelligence',
+      description: 'Real-time governance dashboard with portfolio-level insights, capital allocation optimization, and resource management',
+      metrics: { portfolioROI: '347%', capitalEfficiency: '$3.2M', activePartnerships: '34' },
+      status: 'excellent'
     }
   ];
 
-
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white shadow-sm border-b">
-        <div className="max-w-7xl mx-auto px-6 py-4">
+    <div className="min-h-screen bg-gradient-to-b from-slate-950 to-slate-900" style={{backgroundColor: '#0B0E14'}}>
+      {/* Executive Header */}
+      <header className="border-b border-slate-700/50 backdrop-blur-sm bg-slate-900/80">
+        <div className="max-w-7xl mx-auto px-8 py-6">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-4">
               <div className="flex space-x-1">
-                <div className="w-4 h-4 bg-cyan-400 rounded-sm"></div><div className="w-4 h-4 bg-teal-400 rounded-sm"></div>
+                <div className="w-3 h-3 bg-emerald-400 rounded-sm"></div>
+                <div className="w-3 h-3 bg-blue-400 rounded-sm"></div>
               </div>
-              <div className="text-2xl font-bold text-gray-900">Partegy</div>
+              <div className="text-xl font-bold text-white tracking-tight">Partegy</div>
             </div>
-            <div className="flex items-center space-x-6">
+            <div className="flex items-center space-x-8">
               <nav className="hidden md:flex items-center space-x-8">
-                <a href="#features" className="text-gray-600 hover:text-gray-900">Features</a>
-                
-                <a href="#contact" className="text-gray-600 hover:text-gray-900">Contact</a>
+                <a href="#governance" className="text-slate-300 hover:text-white transition-colors text-sm font-medium">Governance</a>
+                <a href="#intelligence" className="text-slate-300 hover:text-white transition-colors text-sm font-medium">Intelligence</a>
+                <a href="#enterprise" className="text-slate-300 hover:text-white transition-colors text-sm font-medium">Enterprise</a>
               </nav>
               <button
                 onClick={handleWatchDemo}
-                className="bg-gradient-to-r from-cyan-400 to-teal-400 text-white px-6 py-2 rounded-lg hover:from-cyan-500 hover:to-teal-500 transition-colors font-medium flex items-center space-x-2"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium text-sm transition-all flex items-center space-x-2 border border-blue-500"
               >
-                <Play className="w-4 h-4" />
-                <span>Watch the Executive Demo</span>
+                <Monitor className="w-4 h-4" />
+                <span>Executive Demo</span>
               </button>
             </div>
           </div>
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="bg-slate-900 text-white">
-        <div className="max-w-7xl mx-auto px-6 py-24">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      {/* Hero Section - The Executive Cockpit */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                Partnerships drive growth. But they're rarely governed like strategic assets.
+              <div className="inline-flex items-center space-x-2 bg-slate-800/50 border border-slate-700 rounded-full px-4 py-2 mb-8">
+                <Shield className="w-4 h-4 text-emerald-400" />
+                <span className="text-slate-300 text-sm font-medium">Enterprise Partnership Governance</span>
+              </div>
+              
+              <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight tracking-tight">
+                The Strategic Governance Layer for Enterprise Partnerships
               </h1>
-              <p className="text-xl lg:text-2xl mb-8 text-blue-100 leading-relaxed">
-                Partegy gives leaders visibility into partnership performance, strategy execution, and ecosystem health — 
-                so they know where to invest and when to intervene.
+              
+              <p className="text-xl text-slate-300 mb-8 leading-relaxed">
+                Stop managing $100M+ ecosystems in spreadsheets. Partegy sits above your CRM and ERP to turn 
+                operational data into executive-grade partnership intelligence.
               </p>
+              
               <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                 <button
                   onClick={handleWatchDemo}
-                  className="bg-white text-blue-600 px-8 py-4 rounded-lg hover:bg-gray-50 transition-colors font-semibold text-lg flex items-center justify-center"
+                  className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center transition-all shadow-lg"
                 >
                   <Play className="w-5 h-5 mr-2" />
-                  Watch the Executive Demo
+                  Watch Executive Demo
                 </button>
-                <button 
+                <button
                   onClick={handleScheduleConversation}
-                  className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-blue-600 transition-colors font-semibold text-lg"
+                  className="border border-slate-600 hover:border-slate-500 text-slate-300 hover:text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all"
                 >
-                  Schedule a Strategy Conversation
+                  Schedule Strategy Session
                 </button>
               </div>
-              <div className="mt-8 flex items-center space-x-6 text-blue-200 text-sm">
-                <div className="flex items-center space-x-2">
-                  <CheckCircle className="w-4 h-4" />
-                  <span>15-minute demo</span>
+            </div>
+
+            {/* Executive Dashboard Card */}
+            <div className="relative">
+              <div className="bg-slate-800/50 backdrop-blur-xl border border-slate-700 rounded-2xl p-8 shadow-2xl">
+                <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                    <span className="text-slate-300 text-sm font-medium uppercase tracking-wider">PORTFOLIO COMMAND CENTER</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <Activity className="w-4 h-4 text-emerald-400" />
+                    <span className="text-emerald-400 text-sm font-medium">LIVE</span>
+                  </div>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <CheckCircle className="w-4 h-4" />
-                  <span>No obligation</span>
+                
+                {/* Large Metric Display */}
+                <div className="mb-6">
+                  <div className="text-4xl lg:text-5xl font-bold text-white mb-2 transition-all duration-500">
+                    {metrics[currentMetric].value}
+                  </div>
+                  <div className="text-slate-400 text-sm">
+                    {metrics[currentMetric].label}
+                  </div>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <CheckCircle className="w-4 h-4" />
-                  <span>Custom walkthrough</span>
+
+                {/* Risk Signals */}
+                <div className="grid grid-cols-2 gap-4 mb-6">
+                  <div className="bg-slate-900/50 border border-slate-600 rounded-lg p-4">
+                    <div className="flex items-center justify-between">
+                      <span className="text-slate-400 text-xs uppercase tracking-wider">RISK SIGNALS</span>
+                      <AlertTriangle className="w-4 h-4 text-red-400" />
+                    </div>
+                    <div className="text-2xl font-bold text-red-400 mt-2">3</div>
+                  </div>
+                  <div className="bg-slate-900/50 border border-slate-600 rounded-lg p-4">
+                    <div className="flex items-center justify-between">
+                      <span className="text-slate-400 text-xs uppercase tracking-wider">STRATEGIC FIT</span>
+                      <Gauge className="w-4 h-4 text-emerald-400" />
+                    </div>
+                    <div className="text-2xl font-bold text-emerald-400 mt-2">87%</div>
+                  </div>
+                </div>
+
+                {/* Portfolio Health Bar */}
+                <div className="space-y-3">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-slate-400">Portfolio Health Index</span>
+                    <span className="text-emerald-400 font-medium">Strong</span>
+                  </div>
+                  <div className="w-full bg-slate-700 rounded-full h-2">
+                    <div className="bg-gradient-to-r from-emerald-400 to-blue-400 h-2 rounded-full" style={{width: '78%'}}></div>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="relative">
-              <div className="bg-white/10 backdrop-blur rounded-xl p-8">
-                <div className="space-y-6">
-                  <div className="flex items-center justify-between">
-                    <span className="text-blue-200 text-sm font-medium">PORTFOLIO PERFORMANCE</span>
-                    <span className="text-green-400 text-sm font-medium">↗ +18.5%</span>
+          </div>
+        </div>
+      </section>
+
+      {/* System of Record Stack Section */}
+      <section id="governance" className="py-20 border-t border-slate-800">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6 tracking-tight">
+              The Intelligence Layer Above Your Enterprise Stack
+            </h2>
+            <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+              We don't replace your systems of record. We make them intelligible for partnership decisions.
+            </p>
+          </div>
+
+          {/* Connectivity Map */}
+          <div className="relative max-w-4xl mx-auto">
+            {/* Top Layer - Partegy */}
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center bg-gradient-to-r from-blue-600/20 to-emerald-600/20 border border-blue-500/50 rounded-2xl px-8 py-6 backdrop-blur-sm">
+                <div className="flex items-center space-x-4">
+                  <div className="flex space-x-1">
+                    <div className="w-4 h-4 bg-emerald-400 rounded"></div>
+                    <div className="w-4 h-4 bg-blue-400 rounded"></div>
                   </div>
-                  <div className="text-4xl font-bold">$90.6M</div>
-                  <div className="text-blue-200">Partnership Revenue YTD</div>
-                  <div className="grid grid-cols-2 gap-4 pt-4 border-t border-blue-400">
-                    <div>
-                      <div className="text-2xl font-bold">347%</div>
-                      <div className="text-blue-200 text-sm">Portfolio ROI</div>
-                    </div>
-                    <div>
-                      <div className="text-2xl font-bold">67.8%</div>
-                      <div className="text-blue-200 text-sm">Strategic Alignment</div>
-                    </div>
+                  <div>
+                    <div className="text-xl font-bold text-white">Partegy Governance Engine</div>
+                    <div className="text-sm text-slate-300">Executive Partnership Intelligence</div>
                   </div>
                 </div>
               </div>
-              <p className="text-center text-blue-200 text-lg font-medium mt-4">
-                Partegy is the governance platform for strategic partnerships.
+            </div>
+
+            {/* Connection Lines */}
+            <div className="flex justify-center mb-8">
+              <div className="w-px h-12 bg-gradient-to-b from-blue-400 to-transparent"></div>
+            </div>
+
+            {/* Bottom Layer - Systems */}
+            <div className="grid grid-cols-3 lg:grid-cols-5 gap-6">
+              {systemIntegrations.map((system, index) => (
+                <div key={index} className="text-center">
+                  <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-6 hover:border-slate-600 transition-all group">
+                    <system.icon className="w-8 h-8 text-slate-400 group-hover:text-slate-300 mx-auto mb-3" />
+                    <div className="text-sm font-medium text-slate-300">{system.name}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="text-center mt-8">
+              <p className="text-slate-400 text-sm">
+                Seamlessly integrates with your existing enterprise systems
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Features Section - Now "The Problem" */}
-      <section id="features" className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
+      {/* Governance Features - Micro Dashboards */}
+      <section id="intelligence" className="py-20">
+        <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Partnerships generate billions in revenue — but most companies can't govern them.
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6 tracking-tight">
+              Executive-Grade Partnership Intelligence
             </h2>
-            <div className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed space-y-4">
-              <p>Partner ecosystems have become a major growth engine for enterprise companies.</p>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 my-12">
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-blue-600 mb-2">~28%</div>
-                  <div className="text-gray-600">of company revenue from mature partnership programs</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-blue-600 mb-2">$80T</div>
-                  <div className="text-gray-600">projected ecosystem economic activity by 2030</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-red-600 mb-2">36%</div>
-                  <div className="text-gray-600">of organizations consistently measure ecosystem performance</div>
-                </div>
-              </div>
-              <p>Despite this scale, most companies still manage partnerships across disconnected systems.</p>
-            </div>
+            <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+              Real-time governance capabilities that transform operational data into strategic insights.
+            </p>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            {features.map((feature, index) => (
-              <div key={index} className="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition-shadow">
-                <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-cyan-400 to-teal-400 flex items-center justify-center mb-6">
-                  <feature.icon className="w-6 h-6 text-white" />
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {governanceFeatures.map((feature, index) => (
+              <div key={index} className="bg-slate-800/30 backdrop-blur border border-slate-700 rounded-2xl p-8 hover:border-slate-600 transition-all group">
+                {/* Feature Header */}
+                <div className="mb-6">
+                  <div className="flex items-center justify-between mb-3">
+                    <div className={`w-3 h-3 rounded-full ${
+                      feature.status === 'excellent' ? 'bg-emerald-400' : 
+                      feature.status === 'warning' ? 'bg-yellow-400' : 'bg-blue-400'
+                    }`}></div>
+                    <span className="text-xs text-slate-500 uppercase tracking-wider">LIVE METRICS</span>
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-2">{feature.title}</h3>
+                  <div className="text-sm text-slate-400 mb-4">{feature.subtitle}</div>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">{feature.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+
+                {/* Mini Dashboard */}
+                <div className="bg-slate-900/50 border border-slate-700 rounded-lg p-4 mb-6">
+                  <div className="grid grid-cols-1 gap-3">
+                    {Object.entries(feature.metrics).map(([key, value], metricIndex) => (
+                      <div key={metricIndex} className="flex justify-between items-center">
+                        <span className="text-xs text-slate-400 capitalize">
+                          {key.replace(/([A-Z])/g, ' $1').trim()}
+                        </span>
+                        <span className="text-sm font-bold text-white">{value}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <p className="text-slate-300 text-sm leading-relaxed">{feature.description}</p>
               </div>
             ))}
           </div>
-
-          <div className="bg-red-50 border border-red-200 rounded-xl p-8">
-            <div className="flex items-start space-x-4">
-              <AlertTriangle className="w-8 h-8 text-red-600 mt-1" />
-              <div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">None of these systems provide a complete view of:</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-600 mb-6">
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                    <span>partnership health</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                    <span>strategic alignment</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                    <span>execution progress</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                    <span>ecosystem performance</span>
-                  </div>
-                </div>
-                <p className="text-xl font-semibold text-gray-900">
-                  Leadership lacks visibility into where partnership investments are working — and where they are not.
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
-      {/* ROI Section - Now "The Governance Gap" */}
-      <section className="py-24 bg-gray-900 text-white">
-        <div className="max-w-7xl mx-auto px-6">
+      {/* Partnership-Scaled Pricing */}
+      <section id="enterprise" className="py-20 border-t border-slate-800">
+        <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-8">The partnership governance gap</h2>
-            <p className="text-xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
-              Partnerships are treated as critical growth engines — but rarely managed with the same discipline as other strategic assets.
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6 tracking-tight">
+              Enterprise Partnership Governance
+            </h2>
+            <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+              Pricing scaled to your partnership portfolio complexity and governance requirements.
             </p>
-            
-            <div className="bg-gray-800 rounded-xl p-8 mb-12">
-              <h3 className="text-2xl font-semibold mb-8">Executives often struggle to answer key questions:</h3>
-              <div className="space-y-6">
-                <div className="flex items-center space-x-4">
-                  <CheckCircle className="w-6 h-6 text-yellow-400" />
-                  <span className="text-lg">Which partnerships are actually performing?</span>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {/* Growth */}
+            <div className="bg-slate-800/30 border border-slate-700 rounded-2xl p-8 hover:border-slate-600 transition-all">
+              <div className="mb-8">
+                <h3 className="text-xl font-bold text-white mb-2">Growth</h3>
+                <div className="text-slate-400 text-sm mb-4">For emerging partnership programs</div>
+                <div className="text-4xl font-bold text-white mb-2">$30K</div>
+                <div className="text-slate-400 text-sm">annually</div>
+              </div>
+              <div className="space-y-4 text-sm">
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="w-5 h-5 text-emerald-400" />
+                  <span className="text-slate-300">Up to 25 partnerships</span>
                 </div>
-                <div className="flex items-center space-x-4">
-                  <CheckCircle className="w-6 h-6 text-yellow-400" />
-                  <span className="text-lg">Which initiatives are driving results?</span>
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="w-5 h-5 text-emerald-400" />
+                  <span className="text-slate-300">Core health scoring</span>
                 </div>
-                <div className="flex items-center space-x-4">
-                  <CheckCircle className="w-6 h-6 text-yellow-400" />
-                  <span className="text-lg">Where should we invest more resources?</span>
-                </div>
-                <div className="flex items-center space-x-4">
-                  <CheckCircle className="w-6 h-6 text-yellow-400" />
-                  <span className="text-lg">Which partnerships are at risk?</span>
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="w-5 h-5 text-emerald-400" />
+                  <span className="text-slate-300">CRM integration</span>
                 </div>
               </div>
             </div>
 
-            <p className="text-xl text-gray-300 leading-relaxed">
-              Without a system to govern partnerships, leadership lacks the insight needed to manage their ecosystem effectively.
+            {/* Scale */}
+            <div className="bg-slate-800/30 border-2 border-blue-500 rounded-2xl p-8 relative transform scale-105">
+              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                <div className="bg-blue-600 text-white px-4 py-1 rounded-full text-xs font-medium">
+                  MOST POPULAR
+                </div>
+              </div>
+              <div className="mb-8">
+                <h3 className="text-xl font-bold text-white mb-2">Scale</h3>
+                <div className="text-slate-400 text-sm mb-4">For enterprise partnership portfolios</div>
+                <div className="text-4xl font-bold text-white mb-2">$60K</div>
+                <div className="text-slate-400 text-sm">annually</div>
+              </div>
+              <div className="space-y-4 text-sm">
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="w-5 h-5 text-emerald-400" />
+                  <span className="text-slate-300">Up to 100 partnerships</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="w-5 h-5 text-emerald-400" />
+                  <span className="text-slate-300">AI-powered insights</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="w-5 h-5 text-emerald-400" />
+                  <span className="text-slate-300">Full ERP integration</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="w-5 h-5 text-emerald-400" />
+                  <span className="text-slate-300">Executive reporting</span>
+                </div>
+              </div>
+            </div>
 
-          <div className="max-w-6xl mx-auto mb-16">
-            <div className="bg-gray-800 rounded-xl p-8">
-              <h3 className="text-2xl font-semibold text-center mb-8 text-white">The Old Way vs The Partegy Way</h3>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div>
-                  <h4 className="text-xl font-semibold mb-6 text-red-400">❌ The Old Way</h4>
-                  <div className="space-y-4">
-                    <div className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-red-400 rounded-full mt-2"></div>
-                      <span className="text-gray-300">Spreadsheet tracking and manual updates</span>
-                    </div>
-                    <div className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-red-400 rounded-full mt-2"></div>
-                      <span className="text-gray-300">Quarterly business reviews to assess health</span>
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <h4 className="text-xl font-semibold mb-6 text-cyan-400">✅ The Partegy Way</h4>
-                  <div className="space-y-4">
-                    <div className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-cyan-400 rounded-full mt-2"></div>
-                      <span className="text-gray-300">Real-time governance dashboard with live insights</span>
-                    </div>
-                    <div className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-cyan-400 rounded-full mt-2"></div>
-                      <span className="text-gray-300">Proactive intervention alerts before revenue impact</span>
-                    </div>
-                  </div>
-                </div>
+            {/* Enterprise */}
+            <div className="bg-slate-800/30 border border-slate-700 rounded-2xl p-8 hover:border-slate-600 transition-all">
+              <div className="mb-8">
+                <h3 className="text-xl font-bold text-white mb-2">Enterprise</h3>
+                <div className="text-slate-400 text-sm mb-4">For global partnership ecosystems</div>
+                <div className="text-4xl font-bold text-white mb-2">Custom</div>
+                <div className="text-slate-400 text-sm">contact sales</div>
               </div>
-            </div>
-          </div>
-            </p>
-          </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="bg-white text-gray-900 rounded-xl p-8 shadow-2xl">
-              <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold mb-4">Finally, a platform to govern strategic partnerships</h3>
-                <p className="text-gray-600">Partegy provides a structured system to manage partnership strategy, execution, and performance in one place.</p>
-              </div>
-              <div className="space-y-6">
-                <div className="flex items-center justify-between">
-                  <span className="font-medium">Define partnership strategy and objectives</span>
-                  <CheckCircle className="w-5 h-5 text-green-600" />
+              <div className="space-y-4 text-sm">
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="w-5 h-5 text-emerald-400" />
+                  <span className="text-slate-300">Unlimited partnerships</span>
                 </div>
-                <div className="flex items-center justify-between">
-                  <span className="font-medium">Track joint initiatives and progress</span>
-                  <CheckCircle className="w-5 h-5 text-green-600" />
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="w-5 h-5 text-emerald-400" />
+                  <span className="text-slate-300">Custom integrations</span>
                 </div>
-                <div className="flex items-center justify-between">
-                  <span className="font-medium">Measure partnership health</span>
-                  <CheckCircle className="w-5 h-5 text-green-600" />
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="w-5 h-5 text-emerald-400" />
+                  <span className="text-slate-300">Dedicated success team</span>
                 </div>
-                <div className="flex items-center justify-between">
-                  <span className="font-medium">Surface insights for leadership</span>
-                  <CheckCircle className="w-5 h-5 text-green-600" />
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="w-5 h-5 text-emerald-400" />
+                  <span className="text-slate-300">White-label options</span>
                 </div>
-              </div>
-            </div>
-            <div>
-              <h2 className="text-4xl lg:text-5xl font-bold mb-8">
-                Turn partnership data into actionable insight
-              </h2>
-              <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-                Partegy analyzes partnership activity, initiative progress, and revenue signals to surface insights that would otherwise remain hidden.
-              </p>
-              <div className="space-y-6">
-                <div className="flex items-center space-x-4">
-                  <Brain className="w-6 h-6 text-cyan-400" />
-                  <span className="text-lg">Detect early partnership risk</span>
-                </div>
-                <div className="flex items-center space-x-4">
-                  <Brain className="w-6 h-6 text-cyan-400" />
-                  <span className="text-lg">Identify stalled initiatives</span>
-                </div>
-                <div className="flex items-center space-x-4">
-                  <Brain className="w-6 h-6 text-cyan-400" />
-                  <span className="text-lg">Understand where resources should be invested</span>
-                </div>
-                <div className="flex items-center space-x-4">
-                  <Brain className="w-6 h-6 text-cyan-400" />
-                  <span className="text-lg">Intervene before revenue impact occurs</span>
-                </div>
-              </div>
-              <div className="mt-8">
-                <button
-                  onClick={handleWatchDemo}
-                  className="bg-cyan-400 text-blue-900 px-8 py-4 rounded-lg hover:bg-cyan-300 transition-colors font-semibold text-lg flex items-center"
-                >
-                  <Play className="w-5 h-5 mr-2" />
-                  See It In Action
-                </button>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 bg-gray-900 text-white">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <p className="text-2xl lg:text-3xl font-medium mb-8 leading-relaxed">
-            Partnerships have become one of the most important drivers of enterprise growth.
-          </p>
-          <p className="text-xl lg:text-2xl mb-12 text-blue-100">
-            They deserve the same governance and visibility as any other strategic asset.
-          </p>
-          <div className="text-3xl lg:text-4xl font-bold mb-12">
-            Partegy — governing partnerships as strategic assets.
+      {/* Trust Bar - Data Ecosystem */}
+      <section className="py-16 border-t border-slate-800">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="text-center">
+            <p className="text-slate-400 text-sm uppercase tracking-wider mb-8">
+              INTEGRATES WITH YOUR EXISTING ENTERPRISE STACK
+            </p>
+            <div className="flex items-center justify-center space-x-12 opacity-60">
+              <div className="text-slate-500 font-semibold">Salesforce</div>
+              <div className="text-slate-500 font-semibold">Workday</div>
+              <div className="text-slate-500 font-semibold">Oracle</div>
+              <div className="text-slate-500 font-semibold">SAP</div>
+              <div className="text-slate-500 font-semibold">Microsoft</div>
+              <div className="text-slate-500 font-semibold">HubSpot</div>
+            </div>
           </div>
-          
-          <h2 className="text-4xl lg:text-5xl font-bold mb-12">
-            Bring clarity and control to your partnership ecosystem
+        </div>
+      </section>
+
+      {/* Executive CTA */}
+      <section className="py-20 bg-gradient-to-r from-slate-900 to-slate-800 border-t border-slate-700">
+        <div className="max-w-4xl mx-auto px-8 text-center">
+          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-8 tracking-tight">
+            Transform Partnership Data into Executive Intelligence
           </h2>
+          <p className="text-xl text-slate-300 mb-12 leading-relaxed">
+            Schedule a personalized demo to see how Partegy creates the governance layer your partnership portfolio needs.
+          </p>
           
           <form onSubmit={handleDemoRequest} className="max-w-md mx-auto mb-8">
             <div className="flex space-x-4">
@@ -387,91 +463,92 @@ export default function LandingPage() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your work email"
-                className="flex-1 px-6 py-4 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white"
+                placeholder="Enter your corporate email"
+                className="flex-1 px-6 py-4 rounded-lg bg-slate-800 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
               />
               <button
                 type="submit"
-                className="bg-white text-blue-600 px-8 py-4 rounded-lg hover:bg-gray-50 transition-colors font-semibold flex items-center"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-all flex items-center"
               >
-                <Play className="w-4 h-4 mr-2" />
-                Watch the Executive Demo
+                <Monitor className="w-4 h-4 mr-2" />
+                Demo
               </button>
             </div>
           </form>
           
-          <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8 text-blue-200">
+          <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8 text-slate-400 text-sm">
             <div className="flex items-center space-x-2">
-              <Shield className="w-5 h-5" />
-              <span>Enterprise Security</span>
+              <Shield className="w-4 h-4" />
+              <span>SOC 2 Compliant</span>
             </div>
             <div className="flex items-center space-x-2">
-              <Zap className="w-5 h-5" />
-              <span>15-Minute Demo</span>
+              <Zap className="w-4 h-4" />
+              <span>15-Minute Setup</span>
             </div>
             <div className="flex items-center space-x-2">
-              <Globe className="w-5 h-5" />
-              <span>Custom Walkthrough</span>
+              <Globe className="w-4 h-4" />
+              <span>Enterprise SSO</span>
             </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-gray-300 py-16">
-        <div className="max-w-7xl mx-auto px-6">
+      <footer className="bg-slate-950 border-t border-slate-800 py-16">
+        <div className="max-w-7xl mx-auto px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center space-x-3 mb-6">
-                <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-cyan-400 to-teal-400 flex items-center justify-center">
-                  <Building2 className="w-5 h-5 text-white" />
+                <div className="flex space-x-1">
+                  <div className="w-3 h-3 bg-emerald-400 rounded-sm"></div>
+                  <div className="w-3 h-3 bg-blue-400 rounded-sm"></div>
                 </div>
                 <div className="text-xl font-bold text-white">Partegy</div>
               </div>
-              <p className="text-gray-400 leading-relaxed mb-6">
-                Governing partnerships as strategic assets
+              <p className="text-slate-400 leading-relaxed mb-6 text-sm">
+                The strategic governance layer for enterprise partnerships
               </p>
             </div>
             
             <div>
-              <h4 className="font-semibold text-white mb-4">Product</h4>
+              <h4 className="font-semibold text-white mb-4">Platform</h4>
               <ul className="space-y-2">
-                <li><a href="#" className="hover:text-white transition-colors">Platform</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Integrations</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Security</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">API</a></li>
+                <li><a href="#" className="text-slate-400 hover:text-white transition-colors text-sm">Governance Engine</a></li>
+                <li><a href="#" className="text-slate-400 hover:text-white transition-colors text-sm">Intelligence Layer</a></li>
+                <li><a href="#" className="text-slate-400 hover:text-white transition-colors text-sm">Integrations</a></li>
+                <li><a href="#" className="text-slate-400 hover:text-white transition-colors text-sm">Security</a></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className="font-semibold text-white mb-4">Enterprise</h4>
+              <ul className="space-y-2">
+                <li><a href="#" className="text-slate-400 hover:text-white transition-colors text-sm">Implementation</a></li>
+                <li><a href="#" className="text-slate-400 hover:text-white transition-colors text-sm">Training</a></li>
+                <li><a href="#" className="text-slate-400 hover:text-white transition-colors text-sm">Support</a></li>
+                <li><a href="#" className="text-slate-400 hover:text-white transition-colors text-sm">Professional Services</a></li>
               </ul>
             </div>
             
             <div>
               <h4 className="font-semibold text-white mb-4">Company</h4>
               <ul className="space-y-2">
-                <li><a href="#" className="hover:text-white transition-colors">About</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Leadership</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="font-semibold text-white mb-4">Resources</h4>
-              <ul className="space-y-2">
-                <li><a href="#" className="hover:text-white transition-colors">Documentation</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Best Practices</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Case Studies</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Support</a></li>
+                <li><a href="#" className="text-slate-400 hover:text-white transition-colors text-sm">About</a></li>
+                <li><a href="#" className="text-slate-400 hover:text-white transition-colors text-sm">Leadership</a></li>
+                <li><a href="#" className="text-slate-400 hover:text-white transition-colors text-sm">Careers</a></li>
+                <li><a href="#" className="text-slate-400 hover:text-white transition-colors text-sm">Contact</a></li>
               </ul>
             </div>
           </div>
           
-          <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between">
-            <p className="text-gray-400 text-sm">
+          <div className="border-t border-slate-800 mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between">
+            <p className="text-slate-500 text-sm">
               © 2026 Partegy. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 sm:mt-0">
-              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
-              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</a>
+              <a href="#" className="text-slate-500 hover:text-slate-400 text-sm transition-colors">Privacy Policy</a>
+              <a href="#" className="text-slate-500 hover:text-slate-400 text-sm transition-colors">Terms of Service</a>
             </div>
           </div>
         </div>
