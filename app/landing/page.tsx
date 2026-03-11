@@ -222,6 +222,7 @@ export default function LandingPage() {
         </div>
       </section>
 
+
       {/* Section 2 - The Problem */}
       <section className="py-20 border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-8">
@@ -231,7 +232,6 @@ export default function LandingPage() {
             </h2>
             <div className="max-w-4xl mx-auto text-xl text-slate-300 leading-relaxed space-y-6">
               <p>Partner ecosystems have become a major growth engine for enterprise companies.</p>
-              
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 my-12">
                 <div className="text-center">
                   <div className="text-4xl font-bold text-emerald-400 mb-2">~28%</div>
@@ -246,61 +246,11 @@ export default function LandingPage() {
                   <div className="text-slate-400">of organizations consistently measure ecosystem performance</div>
                 </div>
               </div>
-              
-              <p>Despite this scale, most companies still manage partnerships across disconnected systems.</p>
-            </div>
-          </div>
-          
-          {/* Visual Problem Illustration */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            <div className="bg-slate-800/30 backdrop-blur border border-slate-700 rounded-2xl p-8 text-center">
-              <Database className="w-12 h-12 mx-auto mb-4 text-slate-400" />
-              <h3 className="text-xl font-bold text-white mb-4">CRM</h3>
-              <p className="text-slate-300">Tracks deals and pipeline.</p>
-            </div>
-            <div className="bg-slate-800/30 backdrop-blur border border-slate-700 rounded-2xl p-8 text-center">
-              <Users className="w-12 h-12 mx-auto mb-4 text-slate-400" />
-              <h3 className="text-xl font-bold text-white mb-4">PRM</h3>
-              <p className="text-slate-300">Tracks partner referrals and sourced revenue.</p>
-            </div>
-            <div className="bg-slate-800/30 backdrop-blur border border-slate-700 rounded-2xl p-8 text-center">
-              <FileText className="w-12 h-12 mx-auto mb-4 text-slate-400" />
-              <h3 className="text-xl font-bold text-white mb-4">Spreadsheets & Slides</h3>
-              <p className="text-slate-300">Track partnership strategy and initiatives.</p>
-            </div>
-          </div>
-          
-          <div className="bg-red-900/20 border border-red-700/50 rounded-2xl p-8">
-            <div className="flex items-start space-x-4">
-              <AlertTriangle className="w-8 h-8 text-red-400 mt-1 flex-shrink-0" />
-              <div>
-                <h3 className="text-xl font-bold text-white mb-4">None of these systems provide a complete view of:</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-slate-300 mb-6">
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-red-400 rounded-full"></div>
-                    <span>partnership health</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-red-400 rounded-full"></div>
-                    <span>strategic alignment</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-red-400 rounded-full"></div>
-                    <span>execution progress</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-red-400 rounded-full"></div>
-                    <span>ecosystem performance</span>
-                  </div>
-                </div>
-                <p className="text-xl font-bold text-white">
-                  Leadership lacks visibility into where partnership investments are working — and where they are not.
-                </p>
-              </div>
             </div>
           </div>
         </div>
       </section>
+
 
       {/* System of Record Stack Section */}
       <section id="governance" className="py-20 border-t border-slate-800">
@@ -358,85 +308,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Section 2 - The Problem */}
-      <section className="py-20 border-t border-slate-800">
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-8 tracking-tight">
-              Partnerships generate billions in revenue — but most companies can't govern them.
-            </h2>
-            <div className="max-w-4xl mx-auto text-xl text-slate-300 leading-relaxed space-y-6">
-              <p>Partner ecosystems have become a major growth engine for enterprise companies.</p>
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 my-12">
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-emerald-400 mb-2">~28%</div>
-                  <div className="text-slate-400">of company revenue from mature partnership programs</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-emerald-400 mb-2">$80T</div>
-                  <div className="text-slate-400">projected ecosystem economic activity by 2030</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-red-400 mb-2">36%</div>
-                  <div className="text-slate-400">of organizations consistently measure ecosystem performance</div>
-                </div>
-              </div>
-              
-              <p>Despite this scale, most companies still manage partnerships across disconnected systems.</p>
-            </div>
-          </div>
-          
-          {/* Visual Problem Illustration */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            <div className="bg-slate-800/30 backdrop-blur border border-slate-700 rounded-2xl p-8 text-center">
-              <Database className="w-12 h-12 mx-auto mb-4 text-slate-400" />
-              <h3 className="text-xl font-bold text-white mb-4">CRM</h3>
-              <p className="text-slate-300">Tracks deals and pipeline.</p>
-            </div>
-            <div className="bg-slate-800/30 backdrop-blur border border-slate-700 rounded-2xl p-8 text-center">
-              <Users className="w-12 h-12 mx-auto mb-4 text-slate-400" />
-              <h3 className="text-xl font-bold text-white mb-4">PRM</h3>
-              <p className="text-slate-300">Tracks partner referrals and sourced revenue.</p>
-            </div>
-            <div className="bg-slate-800/30 backdrop-blur border border-slate-700 rounded-2xl p-8 text-center">
-              <FileText className="w-12 h-12 mx-auto mb-4 text-slate-400" />
-              <h3 className="text-xl font-bold text-white mb-4">Spreadsheets & Slides</h3>
-              <p className="text-slate-300">Track partnership strategy and initiatives.</p>
-            </div>
-          </div>
-          
-          <div className="bg-red-900/20 border border-red-700/50 rounded-2xl p-8">
-            <div className="flex items-start space-x-4">
-              <AlertTriangle className="w-8 h-8 text-red-400 mt-1 flex-shrink-0" />
-              <div>
-                <h3 className="text-xl font-bold text-white mb-4">None of these systems provide a complete view of:</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-slate-300 mb-6">
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-red-400 rounded-full"></div>
-                    <span>partnership health</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-red-400 rounded-full"></div>
-                    <span>strategic alignment</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-red-400 rounded-full"></div>
-                    <span>execution progress</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-red-400 rounded-full"></div>
-                    <span>ecosystem performance</span>
-                  </div>
-                </div>
-                <p className="text-xl font-bold text-white">
-                  Leadership lacks visibility into where partnership investments are working — and where they are not.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* Governance Features - Micro Dashboards */}
       <section id="intelligence" className="py-20">
@@ -487,85 +359,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Section 2 - The Problem */}
-      <section className="py-20 border-t border-slate-800">
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-8 tracking-tight">
-              Partnerships generate billions in revenue — but most companies can't govern them.
-            </h2>
-            <div className="max-w-4xl mx-auto text-xl text-slate-300 leading-relaxed space-y-6">
-              <p>Partner ecosystems have become a major growth engine for enterprise companies.</p>
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 my-12">
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-emerald-400 mb-2">~28%</div>
-                  <div className="text-slate-400">of company revenue from mature partnership programs</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-emerald-400 mb-2">$80T</div>
-                  <div className="text-slate-400">projected ecosystem economic activity by 2030</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-red-400 mb-2">36%</div>
-                  <div className="text-slate-400">of organizations consistently measure ecosystem performance</div>
-                </div>
-              </div>
-              
-              <p>Despite this scale, most companies still manage partnerships across disconnected systems.</p>
-            </div>
-          </div>
-          
-          {/* Visual Problem Illustration */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            <div className="bg-slate-800/30 backdrop-blur border border-slate-700 rounded-2xl p-8 text-center">
-              <Database className="w-12 h-12 mx-auto mb-4 text-slate-400" />
-              <h3 className="text-xl font-bold text-white mb-4">CRM</h3>
-              <p className="text-slate-300">Tracks deals and pipeline.</p>
-            </div>
-            <div className="bg-slate-800/30 backdrop-blur border border-slate-700 rounded-2xl p-8 text-center">
-              <Users className="w-12 h-12 mx-auto mb-4 text-slate-400" />
-              <h3 className="text-xl font-bold text-white mb-4">PRM</h3>
-              <p className="text-slate-300">Tracks partner referrals and sourced revenue.</p>
-            </div>
-            <div className="bg-slate-800/30 backdrop-blur border border-slate-700 rounded-2xl p-8 text-center">
-              <FileText className="w-12 h-12 mx-auto mb-4 text-slate-400" />
-              <h3 className="text-xl font-bold text-white mb-4">Spreadsheets & Slides</h3>
-              <p className="text-slate-300">Track partnership strategy and initiatives.</p>
-            </div>
-          </div>
-          
-          <div className="bg-red-900/20 border border-red-700/50 rounded-2xl p-8">
-            <div className="flex items-start space-x-4">
-              <AlertTriangle className="w-8 h-8 text-red-400 mt-1 flex-shrink-0" />
-              <div>
-                <h3 className="text-xl font-bold text-white mb-4">None of these systems provide a complete view of:</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-slate-300 mb-6">
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-red-400 rounded-full"></div>
-                    <span>partnership health</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-red-400 rounded-full"></div>
-                    <span>strategic alignment</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-red-400 rounded-full"></div>
-                    <span>execution progress</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-red-400 rounded-full"></div>
-                    <span>ecosystem performance</span>
-                  </div>
-                </div>
-                <p className="text-xl font-bold text-white">
-                  Leadership lacks visibility into where partnership investments are working — and where they are not.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* Section 6 - How the Platform Works */}
       <section id="workflow" className="py-20 border-t border-slate-800">
@@ -616,6 +410,7 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
+
       
       {/* Section 7 - Executive Value */}
       <section className="py-20 bg-gradient-to-r from-slate-900 to-slate-800 border-t border-slate-700">
@@ -679,85 +474,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Section 2 - The Problem */}
-      <section className="py-20 border-t border-slate-800">
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-8 tracking-tight">
-              Partnerships generate billions in revenue — but most companies can't govern them.
-            </h2>
-            <div className="max-w-4xl mx-auto text-xl text-slate-300 leading-relaxed space-y-6">
-              <p>Partner ecosystems have become a major growth engine for enterprise companies.</p>
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 my-12">
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-emerald-400 mb-2">~28%</div>
-                  <div className="text-slate-400">of company revenue from mature partnership programs</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-emerald-400 mb-2">$80T</div>
-                  <div className="text-slate-400">projected ecosystem economic activity by 2030</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-red-400 mb-2">36%</div>
-                  <div className="text-slate-400">of organizations consistently measure ecosystem performance</div>
-                </div>
-              </div>
-              
-              <p>Despite this scale, most companies still manage partnerships across disconnected systems.</p>
-            </div>
-          </div>
-          
-          {/* Visual Problem Illustration */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            <div className="bg-slate-800/30 backdrop-blur border border-slate-700 rounded-2xl p-8 text-center">
-              <Database className="w-12 h-12 mx-auto mb-4 text-slate-400" />
-              <h3 className="text-xl font-bold text-white mb-4">CRM</h3>
-              <p className="text-slate-300">Tracks deals and pipeline.</p>
-            </div>
-            <div className="bg-slate-800/30 backdrop-blur border border-slate-700 rounded-2xl p-8 text-center">
-              <Users className="w-12 h-12 mx-auto mb-4 text-slate-400" />
-              <h3 className="text-xl font-bold text-white mb-4">PRM</h3>
-              <p className="text-slate-300">Tracks partner referrals and sourced revenue.</p>
-            </div>
-            <div className="bg-slate-800/30 backdrop-blur border border-slate-700 rounded-2xl p-8 text-center">
-              <FileText className="w-12 h-12 mx-auto mb-4 text-slate-400" />
-              <h3 className="text-xl font-bold text-white mb-4">Spreadsheets & Slides</h3>
-              <p className="text-slate-300">Track partnership strategy and initiatives.</p>
-            </div>
-          </div>
-          
-          <div className="bg-red-900/20 border border-red-700/50 rounded-2xl p-8">
-            <div className="flex items-start space-x-4">
-              <AlertTriangle className="w-8 h-8 text-red-400 mt-1 flex-shrink-0" />
-              <div>
-                <h3 className="text-xl font-bold text-white mb-4">None of these systems provide a complete view of:</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-slate-300 mb-6">
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-red-400 rounded-full"></div>
-                    <span>partnership health</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-red-400 rounded-full"></div>
-                    <span>strategic alignment</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-red-400 rounded-full"></div>
-                    <span>execution progress</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-red-400 rounded-full"></div>
-                    <span>ecosystem performance</span>
-                  </div>
-                </div>
-                <p className="text-xl font-bold text-white">
-                  Leadership lacks visibility into where partnership investments are working — and where they are not.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* Trust Bar - Data Ecosystem */}
       <section className="py-16 border-t border-slate-800">
@@ -778,85 +495,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Section 2 - The Problem */}
-      <section className="py-20 border-t border-slate-800">
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-8 tracking-tight">
-              Partnerships generate billions in revenue — but most companies can't govern them.
-            </h2>
-            <div className="max-w-4xl mx-auto text-xl text-slate-300 leading-relaxed space-y-6">
-              <p>Partner ecosystems have become a major growth engine for enterprise companies.</p>
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 my-12">
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-emerald-400 mb-2">~28%</div>
-                  <div className="text-slate-400">of company revenue from mature partnership programs</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-emerald-400 mb-2">$80T</div>
-                  <div className="text-slate-400">projected ecosystem economic activity by 2030</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-red-400 mb-2">36%</div>
-                  <div className="text-slate-400">of organizations consistently measure ecosystem performance</div>
-                </div>
-              </div>
-              
-              <p>Despite this scale, most companies still manage partnerships across disconnected systems.</p>
-            </div>
-          </div>
-          
-          {/* Visual Problem Illustration */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            <div className="bg-slate-800/30 backdrop-blur border border-slate-700 rounded-2xl p-8 text-center">
-              <Database className="w-12 h-12 mx-auto mb-4 text-slate-400" />
-              <h3 className="text-xl font-bold text-white mb-4">CRM</h3>
-              <p className="text-slate-300">Tracks deals and pipeline.</p>
-            </div>
-            <div className="bg-slate-800/30 backdrop-blur border border-slate-700 rounded-2xl p-8 text-center">
-              <Users className="w-12 h-12 mx-auto mb-4 text-slate-400" />
-              <h3 className="text-xl font-bold text-white mb-4">PRM</h3>
-              <p className="text-slate-300">Tracks partner referrals and sourced revenue.</p>
-            </div>
-            <div className="bg-slate-800/30 backdrop-blur border border-slate-700 rounded-2xl p-8 text-center">
-              <FileText className="w-12 h-12 mx-auto mb-4 text-slate-400" />
-              <h3 className="text-xl font-bold text-white mb-4">Spreadsheets & Slides</h3>
-              <p className="text-slate-300">Track partnership strategy and initiatives.</p>
-            </div>
-          </div>
-          
-          <div className="bg-red-900/20 border border-red-700/50 rounded-2xl p-8">
-            <div className="flex items-start space-x-4">
-              <AlertTriangle className="w-8 h-8 text-red-400 mt-1 flex-shrink-0" />
-              <div>
-                <h3 className="text-xl font-bold text-white mb-4">None of these systems provide a complete view of:</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-slate-300 mb-6">
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-red-400 rounded-full"></div>
-                    <span>partnership health</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-red-400 rounded-full"></div>
-                    <span>strategic alignment</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-red-400 rounded-full"></div>
-                    <span>execution progress</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-red-400 rounded-full"></div>
-                    <span>ecosystem performance</span>
-                  </div>
-                </div>
-                <p className="text-xl font-bold text-white">
-                  Leadership lacks visibility into where partnership investments are working — and where they are not.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* Executive CTA */}
       <section className="py-20 bg-gradient-to-r from-slate-900 to-slate-800 border-t border-slate-700">
@@ -905,85 +544,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Section 2 - The Problem */}
-      <section className="py-20 border-t border-slate-800">
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-8 tracking-tight">
-              Partnerships generate billions in revenue — but most companies can't govern them.
-            </h2>
-            <div className="max-w-4xl mx-auto text-xl text-slate-300 leading-relaxed space-y-6">
-              <p>Partner ecosystems have become a major growth engine for enterprise companies.</p>
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 my-12">
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-emerald-400 mb-2">~28%</div>
-                  <div className="text-slate-400">of company revenue from mature partnership programs</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-emerald-400 mb-2">$80T</div>
-                  <div className="text-slate-400">projected ecosystem economic activity by 2030</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-red-400 mb-2">36%</div>
-                  <div className="text-slate-400">of organizations consistently measure ecosystem performance</div>
-                </div>
-              </div>
-              
-              <p>Despite this scale, most companies still manage partnerships across disconnected systems.</p>
-            </div>
-          </div>
-          
-          {/* Visual Problem Illustration */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            <div className="bg-slate-800/30 backdrop-blur border border-slate-700 rounded-2xl p-8 text-center">
-              <Database className="w-12 h-12 mx-auto mb-4 text-slate-400" />
-              <h3 className="text-xl font-bold text-white mb-4">CRM</h3>
-              <p className="text-slate-300">Tracks deals and pipeline.</p>
-            </div>
-            <div className="bg-slate-800/30 backdrop-blur border border-slate-700 rounded-2xl p-8 text-center">
-              <Users className="w-12 h-12 mx-auto mb-4 text-slate-400" />
-              <h3 className="text-xl font-bold text-white mb-4">PRM</h3>
-              <p className="text-slate-300">Tracks partner referrals and sourced revenue.</p>
-            </div>
-            <div className="bg-slate-800/30 backdrop-blur border border-slate-700 rounded-2xl p-8 text-center">
-              <FileText className="w-12 h-12 mx-auto mb-4 text-slate-400" />
-              <h3 className="text-xl font-bold text-white mb-4">Spreadsheets & Slides</h3>
-              <p className="text-slate-300">Track partnership strategy and initiatives.</p>
-            </div>
-          </div>
-          
-          <div className="bg-red-900/20 border border-red-700/50 rounded-2xl p-8">
-            <div className="flex items-start space-x-4">
-              <AlertTriangle className="w-8 h-8 text-red-400 mt-1 flex-shrink-0" />
-              <div>
-                <h3 className="text-xl font-bold text-white mb-4">None of these systems provide a complete view of:</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-slate-300 mb-6">
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-red-400 rounded-full"></div>
-                    <span>partnership health</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-red-400 rounded-full"></div>
-                    <span>strategic alignment</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-red-400 rounded-full"></div>
-                    <span>execution progress</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-red-400 rounded-full"></div>
-                    <span>ecosystem performance</span>
-                  </div>
-                </div>
-                <p className="text-xl font-bold text-white">
-                  Leadership lacks visibility into where partnership investments are working — and where they are not.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* Footer */}
       <footer className="bg-slate-950 border-t border-slate-800 py-16">
