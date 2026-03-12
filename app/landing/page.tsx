@@ -35,7 +35,6 @@ export default function LandingPage() {
   const [email, setEmail] = useState('');
   const [currentMetric, setCurrentMetric] = useState(0);
 
-  // Animated metrics for the hero dashboard
   const metrics = [
     { value: '$90.6M', label: 'Portfolio Value YTD' },
     { value: '87%', label: 'Strategic Alignment' },
@@ -63,40 +62,6 @@ export default function LandingPage() {
     setEmail('');
   };
 
-  // System integrations for connectivity map
-  const systemIntegrations = [
-    { name: 'Salesforce', icon: Database },
-    { name: 'Workday', icon: Users },
-    { name: 'Oracle', icon: Building2 },
-    { name: 'SAP', icon: Layers },
-    { name: 'HubSpot', icon: Activity }
-  ];
-
-  // Governance features with micro-dashboards
-  const governanceFeatures = [
-    {
-      title: 'State vs Transaction Intelligence',
-      subtitle: 'Partnership Health Beyond Deal Flow',
-      description: 'Distinguish between transaction velocity (CRM) and partnership state (strategic health, alignment, execution)',
-      metrics: { transactionVel: '↗ 23%', partnershipHealth: '67%', strategicAlignment: '87%' },
-      status: 'healthy'
-    },
-    {
-      title: 'Proactive Intervention Engine',
-      subtitle: 'Act Before Revenue Impact',
-      description: 'AI-powered early warning system that identifies strategic drift before it impacts revenue performance',
-      metrics: { riskSignals: '3 Active', interventionTime: '12 days', successRate: '89%' },
-      status: 'warning'
-    },
-    {
-      title: 'Portfolio Performance Command',
-      subtitle: 'Executive-Grade Partnership Intelligence',
-      description: 'Real-time governance dashboard with portfolio-level insights, capital allocation optimization, and resource management',
-      metrics: { portfolioROI: '347%', capitalEfficiency: '$3.2M', activePartnerships: '34' },
-      status: 'excellent'
-    }
-  ];
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 to-slate-900" style={{backgroundColor: '#0B0E14'}}>
       {/* Executive Header */}
@@ -110,25 +75,18 @@ export default function LandingPage() {
               </div>
               <div className="text-xl font-bold text-white tracking-tight">Partegy</div>
             </div>
-            <div className="flex items-center space-x-8">
-              <nav className="hidden md:flex items-center space-x-8">
-                <a href="#governance" className="text-slate-300 hover:text-white transition-colors text-sm font-medium">Governance</a>
-                <a href="#intelligence" className="text-slate-300 hover:text-white transition-colors text-sm font-medium">Intelligence</a>
-                <a href="#enterprise" className="text-slate-300 hover:text-white transition-colors text-sm font-medium">Enterprise</a>
-              </nav>
-              <button
-                onClick={handleWatchDemo}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium text-sm transition-all flex items-center space-x-2 border border-blue-500"
-              >
-                <Monitor className="w-4 h-4" />
-                <span>Executive Demo</span>
-              </button>
-            </div>
+            <button
+              onClick={handleWatchDemo}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium text-sm transition-all flex items-center space-x-2 border border-blue-500"
+            >
+              <Monitor className="w-4 h-4" />
+              <span>Executive Demo</span>
+            </button>
           </div>
         </div>
       </header>
 
-      {/* Hero Section - The Executive Cockpit */}
+      {/* Section 1 - Hero */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -139,12 +97,11 @@ export default function LandingPage() {
               </div>
               
               <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight tracking-tight">
-                The Strategic Governance Layer for Enterprise Partnerships
+                Partnerships drive growth. But they're rarely governed like strategic assets.
               </h1>
               
               <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-                Stop managing $100M+ ecosystems in spreadsheets. Partegy sits above your CRM and ERP to turn 
-                operational data into executive-grade partnership intelligence.
+                Partegy gives leaders visibility into partnership performance, strategy execution, and ecosystem health — so they know where to invest and when to intervene.
               </p>
               
               <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
@@ -153,15 +110,19 @@ export default function LandingPage() {
                   className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center transition-all shadow-lg"
                 >
                   <Play className="w-5 h-5 mr-2" />
-                  Watch Executive Demo
+                  Watch the Executive Demo
                 </button>
                 <button
                   onClick={handleScheduleConversation}
                   className="border border-slate-600 hover:border-slate-500 text-slate-300 hover:text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all"
                 >
-                  Schedule Strategy Session
+                  Schedule a Strategy Conversation
                 </button>
               </div>
+
+              <p className="text-slate-400 mt-6 text-sm">
+                Partegy is the governance platform for strategic partnerships.
+              </p>
             </div>
 
             {/* Executive Dashboard Card */}
@@ -178,7 +139,6 @@ export default function LandingPage() {
                   </div>
                 </div>
                 
-                {/* Large Metric Display */}
                 <div className="mb-6">
                   <div className="text-4xl lg:text-5xl font-bold text-white mb-2 transition-all duration-500">
                     {metrics[currentMetric].value}
@@ -188,7 +148,6 @@ export default function LandingPage() {
                   </div>
                 </div>
 
-                {/* Risk Signals */}
                 <div className="grid grid-cols-2 gap-4 mb-6">
                   <div className="bg-slate-900/50 border border-slate-600 rounded-lg p-4">
                     <div className="flex items-center justify-between">
@@ -206,7 +165,6 @@ export default function LandingPage() {
                   </div>
                 </div>
 
-                {/* Portfolio Health Bar */}
                 <div className="space-y-3">
                   <div className="flex justify-between text-sm">
                     <span className="text-slate-400">Portfolio Health Index</span>
@@ -222,10 +180,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-      
-      
-
-
       {/* Section 2 - The Problem */}
       <section className="py-20 border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-8">
@@ -235,6 +189,7 @@ export default function LandingPage() {
             </h2>
             <div className="max-w-4xl mx-auto text-xl text-slate-300 leading-relaxed space-y-6">
               <p>Partner ecosystems have become a major growth engine for enterprise companies.</p>
+              
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 my-12">
                 <div className="text-center">
                   <div className="text-4xl font-bold text-emerald-400 mb-2">~28%</div>
@@ -249,18 +204,12 @@ export default function LandingPage() {
                   <div className="text-slate-400">of organizations consistently measure ecosystem performance</div>
                 </div>
               </div>
+              
+              <p>Despite this scale, most companies still manage partnerships across disconnected systems.</p>
             </div>
           </div>
-        </div>
-      </section>
-
-      
-      
-
-
-      {/* Visual Problem Illustration */}
-      <section className="py-20 border-t border-slate-800">
-        <div className="max-w-7xl mx-auto px-8">
+          
+          {/* Visual Problem Illustration */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             <div className="bg-slate-800/30 backdrop-blur border border-slate-700 rounded-2xl p-8 text-center">
               <Database className="w-12 h-12 mx-auto mb-4 text-slate-400" />
@@ -279,7 +228,7 @@ export default function LandingPage() {
             </div>
           </div>
           
-          <div className="bg-red-900/20 border border-red-700/50 rounded-2xl p-8 mb-8">
+          <div className="bg-red-900/20 border border-red-700/50 rounded-2xl p-8">
             <div className="flex items-start space-x-4">
               <AlertTriangle className="w-8 h-8 text-red-400 mt-1 flex-shrink-0" />
               <div>
@@ -311,12 +260,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      
-      
-
-
-
-      {/* Section 1.1 - The Governance Gap */}
+      {/* Section 3 - The Governance Gap */}
       <section className="py-20 bg-slate-900 border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
@@ -326,6 +270,7 @@ export default function LandingPage() {
             <p className="text-xl text-slate-300 mb-12 max-w-4xl mx-auto leading-relaxed">
               Partnerships are treated as critical growth engines — but rarely managed with the same discipline as other strategic assets.
             </p>
+            
             <div className="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-2xl p-8 mb-12">
               <h3 className="text-2xl font-bold text-white mb-8">Executives often struggle to answer key questions:</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -347,14 +292,15 @@ export default function LandingPage() {
                 </div>
               </div>
             </div>
+            
             <p className="text-xl text-slate-300 leading-relaxed">
               Without a system to govern partnerships, leadership lacks the insight needed to manage their ecosystem effectively.
             </p>
           </div>
         </div>
       </section>
-      
-      {/* Section 1.2 - The Solution */}
+
+      {/* Section 4 - The Solution */}
       <section className="py-20 border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
@@ -365,6 +311,7 @@ export default function LandingPage() {
               Partegy provides a structured system to manage partnership strategy, execution, and performance in one place.
             </p>
           </div>
+          
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <h3 className="text-2xl font-bold text-white mb-8">It allows organizations to:</h3>
@@ -408,13 +355,19 @@ export default function LandingPage() {
                     <span className="text-white font-bold">34</span>
                   </div>
                 </div>
+                <div className="bg-slate-900/50 border border-slate-600 rounded-lg p-3">
+                  <div className="flex justify-between items-center">
+                    <span className="text-slate-400 text-sm">Portfolio ROI</span>
+                    <span className="text-emerald-400 font-bold">347%</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-      
-      {/* Section 1.3 - AI-Powered Insights */}
+
+      {/* Section 5 - AI-Powered Insights */}
       <section className="py-20 bg-slate-900 border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
@@ -425,6 +378,7 @@ export default function LandingPage() {
               Partegy analyzes partnership activity, initiative progress, and revenue signals to surface insights that would otherwise remain hidden.
             </p>
           </div>
+          
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <h3 className="text-2xl font-bold text-white mb-8">This helps leaders:</h3>
@@ -462,6 +416,18 @@ export default function LandingPage() {
                     <span className="text-sm text-slate-300">initiatives falling behind plan</span>
                   </div>
                 </div>
+                <div className="p-4 bg-orange-900/20 border border-orange-700/50 rounded-lg">
+                  <div className="flex items-start space-x-3">
+                    <AlertTriangle className="w-5 h-5 text-orange-400 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm text-slate-300">partnerships delivering lower-than-expected impact</span>
+                  </div>
+                </div>
+                <div className="p-4 bg-blue-900/20 border border-blue-700/50 rounded-lg">
+                  <div className="flex items-start space-x-3">
+                    <Eye className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm text-slate-300">misalignment between strategy and execution</span>
+                  </div>
+                </div>
               </div>
               <p className="text-sm text-slate-400 mt-6 italic">
                 AI surfaces insights, while leaders remain in control of decisions.
@@ -471,63 +437,8 @@ export default function LandingPage() {
         </div>
       </section>
 
-
-      {/* Governance Features - Micro Dashboards */}
-      <section id="intelligence" className="py-20">
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6 tracking-tight">
-              Executive-Grade Partnership Intelligence
-            </h2>
-            <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-              Real-time governance capabilities that transform operational data into strategic insights.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {governanceFeatures.map((feature, index) => (
-              <div key={index} className="bg-slate-800/30 backdrop-blur border border-slate-700 rounded-2xl p-8 hover:border-slate-600 transition-all group">
-                {/* Feature Header */}
-                <div className="mb-6">
-                  <div className="flex items-center justify-between mb-3">
-                    <div className={`w-3 h-3 rounded-full ${
-                      feature.status === 'excellent' ? 'bg-emerald-400' : 
-                      feature.status === 'warning' ? 'bg-yellow-400' : 'bg-blue-400'
-                    }`}></div>
-                    <span className="text-xs text-slate-500 uppercase tracking-wider">LIVE METRICS</span>
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-2">{feature.title}</h3>
-                  <div className="text-sm text-slate-400 mb-4">{feature.subtitle}</div>
-                </div>
-
-                {/* Mini Dashboard */}
-                <div className="bg-slate-900/50 border border-slate-700 rounded-lg p-4 mb-6">
-                  <div className="grid grid-cols-1 gap-3">
-                    {Object.entries(feature.metrics).map(([key, value], metricIndex) => (
-                      <div key={metricIndex} className="flex justify-between items-center">
-                        <span className="text-xs text-slate-400 capitalize">
-                          {key.replace(/([A-Z])/g, ' $1').trim()}
-                        </span>
-                        <span className="text-sm font-bold text-white">{value}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <p className="text-slate-300 text-sm leading-relaxed">{feature.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      
-      
-
-
-
       {/* Section 6 - How the Platform Works */}
-      <section id="workflow" className="py-20 border-t border-slate-800">
+      <section className="py-20 border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6 tracking-tight">
@@ -541,7 +452,7 @@ export default function LandingPage() {
                 <Target className="w-8 h-8 text-white" />
               </div>
               <div className="bg-slate-900/20 border border-slate-700 rounded-xl p-6">
-                <h3 className="text-xl font-bold text-white mb-4">Step 1: Define partnership strategy</h3>
+                <h3 className="text-xl font-bold text-white mb-4">Define partnership strategy</h3>
                 <p className="text-slate-300 text-sm">Capture strategic objectives, shared goals, and key initiatives for each partnership.</p>
               </div>
             </div>
@@ -550,7 +461,7 @@ export default function LandingPage() {
                 <Activity className="w-8 h-8 text-white" />
               </div>
               <div className="bg-slate-900/20 border border-slate-700 rounded-xl p-6">
-                <h3 className="text-xl font-bold text-white mb-4">Step 2: Track execution</h3>
+                <h3 className="text-xl font-bold text-white mb-4">Track execution</h3>
                 <p className="text-slate-300 text-sm">Monitor progress across joint initiatives, milestones, and activities.</p>
               </div>
             </div>
@@ -559,7 +470,7 @@ export default function LandingPage() {
                 <Gauge className="w-8 h-8 text-white" />
               </div>
               <div className="bg-slate-900/20 border border-slate-700 rounded-xl p-6">
-                <h3 className="text-xl font-bold text-white mb-4">Step 3: Measure partnership health</h3>
+                <h3 className="text-xl font-bold text-white mb-4">Measure partnership health</h3>
                 <p className="text-slate-300 text-sm">Evaluate partnerships across multiple dimensions including performance, engagement, and strategic alignment.</p>
               </div>
             </div>
@@ -568,7 +479,7 @@ export default function LandingPage() {
                 <Eye className="w-8 h-8 text-white" />
               </div>
               <div className="bg-slate-900/20 border border-slate-700 rounded-xl p-6">
-                <h3 className="text-xl font-bold text-white mb-4">Step 4: Surface leadership insights</h3>
+                <h3 className="text-xl font-bold text-white mb-4">Surface leadership insights</h3>
                 <p className="text-slate-300 text-sm">Provide executives with portfolio-level insights into ecosystem performance and risk.</p>
               </div>
             </div>
@@ -576,12 +487,8 @@ export default function LandingPage() {
         </div>
       </section>
 
-      
-      
-
-      
       {/* Section 7 - Executive Value */}
-      <section className="py-20 bg-gradient-to-r from-slate-900 to-slate-800 border-t border-slate-700">
+      <section className="py-20 bg-slate-900 border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-white mb-8 tracking-tight">
@@ -642,64 +549,47 @@ export default function LandingPage() {
         </div>
       </section>
 
-      
-      
-
-
-
-      {/* Trust Bar - Data Ecosystem */}
-      <section className="py-16 border-t border-slate-800">
+      {/* Section 8 - Closing Statement */}
+      <section className="py-20 border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center">
-            <p className="text-slate-400 text-sm uppercase tracking-wider mb-8">
-              INTEGRATES WITH YOUR EXISTING ENTERPRISE STACK
+            <p className="text-2xl lg:text-3xl font-bold text-white mb-8 leading-relaxed max-w-4xl mx-auto">
+              Partnerships have become one of the most important drivers of enterprise growth.
+              They deserve the same governance and visibility as any other strategic asset.
             </p>
-            <div className="flex items-center justify-center space-x-12 opacity-60">
-              <div className="text-slate-500 font-semibold">Salesforce</div>
-              <div className="text-slate-500 font-semibold">Workday</div>
-              <div className="text-slate-500 font-semibold">Oracle</div>
-              <div className="text-slate-500 font-semibold">SAP</div>
-              <div className="text-slate-500 font-semibold">Microsoft</div>
-              <div className="text-slate-500 font-semibold">HubSpot</div>
+            <div className="inline-flex items-center space-x-3 bg-gradient-to-r from-emerald-400/10 to-blue-400/10 border border-emerald-400/30 rounded-full px-8 py-4">
+              <div className="flex space-x-1">
+                <div className="w-3 h-3 bg-emerald-400 rounded-sm"></div>
+                <div className="w-3 h-3 bg-blue-400 rounded-sm"></div>
+              </div>
+              <span className="text-2xl font-bold text-white tracking-tight">Partegy — governing partnerships as strategic assets.</span>
             </div>
           </div>
         </div>
       </section>
 
-      
-      
-
-
-
-      {/* Executive CTA */}
+      {/* Section 9 - Final CTA */}
       <section className="py-20 bg-gradient-to-r from-slate-900 to-slate-800 border-t border-slate-700">
         <div className="max-w-4xl mx-auto px-8 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-8 tracking-tight">
-            Transform Partnership Data into Executive Intelligence
+          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-12 tracking-tight">
+            Bring clarity and control to your partnership ecosystem
           </h2>
-          <p className="text-xl text-slate-300 mb-12 leading-relaxed">
-            Schedule a personalized demo to see how Partegy creates the governance layer your partnership portfolio needs.
-          </p>
           
-          <form onSubmit={handleDemoRequest} className="max-w-md mx-auto mb-8">
-            <div className="flex space-x-4">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your corporate email"
-                className="flex-1 px-6 py-4 rounded-lg bg-slate-800 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                required
-              />
-              <button
-                type="submit"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-all flex items-center"
-              >
-                <Monitor className="w-4 h-4 mr-2" />
-                Demo
-              </button>
-            </div>
-          </form>
+          <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 justify-center mb-12">
+            <button
+              onClick={handleWatchDemo}
+              className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center transition-all shadow-lg"
+            >
+              <Play className="w-5 h-5 mr-2" />
+              Watch the Executive Demo
+            </button>
+            <button
+              onClick={handleScheduleConversation}
+              className="border border-slate-600 hover:border-slate-500 text-slate-300 hover:text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all"
+            >
+              Schedule a Strategy Conversation
+            </button>
+          </div>
           
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8 text-slate-400 text-sm">
             <div className="flex items-center space-x-2">
@@ -717,11 +607,6 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
-      
-      
-
-
 
       {/* Footer */}
       <footer className="bg-slate-950 border-t border-slate-800 py-16">
