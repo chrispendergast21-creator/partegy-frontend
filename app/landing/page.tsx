@@ -134,6 +134,21 @@ export default function LandingPage() {
       </section>
 
       {/* The Gap - Reality Check Table */}
+      {/* Institutional Memory Hook */}
+      <section className="py-16 bg-slate-900/30">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="text-center">
+            <h2 className="text-2xl lg:text-3xl font-bold text-white mb-6 tracking-tight">
+              Eliminate Institutional Amnesia
+            </h2>
+            <p className="text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+              Partnerships shouldn't reset when leaders move. Our patented Context Preservation Layer ensures every decision, rationale, and interaction is captured as a permanent organizational asset.
+            </p>
+          </div>
+        </div>
+      </section>
+
+
       <section className="py-20 border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
@@ -208,46 +223,61 @@ export default function LandingPage() {
       </section>
 
       {/* Core 3 Benefits - Authoritative Content */}
+      {/* Institutional Memory Hook */}
+      <section className="py-16 bg-slate-900/30">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="text-center">
+            <h2 className="text-2xl lg:text-3xl font-bold text-white mb-6 tracking-tight">
+              Eliminate Institutional Amnesia
+            </h2>
+            <p className="text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+              Partnerships shouldn't reset when leaders move. Our patented Context Preservation Layer ensures every decision, rationale, and interaction is captured as a permanent organizational asset.
+            </p>
+          </div>
+        </div>
+      </section>
+
+
       <section className="py-20 border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             
-            {/* Quantified Health */}
+            {/* Partnership Asset Management */}
             <div className="text-center">
               <div className="w-20 h-20 bg-gradient-to-r from-emerald-400 to-blue-400 rounded-2xl flex items-center justify-center mx-auto mb-8">
                 <Gauge className="w-10 h-10 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-6">Quantified Health</h3>
+              <h3 className="text-2xl font-bold text-white mb-6">Partnership Asset Management</h3>
               <p className="text-slate-300 leading-relaxed mb-6">
-                Treat partnerships as organizational assets, not ad hoc relationships. Our partnership intelligence platform preserves context, tracks execution, and provides continuous health assessment.
+                Stop treating partnerships as ad hoc relationships. Manage them as structured, measurable, and enduring organizational assets with our patented Partnership Intelligence system.
               </p>
               <div className="bg-slate-800/30 border border-slate-700 rounded-xl p-6">
                 <div className="text-sm text-emerald-400 font-semibold mb-2">OUTCOME:</div>
-                <div className="text-slate-300 text-sm">Preserve institutional knowledge and maintain partnership continuity when leaders change.</div>
+                <div className="text-slate-300 text-sm">Revenue alone is a lagging indicator. We synthesize engagement density, execution velocity, and mutual value exchange into a single, patented predictive signal.</div>
               </div>
             </div>
 
-            {/* Execution Oversight */}
+            {/* Strategy-to-Execution Continuity */}
             <div className="text-center">
               <div className="w-20 h-20 bg-gradient-to-r from-blue-400 to-purple-400 rounded-2xl flex items-center justify-center mx-auto mb-8">
                 <Target className="w-10 h-10 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-6">Execution Oversight</h3>
+              <h3 className="text-2xl font-bold text-white mb-6">Strategy-to-Execution Continuity</h3>
               <p className="text-slate-300 leading-relaxed mb-6">
-                Bridge the gap between strategy and execution. Track how partnership objectives translate into initiatives, actions, and outcomes over time.
+                Most tools stop at the plan. Others stop at the task. Partegy is the only system that explicitly links high-level strategic intent to day-to-day outcomes.
               </p>
               <div className="bg-slate-800/30 border border-slate-700 rounded-xl p-6">
                 <div className="text-sm text-blue-400 font-semibold mb-2">OUTCOME:</div>
-                <div className="text-slate-300 text-sm">Connect partnership intent → action → outcome in one system.</div>
+                <div className="text-slate-300 text-sm">Explicitly link strategic objectives to initiatives. Track intent → action → outcome in a single system of record.</div>
               </div>
             </div>
 
-            {/* Predictive Intelligence */}
+            {/* Executive-Level Intelligence */}
             <div className="text-center">
               <div className="w-20 h-20 bg-gradient-to-r from-purple-400 to-pink-400 rounded-2xl flex items-center justify-center mx-auto mb-8">
                 <Brain className="w-10 h-10 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-6">Predictive Intelligence</h3>
+              <h3 className="text-2xl font-bold text-white mb-6">Executive-Level Intelligence</h3>
               <p className="text-slate-300 leading-relaxed mb-6">
                 AI synthesizes partnership context to generate executive summaries, identify risks, and recommend interventions.
               </p>
@@ -291,6 +321,10 @@ export default function LandingPage() {
             <div className="flex items-center space-x-2">
               <Shield className="w-4 h-4" />
               <span>SOC 2 Compliant</span>
+            <div className="flex items-center space-x-2">
+              <Shield className="w-4 h-4" />
+              <span>Built on patented Partnership Intelligence technology</span>
+            </div>
             </div>
             <div className="flex items-center space-x-2">
               <Zap className="w-4 h-4" />
