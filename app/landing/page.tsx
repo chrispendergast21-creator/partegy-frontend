@@ -56,7 +56,7 @@ export default function LandingPage() {
               className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium text-sm transition-all flex items-center space-x-2 border border-blue-500"
             >
               <Monitor className="w-4 h-4" />
-              <span>Executive Demo</span>
+              <span>See Partnership Intelligence Demo</span>
             </button>
           </div>
         </div>
@@ -82,7 +82,7 @@ export default function LandingPage() {
                   className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center transition-all shadow-lg"
                 >
                   <Play className="w-5 h-5 mr-2" />
-                  Executive Demo
+                  See Partnership Intelligence Demo
                 </button>
                 <button
                   onClick={handleGetAudit}
@@ -219,11 +219,11 @@ export default function LandingPage() {
               </div>
               <h3 className="text-2xl font-bold text-white mb-6">Quantified Health</h3>
               <p className="text-slate-300 leading-relaxed mb-6">
-                Stop relying on "gut feelings." We aggregate data across 6 Strategic Dimensions—Alignment, Velocity, Synergy, Density, Impact, and Commitment—to give you an objective Health Score.
+                Treat partnerships as organizational assets, not ad hoc relationships. Our partnership intelligence platform preserves context, tracks execution, and provides continuous health assessment.
               </p>
               <div className="bg-slate-800/30 border border-slate-700 rounded-xl p-6">
                 <div className="text-sm text-emerald-400 font-semibold mb-2">OUTCOME:</div>
-                <div className="text-slate-300 text-sm">Identify "silent attrition" before it becomes a revenue miss.</div>
+                <div className="text-slate-300 text-sm">Preserve institutional knowledge and maintain partnership continuity when leaders change.</div>
               </div>
             </div>
 
@@ -234,11 +234,11 @@ export default function LandingPage() {
               </div>
               <h3 className="text-2xl font-bold text-white mb-6">Execution Oversight</h3>
               <p className="text-slate-300 leading-relaxed mb-6">
-                Move strategy out of static slide decks and into a live execution engine. Track joint initiatives and milestones in a single source of truth that holds both teams accountable.
+                Bridge the gap between strategy and execution. Track how partnership objectives translate into initiatives, actions, and outcomes over time.
               </p>
               <div className="bg-slate-800/30 border border-slate-700 rounded-xl p-6">
                 <div className="text-sm text-blue-400 font-semibold mb-2">OUTCOME:</div>
-                <div className="text-slate-300 text-sm">100% visibility into partner performance without the "status update" meeting.</div>
+                <div className="text-slate-300 text-sm">Connect partnership intent → action → outcome in one system.</div>
               </div>
             </div>
 
@@ -249,11 +249,11 @@ export default function LandingPage() {
               </div>
               <h3 className="text-2xl font-bold text-white mb-6">Predictive Intelligence</h3>
               <p className="text-slate-300 leading-relaxed mb-6">
-                Our AI layer monitors engagement patterns to surface risks 60 days before they impact your CRM.
+                AI synthesizes partnership context to generate executive summaries, identify risks, and recommend interventions.
               </p>
               <div className="bg-slate-800/30 border border-slate-700 rounded-xl p-6">
                 <div className="text-sm text-purple-400 font-semibold mb-2">OUTCOME:</div>
-                <div className="text-slate-300 text-sm">Detect a 20% drop in relationship touchpoints—the leading indicator of a partnership in decline.</div>
+                <div className="text-slate-300 text-sm">Get answers to "Should I worry?" and "Where should I intervene?" not just raw activity data.</div>
               </div>
             </div>
 
@@ -277,7 +277,7 @@ export default function LandingPage() {
               className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center transition-all shadow-lg"
             >
               <Play className="w-5 h-5 mr-2" />
-              Executive Demo
+              See Partnership Intelligence Demo
             </button>
             <button
               onClick={handleGetAudit}
