@@ -151,8 +151,8 @@ export default function LandingPage() {
               <div className="p-6 border-r border-slate-700">
                 <h3 className="text-lg font-bold text-white">What it does</h3>
               </div>
-              <div className="p-6">
-                <h3 className="text-lg font-bold text-red-400">What it misses (The Partegy Gap)</h3>
+              <div className="p-6 bg-red-950/20">
+                <h3 className="text-lg font-bold text-red-300">What it misses (The Partegy Gap)</h3>
               </div>
             </div>
             
@@ -167,8 +167,8 @@ export default function LandingPage() {
               <div className="p-6 border-r border-slate-700">
                 <span className="text-slate-300">Pipeline & Revenue</span>
               </div>
-              <div className="p-6">
-                <span className="text-red-300 font-medium">Relationship Health & Alignment</span>
+              <div className="p-6 bg-red-950/10">
+                <span className="text-red-200 font-bold">Relationship Health & Alignment</span>
               </div>
             </div>
             
@@ -183,8 +183,8 @@ export default function LandingPage() {
               <div className="p-6 border-r border-slate-700">
                 <span className="text-slate-300">Portals & Referrals</span>
               </div>
-              <div className="p-6">
-                <span className="text-red-300 font-medium">Strategic Execution & Milestones</span>
+              <div className="p-6 bg-red-950/10">
+                <span className="text-red-200 font-bold">Strategic Execution & Milestones</span>
               </div>
             </div>
             
@@ -199,15 +199,15 @@ export default function LandingPage() {
               <div className="p-6 border-r border-slate-700">
                 <span className="text-slate-300">Manual Strategy</span>
               </div>
-              <div className="p-6">
-                <span className="text-red-300 font-medium">Real-time Governance & AI Insights</span>
+              <div className="p-6 bg-red-950/10">
+                <span className="text-red-200 font-bold">Real-time Governance & AI Insights</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Core 3 Benefits - Signal Focus */}
+      {/* Core 3 Benefits - Authoritative Content */}
       <section className="py-20 border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
@@ -219,11 +219,11 @@ export default function LandingPage() {
               </div>
               <h3 className="text-2xl font-bold text-white mb-6">Quantified Health</h3>
               <p className="text-slate-300 leading-relaxed mb-6">
-                Move beyond "gut feelings." Measure partnership health across 6 proprietary dimensions to know exactly where you stand before the quarterly review.
+                Stop relying on "gut feelings." We aggregate data across 6 Strategic Dimensions—Alignment, Velocity, Synergy, Density, Impact, and Commitment—to give you an objective Health Score.
               </p>
               <div className="bg-slate-800/30 border border-slate-700 rounded-xl p-6">
-                <div className="text-3xl font-bold text-emerald-400 mb-2">6</div>
-                <div className="text-slate-400 text-sm">Health Dimensions</div>
+                <div className="text-sm text-emerald-400 font-semibold mb-2">OUTCOME:</div>
+                <div className="text-slate-300 text-sm">Identify "silent attrition" before it becomes a revenue miss.</div>
               </div>
             </div>
 
@@ -234,11 +234,11 @@ export default function LandingPage() {
               </div>
               <h3 className="text-2xl font-bold text-white mb-6">Execution Oversight</h3>
               <p className="text-slate-300 leading-relaxed mb-6">
-                Stop chasing status updates. Track joint initiatives and milestones in a single source of truth that holds both teams accountable.
+                Move strategy out of static slide decks and into a live execution engine. Track joint initiatives and milestones in a single source of truth that holds both teams accountable.
               </p>
               <div className="bg-slate-800/30 border border-slate-700 rounded-xl p-6">
-                <div className="text-3xl font-bold text-blue-400 mb-2">100%</div>
-                <div className="text-slate-400 text-sm">Initiative Visibility</div>
+                <div className="text-sm text-blue-400 font-semibold mb-2">OUTCOME:</div>
+                <div className="text-slate-300 text-sm">100% visibility into partner performance without the "status update" meeting.</div>
               </div>
             </div>
 
@@ -249,11 +249,11 @@ export default function LandingPage() {
               </div>
               <h3 className="text-2xl font-bold text-white mb-6">Predictive Intelligence</h3>
               <p className="text-slate-300 leading-relaxed mb-6">
-                Get ahead of the dip. Our AI identifies misalignments and engagement drops 60 days before they impact your revenue.
+                Our AI layer monitors engagement patterns to surface risks 60 days before they impact your CRM.
               </p>
               <div className="bg-slate-800/30 border border-slate-700 rounded-xl p-6">
-                <div className="text-3xl font-bold text-purple-400 mb-2">60</div>
-                <div className="text-slate-400 text-sm">Days Early Warning</div>
+                <div className="text-sm text-purple-400 font-semibold mb-2">OUTCOME:</div>
+                <div className="text-slate-300 text-sm">Detect a 20% drop in relationship touchpoints—the leading indicator of a partnership in decline.</div>
               </div>
             </div>
 
