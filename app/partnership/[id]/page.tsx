@@ -43,8 +43,23 @@ export default function PartnershipDetailPage() {
 
   const loadPartnership = async () => {
     try {
-      const response = await axios.get(`${API_URL}/api/partnerships/${params.id}`);
-      setPartnership(response.data);
+      // Mock data for now - replace with real API later
+      const mockPartnership = {
+        id: params.id,
+        name: "Demo Partnership",
+        health: "healthy",
+        health_score: 87,
+        partnership_type: "strategic",
+        tier: "Strategic",
+        status: "Active",
+        lifecycle: "Growth",
+        revenue: 2500000,
+        pipeline: 1800000,
+        next_milestone: "Q2 Business Review",
+        days_to_milestone: 28,
+        strategic_objective: "Expand market reach and drive innovation through strategic collaboration"
+      };
+      setPartnership(mockPartnership);
     } catch (error) {
       console.error('Failed to load partnership:', error);
     } finally {
