@@ -361,7 +361,6 @@ export default function LandingPage() {
               <a href="/privacy" className="hover:text-slate-400 transition-colors">Privacy Policy</a>
               <a href="/terms" className="hover:text-slate-400 transition-colors">Terms of Service</a>
               <a href="/contact" className="hover:text-slate-400 transition-colors">Contact</a>
-              <a href="/privacy" className="hover:text-slate-400 transition-colors">Contact</a>
             </div>
           </div>
         </div>
