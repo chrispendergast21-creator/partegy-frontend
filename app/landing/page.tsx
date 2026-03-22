@@ -25,17 +25,22 @@ import {
   Database,
   Monitor
 } from 'lucide-react';
+import LeadCaptureModal from '../../components/LeadCaptureModal';
 
 export default function LandingPage() {
   const router = useRouter();
   const [email, setEmail] = useState('');
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalType, setModalType] = useState<'demo' | 'audit'>('demo');
 
   const handleWatchDemo = () => {
-    alert('Demo request submitted! Our team will contact you within 24 hours to schedule your Partnership Intelligence demo.');
+    setModalType('demo');
+    setModalOpen(true);
   };
 
   const handleGetAudit = () => {
-    alert('Partnership Health Audit requested! Please provide your email and we will send you a sample audit within 2 business days.');
+    setModalType('audit');
+    setModalOpen(true);
   };
 
   return (
@@ -359,6 +364,13 @@ export default function LandingPage() {
             </div>
           </div>
         </div>
+
+      {/* Lead Capture Modal */}
+      <LeadCaptureModal 
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        type={modalType}
+      />
       </footer>
     </div>
   );
