@@ -31,11 +31,11 @@ export default function LandingPage() {
   const [email, setEmail] = useState('');
 
   const handleWatchDemo = () => {
-    router.push('/dashboard');
+    alert('Demo request submitted! Our team will contact you within 24 hours to schedule your Partnership Intelligence demo.');
   };
 
   const handleGetAudit = () => {
-    alert('Redirecting to Partnership Health Audit...');
+    alert('Partnership Health Audit requested! Please provide your email and we will send you a sample audit within 2 business days.');
   };
 
   return (
