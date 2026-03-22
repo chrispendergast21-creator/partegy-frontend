@@ -360,6 +360,7 @@ export default function LandingPage() {
             <div className="flex space-x-6 justify-center text-slate-500 text-sm">
               <a href="#" className="hover:text-slate-400 transition-colors">Privacy Policy</a>
               <a href="#" className="hover:text-slate-400 transition-colors">Terms of Service</a>
+              <a href="/contact" className="hover:text-slate-400 transition-colors">Contact</a>
               <a href="#" className="hover:text-slate-400 transition-colors">Contact</a>
             </div>
           </div>
