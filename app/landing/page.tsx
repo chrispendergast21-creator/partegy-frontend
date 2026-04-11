@@ -147,7 +147,7 @@ export default function LandingPage() {
               Eliminate Institutional Amnesia
             </h2>
             <p className="text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
-              Partnerships shouldn't reset when leaders move. Our patented Context Preservation Layer ensures every decision, rationale, and interaction is captured as a permanent organizational asset.
+              When a Lead Alliance Manager leaves, the partnership shouldn't go dark. Partegy captures the 'why' behind every deal, preventing value leakage and ensuring continuity from day one of the new hire.
             </p>
           </div>
         </div>
@@ -188,7 +188,7 @@ export default function LandingPage() {
                 <span className="text-slate-300">Pipeline & Revenue</span>
               </div>
               <div className="p-6 bg-red-950/10">
-                <span className="text-red-200 font-bold">Relationship Health & Alignment</span>
+                <span className="text-red-200 font-bold">Strategic Alignment</span>
               </div>
             </div>
             
@@ -204,7 +204,7 @@ export default function LandingPage() {
                 <span className="text-slate-300">Portals & Referrals</span>
               </div>
               <div className="p-6 bg-red-950/10">
-                <span className="text-red-200 font-bold">Strategic Execution & Milestones</span>
+                <span className="text-red-200 font-bold">Inter-organizational Governance</span>
               </div>
             </div>
             
@@ -236,7 +236,7 @@ export default function LandingPage() {
               Eliminate Institutional Amnesia
             </h2>
             <p className="text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
-              Partnerships shouldn't reset when leaders move. Our patented Context Preservation Layer ensures every decision, rationale, and interaction is captured as a permanent organizational asset.
+              When a Lead Alliance Manager leaves, the partnership shouldn't go dark. Partegy captures the 'why' behind every deal, preventing value leakage and ensuring continuity from day one of the new hire.
             </p>
           </div>
         </div>
@@ -254,11 +254,11 @@ export default function LandingPage() {
               </div>
               <h3 className="text-2xl font-bold text-white mb-6">Partnership Asset Management</h3>
               <p className="text-slate-300 leading-relaxed mb-6">
-                Stop treating partnerships as ad hoc relationships. Manage them as structured, measurable, and enduring organizational assets with our patented Partnership Intelligence system.
+                Stop managing $100M relationships in $0 spreadsheets. Our patented Partnership Intelligence system treats partnerships as structured, measurable, and enduring organizational assets.
               </p>
               <div className="bg-slate-800/30 border border-slate-700 rounded-xl p-6">
                 <div className="text-sm text-emerald-400 font-semibold mb-2">OUTCOME:</div>
-                <div className="text-slate-300 text-sm">Revenue alone is a lagging indicator. We synthesize engagement density, execution velocity, and mutual value exchange into a single, patented predictive signal.</div>
+                <div className="text-slate-300 text-sm">Revenue alone is a lagging indicator. We synthesize engagement density, execution velocity, and mutual value exchange into a single, patented predictive signal. Equip the CFO with the same visibility into partnership ROI that they have for RRevenue alone is a lagging indicator. We synthesize engagement density, execution velocity, and mutual value exchange into a single, patented predictive signal.D or Sales spend.</div>
               </div>
             </div>
 
