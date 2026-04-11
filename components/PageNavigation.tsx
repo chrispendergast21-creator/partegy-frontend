@@ -5,7 +5,10 @@ import {
   Home, 
   Building2, 
   BarChart3, 
-  FileText
+  FileText,
+  Users,
+  Settings,
+  Shield
 } from 'lucide-react';
 
 const navigationItems = [
