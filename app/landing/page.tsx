@@ -273,7 +273,7 @@ export default function LandingPage() {
               </p>
               <div className="bg-slate-800/30 border border-slate-700 rounded-xl p-6">
                 <div className="text-sm text-blue-400 font-semibold mb-2">OUTCOME:</div>
-                <div className="text-slate-300 text-sm">Explicitly link strategic objectives to initiatives. Track intent → action → outcome in a single system of record.</div>
+                <div className="text-slate-300 text-sm">Explicitly link strategic objectives to initiatives. Track intent → action → outcome in **The System of Record for Partnership State**.</div>
               </div>
             </div>
 
@@ -288,7 +288,7 @@ export default function LandingPage() {
               </p>
               <div className="bg-slate-800/30 border border-slate-700 rounded-xl p-6">
                 <div className="text-sm text-purple-400 font-semibold mb-2">OUTCOME:</div>
-                <div className="text-slate-300 text-sm">Get answers to "Should I worry?" and "Where should I intervene?" not just raw activity data.</div>
+                <div className="text-slate-300 text-sm">Get answers to "Should I worry?" and "Where should I intervene?" Key insights include: Which 20% of our ecosystem is driving 80% of strategic value? Where should we reallocate capital to maximize return?</div>
               </div>
             </div>
 
@@ -326,6 +326,15 @@ export default function LandingPage() {
             <div className="flex items-center space-x-2">
               <Shield className="w-4 h-4" />
               <span>SOC 2 Compliant</span>
+            <div className="flex items-center space-x-2">
+              <span className="text-slate-500 text-sm">Integrates with Enterprise Stack:</span>
+              <div className="flex items-center space-x-3 opacity-60">
+                <span className="text-xs text-slate-400 px-2 py-1 bg-slate-800 rounded">Workday</span>
+                <span className="text-xs text-slate-400 px-2 py-1 bg-slate-800 rounded">SAP</span>
+                <span className="text-xs text-slate-400 px-2 py-1 bg-slate-800 rounded">Oracle</span>
+                <span className="text-xs text-slate-400 px-2 py-1 bg-slate-800 rounded">Salesforce</span>
+              </div>
+            </div>
             <div className="flex items-center space-x-2">
               <Shield className="w-4 h-4" />
               <span>Built on patented Partnership Intelligence technology</span>
