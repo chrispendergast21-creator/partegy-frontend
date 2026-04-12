@@ -258,7 +258,7 @@ export default function LandingPage() {
               </p>
               <div className="bg-slate-800/30 border border-slate-700 rounded-xl p-6">
                 <div className="text-sm text-emerald-400 font-semibold mb-2">OUTCOME:</div>
-                <div className="text-slate-300 text-sm">Revenue alone is a lagging indicator. We synthesize engagement density, execution velocity, and mutual value exchange into a single, patented predictive signal. Equip the CFO with the same visibility into partnership ROI that they have for RRevenue alone is a lagging indicator. We synthesize engagement density, execution velocity, and mutual value exchange into a single, patented predictive signal.D or Sales spend.</div>
+                <div className="text-slate-300 text-sm">Revenue alone is a lagging indicator. We synthesize engagement density, execution velocity, and mutual value exchange into a single, patented predictive signal. Equip the CFO with the same visibility into partnership ROI that they have for R&D or Sales spend.</div>
               </div>
             </div>
 
@@ -288,7 +288,7 @@ export default function LandingPage() {
               </p>
               <div className="bg-slate-800/30 border border-slate-700 rounded-xl p-6">
                 <div className="text-sm text-purple-400 font-semibold mb-2">OUTCOME:</div>
-                <div className="text-slate-300 text-sm">Get answers to "Should I worry?" and "Where should I intervene?" Key insights include: Which 20% of our ecosystem is driving 80% of strategic value? Where should we reallocate capital to maximize return?</div>
+                <div className="text-slate-300 text-sm">Get answers to "Should I worry?" and "Where should I intervene?" — enabling strategic capital reallocation based on partnership performance data.</div>
               </div>
             </div>
 
