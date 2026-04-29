@@ -73,7 +73,7 @@ export default function LandingPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight tracking-tight">
-                The Governance Layer for Strategic Partnerships
+                Partnerships drive growth. But they're rarely governed like strategic assets.
               </h1>
               
               <p className="text-xl text-slate-300 mb-8 leading-relaxed">
@@ -144,10 +144,10 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center">
             <h2 className="text-2xl lg:text-3xl font-bold text-white mb-6 tracking-tight">
-              Eliminate Institutional Amnesia
+              Partnerships generate billions in revenue — but most companies can't govern them.
             </h2>
             <p className="text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
-              When a Lead Alliance Manager leaves, the partnership shouldn't go dark. Partegy captures the 'why' behind every deal, preventing value leakage and ensuring continuity from day one of the new hire.
+              Partner ecosystems have become a major growth engine for enterprise companies.<br/><br/>• Mature partnership programs generate ~28% of company revenue<br/>• Ecosystems are projected to drive $80 trillion in global economic activity by 2030<br/>• Yet only 36% of organizations consistently measure ecosystem performance<br/><br/>Despite this scale, most companies still manage partnerships across disconnected systems.
             </p>
           </div>
         </div>
