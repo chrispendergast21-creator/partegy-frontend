@@ -228,19 +228,6 @@ export default function LandingPage() {
       </section>
 
       {/* Core 3 Benefits - Authoritative Content */}
-      {/* Institutional Memory Hook */}
-      <section className="py-16 bg-slate-900/30">
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="text-center">
-            <h2 className="text-2xl lg:text-3xl font-bold text-white mb-6 tracking-tight">
-              Eliminate Institutional Amnesia
-            </h2>
-            <p className="text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
-              When a Lead Alliance Manager leaves, the partnership shouldn't go dark. Partegy captures the 'why' behind every deal, preventing value leakage and ensuring continuity from day one of the new hire.
-            </p>
-          </div>
-        </div>
-      </section>
 
 
       <section className="py-20 border-t border-slate-800">
