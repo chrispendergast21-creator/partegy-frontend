@@ -77,8 +77,7 @@ export default function LandingPage() {
               </h1>
               
               <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-                CRMs track pipeline. PRMs track referrals. Partegy tracks the health and execution of the strategy itself. 
-                Stop managing your most valuable assets in spreadsheets.
+                Partegy gives leaders visibility into partnership performance, strategy execution, and ecosystem health — so they know where to invest and when to intervene.
               </p>
               
               <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
