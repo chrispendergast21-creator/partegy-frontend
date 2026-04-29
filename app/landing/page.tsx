@@ -145,8 +145,28 @@ export default function LandingPage() {
             <h2 className="text-2xl lg:text-3xl font-bold text-white mb-6 tracking-tight">
               Partnerships generate billions in revenue — but most companies can't govern them.
             </h2>
+            <p className="text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed mb-12">
+              Partner ecosystems have become a major growth engine for enterprise companies.
+            </p>
+            
+            {/* Statistics Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
+              <div className="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-2xl p-6 text-center">
+                <div className="text-4xl font-bold text-emerald-400 mb-2">~28%</div>
+                <div className="text-slate-300 text-sm">of company revenue from mature partnership programs</div>
+              </div>
+              <div className="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-2xl p-6 text-center">
+                <div className="text-4xl font-bold text-blue-400 mb-2">$80T</div>
+                <div className="text-slate-300 text-sm">projected ecosystem economic activity by 2030</div>
+              </div>
+              <div className="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-2xl p-6 text-center">
+                <div className="text-4xl font-bold text-red-400 mb-2">36%</div>
+                <div className="text-slate-300 text-sm">of organizations consistently measure ecosystem performance</div>
+              </div>
+            </div>
+            
             <p className="text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
-              Partner ecosystems have become a major growth engine for enterprise companies.<br/><br/>• Mature partnership programs generate ~28% of company revenue<br/>• Ecosystems are projected to drive $80 trillion in global economic activity by 2030<br/>• Yet only 36% of organizations consistently measure ecosystem performance<br/><br/>Despite this scale, most companies still manage partnerships across disconnected systems.
+              Despite this scale, most companies still manage partnerships across disconnected systems.
             </p>
           </div>
         </div>
