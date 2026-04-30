@@ -246,6 +246,157 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* The Solution - Introduce Partegy */}
+      <section className="py-20 border-t border-slate-800">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-8 tracking-tight">
+              Finally, a platform to govern strategic partnerships
+            </h2>
+            <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed mb-12">
+              Partegy provides a structured system to manage partnership strategy, execution, and performance in one place.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mb-8">
+            <div className="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-xl p-6">
+              <div className="text-emerald-400 font-semibold mb-2">Define</div>
+              <div className="text-slate-300 text-sm">Partnership strategy and objectives</div>
+            </div>
+            <div className="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-xl p-6">
+              <div className="text-blue-400 font-semibold mb-2">Track</div>
+              <div className="text-slate-300 text-sm">Joint initiatives and progress</div>
+            </div>
+            <div className="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-xl p-6">
+              <div className="text-purple-400 font-semibold mb-2">Measure</div>
+              <div className="text-slate-300 text-sm">Partnership health</div>
+            </div>
+            <div className="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-xl p-6">
+              <div className="text-orange-400 font-semibold mb-2">Surface</div>
+              <div className="text-slate-300 text-sm">Insights for leadership</div>
+            </div>
+          </div>
+          
+          <p className="text-lg text-slate-300 text-center max-w-3xl mx-auto">
+            This gives executives a complete view of their partnership portfolio.
+          </p>
+        </div>
+      </section>
+
+
+      {/* AI-Powered Insights */}
+      <section className="py-20 border-t border-slate-800 bg-slate-900/30">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-8 tracking-tight">
+              Turn partnership data into actionable insight
+            </h2>
+            <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+              Partegy analyzes partnership activity, initiative progress, and revenue signals to surface insights that would otherwise remain hidden.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12">
+            <div className="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-xl p-8">
+              <h3 className="text-lg font-semibold text-white mb-4">This helps leaders:</h3>
+              <ul className="space-y-3 text-slate-300">
+                <li className="flex items-start space-x-2"><span className="text-emerald-400 mt-1">•</span><span>Detect early partnership risk</span></li>
+                <li className="flex items-start space-x-2"><span className="text-emerald-400 mt-1">•</span><span>Identify stalled initiatives</span></li>
+                <li className="flex items-start space-x-2"><span className="text-emerald-400 mt-1">•</span><span>Understand where resources should be invested</span></li>
+                <li className="flex items-start space-x-2"><span className="text-emerald-400 mt-1">•</span><span>Intervene before revenue impact occurs</span></li>
+              </ul>
+            </div>
+            
+            <div className="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-xl p-8">
+              <h3 className="text-lg font-semibold text-white mb-4">The platform surfaces signals such as:</h3>
+              <ul className="space-y-3 text-slate-300">
+                <li className="flex items-start space-x-2"><span className="text-red-400 mt-1">•</span><span>Declining partner engagement</span></li>
+                <li className="flex items-start space-x-2"><span className="text-red-400 mt-1">•</span><span>Initiatives falling behind plan</span></li>
+                <li className="flex items-start space-x-2"><span className="text-red-400 mt-1">•</span><span>Partnerships delivering lower-than-expected impact</span></li>
+                <li className="flex items-start space-x-2"><span className="text-red-400 mt-1">•</span><span>Misalignment between strategy and execution</span></li>
+              </ul>
+            </div>
+          </div>
+          
+          <p className="text-lg text-slate-400 text-center max-w-3xl mx-auto italic">
+            AI surfaces insights, while leaders remain in control of decisions.
+          </p>
+        </div>
+      </section>
+
+      {/* How the Platform Works */}
+      <section className="py-20 border-t border-slate-800">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-8 tracking-tight">
+              How Partegy works
+            </h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+            <div className="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-xl p-8 relative">
+              <div className="absolute -top-4 left-6 w-8 h-8 bg-gradient-to-r from-emerald-400 to-emerald-500 rounded-full flex items-center justify-center text-white font-bold text-sm">1</div>
+              <h3 className="text-lg font-semibold text-white mb-3 mt-2">Define partnership strategy</h3>
+              <p className="text-slate-300 text-sm">Capture strategic objectives, shared goals, and key initiatives for each partnership.</p>
+            </div>
+            
+            <div className="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-xl p-8 relative">
+              <div className="absolute -top-4 left-6 w-8 h-8 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full flex items-center justify-center text-white font-bold text-sm">2</div>
+              <h3 className="text-lg font-semibold text-white mb-3 mt-2">Track execution</h3>
+              <p className="text-slate-300 text-sm">Monitor progress across joint initiatives, milestones, and activities.</p>
+            </div>
+            
+            <div className="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-xl p-8 relative">
+              <div className="absolute -top-4 left-6 w-8 h-8 bg-gradient-to-r from-purple-400 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-sm">3</div>
+              <h3 className="text-lg font-semibold text-white mb-3 mt-2">Measure partnership health</h3>
+              <p className="text-slate-300 text-sm">Evaluate partnerships across multiple dimensions including performance, engagement, and strategic alignment.</p>
+            </div>
+            
+            <div className="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-xl p-8 relative">
+              <div className="absolute -top-4 left-6 w-8 h-8 bg-gradient-to-r from-orange-400 to-orange-500 rounded-full flex items-center justify-center text-white font-bold text-sm">4</div>
+              <h3 className="text-lg font-semibold text-white mb-3 mt-2">Surface leadership insights</h3>
+              <p className="text-slate-300 text-sm">Provide executives with portfolio-level insights into ecosystem performance and risk.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Executive Value */}
+      <section className="py-20 border-t border-slate-800 bg-slate-900/30">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-8 tracking-tight">
+              Give leadership the answers they're asking for
+            </h2>
+            <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed mb-12">
+              Partegy enables leadership teams to manage partnerships as a strategic portfolio.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-8">
+            <div className="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-xl p-6">
+              <div className="text-emerald-400 font-semibold mb-2">Investment Decisions</div>
+              <div className="text-slate-300 text-sm">Which partnerships deserve more investment</div>
+            </div>
+            <div className="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-xl p-6">
+              <div className="text-blue-400 font-semibold mb-2">Initiative Performance</div>
+              <div className="text-slate-300 text-sm">Which initiatives are delivering results</div>
+            </div>
+            <div className="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-xl p-6">
+              <div className="text-purple-400 font-semibold mb-2">Risk Management</div>
+              <div className="text-slate-300 text-sm">Which relationships require intervention</div>
+            </div>
+            <div className="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-xl p-6">
+              <div className="text-orange-400 font-semibold mb-2">Resource Allocation</div>
+              <div className="text-slate-300 text-sm">Where resources may be misallocated</div>
+            </div>
+          </div>
+          
+          <p className="text-lg text-slate-300 text-center max-w-3xl mx-auto">
+            Instead of reacting to declining revenue, leadership can act proactively.
+          </p>
+        </div>
+      </section>
       {/* Core 3 Benefits - Authoritative Content */}
 
 
