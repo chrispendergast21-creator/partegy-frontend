@@ -258,22 +258,29 @@ export default function LandingPage() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mb-8">
-            <div className="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-xl p-6">
-              <div className="text-emerald-400 font-semibold mb-2">Define</div>
-              <div className="text-slate-300 text-sm">Partnership strategy and objectives</div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto mb-8">
+            <div className="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-xl p-8 relative">
+              <div className="absolute -top-4 left-6 w-8 h-8 bg-gradient-to-r from-emerald-400 to-emerald-500 rounded-full flex items-center justify-center text-white font-bold text-sm">1</div>
+              <h3 className="text-lg font-semibold text-white mb-3 mt-2">Define partnership strategy</h3>
+              <p className="text-slate-300 text-sm">Capture strategic objectives, shared goals, and key initiatives for each partnership.</p>
             </div>
-            <div className="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-xl p-6">
-              <div className="text-blue-400 font-semibold mb-2">Track</div>
-              <div className="text-slate-300 text-sm">Joint initiatives and progress</div>
+            
+            <div className="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-xl p-8 relative">
+              <div className="absolute -top-4 left-6 w-8 h-8 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full flex items-center justify-center text-white font-bold text-sm">2</div>
+              <h3 className="text-lg font-semibold text-white mb-3 mt-2">Track execution</h3>
+              <p className="text-slate-300 text-sm">Monitor progress across joint initiatives, milestones, and activities.</p>
             </div>
-            <div className="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-xl p-6">
-              <div className="text-purple-400 font-semibold mb-2">Measure</div>
-              <div className="text-slate-300 text-sm">Partnership health</div>
+            
+            <div className="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-xl p-8 relative">
+              <div className="absolute -top-4 left-6 w-8 h-8 bg-gradient-to-r from-purple-400 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-sm">3</div>
+              <h3 className="text-lg font-semibold text-white mb-3 mt-2">Measure partnership health</h3>
+              <p className="text-slate-300 text-sm">Evaluate partnerships across multiple dimensions including performance, engagement, and strategic alignment.</p>
             </div>
-            <div className="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-xl p-6">
-              <div className="text-orange-400 font-semibold mb-2">Surface</div>
-              <div className="text-slate-300 text-sm">Insights for leadership</div>
+            
+            <div className="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-xl p-8 relative">
+              <div className="absolute -top-4 left-6 w-8 h-8 bg-gradient-to-r from-orange-400 to-orange-500 rounded-full flex items-center justify-center text-white font-bold text-sm">4</div>
+              <h3 className="text-lg font-semibold text-white mb-3 mt-2">Surface leadership insights</h3>
+              <p className="text-slate-300 text-sm">Provide executives with portfolio-level insights into ecosystem performance and risk.</p>
             </div>
           </div>
           
