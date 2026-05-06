@@ -428,7 +428,7 @@ export default function LandingPage() {
             Get a sample Partnership Health Audit to see what governance looks like for your portfolio.
           </p>
           
-          <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 justify-center mb-12">
+          <div className="flex flex-col space-y-4 sm:space-y-0 sm:space-x-6 justify-center mb-12">
             <button
               onClick={handleWatchDemo}
               className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center transition-all shadow-lg"
