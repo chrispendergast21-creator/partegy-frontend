@@ -88,12 +88,6 @@ export default function LandingPage() {
                   <Play className="w-5 h-5 mr-2" />
                   See Partnership Intelligence Demo
                 </button>
-                <button
-                  onClick={handleGetAudit}
-                  className="border border-slate-600 hover:border-slate-500 text-slate-300 hover:text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all"
-                >
-                  Get Partnership Health Audit Sample
-                </button>
               </div>
             </div>
 
@@ -439,12 +433,6 @@ export default function LandingPage() {
             >
               <Play className="w-5 h-5 mr-2" />
               See Partnership Intelligence Demo
-            </button>
-            <button
-              onClick={handleGetAudit}
-              className="bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all shadow-lg"
-            >
-              Get Partnership Health Audit Sample
             </button>
           </div>
         </div>
