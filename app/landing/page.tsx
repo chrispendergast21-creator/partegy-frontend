@@ -250,7 +250,7 @@ export default function LandingPage() {
             <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed mb-12">
               Partegy provides a structured system to manage partnership strategy, execution, and performance in one place.
             </p>
-            <p className="text-sm font-semibold tracking-[0.2em] uppercase text-slate-400 mt-6">
+            <p className="text-3xl lg:text-4xl font-bold text-white mb-8 tracking-tight">
               How Partegy Works
             </p>
           </div>          
