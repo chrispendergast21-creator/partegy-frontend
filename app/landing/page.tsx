@@ -420,15 +420,7 @@ export default function LandingPage() {
 
       {/* Final CTA - Irresistible Offer */}
       <section className="py-20 bg-gradient-to-r from-slate-900 to-slate-800 border-t border-slate-700">
-        <div className="max-w-4xl mx-auto px-8 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-8 tracking-tight">
-            See your ecosystem's true health
-          </h2>
-          <p className="text-xl text-slate-300 mb-12 leading-relaxed">
-            Get a sample Partnership Health Audit to see what governance looks like for your portfolio.
-          </p>
-          
-          <div className="flex flex-col space-y-4 sm:space-y-0 sm:space-x-6 justify-center mb-12">
+        <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 justify-center mb-12">
             <button
               onClick={handleWatchDemo}
               className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center transition-all shadow-lg"
@@ -437,9 +429,18 @@ export default function LandingPage() {
               See Partnership Intelligence Demo
             </button>
 
-            <p className="text-xl text-slate-300 mt-6 leading-relaxed">
+            <button
+              onClick={handleGetAudit}
+              className="bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all shadow-lg"
+            >
+              Get Partnership Health Audit Sample
+            </button>
+          </div>
+
+          <div className="flex items-center justify-center">
+            <span className="text-slate-400 text-sm font-medium tracking-wider uppercase border border-slate-700 px-4 py-2 rounded-md bg-slate-800/40">
               Patent Pending
-           </p>
+            </span>
           </div>
         </div>
       </section>
