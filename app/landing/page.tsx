@@ -93,11 +93,11 @@ export default function LandingPage() {
 
             {/* Dashboard Preview */}
             <div className="relative">
-              <div className="bg-slate-800/50 backdrop-blur-xl border border-slate-700 rounded-2xl p-8 shadow-2xl">
-                <div className="flex items-center justify-between mb-6">
+              <div className="bg-slate-800/50 backdrop-blur-xl border border-slate-700 rounded-2xl overflow-hidden shadow-2xl">
+                <div className="flex items-center justify-between p-6 border-b border-slate-700">
                   <div className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
-                    <span className="text-slate-300 text-sm font-medium uppercase tracking-wider">LIVE GOVERNANCE</span>
+                    <span className="text-slate-300 text-sm font-medium uppercase tracking-wider">LIVE PARTNERSHIP DASHBOARD</span>
                   </div>
                   <div className="flex items-center space-x-2">
                     <Activity className="w-4 h-4 text-emerald-400" />
@@ -105,25 +105,12 @@ export default function LandingPage() {
                   </div>
                 </div>
                 
-                <div className="space-y-4">
-                  <div className="bg-emerald-900/20 border border-emerald-700/50 rounded-lg p-4">
-                    <div className="flex justify-between items-center">
-                      <span className="text-slate-300 font-medium">Strategic Health Score</span>
-                      <span className="text-2xl font-bold text-emerald-400">87%</span>
-                    </div>
-                  </div>
-                  <div className="bg-yellow-900/20 border border-yellow-700/50 rounded-lg p-4">
-                    <div className="flex justify-between items-center">
-                      <span className="text-slate-300 font-medium">Partnerships Requiring Attention</span>
-                      <span className="text-2xl font-bold text-yellow-400">3</span>
-                    </div>
-                  </div>
-                  <div className="bg-red-900/20 border border-red-700/50 rounded-lg p-4">
-                    <div className="flex justify-between items-center">
-                      <span className="text-slate-300 font-medium">At-Risk Revenue Identified</span>
-                      <span className="text-2xl font-bold text-red-400">$4.2M</span>
-                    </div>
-                  </div>
+                <div className="relative">
+                  <img 
+                    src="/partnership-dashboard1.png" 
+                    alt="Partegy Partnership Dashboard showing health score, revenue, and key metrics"
+                    className="w-full h-auto"
+                  />
                 </div>
               </div>
             </div>
