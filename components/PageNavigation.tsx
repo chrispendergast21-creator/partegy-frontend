@@ -1,49 +1,50 @@
 'use client';
 
-import { useRouter, usePathname } from 'next/navigation';
-import { 
-  Home, 
-  Building2, 
-  BarChart3, 
-  FileText,
-  Users,
-  Settings,
-  Shield
-} from 'lucide-react';
-
-const navigationItems = [
-  { name: 'Home', href: '/dashboard', icon: Home },
-  { name: 'Partnerships', href: '/partnerships', icon: Building2 },
-  { name: 'Analytics', href: '/analytics', icon: BarChart3 },
-  { name: 'Reports', href: '/reports', icon: FileText },
-];
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { Home, Users, Settings, Shield, TrendingUp } from 'lucide-react';
 
 export function PageNavigation() {
-  const router = useRouter();
   const pathname = usePathname();
 
+  const navItems = [
+    { href: '/partnerships', label: 'Partnerships', icon: Home },
+    { href: '/executive', label: 'Executive', icon: TrendingUp },
+    { href: '/users', label: 'Users', icon: Users },
+    { href: '/settings/integrations', label: 'Settings', icon: Settings },
+    { href: '/admin', label: 'Admin', icon: Shield },
+  ];
+
   return (
-    <div className="flex items-center space-x-1">
-      {navigationItems.map((item) => {
-        const isActive = pathname === item.href || 
-                        (pathname.startsWith('/partnership/') && item.href === '/partnerships') ||
-                        (pathname === '/dashboardtest' && item.href === '/dashboard');
-        
-        return (
-          <button
-            key={item.name}
-            onClick={() => router.push(item.href)}
-            className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-all font-medium text-sm ${
-              isActive
-                ? 'text-white bg-white/20 font-semibold'
-                : 'text-slate-300 hover:text-white hover:bg-white/10'
-            }`}
-          >
-            <item.icon className="w-4 h-4" />
-            <span>{item.name}</span>
-          </button>
-        );
-      })}
-    </div>
+    <nav className="bg-slate-900 border-b border-slate-800">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="flex items-center space-x-8">
+          <div className="flex items-center space-x-2 py-4 border-r border-slate-800 pr-8">
+            <div className="flex space-x-1">
+              <div className="w-2 h-2 bg-emerald-400 rounded-sm"></div>
+              <div className="w-2 h-2 bg-blue-400 rounded-sm"></div>
+            </div>
+            <span className="font-bold text-white text-lg">Partegy</span>
+          </div>
+          
+          {navItems.map(({ href, label, icon: Icon }) => (
+            <Link
+              key={href}
+              href={href}
+              className={`flex items-center space-x-2 px-4 py-4 border-b-2 transition-colors ${
+                pathname === href
+                  ? 'border-blue-500 text-white'
+                  : 'border-transparent text-slate-400 hover:text-white'
+              }`}
+            >
+              <Icon className="w-4 h-4" />
+              <span className="font-medium">{label}</span>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </nav>
   );
 }
+
+export default PageNavigation;
