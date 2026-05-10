@@ -2,14 +2,14 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, Users, Settings, Shield, TrendingUp } from 'lucide-react';
+import { Home, Users, Settings, Shield, Briefcase } from 'lucide-react';
 
 export function PageNavigation() {
   const pathname = usePathname();
 
   const navItems = [
-    { href: '/partnerships', label: 'Partnerships', icon: Home },
-    { href: '/executive', label: 'Executive', icon: TrendingUp },
+    { href: '/executive', label: 'Home', icon: Home },
+    { href: '/partnerships', label: 'Partnerships', icon: Briefcase },
     { href: '/users', label: 'Users', icon: Users },
     { href: '/settings/integrations', label: 'Settings', icon: Settings },
     { href: '/admin', label: 'Admin', icon: Shield },

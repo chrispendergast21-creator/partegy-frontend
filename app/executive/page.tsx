@@ -14,6 +14,7 @@ import {
   ArrowRight
 } from 'lucide-react';
 import Link from 'next/link';
+import { PageNavigation } from '@/components/PageNavigation';
 
 interface Partnership {
   id: number;
@@ -45,7 +46,6 @@ const SAMPLE_PARTNERSHIPS: Partnership[] = [
 
 export default function ExecutiveDashboard() {
   const [partnerships, setPartnerships] = useState<Partnership[]>(SAMPLE_PARTNERSHIPS);
-  const [loading, setLoading] = useState(false);
 
   // Calculate metrics
   const totalRevenue = partnerships.reduce((sum, p) => sum + (p.annual_revenue || 0), 0);
@@ -64,10 +64,12 @@ export default function ExecutiveDashboard() {
     .sort((a, b) => a.health_score - b.health_score);
 
   return (
-    <div className="min-h-screen bg-[#0B0E14] text-white">
-      {/* Header */}
-      <header className="border-b border-slate-800">
-        <div className="max-w-7xl mx-auto px-8 py-6">
+    <div className="min-h-screen bg-slate-950">
+      <PageNavigation />
+      
+      <div className="max-w-7xl mx-auto px-8 py-8">
+        {/* Page Header */}
+        <div className="mb-8">
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-3xl font-bold text-white mb-2">Executive Dashboard</h1>
@@ -79,9 +81,7 @@ export default function ExecutiveDashboard() {
             </div>
           </div>
         </div>
-      </header>
 
-      <div className="max-w-7xl mx-auto px-8 py-8">
         {/* Key Metrics */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {/* Total Portfolio Value */}
