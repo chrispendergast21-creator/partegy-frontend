@@ -73,11 +73,15 @@ export default function LandingPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight tracking-tight">
-                Partnerships drive growth. But they're rarely governed like strategic assets.
+                Partnerships drive growth. But they're rarely measured like strategic assets.
               </h1>
               
-              <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-                Partegy gives leaders visibility into partnership performance, strategy execution, and ecosystem health — so they know where to invest and when to intervene.
+              <p className="text-xl text-slate-300 mb-6 leading-relaxed">
+                Partegy helps organizations govern strategic partnerships using proprietary health scoring, AI-driven insights, and executive-level ecosystem intelligence.
+              </p>
+              
+              <p className="text-lg text-slate-400 mb-8 leading-relaxed">
+                Measure partnership performance consistently across strategic, referral, and co-sell relationships — with visibility into execution quality, risk, and resource allocation.
               </p>
               
               <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
@@ -94,17 +98,6 @@ export default function LandingPage() {
             {/* Dashboard Preview */}
             <div className="relative">
               <div className="bg-slate-800/50 backdrop-blur-xl border border-slate-700 rounded-2xl overflow-hidden shadow-2xl">
-                <div className="flex items-center justify-between p-6 border-b border-slate-700">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
-                    <span className="text-slate-300 text-sm font-medium uppercase tracking-wider">LIVE PARTNERSHIP DASHBOARD</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Activity className="w-4 h-4 text-emerald-400" />
-                    <span className="text-emerald-400 text-sm font-medium">REAL-TIME</span>
-                  </div>
-                </div>
-                
                 <div className="relative">
                   <img 
                     src="/partnership-dashboard1.png" 
