@@ -408,7 +408,7 @@ export default function LandingPage() {
             Get a sample Partnership Health Audit to see what governance looks like for your portfolio.
           </p>
           
-          <div className="flex flex-col space-y-4 sm:space-y-0 sm:space-x-6 justify-center mb-12">
+          <div className="flex justify-center mb-12">
             <button
               onClick={handleWatchDemo}
               className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center transition-all shadow-lg"
@@ -416,10 +416,6 @@ export default function LandingPage() {
               <Play className="w-5 h-5 mr-2" />
               See Partnership Intelligence Demo
             </button>
-
-            <p className="text-xl text-slate-300 mt-6 leading-relaxed">
-              Patent Pending
-           </p>
           </div>
         </div>
       </section>
@@ -435,6 +431,13 @@ export default function LandingPage() {
               </div>
               <div className="text-xl font-bold text-white">Partegy</div>
             </div>
+            
+            <div className="flex items-center justify-center mb-4">
+              <span className="text-slate-500 text-xs font-medium tracking-wider uppercase border border-slate-800 px-3 py-1.5 rounded-md bg-slate-900/40">
+                Patent Pending
+              </span>
+            </div>
+            
             <p className="text-slate-400 mb-8">
               The strategic governance layer for enterprise partnerships
             </p>
