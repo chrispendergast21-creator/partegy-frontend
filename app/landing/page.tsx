@@ -410,11 +410,10 @@ export default function LandingPage() {
           
           <div className="flex justify-center mb-12">
             <button
-              onClick={handleWatchDemo}
-              className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center transition-all shadow-lg"
+              onClick={handleGetAudit}
+              className="bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center transition-all shadow-lg"
             >
-              <Play className="w-5 h-5 mr-2" />
-              See Partnership Intelligence Demo
+              Get Sample Audit
             </button>
           </div>
         </div>
