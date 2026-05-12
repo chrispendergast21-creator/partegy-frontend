@@ -238,6 +238,191 @@ export default function ExecutiveDashboard() {
           </div>
         </div>
 
+        {/* Early Warning System - AI Insights */}
+        <div className="mt-8 bg-gradient-to-r from-red-950/30 to-orange-950/30 border border-red-900/50 rounded-xl p-8">
+          <div className="flex items-start space-x-4 mb-6">
+            <AlertTriangle className="w-8 h-8 text-red-400 flex-shrink-0 mt-1" />
+            <div className="flex-1">
+              <h3 className="text-xl font-bold text-white mb-2">Early Warning System</h3>
+              <p className="text-slate-300 text-sm">AI-detected signals requiring executive attention</p>
+            </div>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Engagement Risk */}
+            <div className="bg-red-950/40 border border-red-900/50 rounded-lg p-4">
+              <div className="flex items-start justify-between mb-2">
+                <div className="flex items-center space-x-2">
+                  <TrendingDown className="w-5 h-5 text-red-400" />
+                  <span className="font-semibold text-white text-sm">Engagement Risk</span>
+                </div>
+                <span className="text-red-400 text-xs font-bold uppercase bg-red-950 px-2 py-1 rounded">Critical</span>
+              </div>
+              <p className="text-slate-300 text-sm">
+                <strong className="text-white">Executive participation has declined 47%</strong> over the past 90 days across strategic partnerships.
+              </p>
+            </div>
+
+            {/* Initiative Risk */}
+            <div className="bg-orange-950/40 border border-orange-900/50 rounded-lg p-4">
+              <div className="flex items-start justify-between mb-2">
+                <div className="flex items-center space-x-2">
+                  <Target className="w-5 h-5 text-orange-400" />
+                  <span className="font-semibold text-white text-sm">Initiative Risk</span>
+                </div>
+                <span className="text-orange-400 text-xs font-bold uppercase bg-orange-950 px-2 py-1 rounded">High</span>
+              </div>
+              <p className="text-slate-300 text-sm">
+                <strong className="text-white">Three strategic initiatives</strong> have missed milestone updates for 30+ days.
+              </p>
+            </div>
+
+            {/* Relationship Drift */}
+            <div className="bg-yellow-950/40 border border-yellow-900/50 rounded-lg p-4">
+              <div className="flex items-start justify-between mb-2">
+                <div className="flex items-center space-x-2">
+                  <Activity className="w-5 h-5 text-yellow-400" />
+                  <span className="font-semibold text-white text-sm">Relationship Drift</span>
+                </div>
+                <span className="text-yellow-400 text-xs font-bold uppercase bg-yellow-950 px-2 py-1 rounded">Medium</span>
+              </div>
+              <p className="text-slate-300 text-sm">
+                Partner engagement frequency is <strong className="text-white">trending below historical baseline</strong> across multiple relationships.
+              </p>
+            </div>
+
+            {/* Concentration Risk */}
+            <div className="bg-red-950/40 border border-red-900/50 rounded-lg p-4">
+              <div className="flex items-start justify-between mb-2">
+                <div className="flex items-center space-x-2">
+                  <DollarSign className="w-5 h-5 text-red-400" />
+                  <span className="font-semibold text-white text-sm">Ecosystem Concentration Risk</span>
+                </div>
+                <span className="text-red-400 text-xs font-bold uppercase bg-red-950 px-2 py-1 rounded">Critical</span>
+              </div>
+              <p className="text-slate-300 text-sm">
+                <strong className="text-white">41% of influenced pipeline</strong> depends on two partner relationships.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Partnership Risk Matrix - Signature Widget */}
+        <div className="mt-8 bg-slate-900 border border-slate-800 rounded-xl p-8">
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <h3 className="text-2xl font-bold text-white mb-2">Partnership Risk Matrix</h3>
+              <p className="text-slate-400">Portfolio exposure mapped by health score and revenue impact</p>
+            </div>
+            <div className="flex items-center space-x-2 bg-purple-950/30 border border-purple-900/50 px-3 py-2 rounded-lg">
+              <Brain className="w-5 h-5 text-purple-400" />
+              <span className="text-purple-300 text-sm font-medium">AI-Powered</span>
+            </div>
+          </div>
+
+          {/* Risk Matrix Grid */}
+          <div className="relative bg-slate-950 rounded-xl p-8 border border-slate-700">
+            {/* Y-axis label */}
+            <div className="absolute -left-8 top-1/2 -translate-y-1/2 -rotate-90 text-slate-400 text-sm font-medium">
+              Revenue Impact
+            </div>
+            
+            {/* X-axis label */}
+            <div className="text-center text-slate-400 text-sm font-medium mb-4">
+              Partnership Health Score
+            </div>
+
+            {/* Matrix Grid */}
+            <div className="grid grid-cols-3 gap-4 mb-4">
+              {/* High Revenue / Low Health - CRITICAL */}
+              <div className="bg-red-950/40 border-2 border-red-500 rounded-lg p-4 min-h-[120px] relative">
+                <div className="absolute top-2 right-2 text-red-400 text-xs font-bold">CRITICAL</div>
+                <div className="absolute bottom-2 left-2 right-2">
+                  <div className="text-white font-semibold text-sm mb-1">Enterprise Systems Co</div>
+                  <div className="text-slate-300 text-xs">$3.5M • Health: 68</div>
+                </div>
+              </div>
+
+              {/* High Revenue / Medium Health - WATCH */}
+              <div className="bg-yellow-950/40 border-2 border-yellow-600 rounded-lg p-4 min-h-[120px] relative">
+                <div className="absolute top-2 right-2 text-yellow-400 text-xs font-bold">WATCH</div>
+                <div className="absolute bottom-2 left-2 right-2">
+                  <div className="text-white font-semibold text-sm mb-1">TechVenture Inc</div>
+                  <div className="text-slate-300 text-xs">$1.8M • Health: 78</div>
+                </div>
+              </div>
+
+              {/* High Revenue / High Health - STRONG */}
+              <div className="bg-emerald-950/40 border-2 border-emerald-600 rounded-lg p-4 min-h-[120px] relative">
+                <div className="absolute top-2 right-2 text-emerald-400 text-xs font-bold">STRONG</div>
+                <div className="absolute bottom-2 left-2 right-2">
+                  <div className="text-white font-semibold text-sm mb-1">Global Solutions Ltd</div>
+                  <div className="text-slate-300 text-xs">$4.1M • Health: 95</div>
+                </div>
+              </div>
+
+              {/* Medium Revenue / Low Health - HIGH RISK */}
+              <div className="bg-orange-950/40 border-2 border-orange-500 rounded-lg p-4 min-h-[120px] relative">
+                <div className="absolute top-2 right-2 text-orange-400 text-xs font-bold">HIGH RISK</div>
+                <div className="absolute bottom-2 left-2 right-2">
+                  <div className="text-white font-semibold text-sm mb-1">NextGen Tech</div>
+                  <div className="text-slate-300 text-xs">$2.8M • Health: 65</div>
+                </div>
+              </div>
+
+              {/* Medium Revenue / Medium Health - MONITOR */}
+              <div className="bg-blue-950/40 border border-blue-700 rounded-lg p-4 min-h-[120px] relative">
+                <div className="absolute top-2 right-2 text-blue-400 text-xs font-bold">MONITOR</div>
+                <div className="absolute bottom-2 left-2 right-2">
+                  <div className="text-white font-semibold text-sm mb-1">Innovation Partners</div>
+                  <div className="text-slate-300 text-xs">$2.2M • Health: 82</div>
+                </div>
+              </div>
+
+              {/* Medium Revenue / High Health - HEALTHY */}
+              <div className="bg-emerald-950/40 border border-emerald-700 rounded-lg p-4 min-h-[120px] relative">
+                <div className="absolute top-2 right-2 text-emerald-400 text-xs font-bold">HEALTHY</div>
+                <div className="absolute bottom-2 left-2 right-2">
+                  <div className="text-white font-semibold text-sm mb-1">Acme Corporation</div>
+                  <div className="text-slate-300 text-xs">$5.2M • Health: 92</div>
+                </div>
+              </div>
+
+              {/* Low Revenue cells - lighter styling */}
+              <div className="bg-slate-800/30 border border-slate-700 rounded-lg p-4 min-h-[120px]"></div>
+              <div className="bg-slate-800/30 border border-slate-700 rounded-lg p-4 min-h-[120px]"></div>
+              <div className="bg-slate-800/30 border border-slate-700 rounded-lg p-4 min-h-[120px]"></div>
+            </div>
+
+            {/* Legend */}
+            <div className="flex items-center justify-center space-x-6 text-xs">
+              <div className="flex items-center space-x-2">
+                <div className="w-3 h-3 bg-red-500 rounded"></div>
+                <span className="text-slate-400">Critical Risk</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <div className="w-3 h-3 bg-orange-500 rounded"></div>
+                <span className="text-slate-400">High Risk</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <div className="w-3 h-3 bg-yellow-600 rounded"></div>
+                <span className="text-slate-400">Monitor</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <div className="w-3 h-3 bg-emerald-600 rounded"></div>
+                <span className="text-slate-400">Healthy</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Key Insight */}
+          <div className="mt-4 p-4 bg-red-950/30 border border-red-900/50 rounded-lg">
+            <p className="text-red-200 text-sm">
+              <strong>Executive Action Required:</strong> $6.3M in revenue (15% of portfolio) is concentrated in partnerships with health scores below 70. Immediate intervention recommended.
+            </p>
+          </div>
+        </div>
+
         {/* Strategic Roadmap */}
         <div className="mt-12 bg-slate-900 border border-slate-800 rounded-xl p-8">
           <h2 className="text-2xl font-bold text-white mb-6">Highest Impact Improvements</h2>
