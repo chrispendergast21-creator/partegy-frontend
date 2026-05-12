@@ -238,6 +238,94 @@ export default function ExecutiveDashboard() {
           </div>
         </div>
 
+        {/* Strategic Roadmap */}
+        <div className="mt-12 bg-slate-900 border border-slate-800 rounded-xl p-8">
+          <h2 className="text-2xl font-bold text-white mb-6">Highest Impact Improvements</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Executive Briefing Layer */}
+            <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-6">
+              <div className="flex items-start space-x-3 mb-3">
+                <div className="w-8 h-8 bg-emerald-600 rounded-lg flex items-center justify-center text-white font-bold flex-shrink-0">1</div>
+                <div>
+                  <h3 className="text-lg font-bold text-white mb-2">Executive Briefing Layer</h3>
+                  <p className="text-emerald-400 text-sm font-semibold mb-2">Highest ROI improvement</p>
+                  <p className="text-slate-300 text-sm">
+                    AI-generated executive summaries that synthesize portfolio health, key risks, and recommended interventions into digestible insights.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Behavioral/Predictive Signals */}
+            <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-6">
+              <div className="flex items-start space-x-3 mb-3">
+                <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold flex-shrink-0">2</div>
+                <div>
+                  <h3 className="text-lg font-bold text-white mb-2">Behavioral/Predictive Signals</h3>
+                  <p className="text-purple-400 text-sm font-semibold mb-2">Signature differentiation</p>
+                  <p className="text-slate-300 text-sm">
+                    Pattern recognition that detects declining engagement, stalled initiatives, and risk indicators before they impact revenue.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Risk & Impact Framing */}
+            <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-6">
+              <div className="flex items-start space-x-3 mb-3">
+                <div className="w-8 h-8 bg-orange-600 rounded-lg flex items-center justify-center text-white font-bold flex-shrink-0">3</div>
+                <div>
+                  <h3 className="text-lg font-bold text-white mb-2">Risk & Impact Metrics</h3>
+                  <p className="text-slate-400 text-sm mb-2">Executives think in:</p>
+                  <ul className="text-slate-300 text-sm space-y-1">
+                    <li className="flex items-center space-x-2">
+                      <span className="text-red-400">•</span>
+                      <span><strong>Exposure</strong> - Revenue at risk</span>
+                    </li>
+                    <li className="flex items-center space-x-2">
+                      <span className="text-emerald-400">•</span>
+                      <span><strong>Growth</strong> - Expansion potential</span>
+                    </li>
+                    <li className="flex items-center space-x-2">
+                      <span className="text-yellow-400">•</span>
+                      <span><strong>Concentration</strong> - Portfolio balance</span>
+                    </li>
+                    <li className="flex items-center space-x-2">
+                      <span className="text-blue-400">•</span>
+                      <span><strong>Velocity</strong> - Time to value</span>
+                    </li>
+                    <li className="flex items-center space-x-2">
+                      <span className="text-purple-400">•</span>
+                      <span><strong>Strategic outcomes</strong> - Goal alignment</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Signature Visualization */}
+            <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-6">
+              <div className="flex items-start space-x-3 mb-3">
+                <div className="w-8 h-8 bg-purple-600 rounded-lg flex items-center justify-center text-white font-bold flex-shrink-0">4</div>
+                <div>
+                  <h3 className="text-lg font-bold text-white mb-2">Signature Visualization</h3>
+                  <p className="text-blue-400 text-sm font-semibold mb-2">Create a "Partegy moment"</p>
+                  <p className="text-slate-300 text-sm">
+                    A proprietary partnership health matrix that instantly communicates portfolio status, risk concentration, and strategic alignment.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-6 p-4 bg-blue-950/30 border border-blue-900/50 rounded-lg">
+            <p className="text-blue-200 text-sm">
+              <strong>Strategic Priority:</strong> These improvements transform Partegy from a partnership tracking system into an executive decision intelligence platform.
+            </p>
+          </div>
+        </div>
+
         {/* Quick Actions */}
         <div className="mt-8 flex justify-center space-x-4">
           <Link 

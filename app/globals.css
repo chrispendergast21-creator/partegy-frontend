@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Smooth scrolling animation for dashboard preview */
+@keyframes slow-scroll {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-slow-scroll {
+  animation: slow-scroll 15s ease-in-out infinite;
+}
