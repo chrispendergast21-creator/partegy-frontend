@@ -424,90 +424,104 @@ export default function ExecutiveDashboard() {
         </div>
 
         {/* Strategic Roadmap */}
-        <div className="mt-12 bg-slate-900 border border-slate-800 rounded-xl p-8">
-          <h2 className="text-2xl font-bold text-white mb-6">Highest Impact Improvements</h2>
+        <div className="mt-12 bg-gradient-to-r from-slate-900 to-slate-800 border border-slate-700 rounded-xl p-8">
+          <div className="mb-8">
+            <h2 className="text-2xl font-bold text-white mb-3">Product Roadmap: What's Next</h2>
+            <p className="text-slate-400">Strategic improvements that will transform Partegy into the executive decision intelligence platform for partnerships</p>
+          </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Executive Briefing Layer */}
-            <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-6">
+            <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-6 hover:border-emerald-600 transition-colors">
               <div className="flex items-start space-x-3 mb-3">
                 <div className="w-8 h-8 bg-emerald-600 rounded-lg flex items-center justify-center text-white font-bold flex-shrink-0">1</div>
                 <div>
                   <h3 className="text-lg font-bold text-white mb-2">Executive Briefing Layer</h3>
-                  <p className="text-emerald-400 text-sm font-semibold mb-2">Highest ROI improvement</p>
-                  <p className="text-slate-300 text-sm">
-                    AI-generated executive summaries that synthesize portfolio health, key risks, and recommended interventions into digestible insights.
+                  <div className="flex items-center space-x-2 mb-3">
+                    <span className="text-emerald-400 text-xs font-bold uppercase bg-emerald-950 px-2 py-1 rounded">Highest ROI</span>
+                    <span className="text-slate-500 text-xs">Q2 2026</span>
+                  </div>
+                  <p className="text-slate-300 text-sm mb-3">
+                    Daily AI-generated briefings that synthesize: portfolio health changes, emerging risks, recommended interventions, and strategic opportunities.
+                  </p>
+                  <p className="text-slate-400 text-xs italic">
+                    "What changed overnight that I need to know about?"
                   </p>
                 </div>
               </div>
             </div>
 
             {/* Behavioral/Predictive Signals */}
-            <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-6">
+            <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-6 hover:border-purple-600 transition-colors">
               <div className="flex items-start space-x-3 mb-3">
-                <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold flex-shrink-0">2</div>
+                <div className="w-8 h-8 bg-purple-600 rounded-lg flex items-center justify-center text-white font-bold flex-shrink-0">2</div>
                 <div>
-                  <h3 className="text-lg font-bold text-white mb-2">Behavioral/Predictive Signals</h3>
-                  <p className="text-purple-400 text-sm font-semibold mb-2">Signature differentiation</p>
-                  <p className="text-slate-300 text-sm">
-                    Pattern recognition that detects declining engagement, stalled initiatives, and risk indicators before they impact revenue.
+                  <h3 className="text-lg font-bold text-white mb-2">Predictive Partnership Intelligence</h3>
+                  <div className="flex items-center space-x-2 mb-3">
+                    <span className="text-purple-400 text-xs font-bold uppercase bg-purple-950 px-2 py-1 rounded">Differentiation</span>
+                    <span className="text-slate-500 text-xs">Q3 2026</span>
+                  </div>
+                  <p className="text-slate-300 text-sm mb-3">
+                    Machine learning models that predict partnership failure probability 90 days in advance based on engagement patterns, initiative velocity, and stakeholder behavior.
+                  </p>
+                  <p className="text-slate-400 text-xs italic">
+                    "Which partnerships are likely to fail before they actually do?"
                   </p>
                 </div>
               </div>
             </div>
 
             {/* Risk & Impact Framing */}
-            <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-6">
+            <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-6 hover:border-orange-600 transition-colors">
               <div className="flex items-start space-x-3 mb-3">
                 <div className="w-8 h-8 bg-orange-600 rounded-lg flex items-center justify-center text-white font-bold flex-shrink-0">3</div>
                 <div>
-                  <h3 className="text-lg font-bold text-white mb-2">Risk & Impact Metrics</h3>
-                  <p className="text-slate-400 text-sm mb-2">Executives think in:</p>
-                  <ul className="text-slate-300 text-sm space-y-1">
-                    <li className="flex items-center space-x-2">
-                      <span className="text-red-400">•</span>
-                      <span><strong>Exposure</strong> - Revenue at risk</span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-                      <span className="text-emerald-400">•</span>
-                      <span><strong>Growth</strong> - Expansion potential</span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-                      <span className="text-yellow-400">•</span>
-                      <span><strong>Concentration</strong> - Portfolio balance</span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-                      <span className="text-blue-400">•</span>
-                      <span><strong>Velocity</strong> - Time to value</span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-                      <span className="text-purple-400">•</span>
-                      <span><strong>Strategic outcomes</strong> - Goal alignment</span>
-                    </li>
-                  </ul>
+                  <h3 className="text-lg font-bold text-white mb-2">Executive Risk Language</h3>
+                  <div className="flex items-center space-x-2 mb-3">
+                    <span className="text-orange-400 text-xs font-bold uppercase bg-orange-950 px-2 py-1 rounded">CFO-Ready</span>
+                    <span className="text-slate-500 text-xs">Q2 2026</span>
+                  </div>
+                  <p className="text-slate-300 text-sm mb-3">
+                    Reframe all metrics in the language executives use for capital allocation decisions: exposure, concentration risk, velocity, strategic alignment, and growth potential.
+                  </p>
+                  <p className="text-slate-400 text-xs italic">
+                    "How much revenue is at risk vs. how much opportunity are we missing?"
+                  </p>
                 </div>
               </div>
             </div>
 
             {/* Signature Visualization */}
-            <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-6">
+            <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-6 hover:border-blue-600 transition-colors">
               <div className="flex items-start space-x-3 mb-3">
-                <div className="w-8 h-8 bg-purple-600 rounded-lg flex items-center justify-center text-white font-bold flex-shrink-0">4</div>
+                <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold flex-shrink-0">4</div>
                 <div>
-                  <h3 className="text-lg font-bold text-white mb-2">Signature Visualization</h3>
-                  <p className="text-blue-400 text-sm font-semibold mb-2">Create a "Partegy moment"</p>
-                  <p className="text-slate-300 text-sm">
-                    A proprietary partnership health matrix that instantly communicates portfolio status, risk concentration, and strategic alignment.
+                  <h3 className="text-lg font-bold text-white mb-2">Ecosystem Dependency Graph</h3>
+                  <div className="flex items-center space-x-2 mb-3">
+                    <span className="text-blue-400 text-xs font-bold uppercase bg-blue-950 px-2 py-1 rounded">Demo Moment</span>
+                    <span className="text-slate-500 text-xs">Q3 2026</span>
+                  </div>
+                  <p className="text-slate-300 text-sm mb-3">
+                    Interactive network visualization showing how partnerships interconnect, where dependencies concentrate, and which relationships are critical paths to revenue.
+                  </p>
+                  <p className="text-slate-400 text-xs italic">
+                    "If this partnership fails, what cascades?"
                   </p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="mt-6 p-4 bg-blue-950/30 border border-blue-900/50 rounded-lg">
-            <p className="text-blue-200 text-sm">
-              <strong>Strategic Priority:</strong> These improvements transform Partegy from a partnership tracking system into an executive decision intelligence platform.
-            </p>
+          <div className="mt-6 p-4 bg-gradient-to-r from-blue-950/30 to-purple-950/30 border border-blue-900/50 rounded-lg">
+            <div className="flex items-start space-x-3">
+              <Target className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
+              <div>
+                <p className="text-blue-200 text-sm font-semibold mb-1">Strategic Vision</p>
+                <p className="text-slate-300 text-sm">
+                  These features transform Partegy from a partnership database into an executive decision intelligence platform — enabling proactive intervention before partnerships fail.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
