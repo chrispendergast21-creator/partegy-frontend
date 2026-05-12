@@ -95,15 +95,26 @@ export default function LandingPage() {
               </div>
             </div>
 
-            {/* Dashboard Preview */}
+            {/* Dashboard Preview with Scroll Animation */}
             <div className="relative">
               <div className="bg-slate-800/50 backdrop-blur-xl border border-slate-700 rounded-2xl overflow-hidden shadow-2xl">
-                <div className="relative">
-                  <img 
-                    src="/partnership-dashboard1.png" 
-                    alt="Partegy Partnership Dashboard showing health score, revenue, and key metrics"
-                    className="w-full h-auto"
-                  />
+                <div className="relative h-[600px] overflow-hidden">
+                  <div className="animate-slow-scroll">
+                    <img 
+                      src="/partnership-dashboard1.png" 
+                      alt="Partegy Partnership Dashboard showing health score, revenue, and key metrics"
+                      className="w-full h-auto"
+                    />
+                  </div>
+                  {/* Gradient overlays for fade effect */}
+                  <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-slate-800 to-transparent pointer-events-none"></div>
+                  <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-slate-800 to-transparent pointer-events-none"></div>
+                </div>
+                
+                {/* Live indicator */}
+                <div className="absolute top-4 right-4 flex items-center space-x-2 bg-slate-900/80 backdrop-blur px-3 py-2 rounded-lg border border-slate-700">
+                  <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                  <span className="text-slate-300 text-sm font-medium">LIVE DATA</span>
                 </div>
               </div>
             </div>
@@ -337,9 +348,33 @@ export default function LandingPage() {
             </div>
           </div>
           
-          <p className="text-lg text-slate-300 text-center max-w-3xl mx-auto">
+          <p className="text-lg text-slate-300 text-center max-w-3xl mx-auto mb-12">
             Instead of reacting to declining revenue, leadership can act proactively.
           </p>
+          
+          {/* Executive Dashboard Preview */}
+          <div className="max-w-5xl mx-auto mt-16">
+            <div className="bg-slate-800/50 backdrop-blur-xl border border-slate-700 rounded-2xl overflow-hidden shadow-2xl">
+              <div className="relative h-[600px] overflow-hidden">
+                <div className="animate-slow-scroll">
+                  <img 
+                    src="/partnership-dashboard1.png" 
+                    alt="Partegy Executive Dashboard showing portfolio metrics and insights"
+                    className="w-full h-auto"
+                  />
+                </div>
+                {/* Gradient overlays for fade effect */}
+                <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-slate-900/80 to-transparent pointer-events-none"></div>
+                <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-slate-900/80 to-transparent pointer-events-none"></div>
+              </div>
+              
+              {/* Live indicator */}
+              <div className="absolute top-4 right-4 flex items-center space-x-2 bg-slate-900/90 backdrop-blur px-3 py-2 rounded-lg border border-slate-700">
+                <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                <span className="text-slate-300 text-sm font-medium">LIVE EXECUTIVE VIEW</span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
       {/* Core 3 Benefits - Authoritative Content */}
