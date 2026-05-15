@@ -46,7 +46,7 @@ export default function PartnershipDetailPage() {
       // Mock data for now - replace with real API later
       const mockPartnership = {
         id: params.id,
-        name: "Demo Partnership",
+        name: "Truox",
         health: "healthy",
         health_score: 87,
         partnership_type: "strategic",
@@ -57,7 +57,7 @@ export default function PartnershipDetailPage() {
         pipeline: 1800000,
         next_milestone: "Q2 Business Review",
         days_to_milestone: 28,
-        strategic_objective: "Expand market reach and drive innovation through strategic collaboration"
+        strategic_objective: "Partnership demonstrates expansion readiness based on sustained initiative success"
       };
       setPartnership(mockPartnership);
     } catch (error) {

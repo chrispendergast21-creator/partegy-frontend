@@ -73,15 +73,15 @@ export default function LandingPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight tracking-tight">
-                Partnerships drive growth. But they're rarely measured like strategic assets.
+                Partnerships drive growth. But they're rarely governed like strategic assets.
               </h1>
               
               <p className="text-xl text-slate-300 mb-6 leading-relaxed">
-                Partegy helps organizations govern strategic partnerships using proprietary health scoring, AI-driven insights, and executive-level ecosystem intelligence.
+                Partegy helps organizations govern strategic partnerships using proprietary health scoring, behavioral intelligence, and executive-level ecosystem visibility.
               </p>
               
               <p className="text-lg text-slate-400 mb-8 leading-relaxed">
-                Measure partnership performance consistently across strategic, referral, and co-sell relationships — with visibility into execution quality, risk, and resource allocation.
+                Gain consistent visibility across strategic, referral, and co-sell partnerships — including execution quality, ecosystem risk, engagement trends, and resource allocation.
               </p>
               
               <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
