@@ -97,7 +97,7 @@ export default function LandingPage() {
 
             {/* Dashboard Preview - Static */}
             <div className="relative">
-              <div className="bg-slate-800/50 backdrop-blur-xl border border-slate-700 rounded-2xl overflow-hidden shadow-2xl">
+              <div className="bg-slate-800/50 backdrop-blur-xl border border-slate-700 rounded-2xl overflow-hidden shadow-2xl transform scale-110">
                 <img 
                   src="/partnership-dashboard1.png" 
                   alt="Partegy Partnership Dashboard showing health score, revenue, and key metrics"
