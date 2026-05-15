@@ -1,18 +1,25 @@
 const puppeteer = require('puppeteer');
 
 (async () => {
-  console.log('📸 Capturing Truox Partnership Detail...');
+  console.log('📸 Capturing Truox Partnership Detail (zoomed in)...');
   
   const browser = await puppeteer.launch({
     headless: true,
     defaultViewport: {
-      width: 1920,
-      height: 1080
+      width: 1600,  // Smaller viewport = larger content
+      height: 900
     },
     args: ['--no-sandbox', '--disable-setuid-sandbox']
   });
   
   const page = await browser.newPage();
+  
+  // Set a zoom level for larger text/content
+  await page.setViewport({
+    width: 1600,
+    height: 900,
+    deviceScaleFactor: 1.25  // Makes content 25% larger
+  });
   
   const url = 'http://localhost:3001/partnership/2';
   console.log(`📍 Loading ${url}...`);
@@ -22,11 +29,10 @@ const puppeteer = require('puppeteer');
   
   await page.screenshot({
     path: 'public/partnership-dashboard1.png',
-    fullPage: false,
-    clip: { x: 0, y: 0, width: 1920, height: 1080 }
+    fullPage: false
   });
   
   await browser.close();
   
-  console.log('✅ Screenshot saved to public/partnership-dashboard1.png');
+  console.log('✅ Zoomed screenshot saved to public/partnership-dashboard1.png');
 })();
