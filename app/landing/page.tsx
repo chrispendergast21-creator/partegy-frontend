@@ -61,7 +61,7 @@ export default function LandingPage() {
               className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium text-sm transition-all flex items-center space-x-2 border border-blue-500"
             >
               <Monitor className="w-4 h-4" />
-              <span>See Partnership Intelligence Demo</span>
+              <span>Request Early Access</span>
             </button>
           </div>
         </div>
@@ -90,7 +90,7 @@ export default function LandingPage() {
                   className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center transition-all shadow-lg"
                 >
                   <Play className="w-5 h-5 mr-2" />
-                  See Partnership Intelligence Demo
+                  Request Early Access
                 </button>
               </div>
             </div>
@@ -435,7 +435,7 @@ export default function LandingPage() {
               onClick={handleGetAudit}
               className="bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center transition-all shadow-lg"
             >
-              Get Sample Audit
+              Request Early Access
             </button>
           </div>
         </div>
