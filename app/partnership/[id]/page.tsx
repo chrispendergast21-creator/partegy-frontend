@@ -46,7 +46,7 @@ export default function PartnershipDetailPage() {
       // Mock data for now - replace with real API later
       const mockPartnership = {
         id: params.id,
-        name: "Truox",
+        name: "Apex Dynamics",
         health: "healthy",
         health_score: 87,
         partnership_type: "strategic",
