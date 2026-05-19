@@ -427,7 +427,7 @@ export default function LandingPage() {
             See your ecosystem's true health
           </h2>
           <p className="text-xl text-slate-300 mb-12 leading-relaxed">
-            Get a sample Partnership Health Audit to see what governance looks like for your portfolio.
+            Let's look at your portfolio. Book a live session to see what automated governance looks like for your specific structure.
           </p>
           
           <div className="flex justify-center mb-12">
