@@ -1,12 +1,18 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Partegy | Executive Partnership Cockpit',
-  description: 'Strategic Partnership Capital Allocation Platform',
+  title: 'Partegy | Partnership Governance Platform',
+  description: 'Govern strategic partnerships using proprietary health scoring, behavioral intelligence, and executive-level ecosystem visibility.',
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
 }
 
 export default function RootLayout({
