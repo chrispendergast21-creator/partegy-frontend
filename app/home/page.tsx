@@ -3,350 +3,146 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
-import { 
-  AlertCircle, 
-  TrendingUp, 
-  Clock, 
-  CheckCircle, 
-  Calendar,
-  Target,
-  Users,
-  Bell,
-  Eye
-} from 'lucide-react';
-
-interface Partnership {
-  id: number;
-  name: string;
-  health_score: number;
-  health_state: string;
-  partnership_type: string;
-  days_to_milestone: number;
-  next_milestone: string;
-}
-
-interface ActionItem {
-  type: 'ACTION' | 'CHANGE' | 'RECOMMENDATION' | 'DEADLINE';
-  partnership_id: number;
-  partnership_name: string;
-  priority: number;
-  summary: string;
-  timestamp: Date;
-  cta: string;
-  health_state?: string;
-}
+import { PageNavigation } from '@/components/PageNavigation';
+import { AlertCircle, TrendingUp, Clock, CheckCircle, Calendar, Target, Users, Bell, Eye } from 'lucide-react';
+import { API_URL } from '@/lib/api';
 
 export default function HomePage() {
   const router = useRouter();
-  const [partnerships, setPartnerships] = useState<Partnership[]>([]);
-  const [actionItems, setActionItems] = useState<ActionItem[]>([]);
-  const [recentChanges, setRecentChanges] = useState<ActionItem[]>([]);
-  const [recommendations, setRecommendations] = useState<ActionItem[]>([]);
-  const [deadlines, setDeadlines] = useState<ActionItem[]>([]);
+  const [partnerships, setPartnerships] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
-  const [userRole] = useState('partner_manager');
 
-  useEffect(() => {
-    loadHomeData();
-  }, []);
+  useEffect(() => { loadHomeData(); }, []);
 
   const loadHomeData = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/api/partnerships');
-      const data = response.data.map((p: any) => ({
+      const response = await axios.get(`${API_URL}/api/partnerships`);
+      setPartnerships(response.data.map((p: any) => ({
         ...p,
         health_state: p.health_score >= 75 ? 'HEALTHY' : p.health_score >= 50 ? 'AT_RISK' : 'CRITICAL'
-      }));
-      setPartnerships(data);
-      
-      const actions: ActionItem[] = data
-        .filter((p: Partnership) => p.health_state !== 'HEALTHY')
-        .sort((a: Partnership, b: Partnership) => a.health_score - b.health_score)
-        .slice(0, 5)
-        .map((p: Partnership) => ({
-          type: 'ACTION' as const,
-          partnership_id: p.id,
-          partnership_name: p.name,
-          priority: p.health_state === 'CRITICAL' ? 1 : 2,
-          summary: p.days_to_milestone > 45 ? 'Execution stalled 21 days' : 'Health deteriorating',
-          timestamp: new Date(),
-          cta: 'Review',
-          health_state: p.health_state
-        }));
-      setActionItems(actions);
-
-      const changes: ActionItem[] = data.slice(0, 4).map((p: Partnership, i: number) => ({
-        type: 'CHANGE' as const,
-        partnership_id: p.id,
-        partnership_name: p.name,
-        priority: 3,
-        summary: i % 2 === 0 ? 'Health improved from At Risk to Healthy' : 'Partner submitted Q1 update',
-        timestamp: new Date(Date.now() - Math.random() * 86400000 * 3),
-        cta: 'View',
-        health_state: p.health_state
-      }));
-      setRecentChanges(changes);
-
-      const recs: ActionItem[] = data
-        .filter((p: Partnership) => p.health_state === 'AT_RISK')
-        .slice(0, 3)
-        .map((p: Partnership) => ({
-          type: 'RECOMMENDATION' as const,
-          partnership_id: p.id,
-          partnership_name: p.name,
-          priority: 2,
-          summary: 'Recommend scheduling executive alignment call',
-          timestamp: new Date(),
-          cta: 'Confirm'
-        }));
-      setRecommendations(recs);
-
-      const dueItems: ActionItem[] = data.slice(0, 3).map((p: Partnership) => ({
-        type: 'DEADLINE' as const,
-        partnership_id: p.id,
-        partnership_name: p.name,
-        priority: p.days_to_milestone < 7 ? 1 : 3,
-        summary: `${p.next_milestone} due in ${p.days_to_milestone} days`,
-        timestamp: new Date(Date.now() + p.days_to_milestone * 86400000),
-        cta: 'View'
-      }));
-      setDeadlines(dueItems);
-
-    } catch (error) {
-      console.error('Failed to load home data:', error);
+      })));
+    } catch {
+      setPartnerships([
+        { id: 1, name: 'Acme Corporation', health_score: 92, health_state: 'HEALTHY', days_to_milestone: 28, next_milestone: 'Q2 Business Review' },
+        { id: 2, name: 'Apex Dynamics', health_score: 87, health_state: 'HEALTHY', days_to_milestone: 14, next_milestone: 'Executive Sync' },
+        { id: 6, name: 'Enterprise Systems Co', health_score: 68, health_state: 'AT_RISK', days_to_milestone: 7, next_milestone: 'Health Review' },
+        { id: 9, name: 'NextGen Technologies', health_score: 65, health_state: 'AT_RISK', days_to_milestone: 3, next_milestone: 'Urgent Review' },
+      ]);
     } finally {
       setLoading(false);
     }
   };
 
-  const handleItemClick = (partnershipId: number) => {
-    router.push(`/partnership/${partnershipId}`);
-  };
+  const atRisk = partnerships.filter(p => p.health_state === 'AT_RISK' || p.health_state === 'CRITICAL');
+  const healthy = partnerships.filter(p => p.health_state === 'HEALTHY');
+  const upcoming = [...partnerships].sort((a, b) => a.days_to_milestone - b.days_to_milestone).slice(0, 4);
 
-  const handleConfirmRecommendation = async (item: ActionItem) => {
-    alert(`Confirmed recommendation for ${item.partnership_name}`);
-    setRecommendations(recommendations.filter(r => r.partnership_id !== item.partnership_id));
-  };
-
-  const getHealthColor = (state?: string) => {
+  const getHealthColor = (state: string) => {
     switch (state) {
       case 'CRITICAL': return 'bg-red-500';
-      case 'AT_RISK': return 'bg-yellow-500';
-      case 'HEALTHY': return 'bg-green-500';
-      default: return 'bg-gray-400';
+      case 'AT_RISK': return 'bg-amber-500';
+      case 'HEALTHY': return 'bg-emerald-500';
+      default: return 'bg-slate-500';
     }
   };
 
-  const getMyPartnershipsSnapshot = () => {
-    const total = partnerships.length;
-    const healthy = partnerships.filter(p => p.health_state === 'HEALTHY').length;
-    const atRisk = partnerships.filter(p => p.health_state === 'AT_RISK').length;
-    const critical = partnerships.filter(p => p.health_state === 'CRITICAL').length;
-    
-    const byType = partnerships.reduce((acc, p) => {
-      acc[p.partnership_type] = (acc[p.partnership_type] || 0) + 1;
-      return acc;
-    }, {} as Record<string, number>);
-
-    return { total, healthy, atRisk, critical, byType };
-  };
-
-  const snapshot = getMyPartnershipsSnapshot();
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-xl text-gray-600">Loading...</div>
-      </div>
-    );
-  }
-
   return (
-    <div className="min-h-screen bg-gray-50">
-      <header className="bg-[#1e293b] border-b border-gray-700">
-        <div className="max-w-7xl mx-auto px-8 py-6">
-          <div className="flex items-center space-x-3">
-            <div className="flex items-center space-x-1">
-              <div className="w-8 h-8 bg-[#60a5fa] rounded"></div>
-              <div className="w-8 h-8 bg-[#60e1fa] rounded"></div>
-            </div>
-            <div>
-              <h1 className="text-3xl font-bold text-white">Welcome Back</h1>
-              <p className="text-gray-400 mt-1">Here's what needs your attention</p>
-            </div>
-          </div>
+    <div className="min-h-screen bg-slate-950">
+      <PageNavigation />
+      <main className="max-w-7xl mx-auto px-8 py-8 space-y-8">
+        <div>
+          <h1 className="text-3xl font-bold text-white">Welcome Back</h1>
+          <p className="text-slate-400 mt-1">Here's what needs your attention today</p>
         </div>
-      </header>
 
-      <main className="max-w-7xl mx-auto px-8 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div className="lg:col-span-2 space-y-6">
-            <div className="bg-white rounded-lg shadow">
-              <div className="p-6 border-b border-gray-200">
-                <div className="flex items-center space-x-3">
-                  <Target className="w-6 h-6 text-[#60a5fa]" />
-                  <h2 className="text-xl font-bold text-gray-900">Your Focus Today</h2>
-                </div>
-              </div>
-              <div className="divide-y divide-gray-200">
-                {actionItems.length === 0 ? (
-                  <div className="p-8 text-center text-gray-500">
-                    <CheckCircle className="w-12 h-12 mx-auto mb-3 text-green-500" />
-                    <p>All caught up! No partnerships need attention.</p>
-                  </div>
-                ) : (
-                  actionItems.map((item) => (
-                    <button
-                      key={item.partnership_id}
-                      onClick={() => handleItemClick(item.partnership_id)}
-                      className="w-full p-6 hover:bg-gray-50 transition-colors text-left"
-                    >
-                      <div className="flex items-start justify-between">
-                        <div className="flex items-start space-x-4 flex-1">
-                          <div className={`w-3 h-3 rounded-full mt-1 ${getHealthColor(item.health_state)}`}></div>
-                          <div className="flex-1">
-                            <h3 className="font-semibold text-gray-900">{item.partnership_name}</h3>
-                            <p className="text-sm text-gray-600 mt-1">{item.summary}</p>
-                          </div>
-                        </div>
-                        <span className="px-3 py-1 bg-gradient-to-r from-[#60a5fa] to-[#60e1fa] text-white text-sm font-medium rounded">
-                          {item.cta}
-                        </span>
-                      </div>
-                    </button>
-                  ))
-                )}
-              </div>
+        {/* Snapshot Stats */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          {[
+            { label: 'Total Partnerships', value: partnerships.length, color: 'text-white' },
+            { label: 'Healthy', value: healthy.length, color: 'text-emerald-400' },
+            { label: 'At Risk', value: atRisk.length, color: 'text-amber-400' },
+            { label: 'Critical', value: partnerships.filter(p => p.health_state === 'CRITICAL').length, color: 'text-red-400' },
+          ].map((stat, idx) => (
+            <div key={idx} className="bg-slate-900 border border-slate-700 rounded-xl p-6">
+              <div className={`text-3xl font-bold ${stat.color}`}>{stat.value}</div>
+              <div className="text-slate-400 text-sm mt-1">{stat.label}</div>
             </div>
+          ))}
+        </div>
 
-            <div className="bg-white rounded-lg shadow">
-              <div className="p-6 border-b border-gray-200">
-                <div className="flex items-center space-x-3">
-                  <Bell className="w-6 h-6 text-[#60e1fa]" />
-                  <h2 className="text-xl font-bold text-gray-900">What Changed</h2>
-                </div>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {/* Focus Today */}
+          <div className="lg:col-span-2 space-y-6">
+            <div className="bg-slate-900 border border-slate-700 rounded-xl overflow-hidden">
+              <div className="p-6 border-b border-slate-700 flex items-center space-x-3">
+                <Target className="w-5 h-5 text-blue-400" />
+                <h2 className="text-lg font-bold text-white">Your Focus Today</h2>
+                {atRisk.length > 0 && <span className="px-2 py-1 bg-red-500/20 text-red-400 text-xs rounded-full">{atRisk.length} need attention</span>}
               </div>
-              <div className="divide-y divide-gray-200">
-                {recentChanges.map((item, idx) => (
-                  <button
-                    key={`${item.partnership_id}-${idx}`}
-                    onClick={() => handleItemClick(item.partnership_id)}
-                    className="w-full p-6 hover:bg-gray-50 transition-colors text-left"
-                  >
-                    <div className="flex items-start justify-between">
-                      <div className="flex-1">
-                        <div className="flex items-center space-x-2 mb-1">
-                          <span className="font-semibold text-gray-900">{item.partnership_name}</span>
-                          <span className="text-xs text-gray-500">
-                            {new Date(item.timestamp).toLocaleDateString()}
-                          </span>
-                        </div>
-                        <p className="text-sm text-gray-600">{item.summary}</p>
+              <div className="divide-y divide-slate-700">
+                {atRisk.length === 0 ? (
+                  <div className="p-8 text-center">
+                    <CheckCircle className="w-12 h-12 mx-auto mb-3 text-emerald-400" />
+                    <p className="text-slate-400">All caught up! No partnerships need attention.</p>
+                  </div>
+                ) : atRisk.map((p) => (
+                  <button key={p.id} onClick={() => router.push(`/partnership/${p.id}`)}
+                    className="w-full p-5 hover:bg-slate-800 transition-colors text-left flex items-center justify-between">
+                    <div className="flex items-center space-x-4">
+                      <div className={`w-3 h-3 rounded-full ${getHealthColor(p.health_state)}`}></div>
+                      <div>
+                        <div className="text-white font-semibold">{p.name}</div>
+                        <div className="text-slate-400 text-sm">Health score: {p.health_score} • {p.next_milestone} in {p.days_to_milestone} days</div>
                       </div>
-                      <Eye className="w-5 h-5 text-gray-400" />
                     </div>
+                    <span className="px-3 py-1 bg-blue-600 text-white text-sm rounded-lg">Review</span>
                   </button>
                 ))}
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-[#60a5fa] to-[#60e1fa] border border-blue-200 rounded-lg shadow">
-              <div className="p-6 border-b border-white/20">
-                <div className="flex items-center space-x-3">
-                  <AlertCircle className="w-6 h-6 text-white" />
-                  <h2 className="text-xl font-bold text-white">Recommendations</h2>
-                </div>
+            {/* Recent Activity */}
+            <div className="bg-slate-900 border border-slate-700 rounded-xl overflow-hidden">
+              <div className="p-6 border-b border-slate-700 flex items-center space-x-3">
+                <Bell className="w-5 h-5 text-blue-400" />
+                <h2 className="text-lg font-bold text-white">Recent Activity</h2>
               </div>
-              <div className="p-6 space-y-4">
-                {recommendations.map((item) => (
-                  <div key={item.partnership_id} className="bg-white rounded-lg p-4">
-                    <div className="flex items-start justify-between mb-3">
-                      <div className="flex-1">
-                        <h4 className="font-semibold text-gray-900">{item.partnership_name}</h4>
-                        <p className="text-sm text-gray-600 mt-1">{item.summary}</p>
-                      </div>
+              <div className="divide-y divide-slate-700">
+                {[
+                  { name: 'Acme Corporation', action: 'Health score improved from 85 to 92', time: '2 hours ago' },
+                  { name: 'Apex Dynamics', action: 'Q2 Business Review scheduled', time: '5 hours ago' },
+                  { name: 'Enterprise Systems Co', action: 'Engagement score dropped 8 points', time: '1 day ago' },
+                  { name: 'NextGen Technologies', action: 'Milestone deadline approaching', time: '1 day ago' },
+                ].map((item, idx) => (
+                  <div key={idx} className="p-5 flex items-center justify-between hover:bg-slate-800 transition-colors cursor-pointer">
+                    <div>
+                      <div className="text-white font-medium">{item.name}</div>
+                      <div className="text-slate-400 text-sm mt-1">{item.action}</div>
                     </div>
-                    <div className="flex space-x-3">
-                      <button
-                        onClick={() => handleConfirmRecommendation(item)}
-                        className="px-4 py-2 bg-gradient-to-r from-[#60a5fa] to-[#60e1fa] text-white text-sm rounded-lg hover:opacity-90"
-                      >
-                        Confirm
-                      </button>
-                      <button
-                        onClick={() => handleItemClick(item.partnership_id)}
-                        className="px-4 py-2 bg-white border border-gray-300 text-gray-700 text-sm rounded-lg hover:bg-gray-50"
-                      >
-                        Review
-                      </button>
-                    </div>
+                    <div className="text-slate-500 text-xs">{item.time}</div>
                   </div>
                 ))}
               </div>
             </div>
           </div>
 
+          {/* Sidebar */}
           <div className="space-y-6">
-            <div className="bg-white rounded-lg shadow">
-              <div className="p-6 border-b border-gray-200">
-                <div className="flex items-center space-x-3">
-                  <Users className="w-6 h-6 text-[#60a5fa]" />
-                  <h2 className="text-lg font-semibold text-gray-900">My Partnerships</h2>
-                </div>
+            {/* Upcoming Milestones */}
+            <div className="bg-slate-900 border border-slate-700 rounded-xl overflow-hidden">
+              <div className="p-6 border-b border-slate-700 flex items-center space-x-3">
+                <Calendar className="w-5 h-5 text-blue-400" />
+                <h2 className="text-lg font-bold text-white">Upcoming Milestones</h2>
               </div>
-              <div className="p-6 space-y-4">
-                <div>
-                  <div className="text-sm text-gray-600 mb-1">Total Partnerships</div>
-                  <div className="text-3xl font-bold text-gray-900">{snapshot.total}</div>
-                </div>
-
-                <div className="border-t border-gray-200 pt-4 space-y-3">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-2">
-                      <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                      <span className="text-sm text-gray-700">Healthy</span>
-                    </div>
-                    <span className="text-lg font-semibold text-gray-900">{snapshot.healthy}</span>
-                  </div>
-
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-2">
-                      <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                      <span className="text-sm text-gray-700">At Risk</span>
-                    </div>
-                    <span className="text-lg font-semibold text-gray-900">{snapshot.atRisk}</span>
-                  </div>
-
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-2">
-                      <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                      <span className="text-sm text-gray-700">Critical</span>
-                    </div>
-                    <span className="text-lg font-semibold text-gray-900">{snapshot.critical}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-lg shadow">
-              <div className="p-6 border-b border-gray-200">
-                <div className="flex items-center space-x-3">
-                  <Calendar className="w-6 h-6 text-[#60e1fa]" />
-                  <h2 className="text-lg font-semibold text-gray-900">Upcoming</h2>
-                </div>
-              </div>
-              <div className="p-6 space-y-4">
-                {deadlines.map((item) => (
-                  <button
-                    key={item.partnership_id}
-                    onClick={() => handleItemClick(item.partnership_id)}
-                    className="w-full text-left p-3 rounded-lg hover:bg-gray-50 border border-gray-200"
-                  >
-                    <div className="flex items-start space-x-3">
-                      <Clock className={`w-5 h-5 mt-0.5 ${item.priority === 1 ? 'text-red-600' : 'text-gray-400'}`} />
-                      <div className="flex-1">
-                        <h4 className="font-medium text-gray-900 text-sm">{item.partnership_name}</h4>
-                        <p className="text-xs text-gray-600 mt-1">{item.summary}</p>
+              <div className="p-4 space-y-3">
+                {upcoming.map((p) => (
+                  <button key={p.id} onClick={() => router.push(`/partnership/${p.id}`)}
+                    className="w-full text-left p-3 rounded-lg hover:bg-slate-800 border border-slate-700 transition-colors">
+                    <div className="flex items-center space-x-3">
+                      <Clock className={`w-4 h-4 ${p.days_to_milestone <= 7 ? 'text-red-400' : 'text-slate-400'}`} />
+                      <div>
+                        <div className="text-white text-sm font-medium">{p.name}</div>
+                        <div className="text-slate-400 text-xs">{p.next_milestone} • {p.days_to_milestone} days</div>
                       </div>
                     </div>
                   </button>
@@ -354,18 +150,19 @@ export default function HomePage() {
               </div>
             </div>
 
-            <button
-              onClick={() => router.push('/executive')}
-              className="w-full bg-gradient-to-r from-[#60a5fa] to-[#60e1fa] text-white rounded-lg shadow p-6 hover:opacity-90 transition-all"
-            >
-              <div className="flex items-center justify-between">
-                <div className="text-left">
-                  <div className="text-sm font-medium">Executive View</div>
-                  <div className="text-xs opacity-90 mt-1">Portfolio overview</div>
-                </div>
-                <TrendingUp className="w-6 h-6" />
-              </div>
-            </button>
+            {/* Quick Actions */}
+            <div className="bg-slate-900 border border-slate-700 rounded-xl p-6 space-y-3">
+              <h2 className="text-lg font-bold text-white mb-4">Quick Actions</h2>
+              <button onClick={() => router.push('/executive')} className="w-full px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-medium transition-colors text-left flex items-center space-x-3">
+                <TrendingUp className="w-4 h-4" /><span>Executive Dashboard</span>
+              </button>
+              <button onClick={() => router.push('/partnerships/new')} className="w-full px-4 py-3 bg-slate-800 hover:bg-slate-700 text-white rounded-lg text-sm font-medium transition-colors text-left flex items-center space-x-3 border border-slate-700">
+                <Users className="w-4 h-4" /><span>Add Partnership</span>
+              </button>
+              <button onClick={() => router.push('/reports')} className="w-full px-4 py-3 bg-slate-800 hover:bg-slate-700 text-white rounded-lg text-sm font-medium transition-colors text-left flex items-center space-x-3 border border-slate-700">
+                <Eye className="w-4 h-4" /><span>View Reports</span>
+              </button>
+            </div>
           </div>
         </div>
       </main>
