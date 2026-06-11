@@ -338,7 +338,7 @@ export default function ExecutiveDashboard() {
               <div className="bg-red-950/40 border-2 border-red-500 rounded-lg p-4 min-h-[120px] relative">
                 <div className="absolute top-2 right-2 text-red-400 text-xs font-bold">CRITICAL</div>
                 <div className="absolute bottom-2 left-2 right-2">
-                  <div className="text-white font-semibold text-sm mb-1">Enterprise Systems Co</div>
+                  <div className="text-white font-semibold text-sm mb-1 cursor-pointer hover:underline" onClick={() => window.location.href='/partnership/6'}>Enterprise Systems Co</div>
                   <div className="text-slate-300 text-xs">$3.5M • Health: 68</div>
                 </div>
               </div>
@@ -365,7 +365,7 @@ export default function ExecutiveDashboard() {
               <div className="bg-orange-950/40 border-2 border-orange-500 rounded-lg p-4 min-h-[120px] relative">
                 <div className="absolute top-2 right-2 text-orange-400 text-xs font-bold">HIGH RISK</div>
                 <div className="absolute bottom-2 left-2 right-2">
-                  <div className="text-white font-semibold text-sm mb-1">NextGen Tech</div>
+                  <div className="text-white font-semibold text-sm mb-1 cursor-pointer hover:underline" onClick={() => window.location.href='/partnership/9'}>NextGen Tech</div>
                   <div className="text-slate-300 text-xs">$2.8M • Health: 65</div>
                 </div>
               </div>
@@ -383,7 +383,7 @@ export default function ExecutiveDashboard() {
               <div className="bg-emerald-950/40 border border-emerald-700 rounded-lg p-4 min-h-[120px] relative">
                 <div className="absolute top-2 right-2 text-emerald-400 text-xs font-bold">HEALTHY</div>
                 <div className="absolute bottom-2 left-2 right-2">
-                  <div className="text-white font-semibold text-sm mb-1">Acme Corporation</div>
+                  <div className="text-white font-semibold text-sm mb-1 cursor-pointer hover:underline" onClick={() => window.location.href='/partnership/1'}>Acme Corporation</div>
                   <div className="text-slate-300 text-xs">$5.2M • Health: 92</div>
                 </div>
               </div>
