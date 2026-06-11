@@ -19,7 +19,8 @@ export function PageNavigation() {
   const toolsRef = useRef<HTMLDivElement>(null);
 
   const navItems = [
-    { href: '/executive', label: 'Home', icon: Home },
+    { href: '/home', label: 'Home', icon: Home },
+    { href: '/executive', label: 'Dashboard', icon: BarChart3 },
     { href: '/partnerships', label: 'Partnerships', icon: Briefcase },
     { href: '/settings/integrations', label: 'Settings', icon: Settings },
   ];
