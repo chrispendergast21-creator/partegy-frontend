@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import { useOrganization } from '@/lib/useOrganization';
 import { API_URL } from '@/lib/api';
+import { PageNavigation } from '@/components/PageNavigation';
 import { 
   ArrowLeft, 
   Building2, 
@@ -120,35 +121,26 @@ export default function NewPartnershipPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
-      <header className="bg-gradient-to-r from-[#1e293b] via-[#334155] to-[#475569] border-b border-gray-700">
-        <div className="max-w-7xl mx-auto px-8 py-6">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <button
-                onClick={() => router.push('/partnerships')}
-                className="p-2 text-gray-300 hover:bg-white/10 rounded-lg transition-colors"
-              >
-                <ArrowLeft className="w-6 h-6" />
-              </button>
-              <div>
-                <h1 className="text-3xl font-bold bg-gradient-to-r from-[#60a5fa] to-[#60e1fa] bg-clip-text text-transparent">
-                  Create New Partnership
-                </h1>
-                <p className="text-gray-300 mt-1">{currentOrg.name}</p>
-              </div>
-            </div>
-            <button
-              onClick={handleSubmit}
-              disabled={saving}
-              className="flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-[#60a5fa] to-[#60e1fa] text-white rounded-xl hover:shadow-lg transition-all disabled:opacity-50"
-            >
-              <Save className="w-5 h-5" />
-              <span>{saving ? 'Creating...' : 'Create Partnership'}</span>
+    <div className="min-h-screen bg-slate-950">
+      <PageNavigation />
+      <div className="max-w-7xl mx-auto px-8 py-6">
+        <div className="flex items-center justify-between mb-8">
+          <div className="flex items-center space-x-4">
+            <button onClick={() => router.push('/partnerships')} className="p-2 text-slate-400 hover:bg-slate-800 rounded-lg transition-colors">
+              <ArrowLeft className="w-6 h-6" />
             </button>
+            <div>
+              <h1 className="text-3xl font-bold text-white">Create New Partnership</h1>
+              <p className="text-slate-400 mt-1">{currentOrg?.name}</p>
+            </div>
           </div>
+          <button onClick={handleSubmit} disabled={saving}
+            className="flex items-center space-x-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl transition-all disabled:opacity-50">
+            <Save className="w-5 h-5" />
+            <span>{saving ? 'Creating...' : 'Create Partnership'}</span>
+          </button>
         </div>
-      </header>
+      </div>
 
       <main className="max-w-5xl mx-auto px-8 py-8">
         {/* Progress Steps */}
