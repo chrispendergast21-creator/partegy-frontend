@@ -47,7 +47,7 @@ export default function LandingPage() {
     <div className="min-h-screen bg-gradient-to-b from-slate-950 to-slate-900" style={{backgroundColor: '#0B0E14'}}>
       {/* Executive Header */}
       <header className="border-b border-slate-700/50 backdrop-blur-sm bg-slate-900/80">
-        <div className="max-w-7xl mx-auto px-8 py-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 py-4 sm:py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
               <div className="flex space-x-1">
@@ -58,9 +58,9 @@ export default function LandingPage() {
             </div>
             <button
               onClick={handleWatchDemo}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium text-sm transition-all flex items-center space-x-2 border border-blue-500"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 sm:px-6 sm:py-3 rounded-lg font-medium text-xs sm:text-sm transition-all flex items-center space-x-1.5 sm:space-x-2 border border-blue-500 whitespace-nowrap"
             >
-              <Monitor className="w-4 h-4" />
+              <Monitor className="w-3.5 h-3.5 sm:w-4 sm:h-4 hidden sm:block" />
               <span>Request Early Access</span>
             </button>
           </div>
@@ -154,8 +154,8 @@ export default function LandingPage() {
           </div>
           
           <div className="bg-slate-900/20 border border-slate-700 rounded-2xl overflow-hidden">
-            {/* Table Header */}
-            <div className="grid grid-cols-3 bg-slate-800/50">
+            {/* Table Header - hidden on mobile, cards have their own labels instead */}
+            <div className="hidden md:grid grid-cols-3 bg-slate-800/50">
               <div className="p-6 border-r border-slate-700">
                 <h3 className="text-lg font-bold text-white">System</h3>
               </div>
@@ -168,49 +168,55 @@ export default function LandingPage() {
             </div>
             
             {/* CRM Row */}
-            <div className="grid grid-cols-3 border-t border-slate-700">
-              <div className="p-6 border-r border-slate-700">
+            <div className="grid grid-cols-1 md:grid-cols-3 border-t border-slate-700">
+              <div className="p-4 md:p-6 border-r-0 md:border-r border-slate-700">
                 <div className="flex items-center space-x-3">
-                  <Database className="w-6 h-6 text-slate-400" />
+                  <Database className="w-5 h-5 md:w-6 md:h-6 text-slate-400" />
                   <span className="font-semibold text-white">CRM</span>
                 </div>
               </div>
-              <div className="p-6 border-r border-slate-700">
+              <div className="p-4 md:p-6 border-r-0 md:border-r border-slate-700 pl-4 md:pl-6">
+                <span className="text-slate-500 text-xs uppercase tracking-wide md:hidden block mb-1">What it does</span>
                 <span className="text-slate-300">Pipeline & Revenue</span>
               </div>
-              <div className="p-6 bg-red-950/10">
+              <div className="p-4 md:p-6 bg-red-950/10">
+                <span className="text-red-400/70 text-xs uppercase tracking-wide md:hidden block mb-1">What it misses</span>
                 <span className="text-red-200 font-bold">Strategic Alignment</span>
               </div>
             </div>
             
             {/* PRM Row */}
-            <div className="grid grid-cols-3 border-t border-slate-700">
-              <div className="p-6 border-r border-slate-700">
+            <div className="grid grid-cols-1 md:grid-cols-3 border-t border-slate-700">
+              <div className="p-4 md:p-6 border-r-0 md:border-r border-slate-700">
                 <div className="flex items-center space-x-3">
-                  <Users className="w-6 h-6 text-slate-400" />
+                  <Users className="w-5 h-5 md:w-6 md:h-6 text-slate-400" />
                   <span className="font-semibold text-white">PRM</span>
                 </div>
               </div>
-              <div className="p-6 border-r border-slate-700">
+              <div className="p-4 md:p-6 border-r-0 md:border-r border-slate-700 pl-4 md:pl-6">
+                <span className="text-slate-500 text-xs uppercase tracking-wide md:hidden block mb-1">What it does</span>
                 <span className="text-slate-300">Portals & Referrals</span>
               </div>
-              <div className="p-6 bg-red-950/10">
+              <div className="p-4 md:p-6 bg-red-950/10">
+                <span className="text-red-400/70 text-xs uppercase tracking-wide md:hidden block mb-1">What it misses</span>
                 <span className="text-red-200 font-bold">Inter-organizational Governance</span>
               </div>
             </div>
             
             {/* Spreadsheets Row */}
-            <div className="grid grid-cols-3 border-t border-slate-700">
-              <div className="p-6 border-r border-slate-700">
+            <div className="grid grid-cols-1 md:grid-cols-3 border-t border-slate-700">
+              <div className="p-4 md:p-6 border-r-0 md:border-r border-slate-700">
                 <div className="flex items-center space-x-3">
-                  <FileText className="w-6 h-6 text-slate-400" />
+                  <FileText className="w-5 h-5 md:w-6 md:h-6 text-slate-400" />
                   <span className="font-semibold text-white">Spreadsheets</span>
                 </div>
               </div>
-              <div className="p-6 border-r border-slate-700">
+              <div className="p-4 md:p-6 border-r-0 md:border-r border-slate-700 pl-4 md:pl-6">
+                <span className="text-slate-500 text-xs uppercase tracking-wide md:hidden block mb-1">What it does</span>
                 <span className="text-slate-300">Manual Strategy</span>
               </div>
-              <div className="p-6 bg-red-950/10">
+              <div className="p-4 md:p-6 bg-red-950/10">
+                <span className="text-red-400/70 text-xs uppercase tracking-wide md:hidden block mb-1">What it misses</span>
                 <span className="text-red-200 font-bold">Real-time Governance & AI Insights</span>
               </div>
             </div>
