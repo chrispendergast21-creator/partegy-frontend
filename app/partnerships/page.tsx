@@ -57,16 +57,16 @@ export default function PartnershipsPage() {
     <div className="min-h-screen bg-slate-950">
       <PageNavigation />
 
-      <main className="max-w-7xl mx-auto px-8 py-8">
+      <main className="max-w-7xl mx-auto px-4 sm:px-8 py-6 sm:py-8">
         {/* Page Title */}
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 sm:mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-white">Partnership Portfolio</h1>
-            <p className="text-slate-400 mt-1">Manage and monitor all your strategic partnerships</p>
+            <h1 className="text-2xl sm:text-3xl font-bold text-white">Partnership Portfolio</h1>
+            <p className="text-slate-400 mt-1 text-sm sm:text-base">Manage and monitor all your strategic partnerships</p>
           </div>
           <button
             onClick={() => router.push('/partnerships/new')}
-            className="flex items-center space-x-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
+            className="flex items-center justify-center space-x-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
           >
             <Plus className="w-4 h-4" />
             <span>Add Partnership</span>
@@ -126,16 +126,16 @@ export default function PartnershipsPage() {
 
         {/* Search + Partnership Cards */}
         <div className="bg-slate-900 border border-slate-700 rounded-xl p-6">
-          <div className="flex items-center justify-between mb-6">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
             <h2 className="text-xl font-bold text-white">All Partnerships</h2>
-            <div className="relative">
+            <div className="relative w-full sm:w-auto">
               <Search className="w-4 h-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400" />
               <input
                 type="text"
                 placeholder="Search partnerships..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 pr-4 py-2 bg-slate-800 border border-slate-600 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-slate-400 text-sm"
+                className="w-full pl-10 pr-4 py-2 bg-slate-800 border border-slate-600 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-slate-400 text-sm"
               />
             </div>
           </div>

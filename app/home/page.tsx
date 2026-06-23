@@ -49,7 +49,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-slate-950">
       <PageNavigation />
-      <main className="max-w-7xl mx-auto px-8 py-8 space-y-8">
+      <main className="max-w-7xl mx-auto px-4 sm:px-8 py-6 sm:py-8 space-y-6 sm:space-y-8">
         <div>
           <h1 className="text-3xl font-bold text-white">Welcome Back</h1>
           <p className="text-slate-400 mt-1">Here's what needs your attention today</p>

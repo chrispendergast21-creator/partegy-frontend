@@ -67,17 +67,17 @@ export default function ExecutiveDashboard() {
     <div className="min-h-screen bg-slate-950">
       <PageNavigation />
       
-      <div className="max-w-7xl mx-auto px-8 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 py-6 sm:py-8">
         {/* Page Header */}
-        <div className="mb-8">
-          <div className="flex items-center justify-between">
+        <div className="mb-6 sm:mb-8">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
             <div>
-              <h1 className="text-3xl font-bold text-white mb-2">Executive Dashboard</h1>
-              <p className="text-slate-400">Portfolio-level partnership intelligence</p>
+              <h1 className="text-2xl sm:text-3xl font-bold text-white mb-1 sm:mb-2">Executive Dashboard</h1>
+              <p className="text-slate-400 text-sm sm:text-base">Portfolio-level partnership intelligence</p>
             </div>
             <div className="flex items-center space-x-2">
-              <Activity className="w-5 h-5 text-emerald-400 animate-pulse" />
-              <span className="text-sm text-slate-400">Live Data</span>
+              <Activity className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400 animate-pulse" />
+              <span className="text-xs sm:text-sm text-slate-400">Live Data</span>
             </div>
           </div>
         </div>
@@ -321,21 +321,21 @@ export default function ExecutiveDashboard() {
           </div>
 
           {/* Risk Matrix Grid */}
-          <div className="relative bg-slate-950 rounded-xl p-8 border border-slate-700">
-            {/* Y-axis label */}
-            <div className="absolute -left-8 top-1/2 -translate-y-1/2 -rotate-90 text-slate-400 text-sm font-medium">
+          <div className="relative bg-slate-950 rounded-xl p-4 sm:p-8 border border-slate-700">
+            {/* Y-axis label - hidden on mobile, rotated text doesn't work well on small screens */}
+            <div className="hidden sm:block absolute -left-8 top-1/2 -translate-y-1/2 -rotate-90 text-slate-400 text-sm font-medium">
               Revenue Impact
             </div>
-            
+
             {/* X-axis label */}
-            <div className="text-center text-slate-400 text-sm font-medium mb-4">
-              Partnership Health Score
+            <div className="text-center text-slate-400 text-xs sm:text-sm font-medium mb-4">
+              Partnership Health Score <span className="sm:hidden">× Revenue Impact</span>
             </div>
 
-            {/* Matrix Grid */}
-            <div className="grid grid-cols-3 gap-4 mb-4">
+            {/* Matrix Grid - 1 col on mobile so each risk card is fully readable */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-4">
               {/* High Revenue / Low Health - CRITICAL */}
-              <div className="bg-red-950/40 border-2 border-red-500 rounded-lg p-4 min-h-[120px] relative">
+              <div className="bg-red-950/40 border-2 border-red-500 rounded-lg p-4 min-h-[90px] sm:min-h-[120px] relative">
                 <div className="absolute top-2 right-2 text-red-400 text-xs font-bold">CRITICAL</div>
                 <div className="absolute bottom-2 left-2 right-2">
                   <div className="text-white font-semibold text-sm mb-1 cursor-pointer hover:underline" onClick={() => window.location.href='/partnership/6'}>Enterprise Systems Co</div>
@@ -344,7 +344,7 @@ export default function ExecutiveDashboard() {
               </div>
 
               {/* High Revenue / Medium Health - WATCH */}
-              <div className="bg-yellow-950/40 border-2 border-yellow-600 rounded-lg p-4 min-h-[120px] relative">
+              <div className="bg-yellow-950/40 border-2 border-yellow-600 rounded-lg p-4 min-h-[90px] sm:min-h-[120px] relative">
                 <div className="absolute top-2 right-2 text-yellow-400 text-xs font-bold">WATCH</div>
                 <div className="absolute bottom-2 left-2 right-2">
                   <div className="text-white font-semibold text-sm mb-1">TechVenture Inc</div>
@@ -353,7 +353,7 @@ export default function ExecutiveDashboard() {
               </div>
 
               {/* High Revenue / High Health - STRONG */}
-              <div className="bg-emerald-950/40 border-2 border-emerald-600 rounded-lg p-4 min-h-[120px] relative">
+              <div className="bg-emerald-950/40 border-2 border-emerald-600 rounded-lg p-4 min-h-[90px] sm:min-h-[120px] relative">
                 <div className="absolute top-2 right-2 text-emerald-400 text-xs font-bold">STRONG</div>
                 <div className="absolute bottom-2 left-2 right-2">
                   <div className="text-white font-semibold text-sm mb-1">Global Solutions Ltd</div>
@@ -362,7 +362,7 @@ export default function ExecutiveDashboard() {
               </div>
 
               {/* Medium Revenue / Low Health - HIGH RISK */}
-              <div className="bg-orange-950/40 border-2 border-orange-500 rounded-lg p-4 min-h-[120px] relative">
+              <div className="bg-orange-950/40 border-2 border-orange-500 rounded-lg p-4 min-h-[90px] sm:min-h-[120px] relative">
                 <div className="absolute top-2 right-2 text-orange-400 text-xs font-bold">HIGH RISK</div>
                 <div className="absolute bottom-2 left-2 right-2">
                   <div className="text-white font-semibold text-sm mb-1 cursor-pointer hover:underline" onClick={() => window.location.href='/partnership/9'}>NextGen Tech</div>
@@ -371,7 +371,7 @@ export default function ExecutiveDashboard() {
               </div>
 
               {/* Medium Revenue / Medium Health - MONITOR */}
-              <div className="bg-blue-950/40 border border-blue-700 rounded-lg p-4 min-h-[120px] relative">
+              <div className="bg-blue-950/40 border border-blue-700 rounded-lg p-4 min-h-[90px] sm:min-h-[120px] relative">
                 <div className="absolute top-2 right-2 text-blue-400 text-xs font-bold">MONITOR</div>
                 <div className="absolute bottom-2 left-2 right-2">
                   <div className="text-white font-semibold text-sm mb-1">Innovation Partners</div>
@@ -380,7 +380,7 @@ export default function ExecutiveDashboard() {
               </div>
 
               {/* Medium Revenue / High Health - HEALTHY */}
-              <div className="bg-emerald-950/40 border border-emerald-700 rounded-lg p-4 min-h-[120px] relative">
+              <div className="bg-emerald-950/40 border border-emerald-700 rounded-lg p-4 min-h-[90px] sm:min-h-[120px] relative">
                 <div className="absolute top-2 right-2 text-emerald-400 text-xs font-bold">HEALTHY</div>
                 <div className="absolute bottom-2 left-2 right-2">
                   <div className="text-white font-semibold text-sm mb-1 cursor-pointer hover:underline" onClick={() => window.location.href='/partnership/1'}>Acme Corporation</div>
@@ -389,13 +389,13 @@ export default function ExecutiveDashboard() {
               </div>
 
               {/* Low Revenue cells - lighter styling */}
-              <div className="bg-slate-800/30 border border-slate-700 rounded-lg p-4 min-h-[120px]"></div>
-              <div className="bg-slate-800/30 border border-slate-700 rounded-lg p-4 min-h-[120px]"></div>
-              <div className="bg-slate-800/30 border border-slate-700 rounded-lg p-4 min-h-[120px]"></div>
+              <div className="bg-slate-800/30 border border-slate-700 rounded-lg p-4 min-h-[90px] sm:min-h-[120px]"></div>
+              <div className="bg-slate-800/30 border border-slate-700 rounded-lg p-4 min-h-[90px] sm:min-h-[120px]"></div>
+              <div className="bg-slate-800/30 border border-slate-700 rounded-lg p-4 min-h-[90px] sm:min-h-[120px]"></div>
             </div>
 
             {/* Legend */}
-            <div className="flex items-center justify-center space-x-6 text-xs">
+            <div className="flex items-center justify-center flex-wrap gap-3 sm:gap-6 text-xs">
               <div className="flex items-center space-x-2">
                 <div className="w-3 h-3 bg-red-500 rounded"></div>
                 <span className="text-slate-400">Critical Risk</span>
@@ -424,16 +424,16 @@ export default function ExecutiveDashboard() {
         </div>
 
         {/* Quick Actions */}
-        <div className="mt-8 flex justify-center space-x-4">
+        <div className="mt-8 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
           <Link 
             href="/partnerships"
-            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-all"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-all text-center"
           >
             View All Partnerships
           </Link>
           <Link 
             href="/admin"
-            className="border border-slate-700 hover:border-slate-600 text-slate-300 hover:text-white px-8 py-3 rounded-lg font-semibold transition-all"
+            className="border border-slate-700 hover:border-slate-600 text-slate-300 hover:text-white px-8 py-3 rounded-lg font-semibold transition-all text-center"
           >
             Admin Settings
           </Link>
