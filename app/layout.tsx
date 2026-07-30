@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <script async src="https://plausible.io/js/pa-Bl0R20lgkICHmdizssXYs.js"></script>
+        <script async src="https://plausible.io/js/pa-rpM4rrRPF5JTlXp9OrlJf.js"></script>
         <script dangerouslySetInnerHTML={{ __html: `
           window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
           plausible.init()
