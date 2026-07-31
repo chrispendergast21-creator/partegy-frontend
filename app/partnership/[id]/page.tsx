@@ -6,7 +6,7 @@ import { PageNavigation } from '@/components/PageNavigation';
 import {
   ArrowLeft, Building2, TrendingUp, TrendingDown, DollarSign,
   Calendar, Target, Users, FileText, BarChart3, Brain, Clock,
-  Activity, CheckCircle, AlertCircle, Mail, Phone, Edit, Share, Bell
+  Activity, CheckCircle, AlertCircle, Mail, Phone, Edit, Share, Bell, Megaphone, Download, ExternalLink, BookOpen
 } from 'lucide-react';
 
 export default function PartnershipDetailPage() {
