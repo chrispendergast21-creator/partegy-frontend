@@ -101,6 +101,7 @@ export default function PartnershipDetailPage() {
     { id: 'health', name: 'Health Analysis', icon: Activity, description: '6-dimension health scoring' },
     { id: 'okrs', name: 'OKRs & Goals', icon: Target, description: 'Objectives and key results' },
     { id: 'stakeholders', name: 'Stakeholders', icon: Users, description: 'Team and contacts' },
+    { id: 'sales', name: 'Sales', icon: FileText, description: 'Resources and positioning' },
     { id: 'documents', name: 'Documents', icon: FileText, description: 'Files and agreements' },
     { id: 'ai-insights', name: 'AI Insights', icon: Brain, description: 'Predictive analytics' },
   ];
@@ -347,6 +348,127 @@ export default function PartnershipDetailPage() {
                     </div>
                   </div>
                 ))}
+              </div>
+            </div>
+          )}
+
+          {/* SALES */}
+          {activeTab === 'sales' && (
+            <div className="space-y-8">
+              <div className="flex items-center justify-between">
+                <h2 className="text-2xl font-bold text-white">Sales Resources</h2>
+              </div>
+
+              {/* Company Overview */}
+              <div className="bg-slate-800 border border-slate-700 rounded-xl p-6">
+                <div className="flex items-center space-x-3 mb-4">
+                  <div className="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                    <Target className="w-5 h-5 text-blue-400" />
+                  </div>
+                  <div>
+                    <h3 className="text-white font-bold text-lg">Company Overview</h3>
+                    <p className="text-slate-400 text-sm">What you need to know before a call</p>
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="bg-slate-700/50 rounded-lg p-4"><div className="text-slate-400 text-xs uppercase tracking-wide mb-1">Industry</div><div className="text-white font-medium">Enterprise Technology</div></div>
+                  <div className="bg-slate-700/50 rounded-lg p-4"><div className="text-slate-400 text-xs uppercase tracking-wide mb-1">Company Size</div><div className="text-white font-medium">500-1,000 employees</div></div>
+                  <div className="bg-slate-700/50 rounded-lg p-4"><div className="text-slate-400 text-xs uppercase tracking-wide mb-1">HQ</div><div className="text-white font-medium">San Francisco, CA</div></div>
+                  <div className="bg-slate-700/50 rounded-lg p-4"><div className="text-slate-400 text-xs uppercase tracking-wide mb-1">Target Market</div><div className="text-white font-medium">Mid-market and Enterprise</div></div>
+                </div>
+              </div>
+
+              {/* Positioning */}
+              <div className="bg-slate-800 border border-slate-700 rounded-xl p-6">
+                <div className="flex items-center space-x-3 mb-4">
+                  <div className="w-10 h-10 bg-emerald-500/20 rounded-lg flex items-center justify-center">
+                    <TrendingUp className="w-5 h-5 text-emerald-400" />
+                  </div>
+                  <div>
+                    <h3 className="text-white font-bold text-lg">How to Position Partegy</h3>
+                    <p className="text-slate-400 text-sm">Tailored messaging for this partner</p>
+                  </div>
+                </div>
+                <div className="space-y-4">
+                  <div className="border border-blue-500/30 bg-blue-950/20 rounded-xl p-4">
+                    <div className="text-xs font-bold uppercase tracking-wide text-slate-400 mb-2">Elevator Pitch</div>
+                    <p className="text-slate-300 text-sm leading-relaxed">Partegy gives your partnership team a single governance layer — health scoring, behavioral signals, and executive-level visibility — so nothing falls through the cracks and leadership always knows what is at risk.</p>
+                  </div>
+                  <div className="border border-amber-500/30 bg-amber-950/20 rounded-xl p-4">
+                    <div className="text-xs font-bold uppercase tracking-wide text-slate-400 mb-2">Their Pain Points</div>
+                    <p className="text-slate-300 text-sm leading-relaxed">Partners at this tier typically struggle with inconsistent QBR preparation, lack of exec visibility into partnership health, and no early warning system before relationships go cold.</p>
+                  </div>
+                  <div className="border border-emerald-500/30 bg-emerald-950/20 rounded-xl p-4">
+                    <div className="text-xs font-bold uppercase tracking-wide text-slate-400 mb-2">Key Value Props</div>
+                    <p className="text-slate-300 text-sm leading-relaxed">Proprietary health scoring across 6 dimensions, AI-powered early warning signals, executive risk matrix, and behavioral intelligence — all in one governed platform.</p>
+                  </div>
+                  <div className="border border-purple-500/30 bg-purple-950/20 rounded-xl p-4">
+                    <div className="text-xs font-bold uppercase tracking-wide text-slate-400 mb-2">Objection Handling</div>
+                    <p className="text-slate-300 text-sm leading-relaxed">We already use Salesforce/HubSpot — Partegy governs partnerships, not pipeline. CRMs track revenue, not relationship health, executive engagement, or strategic alignment.</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Marketing PDFs */}
+              <div className="bg-slate-800 border border-slate-700 rounded-xl p-6">
+                <div className="flex items-center space-x-3 mb-6">
+                  <div className="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center">
+                    <FileText className="w-5 h-5 text-purple-400" />
+                  </div>
+                  <div>
+                    <h3 className="text-white font-bold text-lg">Marketing Materials</h3>
+                    <p className="text-slate-400 text-sm">PDFs and decks ready to share</p>
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  <div className="bg-slate-700/50 border border-slate-600 rounded-xl p-4 flex items-center justify-between hover:border-blue-500 transition-colors">
+                    <div className="flex items-center space-x-4">
+                      <div className="w-10 h-10 rounded-lg bg-red-500/20 text-red-400 flex items-center justify-center text-xs font-bold">PDF</div>
+                      <div><div className="text-white font-medium text-sm">Partegy One-Pager.pdf</div><div className="text-slate-400 text-xs mt-0.5">High-level overview for executive intro meetings</div></div>
+                    </div>
+                    <Download className="w-4 h-4 text-slate-400 hover:text-white" />
+                  </div>
+                  <div className="bg-slate-700/50 border border-slate-600 rounded-xl p-4 flex items-center justify-between hover:border-blue-500 transition-colors">
+                    <div className="flex items-center space-x-4">
+                      <div className="w-10 h-10 rounded-lg bg-red-500/20 text-red-400 flex items-center justify-center text-xs font-bold">PDF</div>
+                      <div><div className="text-white font-medium text-sm">Partnership Governance Overview.pdf</div><div className="text-slate-400 text-xs mt-0.5">Deep dive into how Partegy governs partnerships</div></div>
+                    </div>
+                    <Download className="w-4 h-4 text-slate-400 hover:text-white" />
+                  </div>
+                  <div className="bg-slate-700/50 border border-slate-600 rounded-xl p-4 flex items-center justify-between hover:border-blue-500 transition-colors">
+                    <div className="flex items-center space-x-4">
+                      <div className="w-10 h-10 rounded-lg bg-orange-500/20 text-orange-400 flex items-center justify-center text-xs font-bold">PPT</div>
+                      <div><div className="text-white font-medium text-sm">Executive Demo Deck.pptx</div><div className="text-slate-400 text-xs mt-0.5">Slide deck for live demos with leadership</div></div>
+                    </div>
+                    <Download className="w-4 h-4 text-slate-400 hover:text-white" />
+                  </div>
+                  <div className="bg-slate-700/50 border border-slate-600 rounded-xl p-4 flex items-center justify-between hover:border-blue-500 transition-colors">
+                    <div className="flex items-center space-x-4">
+                      <div className="w-10 h-10 rounded-lg bg-red-500/20 text-red-400 flex items-center justify-center text-xs font-bold">PDF</div>
+                      <div><div className="text-white font-medium text-sm">Competitive Comparison.pdf</div><div className="text-slate-400 text-xs mt-0.5">How Partegy compares to CRM, PRM, and spreadsheets</div></div>
+                    </div>
+                    <Download className="w-4 h-4 text-slate-400 hover:text-white" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Useful Links */}
+              <div className="bg-slate-800 border border-slate-700 rounded-xl p-6">
+                <h3 className="text-white font-bold text-lg mb-4">Useful Links</h3>
+                <div className="space-y-3">
+                  <a href="https://partegy.co/landing" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between p-3 bg-slate-700/50 rounded-lg hover:bg-slate-700 transition-colors group">
+                    <span className="text-slate-300 text-sm group-hover:text-white">Partegy Landing Page</span>
+                    <ArrowLeft className="w-4 h-4 text-slate-500 rotate-180 group-hover:text-blue-400" />
+                  </a>
+                  <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between p-3 bg-slate-700/50 rounded-lg hover:bg-slate-700 transition-colors group">
+                    <span className="text-slate-300 text-sm group-hover:text-white">Partner Website</span>
+                    <ArrowLeft className="w-4 h-4 text-slate-500 rotate-180 group-hover:text-blue-400" />
+                  </a>
+                  <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between p-3 bg-slate-700/50 rounded-lg hover:bg-slate-700 transition-colors group">
+                    <span className="text-slate-300 text-sm group-hover:text-white">LinkedIn Company Page</span>
+                    <ArrowLeft className="w-4 h-4 text-slate-500 rotate-180 group-hover:text-blue-400" />
+                  </a>
+                </div>
               </div>
             </div>
           )}
