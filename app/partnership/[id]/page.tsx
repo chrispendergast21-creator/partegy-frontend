@@ -478,10 +478,10 @@ export default function PartnershipDetailPage() {
                         </div>
                       </div>
                       <div className="flex items-center space-x-3">
-                        <select className="bg-slate-600 border border-slate-500 text-white text-xs rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <select defaultValue={notif.cadence} className="bg-slate-600 border border-slate-500 text-white text-xs rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-blue-500">
                           <option>Weekly</option>
                           <option>Bi-weekly</option>
-                          <option selected>Monthly</option>
+                          <option>Monthly</option>
                           <option>Quarterly</option>
                         </select>
                         <div className={`w-10 h-5 rounded-full flex items-center ${notif.active ? 'bg-blue-600 justify-end' : 'bg-slate-600 justify-start'} px-0.5 cursor-pointer transition-colors`}>
