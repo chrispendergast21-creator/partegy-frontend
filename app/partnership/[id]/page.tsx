@@ -392,10 +392,10 @@ export default function PartnershipDetailPage() {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   {[
-                    { name: 'John Smith', role: 'Partnership Director', type: 'Executive Sponsor', email: 'john@apexdynamics.com', phone: '+1 (555) 123-4567', health: 72, lastContact: '61 days ago', status: 'stale', initials: 'JS', primary: true },
-                    { name: 'Sarah Johnson', role: 'Account Manager', type: 'Operational', email: 'sarah@apexdynamics.com', phone: '+1 (555) 234-5678', health: 85, lastContact: '1 week ago', status: 'active', initials: 'SJ', primary: false },
-                    { name: 'Michael Chen', role: 'Technical Lead', type: 'Technical', email: 'michael@apexdynamics.com', phone: '+1 (555) 345-6789', health: 68, lastContact: '3 days ago', status: 'active', initials: 'MC', primary: false },
-                    { name: 'Lisa Park', role: 'Marketing Manager', type: 'Marketing', email: '', phone: '', health: 0, lastContact: 'Departed', status: 'departed', initials: 'LP', primary: false },
+                    { name: 'John Smith', role: 'Partnership Director', type: 'Executive Sponsor', email: 'john@apexdynamics.com', phone: '+1 (555) 123-4567', health: 72, lastContact: '61 days ago', status: 'stale', initials: 'JS', primary: true, ownedBy: 'Chris Pendergast', ownerInitials: 'CP' },
+                    { name: 'Sarah Johnson', role: 'Account Manager', type: 'Operational', email: 'sarah@apexdynamics.com', phone: '+1 (555) 234-5678', health: 85, lastContact: '1 week ago', status: 'active', initials: 'SJ', primary: false, ownedBy: 'Amanda Torres', ownerInitials: 'AT' },
+                    { name: 'Michael Chen', role: 'Technical Lead', type: 'Technical', email: 'michael@apexdynamics.com', phone: '+1 (555) 345-6789', health: 68, lastContact: '3 days ago', status: 'active', initials: 'MC', primary: false, ownedBy: 'Amanda Torres', ownerInitials: 'AT' },
+                    { name: 'Lisa Park', role: 'Marketing Manager', type: 'Marketing', email: '', phone: '', health: 0, lastContact: 'Departed', status: 'departed', initials: 'LP', primary: false, ownedBy: 'Unassigned', ownerInitials: '?' },
                   ].map((contact, idx) => (
                     <div key={idx} className={`bg-slate-800 border rounded-xl p-5 transition-colors ${contact.status === 'departed' ? 'border-red-900/50 opacity-60' : contact.status === 'stale' ? 'border-amber-900/50' : 'border-slate-700 hover:border-blue-500'}`}>
                       <div className="flex items-start justify-between mb-3">
@@ -415,6 +415,18 @@ export default function PartnershipDetailPage() {
                         </div>
                       </div>
                       <span className="inline-block px-2 py-0.5 bg-slate-700 text-slate-300 text-xs rounded-full mb-3">{contact.type}</span>
+                      <div className="flex items-center space-x-2 mb-3 p-2 bg-slate-700/50 rounded-lg">
+                        <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-white flex-shrink-0 ${contact.ownedBy === 'Unassigned' ? 'bg-slate-600' : 'bg-blue-600'}`}>
+                          {contact.ownerInitials}
+                        </div>
+                        <div>
+                          <div className="text-xs text-slate-500">Relationship owner</div>
+                          <div className={`text-xs font-medium ${contact.ownedBy === 'Unassigned' ? 'text-red-400' : 'text-white'}`}>{contact.ownedBy}</div>
+                        </div>
+                        {contact.ownedBy === 'Unassigned' && (
+                          <button className="ml-auto text-xs text-blue-400 hover:text-blue-300 whitespace-nowrap">Assign</button>
+                        )}
+                      </div>
                       {contact.status !== 'departed' && (
                         <div className="space-y-2 mb-3">
                           {contact.email && <div className="flex items-center space-x-2 text-slate-400 text-xs"><Mail className="w-3 h-3" /><span>{contact.email}</span></div>}
