@@ -305,54 +305,190 @@ export default function PartnershipDetailPage() {
 
           {/* STAKEHOLDERS */}
           {activeTab === 'stakeholders' && (
-            <div className="space-y-6">
-              <div className="flex items-center justify-between">
-                <h2 className="text-2xl font-bold text-white">Stakeholders</h2>
-                <button className="flex items-center space-x-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors text-sm">
-                  <Users className="w-4 h-4" /><span>Add Stakeholder</span>
-                </button>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {stakeholders.map((s, idx) => (
-                  <div key={idx} className="bg-slate-800 border border-slate-700 rounded-xl p-6">
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="flex items-center space-x-3">
-                        <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
-                          <span className="text-white font-bold">{s.name.split(' ').map((n: string) => n[0]).join('')}</span>
-                        </div>
-                        <div>
-                          <div className="text-white font-semibold">{s.name}</div>
-                          <div className="text-slate-400 text-sm">{s.role}</div>
-                        </div>
-                      </div>
-                      {s.primary && <span className="px-2 py-1 bg-blue-500/20 text-blue-300 text-xs rounded-full">Primary</span>}
-                    </div>
-                    <div className="space-y-2 mb-4">
-                      <div className="flex items-center space-x-2 text-slate-400 text-sm">
-                        <Mail className="w-4 h-4" /><span>{s.email}</span>
-                      </div>
-                      <div className="flex items-center space-x-2 text-slate-400 text-sm">
-                        <Phone className="w-4 h-4" /><span>{s.phone}</span>
-                      </div>
-                    </div>
-                    <div className="border-t border-slate-700 pt-4">
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-slate-400 text-sm">Engagement</span>
-                        <span className={`font-semibold text-sm ${s.engagement >= 80 ? 'text-emerald-400' : s.engagement >= 60 ? 'text-amber-400' : 'text-red-400'}`}>{s.engagement}%</span>
-                      </div>
-                      <div className="w-full bg-slate-700 rounded-full h-1.5 mb-3">
-                        <div className={`h-1.5 rounded-full ${s.engagement >= 80 ? 'bg-emerald-400' : s.engagement >= 60 ? 'bg-amber-400' : 'bg-red-400'}`}
-                          style={{ width: `${s.engagement}%` }}></div>
-                      </div>
-                      <div className="text-slate-500 text-xs">Last contact: {s.lastContact}</div>
+            <div className="space-y-8">
+
+              {/* AI Relationship Signals */}
+              <div className="bg-red-950/20 border border-red-900/50 rounded-xl p-6">
+                <div className="flex items-center space-x-3 mb-4">
+                  <Brain className="w-5 h-5 text-red-400" />
+                  <h3 className="text-white font-bold">Relationship Intelligence Signals</h3>
+                  <span className="px-2 py-1 bg-red-500/20 text-red-400 text-xs rounded-full">2 alerts</span>
+                </div>
+                <div className="space-y-3">
+                  <div className="flex items-start space-x-3 bg-red-950/30 rounded-lg p-4">
+                    <AlertCircle className="w-4 h-4 text-red-400 mt-0.5 flex-shrink-0" />
+                    <div>
+                      <div className="text-white text-sm font-medium">Marketing contact departed — no replacement identified</div>
+                      <div className="text-slate-400 text-xs mt-1">Lisa Park left Apex Dynamics 47 days ago. GTM activities may be on hold. Recommend identifying new marketing relationship owner.</div>
                     </div>
                   </div>
-                ))}
+                  <div className="flex items-start space-x-3 bg-amber-950/30 rounded-lg p-4">
+                    <Clock className="w-4 h-4 text-amber-400 mt-0.5 flex-shrink-0" />
+                    <div>
+                      <div className="text-white text-sm font-medium">Executive sponsor has not engaged in 61 days</div>
+                      <div className="text-slate-400 text-xs mt-1">No recorded interaction with John Smith since February 14. Executive relationships require 30-day minimum touchpoint cadence.</div>
+                    </div>
+                  </div>
+                </div>
               </div>
+
+              {/* Your Side */}
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <div>
+                    <h3 className="text-white font-bold text-lg">Your Relationship Owners</h3>
+                    <p className="text-slate-400 text-sm">Internal team members responsible for this partnership</p>
+                  </div>
+                  <button className="flex items-center space-x-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors text-sm">
+                    <Users className="w-4 h-4" /><span>Add Owner</span>
+                  </button>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {[
+                    { name: 'Chris Pendergast', role: 'Executive Sponsor', type: 'Executive', health: 92, lastContact: '2 days ago', cadence: 'Monthly', status: 'active', initials: 'CP' },
+                    { name: 'Amanda Torres', role: 'Partnership Manager', type: 'Operational', health: 78, lastContact: '5 days ago', cadence: 'Weekly', status: 'active', initials: 'AT' },
+                  ].map((owner, idx) => (
+                    <div key={idx} className="bg-slate-800 border border-slate-700 rounded-xl p-5 hover:border-blue-500 transition-colors">
+                      <div className="flex items-start justify-between mb-4">
+                        <div className="flex items-center space-x-3">
+                          <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
+                            <span className="text-white font-bold text-sm">{owner.initials}</span>
+                          </div>
+                          <div>
+                            <div className="text-white font-semibold text-sm">{owner.name}</div>
+                            <div className="text-slate-400 text-xs">{owner.role}</div>
+                          </div>
+                        </div>
+                        <span className="px-2 py-1 bg-blue-500/20 text-blue-300 text-xs rounded-full">{owner.type}</span>
+                      </div>
+                      <div className="space-y-3">
+                        <div className="flex items-center justify-between">
+                          <span className="text-slate-400 text-xs">Relationship Health</span>
+                          <span className={`text-sm font-bold ${owner.health >= 80 ? 'text-emerald-400' : owner.health >= 60 ? 'text-amber-400' : 'text-red-400'}`}>{owner.health}%</span>
+                        </div>
+                        <div className="w-full bg-slate-700 rounded-full h-1.5">
+                          <div className={`h-1.5 rounded-full ${owner.health >= 80 ? 'bg-emerald-400' : owner.health >= 60 ? 'bg-amber-400' : 'bg-red-400'}`} style={{ width: owner.health + '%' }}></div>
+                        </div>
+                        <div className="flex items-center justify-between text-xs">
+                          <span className="text-slate-500">Last contact: {owner.lastContact}</span>
+                          <span className="text-slate-500">Cadence: {owner.cadence}</span>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Their Side */}
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <div>
+                    <h3 className="text-white font-bold text-lg">Partner Contacts</h3>
+                    <p className="text-slate-400 text-sm">Key contacts at Apex Dynamics</p>
+                  </div>
+                  <button className="flex items-center space-x-2 px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg transition-colors text-sm border border-slate-600">
+                    <Users className="w-4 h-4" /><span>Add Contact</span>
+                  </button>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {[
+                    { name: 'John Smith', role: 'Partnership Director', type: 'Executive Sponsor', email: 'john@apexdynamics.com', phone: '+1 (555) 123-4567', health: 72, lastContact: '61 days ago', status: 'stale', initials: 'JS', primary: true },
+                    { name: 'Sarah Johnson', role: 'Account Manager', type: 'Operational', email: 'sarah@apexdynamics.com', phone: '+1 (555) 234-5678', health: 85, lastContact: '1 week ago', status: 'active', initials: 'SJ', primary: false },
+                    { name: 'Michael Chen', role: 'Technical Lead', type: 'Technical', email: 'michael@apexdynamics.com', phone: '+1 (555) 345-6789', health: 68, lastContact: '3 days ago', status: 'active', initials: 'MC', primary: false },
+                    { name: 'Lisa Park', role: 'Marketing Manager', type: 'Marketing', email: '', phone: '', health: 0, lastContact: 'Departed', status: 'departed', initials: 'LP', primary: false },
+                  ].map((contact, idx) => (
+                    <div key={idx} className={`bg-slate-800 border rounded-xl p-5 transition-colors ${contact.status === 'departed' ? 'border-red-900/50 opacity-60' : contact.status === 'stale' ? 'border-amber-900/50' : 'border-slate-700 hover:border-blue-500'}`}>
+                      <div className="flex items-start justify-between mb-3">
+                        <div className="flex items-center space-x-3">
+                          <div className={`w-10 h-10 rounded-full flex items-center justify-center ${contact.status === 'departed' ? 'bg-red-900/50' : 'bg-slate-600'}`}>
+                            <span className="text-white font-bold text-sm">{contact.initials}</span>
+                          </div>
+                          <div>
+                            <div className="text-white font-semibold text-sm">{contact.name}</div>
+                            <div className="text-slate-400 text-xs">{contact.role}</div>
+                          </div>
+                        </div>
+                        <div className="flex flex-col items-end gap-1">
+                          {contact.primary && <span className="px-2 py-0.5 bg-blue-500/20 text-blue-300 text-xs rounded-full">Primary</span>}
+                          {contact.status === 'departed' && <span className="px-2 py-0.5 bg-red-500/20 text-red-400 text-xs rounded-full">Departed</span>}
+                          {contact.status === 'stale' && <span className="px-2 py-0.5 bg-amber-500/20 text-amber-400 text-xs rounded-full">Stale</span>}
+                        </div>
+                      </div>
+                      <span className="inline-block px-2 py-0.5 bg-slate-700 text-slate-300 text-xs rounded-full mb-3">{contact.type}</span>
+                      {contact.status !== 'departed' && (
+                        <div className="space-y-2 mb-3">
+                          {contact.email && <div className="flex items-center space-x-2 text-slate-400 text-xs"><Mail className="w-3 h-3" /><span>{contact.email}</span></div>}
+                          {contact.phone && <div className="flex items-center space-x-2 text-slate-400 text-xs"><Phone className="w-3 h-3" /><span>{contact.phone}</span></div>}
+                        </div>
+                      )}
+                      {contact.status === 'departed' ? (
+                        <div className="text-red-400 text-xs">Contact has left the organization. No replacement identified.</div>
+                      ) : (
+                        <div className="border-t border-slate-700 pt-3">
+                          <div className="flex items-center justify-between mb-1">
+                            <span className="text-slate-400 text-xs">Relationship Health</span>
+                            <span className={`text-xs font-bold ${contact.health >= 80 ? 'text-emerald-400' : contact.health >= 60 ? 'text-amber-400' : 'text-red-400'}`}>{contact.health}%</span>
+                          </div>
+                          <div className="w-full bg-slate-700 rounded-full h-1 mb-2">
+                            <div className={`h-1 rounded-full ${contact.health >= 80 ? 'bg-emerald-400' : contact.health >= 60 ? 'bg-amber-400' : 'bg-red-400'}`} style={{ width: contact.health + '%' }}></div>
+                          </div>
+                          <div className="text-slate-500 text-xs">Last contact: {contact.lastContact}</div>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Notification Settings */}
+              <div className="bg-slate-800 border border-slate-700 rounded-xl p-6">
+                <div className="flex items-center space-x-3 mb-6">
+                  <Bell className="w-5 h-5 text-blue-400" />
+                  <div>
+                    <h3 className="text-white font-bold text-lg">Notification Settings</h3>
+                    <p className="text-slate-400 text-sm">Configure relationship update reminders for your team</p>
+                  </div>
+                </div>
+                <div className="space-y-4">
+                  {[
+                    { owner: 'Chris Pendergast', role: 'Executive Sponsor', cadence: 'Monthly', nextReminder: 'June 15, 2026', active: true },
+                    { owner: 'Amanda Torres', role: 'Partnership Manager', cadence: 'Weekly', nextReminder: 'June 3, 2026', active: true },
+                  ].map((notif, idx) => (
+                    <div key={idx} className="flex items-center justify-between p-4 bg-slate-700/50 rounded-xl">
+                      <div className="flex items-center space-x-4">
+                        <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">{notif.owner.split(' ').map(n => n[0]).join('')}</span>
+                        </div>
+                        <div>
+                          <div className="text-white text-sm font-medium">{notif.owner}</div>
+                          <div className="text-slate-400 text-xs">{notif.role} — update every {notif.cadence.toLowerCase()}</div>
+                          <div className="text-slate-500 text-xs">Next reminder: {notif.nextReminder}</div>
+                        </div>
+                      </div>
+                      <div className="flex items-center space-x-3">
+                        <select className="bg-slate-600 border border-slate-500 text-white text-xs rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                          <option>Weekly</option>
+                          <option>Bi-weekly</option>
+                          <option selected>Monthly</option>
+                          <option>Quarterly</option>
+                        </select>
+                        <div className={`w-10 h-5 rounded-full flex items-center ${notif.active ? 'bg-blue-600 justify-end' : 'bg-slate-600 justify-start'} px-0.5 cursor-pointer transition-colors`}>
+                          <div className="w-4 h-4 bg-white rounded-full"></div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                  <button className="w-full py-3 border border-dashed border-slate-600 text-slate-400 hover:text-white hover:border-slate-400 rounded-xl text-sm transition-colors">
+                    + Add notification rule
+                  </button>
+                </div>
+              </div>
+
             </div>
           )}
 
-          {/* SALES */}
+
+          {/* SALES */}}
           {activeTab === 'sales' && (
             <div className="space-y-8">
               <div className="flex items-center justify-between">
