@@ -1,122 +1,87 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import axios from 'axios';
-import { API_URL } from '@/lib/api';
-import { Building2 } from 'lucide-react';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 export default function LoginPage() {
   const router = useRouter();
-  const [email, setEmail] = useState('');
+  const searchParams = useSearchParams();
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const handleLogin = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError('');
     setLoading(true);
+    setError('');
 
-    try {
-      const response = await axios.post(`${API_URL}/api/auth/login`, {
-        email,
-        password
-      });
+    const response = await fetch('/api/auth', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password }),
+    });
 
-      // Store token
-      localStorage.setItem('auth_token', response.data.token);
-      localStorage.setItem('user', JSON.stringify(response.data.user));
-
-      // Redirect to dashboard
-      router.push('/dashboard');
-    } catch (err: any) {
-      setError(err.response?.data?.error || 'Login failed');
-    } finally {
+    if (response.ok) {
+      const from = searchParams.get('from') || '/home';
+      router.push(from);
+    } else {
+      setError('Incorrect password');
       setLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#1e293b] to-[#334155] flex items-center justify-center px-4">
-      <div className="max-w-md w-full">
+    <div className="min-h-screen bg-slate-950 flex items-center justify-center px-4">
+      <div className="w-full max-w-md">
         {/* Logo */}
-        <div className="text-center mb-8">
-          <div className="flex items-center justify-center space-x-2 mb-4">
-            <div className="w-12 h-12 bg-[#60a5fa] rounded"></div>
-            <div className="w-12 h-12 bg-[#60e1fa] rounded"></div>
+        <div className="flex items-center justify-center space-x-2 mb-8">
+          <div className="flex space-x-1">
+            <div className="w-3 h-3 bg-emerald-400 rounded-sm"></div>
+            <div className="w-3 h-3 bg-blue-400 rounded-sm"></div>
           </div>
-          <h1 className="text-4xl font-bold text-white mb-2">Partegy</h1>
-          <p className="text-gray-400">Partnership Intelligence Platform</p>
+          <span className="font-bold text-white text-2xl">Partegy</span>
         </div>
 
-        {/* Login Card */}
-        <div className="bg-white rounded-lg shadow-xl p-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Sign In</h2>
+        <div className="bg-slate-900 border border-slate-700 rounded-2xl p-8">
+          <h1 className="text-2xl font-bold text-white mb-2">Welcome back</h1>
+          <p className="text-slate-400 mb-8">Enter your password to access the platform</p>
 
-          {error && (
-            <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm">
-              {error}
-            </div>
-          )}
-
-          <form onSubmit={handleLogin} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Email Address
-              </label>
-              <input
-                type="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#60a5fa] focus:border-transparent"
-                placeholder="you@company.com"
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-slate-300 mb-2">
                 Password
               </label>
               <input
                 type="password"
-                required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#60a5fa] focus:border-transparent"
-                placeholder="••••••••"
+                className="w-full px-4 py-3 bg-slate-800 border border-slate-600 text-white rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-slate-500"
+                placeholder="Enter password"
+                autoFocus
               />
             </div>
 
+            {error && (
+              <div className="px-4 py-3 bg-red-500/10 border border-red-500/30 rounded-lg text-red-400 text-sm">
+                {error}
+              </div>
+            )}
+
             <button
               type="submit"
-              disabled={loading}
-              className="w-full px-4 py-3 bg-gradient-to-r from-[#60a5fa] to-[#60e1fa] text-white rounded-lg hover:opacity-90 font-semibold disabled:opacity-50"
+              disabled={loading || !password}
+              className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold transition-colors disabled:opacity-50"
             >
-              {loading ? 'Signing in...' : 'Sign In'}
+              {loading ? 'Signing in...' : 'Sign in'}
             </button>
           </form>
-
-          <div className="mt-6 text-center">
-            <p className="text-sm text-gray-600">
-              Don't have an account?{' '}
-              <button
-                onClick={() => router.push('/signup')}
-                className="text-[#60a5fa] hover:text-[#60e1fa] font-medium"
-              >
-                Sign up
-              </button>
-            </p>
-          </div>
         </div>
 
-        {/* Demo Credentials */}
-        <div className="mt-6 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-4 text-white text-sm">
-          <p className="font-medium mb-2">Demo Credentials:</p>
-          <p>Email: owner@company.com</p>
-          <p>Password: password</p>
-        </div>
+        <p className="text-center text-slate-500 text-sm mt-6">
+          <a href="/landing" className="hover:text-slate-300 transition-colors">
+            Back to landing page
+          </a>
+        </p>
       </div>
     </div>
   );
