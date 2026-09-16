@@ -28,6 +28,8 @@ export function PageNavigation() {
   ];
 
   const toolsItems = [
+    { href: '/governance', label: 'Governance', icon: BarChart3 },
+    { href: '/governance', label: 'Governance', icon: BarChart3 },
     { href: '/analytics', label: 'Analytics', icon: BarChart3 },
     { href: '/reports', label: 'Reports', icon: FileText },
     { href: '/users', label: 'Users', icon: Users },
