@@ -25,7 +25,6 @@ export default function LandingPage() {
           <div className="flex items-center">
             <img src="/partegy-logo.png" alt="Partegy" className="h-9 w-auto" />
           </div>
-          </div>
           <nav className="hidden md:flex items-center space-x-8">
             {['Product', 'Solutions', 'Customers', 'Resources'].map(item => (
               <span key={item} className="text-gray-600 hover:text-gray-900 text-sm font-medium cursor-pointer transition-colors">{item}</span>
