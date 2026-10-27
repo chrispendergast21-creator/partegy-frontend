@@ -111,7 +111,7 @@ export default function LandingPage() {
 
       {/* The Gap - Reality Check Table */}
       {/* Institutional Memory Hook */}
-      <section className="py-16 bg-slate-900/30">
+      <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center">
             <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6 tracking-tight">
@@ -124,15 +124,15 @@ export default function LandingPage() {
             {/* Statistics Grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
               <div className="bg-gray-50/50 backdrop-blur border border-gray-200 rounded-2xl p-6 text-center">
-                <div className="text-4xl font-bold text-emerald-400 mb-2">~28%</div>
+                <div className="text-4xl font-bold mb-2" style={{color: "#0B3D91"}}>~28%</div>
                 <div className="text-gray-600 text-sm">of company revenue from mature partnership programs</div>
               </div>
               <div className="bg-gray-50/50 backdrop-blur border border-gray-200 rounded-2xl p-6 text-center">
-                <div className="text-4xl font-bold text-blue-400 mb-2">$80T</div>
+                <div className="text-4xl font-bold mb-2" style={{color: "#1E7EC8"}}>$80T</div>
                 <div className="text-gray-600 text-sm">projected ecosystem economic activity by 2030</div>
               </div>
               <div className="bg-gray-50/50 backdrop-blur border border-gray-200 rounded-2xl p-6 text-center">
-                <div className="text-4xl font-bold text-red-400 mb-2">36%</div>
+                <div className="text-4xl font-bold text-red-500 mb-2">36%</div>
                 <div className="text-gray-600 text-sm">of organizations consistently measure ecosystem performance</div>
               </div>
             </div>
@@ -153,17 +153,17 @@ export default function LandingPage() {
             </h2>
           </div>
           
-          <div className="bg-white/20 border border-gray-200 rounded-2xl overflow-hidden">
+          <div className="border border-gray-200 rounded-2xl overflow-hidden">
             {/* Table Header - hidden on mobile, cards have their own labels instead */}
-            <div className="hidden md:grid grid-cols-3 bg-slate-800/50">
+            <div className="hidden md:grid grid-cols-3" style={{backgroundColor: "#0B3D91"}}>
               <div className="p-6 border-r border-gray-200">
                 <h3 className="text-lg font-bold text-white">System</h3>
               </div>
               <div className="p-6 border-r border-gray-200">
                 <h3 className="text-lg font-bold text-white">What it does</h3>
               </div>
-              <div className="p-6 bg-red-950/20">
-                <h3 className="text-lg font-bold text-red-300">What it misses (The Partegy Gap)</h3>
+              <div className="p-6 bg-red-50">
+                <h3 className="text-lg font-bold text-red-600">What it misses (The Partegy Gap)</h3>
               </div>
             </div>
             
@@ -172,16 +172,16 @@ export default function LandingPage() {
               <div className="p-4 md:p-6 border-r-0 md:border-r border-gray-200">
                 <div className="flex items-center space-x-3">
                   <Database className="w-5 h-5 md:w-6 md:h-6 text-gray-500" />
-                  <span className="font-semibold text-white">CRM</span>
+                  <span className="font-semibold text-gray-900">CRM</span>
                 </div>
               </div>
               <div className="p-4 md:p-6 border-r-0 md:border-r border-gray-200 pl-4 md:pl-6">
                 <span className="text-gray-400 text-xs uppercase tracking-wide md:hidden block mb-1">What it does</span>
                 <span className="text-gray-600">Pipeline & Revenue</span>
               </div>
-              <div className="p-4 md:p-6 bg-red-950/10">
-                <span className="text-red-400/70 text-xs uppercase tracking-wide md:hidden block mb-1">What it misses</span>
-                <span className="text-red-200 font-bold">Strategic Alignment</span>
+              <div className="p-4 md:p-6 bg-red-50">
+                <span className="text-red-500 text-xs uppercase tracking-wide md:hidden block mb-1">What it misses</span>
+                <span className="text-red-600 font-bold">Strategic Alignment</span>
               </div>
             </div>
             
@@ -190,16 +190,16 @@ export default function LandingPage() {
               <div className="p-4 md:p-6 border-r-0 md:border-r border-gray-200">
                 <div className="flex items-center space-x-3">
                   <Users className="w-5 h-5 md:w-6 md:h-6 text-gray-500" />
-                  <span className="font-semibold text-white">PRM</span>
+                  <span className="font-semibold text-gray-900">PRM</span>
                 </div>
               </div>
               <div className="p-4 md:p-6 border-r-0 md:border-r border-gray-200 pl-4 md:pl-6">
                 <span className="text-gray-400 text-xs uppercase tracking-wide md:hidden block mb-1">What it does</span>
                 <span className="text-gray-600">Portals & Referrals</span>
               </div>
-              <div className="p-4 md:p-6 bg-red-950/10">
-                <span className="text-red-400/70 text-xs uppercase tracking-wide md:hidden block mb-1">What it misses</span>
-                <span className="text-red-200 font-bold">Inter-organizational Governance</span>
+              <div className="p-4 md:p-6 bg-red-50">
+                <span className="text-red-500 text-xs uppercase tracking-wide md:hidden block mb-1">What it misses</span>
+                <span className="text-red-600 font-bold">Inter-organizational Governance</span>
               </div>
             </div>
             
@@ -208,16 +208,16 @@ export default function LandingPage() {
               <div className="p-4 md:p-6 border-r-0 md:border-r border-gray-200">
                 <div className="flex items-center space-x-3">
                   <FileText className="w-5 h-5 md:w-6 md:h-6 text-gray-500" />
-                  <span className="font-semibold text-white">Spreadsheets</span>
+                  <span className="font-semibold text-gray-900">Spreadsheets</span>
                 </div>
               </div>
               <div className="p-4 md:p-6 border-r-0 md:border-r border-gray-200 pl-4 md:pl-6">
                 <span className="text-gray-400 text-xs uppercase tracking-wide md:hidden block mb-1">What it does</span>
                 <span className="text-gray-600">Manual Strategy</span>
               </div>
-              <div className="p-4 md:p-6 bg-red-950/10">
-                <span className="text-red-400/70 text-xs uppercase tracking-wide md:hidden block mb-1">What it misses</span>
-                <span className="text-red-200 font-bold">Real-time Governance & AI Insights</span>
+              <div className="p-4 md:p-6 bg-red-50">
+                <span className="text-red-500 text-xs uppercase tracking-wide md:hidden block mb-1">What it misses</span>
+                <span className="text-red-600 font-bold">Real-time Governance & AI Insights</span>
               </div>
             </div>
           </div>
@@ -240,25 +240,25 @@ export default function LandingPage() {
           </div>          
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto mb-8">
             <div className="bg-gray-50/50 backdrop-blur border border-gray-200 rounded-xl p-8 relative">
-              <div className="absolute -top-4 left-6 w-8 h-8 bg-gradient-to-r from-emerald-400 to-emerald-500 rounded-full flex items-center justify-center text-white font-bold text-sm">1</div>
+              <div className="absolute -top-4 left-6 w-8 h-8 bg-gradient-to-r from-emerald-400 to-emerald-500 rounded-full flex items-center justify-center font-bold text-gray-900 text-sm">1</div>
               <h3 className="text-lg font-semibold text-gray-900 mb-3 mt-2">Define partnership strategy</h3>
               <p className="text-gray-600 text-sm">Capture strategic objectives, shared goals, and key initiatives for each partnership.</p>
             </div>
             
             <div className="bg-gray-50/50 backdrop-blur border border-gray-200 rounded-xl p-8 relative">
-              <div className="absolute -top-4 left-6 w-8 h-8 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full flex items-center justify-center text-white font-bold text-sm">2</div>
+              <div className="absolute -top-4 left-6 w-8 h-8 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full flex items-center justify-center font-bold text-gray-900 text-sm">2</div>
               <h3 className="text-lg font-semibold text-gray-900 mb-3 mt-2">Track execution</h3>
               <p className="text-gray-600 text-sm">Monitor progress across joint initiatives, milestones, and activities.</p>
             </div>
             
             <div className="bg-gray-50/50 backdrop-blur border border-gray-200 rounded-xl p-8 relative">
-              <div className="absolute -top-4 left-6 w-8 h-8 bg-gradient-to-r from-purple-400 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-sm">3</div>
+              <div className="absolute -top-4 left-6 w-8 h-8 bg-gradient-to-r from-purple-400 to-purple-500 rounded-full flex items-center justify-center font-bold text-gray-900 text-sm">3</div>
               <h3 className="text-lg font-semibold text-gray-900 mb-3 mt-2">Measure partnership health</h3>
               <p className="text-gray-600 text-sm">Evaluate partnerships across multiple dimensions including performance, engagement, and strategic alignment.</p>
             </div>
             
             <div className="bg-gray-50/50 backdrop-blur border border-gray-200 rounded-xl p-8 relative">
-              <div className="absolute -top-4 left-6 w-8 h-8 bg-gradient-to-r from-orange-400 to-orange-500 rounded-full flex items-center justify-center text-white font-bold text-sm">4</div>
+              <div className="absolute -top-4 left-6 w-8 h-8 bg-gradient-to-r from-orange-400 to-orange-500 rounded-full flex items-center justify-center font-bold text-gray-900 text-sm">4</div>
               <h3 className="text-lg font-semibold text-gray-900 mb-3 mt-2">Surface leadership insights</h3>
               <p className="text-gray-600 text-sm">Provide executives with portfolio-level insights into ecosystem performance and risk.</p>
             </div>
@@ -272,7 +272,7 @@ export default function LandingPage() {
 
 
       {/* AI-Powered Insights */}
-      <section className="py-20 border-t border-gray-100 bg-slate-900/30">
+      <section className="py-20 border-t border-gray-100 bg-gray-50">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-8 tracking-tight">
@@ -311,7 +311,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section className="py-20 border-t border-gray-100 bg-slate-900/30">
+      <section className="py-20 border-t border-gray-100 bg-gray-50">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-8 tracking-tight">
