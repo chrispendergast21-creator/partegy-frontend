@@ -1,488 +1,347 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import {
-  Building2,
-  BarChart3,
-  Users,
-  Shield,
-  Zap,
-  TrendingUp,
-  CheckCircle,
-  ArrowRight,
-  Star,
-  Globe,
-  Target,
-  Play,
-  Calendar,
-  FileText,
-  AlertTriangle,
-  Eye,
-  Brain,
-  Gauge,
-  Activity,
-  Database,
-  Monitor
+  ArrowRight, CheckCircle, BarChart3, Shield, Brain, Activity,
+  Users, Target, Monitor, Play
 } from 'lucide-react';
 import LeadCaptureModal from '../../components/LeadCaptureModal';
 
 export default function LandingPage() {
   const router = useRouter();
-  const [email, setEmail] = useState('');
   const [modalOpen, setModalOpen] = useState(false);
   const [modalType, setModalType] = useState<'demo' | 'audit'>('demo');
 
-  const handleWatchDemo = () => {
-    setModalType('demo');
-    setModalOpen(true);
-  };
-
-  const handleGetAudit = () => {
-    setModalType('audit');
-    setModalOpen(true);
-  };
+  const handleWatchDemo = () => { setModalType('demo'); setModalOpen(true); };
+  const handleGetAudit = () => { setModalType('audit'); setModalOpen(true); };
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Executive Header */}
-      <header className="border-b border-gray-200 bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 py-4 sm:py-6">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <div className="flex space-x-1">
-                <div className="w-3 h-3 bg-emerald-400 rounded-sm"></div>
-                <div className="w-3 h-3 bg-blue-400 rounded-sm"></div>
-              </div>
-              <div className="text-xl font-bold tracking-tight" style={{color: "#0B3D91"}}>Partegy</div>
+
+      {/* NAV */}
+      <header className="sticky top-0 z-50 bg-white border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 py-4 flex items-center justify-between">
+          <div className="flex items-center space-x-2">
+            <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{background: 'linear-gradient(135deg, #2EC4D2, #0B3D91)'}}>
+              <span className="text-white font-black text-sm">P</span>
             </div>
-            <button
-              onClick={handleWatchDemo}
-              className="text-white px-3 py-2 sm:px-6 sm:py-3 rounded-lg font-medium text-xs sm:text-sm transition-all flex items-center space-x-1.5 sm:space-x-2 whitespace-nowrap" style={{backgroundColor: "#0B3D91"}}
-            >
-              <Monitor className="w-3.5 h-3.5 sm:w-4 sm:h-4 hidden sm:block" />
-              <span>Request Early Access</span>
+            <span className="text-xl font-bold" style={{color: '#0B3D91'}}>Partegy</span>
+          </div>
+          <nav className="hidden md:flex items-center space-x-8">
+            {['Product', 'Solutions', 'Customers', 'Resources'].map(item => (
+              <span key={item} className="text-gray-600 hover:text-gray-900 text-sm font-medium cursor-pointer transition-colors">{item}</span>
+            ))}
+          </nav>
+          <div className="flex items-center space-x-3">
+            <button onClick={handleWatchDemo}
+              className="hidden sm:block text-sm font-medium px-4 py-2 rounded-lg border border-gray-200 text-gray-700 hover:bg-gray-50 transition-colors">
+              Sign In
+            </button>
+            <button onClick={handleWatchDemo}
+              className="text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors"
+              style={{backgroundColor: '#0B3D91'}}>
+              Request Early Access
             </button>
           </div>
         </div>
       </header>
 
-      {/* Compressed Hero Section */}
+      {/* HERO */}
+      <section className="py-20 sm:py-28">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8">
+          <div className="max-w-3xl mx-auto text-center mb-16">
+            <div className="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full text-sm font-medium mb-6 border"
+              style={{backgroundColor: '#EFF6FF', borderColor: '#BFDBFE', color: '#1E40AF'}}>
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse inline-block"></span>
+              <span>Now in early access — limited spots available</span>
+            </div>
+            <h1 className="text-5xl sm:text-6xl font-bold leading-tight tracking-tight mb-6" style={{color: '#0B3D91'}}>
+              Partnership governance,<br />built for executives.
+            </h1>
+            <p className="text-xl text-gray-500 leading-relaxed mb-10 max-w-2xl mx-auto">
+              Partegy gives leadership teams consistent visibility across their partnership portfolio — health scoring, behavioral intelligence, and risk signals, all in one platform.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <button onClick={handleWatchDemo}
+                className="w-full sm:w-auto text-white font-semibold px-8 py-4 rounded-xl text-base transition-all shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
+                style={{backgroundColor: '#0B3D91'}}>
+                <span>Request Early Access</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+              <button onClick={handleWatchDemo}
+                className="w-full sm:w-auto font-semibold px-8 py-4 rounded-xl text-base border-2 transition-all flex items-center justify-center space-x-2"
+                style={{borderColor: '#0B3D91', color: '#0B3D91'}}>
+                <Play className="w-4 h-4" />
+                <span>Watch Demo</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Dashboard screenshot */}
+          <div className="relative max-w-5xl mx-auto">
+            <div className="absolute inset-0 rounded-2xl blur-3xl opacity-10" style={{background: 'linear-gradient(135deg, #0B3D91, #2EC4D2)'}}></div>
+            <div className="relative bg-white border border-gray-200 rounded-2xl shadow-2xl overflow-hidden">
+              <div className="bg-gray-50 border-b border-gray-100 px-4 py-3 flex items-center space-x-2">
+                <div className="w-3 h-3 rounded-full bg-red-400"></div>
+                <div className="w-3 h-3 rounded-full bg-amber-400"></div>
+                <div className="w-3 h-3 rounded-full bg-emerald-400"></div>
+                <div className="ml-4 flex-1 bg-white rounded-md px-3 py-1 text-xs text-gray-400 border border-gray-200 max-w-xs">partegy.co/executive</div>
+              </div>
+              <img
+                src="/partnership-dashboard1.png"
+                alt="Partegy Executive Dashboard"
+                className="w-full h-auto"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* LOGO STRIP */}
+      <section className="py-12 border-y border-gray-100 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8">
+          <p className="text-center text-sm font-medium text-gray-400 uppercase tracking-widest mb-8">Trusted by partnership teams at</p>
+          <div className="flex flex-wrap items-center justify-center gap-12">
+            {['Workday Impl Co', 'Enterprise Corp', 'Global Ventures', 'TechScale Inc', 'Alliance Group'].map(name => (
+              <span key={name} className="text-gray-300 font-bold text-lg tracking-tight">{name}</span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* STATS */}
       <section className="py-20">
-        <div className="max-w-7xl mx-auto px-8">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4" style={{color: '#0B3D91'}}>
+              Partnerships drive revenue.<br />Most companies can't govern them.
+            </h2>
+            <p className="text-lg text-gray-500 max-w-2xl mx-auto">
+              Partner ecosystems have become a major growth engine — yet most organizations lack the infrastructure to manage them at scale.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { stat: '~28%', label: 'of company revenue from mature partnership programs', color: '#0B3D91' },
+              { stat: '$80T', label: 'projected ecosystem economic activity by 2030', color: '#1E7EC8' },
+              { stat: '36%', label: 'of organizations consistently measure ecosystem performance', color: '#2EC4D2' },
+            ].map((item, idx) => (
+              <div key={idx} className="text-center p-8 rounded-2xl border border-gray-100 bg-white shadow-sm hover:shadow-md transition-shadow">
+                <div className="text-5xl font-black mb-3" style={{color: item.color}}>{item.stat}</div>
+                <p className="text-gray-500 leading-relaxed">{item.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FEATURES - alternating layout like Workday */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 space-y-24">
+
+          {/* Feature 1 */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight tracking-tight" style={{color: "#0B3D91"}}>
-                Partnerships drive growth. But they're rarely governed like strategic assets.
-              </h1>
-              
-              <p className="text-xl text-gray-600 mb-6 leading-relaxed">
-                Partegy helps organizations govern strategic partnerships using proprietary health scoring, behavioral intelligence, and executive-level ecosystem visibility.
+              <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full text-xs font-semibold mb-6 uppercase tracking-wide"
+                style={{backgroundColor: '#EFF6FF', color: '#1E40AF'}}>
+                <BarChart3 className="w-3.5 h-3.5" />
+                <span>Health Scoring</span>
+              </div>
+              <h3 className="text-3xl font-bold mb-4" style={{color: '#0B3D91'}}>
+                Give leadership answers, not spreadsheets.
+              </h3>
+              <p className="text-gray-500 text-lg leading-relaxed mb-6">
+                Partegy's proprietary 6-dimension health score gives executives a single number that reflects the true state of each partnership — not just revenue, but engagement, alignment, risk, and execution velocity.
               </p>
-              
-              <p className="text-lg text-gray-500 mb-8 leading-relaxed">
-                Gain consistent visibility across strategic, referral, and co-sell partnerships — including execution quality, ecosystem risk, engagement trends, and resource allocation.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                <button
-                  onClick={handleWatchDemo}
-                  className="text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center transition-all shadow-lg" style={{backgroundColor: "#0B3D91"}}
-                >
-                  <Play className="w-5 h-5 mr-2" />
-                  Request Early Access
-                </button>
+              <ul className="space-y-3">
+                {['6-dimension behavioral health scoring', 'Real-time portfolio risk matrix', 'Executive-ready dashboards'].map(item => (
+                  <li key={item} className="flex items-center space-x-3">
+                    <CheckCircle className="w-5 h-5 flex-shrink-0" style={{color: '#2EC4D2'}} />
+                    <span className="text-gray-600">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="bg-white rounded-2xl border border-gray-200 shadow-lg overflow-hidden">
+              <img src="/executive-dashboard.png" alt="Executive Dashboard" className="w-full h-auto" />
+            </div>
+          </div>
+
+          {/* Feature 2 */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="order-2 lg:order-1 bg-white rounded-2xl border border-gray-200 shadow-lg p-8">
+              <div className="space-y-4">
+                {[
+                  { signal: 'Executive engagement declined 47%', level: 'Critical', color: '#EF4444' },
+                  { signal: '3 strategic initiatives stalled 30+ days', level: 'High', color: '#F59E0B' },
+                  { signal: 'Relationship drift below baseline', level: 'Medium', color: '#6B7280' },
+                  { signal: '41% pipeline on 2 partners', level: 'Critical', color: '#EF4444' },
+                ].map((item, idx) => (
+                  <div key={idx} className="flex items-center justify-between p-4 rounded-xl border border-gray-100 bg-gray-50">
+                    <span className="text-gray-700 text-sm font-medium">{item.signal}</span>
+                    <span className="text-xs font-bold px-2 py-1 rounded-full text-white" style={{backgroundColor: item.color}}>{item.level}</span>
+                  </div>
+                ))}
               </div>
             </div>
+            <div className="order-1 lg:order-2">
+              <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full text-xs font-semibold mb-6 uppercase tracking-wide"
+                style={{backgroundColor: '#FEF3C7', color: '#92400E'}}>
+                <Brain className="w-3.5 h-3.5" />
+                <span>Behavioral Intelligence</span>
+              </div>
+              <h3 className="text-3xl font-bold mb-4" style={{color: '#0B3D91'}}>
+                Know what's at risk before it costs you.
+              </h3>
+              <p className="text-gray-500 text-lg leading-relaxed mb-6">
+                Partegy's AI-powered early warning system detects engagement drift, stalled initiatives, and concentration risk — surfacing signals weeks before they become problems.
+              </p>
+              <ul className="space-y-3">
+                {['AI-detected relationship signals', 'Proactive risk alerts', 'Predictive partnership intelligence'].map(item => (
+                  <li key={item} className="flex items-center space-x-3">
+                    <CheckCircle className="w-5 h-5 flex-shrink-0" style={{color: '#2EC4D2'}} />
+                    <span className="text-gray-600">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
 
-            {/* Dashboard Preview - Static */}
-            <div className="relative">
-              <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-2xl transform scale-110">
-                <img 
-                  src="/partnership-dashboard1.png" 
-                  alt="Partegy Partnership Dashboard showing health score, revenue, and key metrics"
-                  className="w-full h-auto"
-                />
+          {/* Feature 3 */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full text-xs font-semibold mb-6 uppercase tracking-wide"
+                style={{backgroundColor: '#F0FDF4', color: '#166534'}}>
+                <Users className="w-3.5 h-3.5" />
+                <span>Relationship Intelligence</span>
+              </div>
+              <h3 className="text-3xl font-bold mb-4" style={{color: '#0B3D91'}}>
+                Map every relationship. Own every outcome.
+              </h3>
+              <p className="text-gray-500 text-lg leading-relaxed mb-6">
+                Track who on your team owns each partner relationship, monitor engagement health, and get notified when relationships go cold — before it impacts revenue.
+              </p>
+              <ul className="space-y-3">
+                {['Relationship owner mapping', 'Configurable notification cadences', 'Departed contact alerts'].map(item => (
+                  <li key={item} className="flex items-center space-x-3">
+                    <CheckCircle className="w-5 h-5 flex-shrink-0" style={{color: '#2EC4D2'}} />
+                    <span className="text-gray-600">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="bg-white rounded-2xl border border-gray-200 shadow-lg p-8">
+              <div className="space-y-4">
+                {[
+                  { name: 'John Smith', role: 'Executive Sponsor', owner: 'Chris P.', health: 72, status: 'stale' },
+                  { name: 'Sarah Johnson', role: 'Account Manager', owner: 'Amanda T.', health: 85, status: 'active' },
+                  { name: 'Lisa Park', role: 'Marketing Manager', owner: 'Unassigned', health: 0, status: 'departed' },
+                ].map((contact, idx) => (
+                  <div key={idx} className={`flex items-center justify-between p-4 rounded-xl border ${contact.status === 'departed' ? 'border-red-100 bg-red-50' : 'border-gray-100 bg-gray-50'}`}>
+                    <div>
+                      <div className="font-semibold text-gray-800 text-sm">{contact.name}</div>
+                      <div className="text-gray-400 text-xs">{contact.role} — owned by {contact.owner}</div>
+                    </div>
+                    <span className={`text-xs font-bold px-2 py-1 rounded-full ${
+                      contact.status === 'active' ? 'bg-emerald-100 text-emerald-700' :
+                      contact.status === 'stale' ? 'bg-amber-100 text-amber-700' :
+                      'bg-red-100 text-red-600'
+                    }`}>
+                      {contact.status === 'departed' ? 'Departed' : contact.status === 'stale' ? 'Stale' : `${contact.health}%`}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* The Gap - Reality Check Table */}
-      {/* Institutional Memory Hook */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="text-center">
-            <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6 tracking-tight">
-              Partnerships generate billions in revenue — but most companies can't govern them.
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed mb-12">
-              Partner ecosystems have become a major growth engine for enterprise companies.
-            </p>
-            
-            {/* Statistics Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
-              <div className="bg-gray-50/50 backdrop-blur border border-gray-200 rounded-2xl p-6 text-center">
-                <div className="text-4xl font-bold mb-2" style={{color: "#0B3D91"}}>~28%</div>
-                <div className="text-gray-600 text-sm">of company revenue from mature partnership programs</div>
-              </div>
-              <div className="bg-gray-50/50 backdrop-blur border border-gray-200 rounded-2xl p-6 text-center">
-                <div className="text-4xl font-bold mb-2" style={{color: "#1E7EC8"}}>$80T</div>
-                <div className="text-gray-600 text-sm">projected ecosystem economic activity by 2030</div>
-              </div>
-              <div className="bg-gray-50/50 backdrop-blur border border-gray-200 rounded-2xl p-6 text-center">
-                <div className="text-4xl font-bold text-red-500 mb-2">36%</div>
-                <div className="text-gray-600 text-sm">of organizations consistently measure ecosystem performance</div>
-              </div>
-            </div>
-            
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Despite this scale, most companies still manage partnerships across disconnected systems.
-            </p>
-          </div>
-        </div>
-      </section>
-
-
-      <section className="py-20 border-t border-gray-100">
-        <div className="max-w-7xl mx-auto px-8">
+      {/* WHY CURRENT STACK ISN'T ENOUGH */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-8 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4" style={{color: '#0B3D91'}}>
               Why your current stack isn't enough
             </h2>
+            <p className="text-gray-500 text-lg max-w-2xl mx-auto">Your tools track transactions. Partegy governs relationships.</p>
           </div>
-          
-          <div className="border border-gray-200 rounded-2xl overflow-hidden">
-            {/* Table Header - hidden on mobile, cards have their own labels instead */}
-            <div className="hidden md:grid grid-cols-3" style={{backgroundColor: "#0B3D91"}}>
-              <div className="p-6 border-r border-gray-200">
-                <h3 className="text-lg font-bold text-white">System</h3>
-              </div>
-              <div className="p-6 border-r border-gray-200">
-                <h3 className="text-lg font-bold text-white">What it does</h3>
-              </div>
-              <div className="p-6 bg-red-50">
-                <h3 className="text-lg font-bold text-red-600">What it misses (The Partegy Gap)</h3>
-              </div>
+          <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
+            {/* Header */}
+            <div className="grid grid-cols-3 text-white text-sm font-semibold" style={{backgroundColor: '#0B3D91'}}>
+              <div className="p-5 border-r border-white/20">System</div>
+              <div className="p-5 border-r border-white/20">What it does</div>
+              <div className="p-5 bg-red-700/30">What it misses</div>
             </div>
-            
-            {/* CRM Row */}
-            <div className="grid grid-cols-1 md:grid-cols-3 border-t border-gray-200">
-              <div className="p-4 md:p-6 border-r-0 md:border-r border-gray-200">
-                <div className="flex items-center space-x-3">
-                  <Database className="w-5 h-5 md:w-6 md:h-6 text-gray-500" />
-                  <span className="font-semibold text-gray-900">CRM</span>
+            {[
+              { system: 'CRM', does: 'Pipeline & Revenue', misses: 'Strategic Alignment' },
+              { system: 'PRM', does: 'Portals & Referrals', misses: 'Inter-org Governance' },
+              { system: 'Spreadsheets', does: 'Manual Strategy', misses: 'Real-time Governance & AI' },
+            ].map((row, idx) => (
+              <div key={idx} className={`grid grid-cols-3 border-t border-gray-100 ${idx % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}>
+                <div className="p-5 border-r border-gray-100 font-semibold text-gray-800">{row.system}</div>
+                <div className="p-5 border-r border-gray-100 text-gray-500">{row.does}</div>
+                <div className="p-5 bg-red-50">
+                  <span className="text-red-600 font-semibold">{row.misses}</span>
                 </div>
               </div>
-              <div className="p-4 md:p-6 border-r-0 md:border-r border-gray-200 pl-4 md:pl-6">
-                <span className="text-gray-400 text-xs uppercase tracking-wide md:hidden block mb-1">What it does</span>
-                <span className="text-gray-600">Pipeline & Revenue</span>
-              </div>
-              <div className="p-4 md:p-6 bg-red-50">
-                <span className="text-red-500 text-xs uppercase tracking-wide md:hidden block mb-1">What it misses</span>
-                <span className="text-red-600 font-bold">Strategic Alignment</span>
-              </div>
-            </div>
-            
-            {/* PRM Row */}
-            <div className="grid grid-cols-1 md:grid-cols-3 border-t border-gray-200">
-              <div className="p-4 md:p-6 border-r-0 md:border-r border-gray-200">
-                <div className="flex items-center space-x-3">
-                  <Users className="w-5 h-5 md:w-6 md:h-6 text-gray-500" />
-                  <span className="font-semibold text-gray-900">PRM</span>
-                </div>
-              </div>
-              <div className="p-4 md:p-6 border-r-0 md:border-r border-gray-200 pl-4 md:pl-6">
-                <span className="text-gray-400 text-xs uppercase tracking-wide md:hidden block mb-1">What it does</span>
-                <span className="text-gray-600">Portals & Referrals</span>
-              </div>
-              <div className="p-4 md:p-6 bg-red-50">
-                <span className="text-red-500 text-xs uppercase tracking-wide md:hidden block mb-1">What it misses</span>
-                <span className="text-red-600 font-bold">Inter-organizational Governance</span>
-              </div>
-            </div>
-            
-            {/* Spreadsheets Row */}
-            <div className="grid grid-cols-1 md:grid-cols-3 border-t border-gray-200">
-              <div className="p-4 md:p-6 border-r-0 md:border-r border-gray-200">
-                <div className="flex items-center space-x-3">
-                  <FileText className="w-5 h-5 md:w-6 md:h-6 text-gray-500" />
-                  <span className="font-semibold text-gray-900">Spreadsheets</span>
-                </div>
-              </div>
-              <div className="p-4 md:p-6 border-r-0 md:border-r border-gray-200 pl-4 md:pl-6">
-                <span className="text-gray-400 text-xs uppercase tracking-wide md:hidden block mb-1">What it does</span>
-                <span className="text-gray-600">Manual Strategy</span>
-              </div>
-              <div className="p-4 md:p-6 bg-red-50">
-                <span className="text-red-500 text-xs uppercase tracking-wide md:hidden block mb-1">What it misses</span>
-                <span className="text-red-600 font-bold">Real-time Governance & AI Insights</span>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* The Solution - Introduce Partegy */}
-      <section className="py-20 border-t border-gray-100">
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-8 tracking-tight">
-              Finally, a platform to govern strategic partnerships
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-12">
-              Partegy provides a structured system to manage partnership strategy, execution, and performance in one place.
-            </p>
-            <p className="text-3xl lg:text-4xl font-bold text-gray-900 mb-8 tracking-tight">
-              How Partegy Works
-            </p>
-          </div>          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto mb-8">
-            <div className="bg-gray-50/50 backdrop-blur border border-gray-200 rounded-xl p-8 relative">
-              <div className="absolute -top-4 left-6 w-8 h-8 bg-gradient-to-r from-emerald-400 to-emerald-500 rounded-full flex items-center justify-center font-bold text-gray-900 text-sm">1</div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-3 mt-2">Define partnership strategy</h3>
-              <p className="text-gray-600 text-sm">Capture strategic objectives, shared goals, and key initiatives for each partnership.</p>
-            </div>
-            
-            <div className="bg-gray-50/50 backdrop-blur border border-gray-200 rounded-xl p-8 relative">
-              <div className="absolute -top-4 left-6 w-8 h-8 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full flex items-center justify-center font-bold text-gray-900 text-sm">2</div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-3 mt-2">Track execution</h3>
-              <p className="text-gray-600 text-sm">Monitor progress across joint initiatives, milestones, and activities.</p>
-            </div>
-            
-            <div className="bg-gray-50/50 backdrop-blur border border-gray-200 rounded-xl p-8 relative">
-              <div className="absolute -top-4 left-6 w-8 h-8 bg-gradient-to-r from-purple-400 to-purple-500 rounded-full flex items-center justify-center font-bold text-gray-900 text-sm">3</div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-3 mt-2">Measure partnership health</h3>
-              <p className="text-gray-600 text-sm">Evaluate partnerships across multiple dimensions including performance, engagement, and strategic alignment.</p>
-            </div>
-            
-            <div className="bg-gray-50/50 backdrop-blur border border-gray-200 rounded-xl p-8 relative">
-              <div className="absolute -top-4 left-6 w-8 h-8 bg-gradient-to-r from-orange-400 to-orange-500 rounded-full flex items-center justify-center font-bold text-gray-900 text-sm">4</div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-3 mt-2">Surface leadership insights</h3>
-              <p className="text-gray-600 text-sm">Provide executives with portfolio-level insights into ecosystem performance and risk.</p>
-            </div>
-          </div>
-          
-          <p className="text-lg text-gray-600 text-center max-w-3xl mx-auto">
-            This gives executives a complete view of their partnership portfolio.
-          </p>
-        </div>
-      </section>
-
-
-      {/* AI-Powered Insights */}
-      <section className="py-20 border-t border-gray-100 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-8 tracking-tight">
-              Turn partnership data into actionable insight
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Partegy analyzes partnership activity, initiative progress, and revenue signals to surface insights that would otherwise remain hidden.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12">
-            <div className="bg-gray-50/50 backdrop-blur border border-gray-200 rounded-xl p-8">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">This helps leaders:</h3>
-              <ul className="space-y-3 text-gray-600">
-                <li className="flex items-start space-x-2"><span className="text-emerald-400 mt-1">•</span><span>Detect early partnership risk</span></li>
-                <li className="flex items-start space-x-2"><span className="text-emerald-400 mt-1">•</span><span>Identify stalled initiatives</span></li>
-                <li className="flex items-start space-x-2"><span className="text-emerald-400 mt-1">•</span><span>Understand where resources should be invested</span></li>
-                <li className="flex items-start space-x-2"><span className="text-emerald-400 mt-1">•</span><span>Intervene before revenue impact occurs</span></li>
-              </ul>
-            </div>
-            
-            <div className="bg-gray-50/50 backdrop-blur border border-gray-200 rounded-xl p-8">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">The platform surfaces signals such as:</h3>
-              <ul className="space-y-3 text-gray-600">
-                <li className="flex items-start space-x-2"><span className="text-red-400 mt-1">•</span><span>Declining partner engagement</span></li>
-                <li className="flex items-start space-x-2"><span className="text-red-400 mt-1">•</span><span>Initiatives falling behind plan</span></li>
-                <li className="flex items-start space-x-2"><span className="text-red-400 mt-1">•</span><span>Partnerships delivering lower-than-expected impact</span></li>
-                <li className="flex items-start space-x-2"><span className="text-red-400 mt-1">•</span><span>Misalignment between strategy and execution</span></li>
-              </ul>
-            </div>
-          </div>
-          
-          <p className="text-lg text-gray-500 text-center max-w-3xl mx-auto italic">
-            AI surfaces insights, while leaders remain in control of decisions.
-          </p>
-        </div>
-      </section>
-
-      <section className="py-20 border-t border-gray-100 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-8 tracking-tight">
-              Give leadership the answers they're asking for
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-12">
-              Partegy enables leadership teams to manage partnerships as a strategic portfolio.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-8">
-            <div className="bg-gray-50/50 backdrop-blur border border-gray-200 rounded-xl p-6">
-              <div className="text-emerald-400 font-semibold mb-2">Investment Decisions</div>
-              <div className="text-gray-600 text-sm">Which partnerships deserve more investment</div>
-            </div>
-            <div className="bg-gray-50/50 backdrop-blur border border-gray-200 rounded-xl p-6">
-              <div className="text-blue-400 font-semibold mb-2">Initiative Performance</div>
-              <div className="text-gray-600 text-sm">Which initiatives are delivering results</div>
-            </div>
-            <div className="bg-gray-50/50 backdrop-blur border border-gray-200 rounded-xl p-6">
-              <div className="text-purple-400 font-semibold mb-2">Risk Management</div>
-              <div className="text-gray-600 text-sm">Which relationships require intervention</div>
-            </div>
-            <div className="bg-gray-50/50 backdrop-blur border border-gray-200 rounded-xl p-6">
-              <div className="text-orange-400 font-semibold mb-2">Resource Allocation</div>
-              <div className="text-gray-600 text-sm">Where resources may be misallocated</div>
-            </div>
-          </div>
-          
-          <p className="text-lg text-gray-600 text-center max-w-3xl mx-auto mb-12">
-            Instead of reacting to declining revenue, leadership can act proactively.
-          </p>
-          
-          {/* Executive Dashboard Preview */}
-          <div className="max-w-5xl mx-auto mt-16">
-            <div className="bg-gray-50/50 backdrop-blur-xl border border-gray-200 rounded-2xl overflow-hidden shadow-2xl">
-              <div className="relative h-[600px] overflow-hidden">
-                <div className="animate-slow-scroll">
-                  <img 
-                    src="/executive-dashboard.png" 
-                    alt="Partegy Executive Dashboard showing portfolio metrics, risk matrix, and AI insights"
-                    className="w-full h-auto"
-                  />
-                </div>
-                {/* Gradient overlays for fade effect */}
-                <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-slate-900/80 to-transparent pointer-events-none"></div>
-                <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-slate-900/80 to-transparent pointer-events-none"></div>
-              </div>
-              
-              {/* Live indicator */}
-              <div className="absolute top-4 right-4 flex items-center space-x-2 bg-slate-900/90 backdrop-blur px-3 py-2 rounded-lg border border-gray-200">
-                <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
-                <span className="text-gray-600 text-sm font-medium">LIVE EXECUTIVE VIEW</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* Core 3 Benefits - Authoritative Content */}
-
-
-      <section className="py-20 border-t border-gray-100">
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            
-            {/* Partnership Asset Management */}
-            <div className="text-center">
-              <div className="w-20 h-20 bg-gradient-to-r from-emerald-400 to-blue-400 rounded-2xl flex items-center justify-center mx-auto mb-8">
-                <Gauge className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Partnership Asset Management</h3>
-              <p className="text-gray-600 leading-relaxed mb-6">
-                Stop managing $100M relationships in $0 spreadsheets. Our patented Partnership Intelligence system treats partnerships as structured, measurable, and enduring organizational assets.
-              </p>
-              <div className="bg-gray-50/30 border border-gray-200 rounded-xl p-6">
-                <div className="text-sm text-emerald-400 font-semibold mb-2">OUTCOME:</div>
-                <div className="text-gray-600 text-sm">Revenue alone is a lagging indicator. We synthesize engagement density, execution velocity, and mutual value exchange into a single, proprietary predictive signal. Equip the CFO with the same visibility into partnership ROI that they have for R&D or Sales spend.</div>
-              </div>
-            </div>
-
-            {/* Strategy-to-Execution Continuity */}
-            <div className="text-center">
-              <div className="w-20 h-20 bg-gradient-to-r from-blue-400 to-purple-400 rounded-2xl flex items-center justify-center mx-auto mb-8">
-                <Target className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Strategy-to-Execution Continuity</h3>
-              <p className="text-gray-600 leading-relaxed mb-6">
-                Most tools stop at the plan. Others stop at the task. Partegy is the only system that explicitly links high-level strategic intent to day-to-day outcomes.
-              </p>
-              <div className="bg-gray-50/30 border border-gray-200 rounded-xl p-6">
-                <div className="text-sm text-blue-400 font-semibold mb-2">OUTCOME:</div>
-                <div className="text-gray-600 text-sm">Explicitly link strategic objectives to initiatives. Track intent → action → outcome in **The System of Record for Partnership State**.</div>
-              </div>
-            </div>
-
-            {/* Executive-Level Intelligence */}
-            <div className="text-center">
-              <div className="w-20 h-20 bg-gradient-to-r from-purple-400 to-pink-400 rounded-2xl flex items-center justify-center mx-auto mb-8">
-                <Brain className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Executive-Level Intelligence</h3>
-              <p className="text-gray-600 leading-relaxed mb-6">
-                AI synthesizes partnership context to generate executive summaries, identify risks, and recommend interventions.
-              </p>
-              <div className="bg-gray-50/30 border border-gray-200 rounded-xl p-6">
-                <div className="text-sm text-purple-400 font-semibold mb-2">OUTCOME:</div>
-                <div className="text-gray-600 text-sm">Get answers to "Should I worry?" and "Where should I intervene?" — enabling strategic capital reallocation based on partnership performance data.</div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA - Irresistible Offer */}
-      <section className="py-20 bg-gradient-to-r from-slate-900 to-slate-800 border-t border-gray-200">
-        <div className="max-w-4xl mx-auto px-8 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-8 tracking-tight">
-            See your ecosystem's true health
+      {/* FINAL CTA */}
+      <section className="py-24" style={{background: 'linear-gradient(135deg, #0B3D91 0%, #1E7EC8 60%, #2EC4D2 100%)'}}>
+        <div className="max-w-3xl mx-auto px-6 sm:px-8 text-center">
+          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6 leading-tight">
+            See your ecosystem's true health.
           </h2>
-          <p className="text-xl text-gray-600 mb-12 leading-relaxed">
-            Get early access to how Partegy helps leaders govern strategic partnerships like assets.
+          <p className="text-xl text-blue-100 mb-10 leading-relaxed">
+            Get early access to see how Partegy helps leaders govern strategic partnerships like assets.
           </p>
-          
-          <div className="flex justify-center mb-12">
-            <button
-              onClick={handleGetAudit}
-              className="bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center transition-all shadow-lg"
-            >
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <button onClick={handleWatchDemo}
+              className="w-full sm:w-auto bg-white font-bold px-8 py-4 rounded-xl text-base transition-all hover:bg-blue-50 shadow-lg"
+              style={{color: '#0B3D91'}}>
               Request Early Access
+            </button>
+            <button onClick={handleGetAudit}
+              className="w-full sm:w-auto border-2 border-white/40 text-white font-semibold px-8 py-4 rounded-xl text-base transition-all hover:bg-white/10">
+              Book a Live Session
             </button>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-slate-950 border-t border-gray-100 py-16">
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="text-center">
-            <div className="flex items-center justify-center space-x-3 mb-6">
-              <div className="flex space-x-1">
-                <div className="w-3 h-3 bg-emerald-400 rounded-sm"></div>
-                <div className="w-3 h-3 bg-blue-400 rounded-sm"></div>
+      {/* FOOTER */}
+      <footer className="bg-white border-t border-gray-100 py-12">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div className="flex items-center space-x-2">
+              <div className="w-7 h-7 rounded-lg flex items-center justify-center" style={{background: 'linear-gradient(135deg, #2EC4D2, #0B3D91)'}}>
+                <span className="text-white font-black text-xs">P</span>
               </div>
-              <div className="text-xl font-bold text-white">Partegy</div>
+              <span className="font-bold text-gray-800">Partegy</span>
+              <span className="text-gray-300 ml-4 text-sm">© 2026 Partegy, Inc.</span>
             </div>
-            
-            <div className="flex items-center justify-center mb-4">
-              <span className="text-gray-400 text-xs font-medium tracking-wider uppercase border border-gray-100 px-3 py-1.5 rounded-md bg-slate-900/40">
-                Patent Pending
-              </span>
+            <div className="flex items-center space-x-6 text-sm text-gray-400">
+              <a href="/privacy" className="hover:text-gray-600 transition-colors">Privacy</a>
+              <a href="/terms" className="hover:text-gray-600 transition-colors">Terms</a>
+              <a href="/contact" className="hover:text-gray-600 transition-colors">Contact</a>
             </div>
-            
-            <p className="text-gray-500 mb-8">
-              The strategic governance layer for enterprise partnerships
-            </p>
-            <div className="flex space-x-6 justify-center text-gray-400 text-sm">
-              <a href="/privacy" className="hover:text-gray-500 transition-colors">Privacy Policy</a>
-              <a href="/terms" className="hover:text-gray-500 transition-colors">Terms of Service</a>
-              <a href="/contact" className="hover:text-gray-500 transition-colors">Contact</a>
-            </div>
+            <div className="text-xs text-gray-300">Patent Pending</div>
           </div>
         </div>
-
-      {/* Lead Capture Modal */}
-      <LeadCaptureModal 
-        isOpen={modalOpen}
-        onClose={() => setModalOpen(false)}
-        type={modalType}
-      />
       </footer>
+
+      {modalOpen && (
+        <LeadCaptureModal
+          isOpen={modalOpen}
+          onClose={() => setModalOpen(false)}
+          type={modalType}
+        />
+      )}
     </div>
   );
 }
