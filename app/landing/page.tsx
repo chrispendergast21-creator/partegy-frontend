@@ -22,11 +22,9 @@ export default function LandingPage() {
       {/* NAV */}
       <header className="sticky top-0 z-50 bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 py-4 flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{background: 'linear-gradient(135deg, #2EC4D2, #0B3D91)'}}>
-              <span className="text-white font-black text-sm">P</span>
-            </div>
-            <span className="text-xl font-bold" style={{color: '#0B3D91'}}>Partegy</span>
+          <div className="flex items-center">
+            <img src="/partegy-logo.png" alt="Partegy" className="h-9 w-auto" />
+          </div>
           </div>
           <nav className="hidden md:flex items-center space-x-8">
             {['Product', 'Solutions', 'Customers', 'Resources'].map(item => (
@@ -319,10 +317,7 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto px-6 sm:px-8">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
             <div className="flex items-center space-x-2">
-              <div className="w-7 h-7 rounded-lg flex items-center justify-center" style={{background: 'linear-gradient(135deg, #2EC4D2, #0B3D91)'}}>
-                <span className="text-white font-black text-xs">P</span>
-              </div>
-              <span className="font-bold text-gray-800">Partegy</span>
+              <img src="/partegy-logo.png" alt="Partegy" className="h-7 w-auto" />
               <span className="text-gray-300 ml-4 text-sm">© 2026 Partegy, Inc.</span>
             </div>
             <div className="flex items-center space-x-6 text-sm text-gray-400">

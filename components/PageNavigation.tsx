@@ -108,12 +108,8 @@ export function PageNavigation() {
         <div className="flex items-center justify-between">
 
           {/* Logo */}
-          <div className="flex items-center space-x-2 py-4">
-            <div className="flex space-x-1">
-              <div className="w-2 h-2 bg-emerald-400 rounded-sm"></div>
-              <div className="w-2 h-2 bg-blue-400 rounded-sm"></div>
-            </div>
-            <span className="font-bold text-white text-lg">Partegy</span>
+          <div className="flex items-center py-3">
+            <img src="/partegy-logo.png" alt="Partegy" className="h-8 w-auto brightness-0 invert" />
           </div>
 
           {/* ===== DESKTOP NAV (md and up) ===== */}
