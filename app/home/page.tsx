@@ -47,25 +47,25 @@ export default function HomePage() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950">
+    <div className="min-h-screen bg-gray-50">
       <PageNavigation />
       <main className="max-w-7xl mx-auto px-4 sm:px-8 py-6 sm:py-8 space-y-6 sm:space-y-8">
         <div>
-          <h1 className="text-3xl font-bold text-white">Welcome Back</h1>
-          <p className="text-slate-400 mt-1">Here's what needs your attention today</p>
+          <h1 className="text-3xl font-bold text-gray-900">Welcome Back</h1>
+          <p className="text-gray-500 mt-1">Here's what needs your attention today</p>
         </div>
 
         {/* Snapshot Stats */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           {[
-            { label: 'Total Partnerships', value: partnerships.length, color: 'text-white' },
+            { label: 'Total Partnerships', value: partnerships.length, color: 'text-gray-900' },
             { label: 'Healthy', value: healthy.length, color: 'text-emerald-400' },
             { label: 'At Risk', value: atRisk.length, color: 'text-amber-400' },
             { label: 'Critical', value: partnerships.filter(p => p.health_state === 'CRITICAL').length, color: 'text-red-400' },
           ].map((stat, idx) => (
-            <div key={idx} className="bg-slate-900 border border-slate-700 rounded-xl p-6">
+            <div key={idx} className="bg-white border border-gray-200 rounded-xl p-6">
               <div className={`text-3xl font-bold ${stat.color}`}>{stat.value}</div>
-              <div className="text-slate-400 text-sm mt-1">{stat.label}</div>
+              <div className="text-gray-500 text-sm mt-1">{stat.label}</div>
             </div>
           ))}
         </div>
@@ -73,26 +73,26 @@ export default function HomePage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Focus Today */}
           <div className="lg:col-span-2 space-y-6">
-            <div className="bg-slate-900 border border-slate-700 rounded-xl overflow-hidden">
-              <div className="p-6 border-b border-slate-700 flex items-center space-x-3">
+            <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
+              <div className="p-6 border-b border-gray-200 flex items-center space-x-3">
                 <Target className="w-5 h-5 text-blue-400" />
-                <h2 className="text-lg font-bold text-white">Your Focus Today</h2>
+                <h2 className="text-lg font-bold text-gray-900">Your Focus Today</h2>
                 {atRisk.length > 0 && <span className="px-2 py-1 bg-red-500/20 text-red-400 text-xs rounded-full">{atRisk.length} need attention</span>}
               </div>
               <div className="divide-y divide-slate-700">
                 {atRisk.length === 0 ? (
                   <div className="p-8 text-center">
                     <CheckCircle className="w-12 h-12 mx-auto mb-3 text-emerald-400" />
-                    <p className="text-slate-400">All caught up! No partnerships need attention.</p>
+                    <p className="text-gray-500">All caught up! No partnerships need attention.</p>
                   </div>
                 ) : atRisk.map((p) => (
                   <button key={p.id} onClick={() => router.push(`/partnership/${p.id}`)}
-                    className="w-full p-5 hover:bg-slate-800 transition-colors text-left flex items-center justify-between">
+                    className="w-full p-5 hover:bg-gray-100 transition-colors text-left flex items-center justify-between">
                     <div className="flex items-center space-x-4">
                       <div className={`w-3 h-3 rounded-full ${getHealthColor(p.health_state)}`}></div>
                       <div>
-                        <div className="text-white font-semibold">{p.name}</div>
-                        <div className="text-slate-400 text-sm">Health score: {p.health_score} • {p.next_milestone} in {p.days_to_milestone} days</div>
+                        <div className="text-gray-900 font-semibold">{p.name}</div>
+                        <div className="text-gray-500 text-sm">Health score: {p.health_score} • {p.next_milestone} in {p.days_to_milestone} days</div>
                       </div>
                     </div>
                     <span className="px-3 py-1 bg-blue-600 text-white text-sm rounded-lg">Review</span>
@@ -102,10 +102,10 @@ export default function HomePage() {
             </div>
 
             {/* Recent Activity */}
-            <div className="bg-slate-900 border border-slate-700 rounded-xl overflow-hidden">
-              <div className="p-6 border-b border-slate-700 flex items-center space-x-3">
+            <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
+              <div className="p-6 border-b border-gray-200 flex items-center space-x-3">
                 <Bell className="w-5 h-5 text-blue-400" />
-                <h2 className="text-lg font-bold text-white">Recent Activity</h2>
+                <h2 className="text-lg font-bold text-gray-900">Recent Activity</h2>
               </div>
               <div className="divide-y divide-slate-700">
                 {[
@@ -114,12 +114,12 @@ export default function HomePage() {
                   { name: 'Enterprise Systems Co', action: 'Engagement score dropped 8 points', time: '1 day ago' },
                   { name: 'NextGen Technologies', action: 'Milestone deadline approaching', time: '1 day ago' },
                 ].map((item, idx) => (
-                  <div key={idx} className="p-5 flex items-center justify-between hover:bg-slate-800 transition-colors cursor-pointer">
+                  <div key={idx} className="p-5 flex items-center justify-between hover:bg-gray-100 transition-colors cursor-pointer">
                     <div>
-                      <div className="text-white font-medium">{item.name}</div>
-                      <div className="text-slate-400 text-sm mt-1">{item.action}</div>
+                      <div className="text-gray-900 font-medium">{item.name}</div>
+                      <div className="text-gray-500 text-sm mt-1">{item.action}</div>
                     </div>
-                    <div className="text-slate-500 text-xs">{item.time}</div>
+                    <div className="text-gray-400 text-xs">{item.time}</div>
                   </div>
                 ))}
               </div>
@@ -129,20 +129,20 @@ export default function HomePage() {
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Upcoming Milestones */}
-            <div className="bg-slate-900 border border-slate-700 rounded-xl overflow-hidden">
-              <div className="p-6 border-b border-slate-700 flex items-center space-x-3">
+            <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
+              <div className="p-6 border-b border-gray-200 flex items-center space-x-3">
                 <Calendar className="w-5 h-5 text-blue-400" />
-                <h2 className="text-lg font-bold text-white">Upcoming Milestones</h2>
+                <h2 className="text-lg font-bold text-gray-900">Upcoming Milestones</h2>
               </div>
               <div className="p-4 space-y-3">
                 {upcoming.map((p) => (
                   <button key={p.id} onClick={() => router.push(`/partnership/${p.id}`)}
-                    className="w-full text-left p-3 rounded-lg hover:bg-slate-800 border border-slate-700 transition-colors">
+                    className="w-full text-left p-3 rounded-lg hover:bg-gray-100 border border-gray-200 transition-colors">
                     <div className="flex items-center space-x-3">
-                      <Clock className={`w-4 h-4 ${p.days_to_milestone <= 7 ? 'text-red-400' : 'text-slate-400'}`} />
+                      <Clock className={`w-4 h-4 ${p.days_to_milestone <= 7 ? 'text-red-400' : 'text-gray-500'}`} />
                       <div>
-                        <div className="text-white text-sm font-medium">{p.name}</div>
-                        <div className="text-slate-400 text-xs">{p.next_milestone} • {p.days_to_milestone} days</div>
+                        <div className="text-gray-900 text-sm font-medium">{p.name}</div>
+                        <div className="text-gray-500 text-xs">{p.next_milestone} • {p.days_to_milestone} days</div>
                       </div>
                     </div>
                   </button>
@@ -151,15 +151,15 @@ export default function HomePage() {
             </div>
 
             {/* Quick Actions */}
-            <div className="bg-slate-900 border border-slate-700 rounded-xl p-6 space-y-3">
-              <h2 className="text-lg font-bold text-white mb-4">Quick Actions</h2>
+            <div className="bg-white border border-gray-200 rounded-xl p-6 space-y-3">
+              <h2 className="text-lg font-bold text-gray-900 mb-4">Quick Actions</h2>
               <button onClick={() => router.push('/executive')} className="w-full px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-medium transition-colors text-left flex items-center space-x-3">
                 <TrendingUp className="w-4 h-4" /><span>Executive Dashboard</span>
               </button>
-              <button onClick={() => router.push('/partnerships/new')} className="w-full px-4 py-3 bg-slate-800 hover:bg-slate-700 text-white rounded-lg text-sm font-medium transition-colors text-left flex items-center space-x-3 border border-slate-700">
+              <button onClick={() => router.push('/partnerships/new')} className="w-full px-4 py-3 bg-gray-100 hover:bg-gray-200 text-gray-900 rounded-lg text-sm font-medium transition-colors text-left flex items-center space-x-3 border border-gray-200">
                 <Users className="w-4 h-4" /><span>Add Partnership</span>
               </button>
-              <button onClick={() => router.push('/reports')} className="w-full px-4 py-3 bg-slate-800 hover:bg-slate-700 text-white rounded-lg text-sm font-medium transition-colors text-left flex items-center space-x-3 border border-slate-700">
+              <button onClick={() => router.push('/reports')} className="w-full px-4 py-3 bg-gray-100 hover:bg-gray-200 text-gray-900 rounded-lg text-sm font-medium transition-colors text-left flex items-center space-x-3 border border-gray-200">
                 <Eye className="w-4 h-4" /><span>View Reports</span>
               </button>
             </div>

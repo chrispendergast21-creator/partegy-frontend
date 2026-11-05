@@ -48,7 +48,7 @@ export default function UsersPage() {
   const roleColors: Record<string, string> = {
     admin: 'bg-purple-500/20 text-purple-300',
     member: 'bg-blue-500/20 text-blue-300',
-    viewer: 'bg-slate-600 text-slate-300',
+    viewer: 'bg-slate-600 text-gray-600',
   };
 
   const statusColors: Record<string, string> = {
@@ -58,13 +58,13 @@ export default function UsersPage() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950">
+    <div className="min-h-screen bg-gray-50">
       <PageNavigation />
       <main className="max-w-7xl mx-auto px-8 py-8 space-y-8">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-white">Team Management</h1>
-            <p className="text-slate-400 mt-1">Manage users and permissions</p>
+            <h1 className="text-3xl font-bold text-gray-900">Team Management</h1>
+            <p className="text-gray-500 mt-1">Manage users and permissions</p>
           </div>
           <button
             onClick={() => setShowInviteModal(true)}
@@ -77,55 +77,55 @@ export default function UsersPage() {
 
         {/* Stats */}
         <div className="grid grid-cols-3 gap-6">
-          <div className="bg-slate-900 border border-slate-700 rounded-xl p-6">
-            <div className="text-2xl font-bold text-white">{users.length}</div>
-            <div className="text-slate-400 text-sm mt-1">Total Users</div>
+          <div className="bg-white border border-gray-200 rounded-xl p-6">
+            <div className="text-2xl font-bold text-gray-900">{users.length}</div>
+            <div className="text-gray-500 text-sm mt-1">Total Users</div>
           </div>
-          <div className="bg-slate-900 border border-slate-700 rounded-xl p-6">
-            <div className="text-2xl font-bold text-white">{users.filter(u => u.status === 'active').length}</div>
-            <div className="text-slate-400 text-sm mt-1">Active</div>
+          <div className="bg-white border border-gray-200 rounded-xl p-6">
+            <div className="text-2xl font-bold text-gray-900">{users.filter(u => u.status === 'active').length}</div>
+            <div className="text-gray-500 text-sm mt-1">Active</div>
           </div>
-          <div className="bg-slate-900 border border-slate-700 rounded-xl p-6">
-            <div className="text-2xl font-bold text-white">{users.filter(u => u.status === 'pending').length}</div>
-            <div className="text-slate-400 text-sm mt-1">Pending Invites</div>
+          <div className="bg-white border border-gray-200 rounded-xl p-6">
+            <div className="text-2xl font-bold text-gray-900">{users.filter(u => u.status === 'pending').length}</div>
+            <div className="text-gray-500 text-sm mt-1">Pending Invites</div>
           </div>
         </div>
 
         {/* Search + Table */}
-        <div className="bg-slate-900 border border-slate-700 rounded-xl overflow-hidden">
-          <div className="p-6 border-b border-slate-700">
+        <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
+          <div className="p-6 border-b border-gray-200">
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-slate-400" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-500" />
               <input
                 type="text"
                 placeholder="Search users by name or email..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10 pr-4 py-2 w-full bg-slate-800 border border-slate-600 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-slate-400 text-sm"
+                className="pl-10 pr-4 py-2 w-full bg-gray-100 border border-gray-300 text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400 text-sm"
               />
             </div>
           </div>
           <table className="min-w-full">
-            <thead className="bg-slate-800">
+            <thead className="bg-gray-100">
               <tr>
                 {['User', 'Role', 'Status', 'Last Login', 'Actions'].map((h) => (
-                  <th key={h} className={`px-6 py-3 text-xs font-medium text-slate-400 uppercase tracking-wider ${h === 'Actions' ? 'text-right' : 'text-left'}`}>{h}</th>
+                  <th key={h} className={`px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider ${h === 'Actions' ? 'text-right' : 'text-left'}`}>{h}</th>
                 ))}
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-700">
               {loading ? (
-                <tr><td colSpan={5} className="px-6 py-12 text-center text-slate-400">Loading users...</td></tr>
+                <tr><td colSpan={5} className="px-6 py-12 text-center text-gray-500">Loading users...</td></tr>
               ) : filteredUsers.map((user) => (
-                <tr key={user.id} className="hover:bg-slate-800 transition-colors">
+                <tr key={user.id} className="hover:bg-gray-100 transition-colors">
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="flex items-center">
                       <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
-                        <span className="text-white font-semibold text-sm">{user.first_name[0]}{user.last_name[0]}</span>
+                        <span className="text-gray-900 font-semibold text-sm">{user.first_name[0]}{user.last_name[0]}</span>
                       </div>
                       <div className="ml-4">
-                        <div className="text-white font-medium">{user.first_name} {user.last_name}</div>
-                        <div className="text-slate-400 text-sm">{user.email}</div>
+                        <div className="text-gray-900 font-medium">{user.first_name} {user.last_name}</div>
+                        <div className="text-gray-500 text-sm">{user.email}</div>
                       </div>
                     </div>
                   </td>
@@ -135,12 +135,12 @@ export default function UsersPage() {
                   <td className="px-6 py-4 whitespace-nowrap">
                     <span className={`px-3 py-1 text-xs font-semibold rounded-full ${statusColors[user.status]}`}>{user.status}</span>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-slate-400 text-sm">
+                  <td className="px-6 py-4 whitespace-nowrap text-gray-500 text-sm">
                     {user.last_login ? new Date(user.last_login).toLocaleDateString() : 'Never'}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-right">
-                    <button className="text-slate-400 hover:text-blue-400 mr-4 transition-colors"><Edit className="w-4 h-4" /></button>
-                    <button className="text-slate-400 hover:text-red-400 transition-colors"><Trash2 className="w-4 h-4" /></button>
+                    <button className="text-gray-500 hover:text-blue-400 mr-4 transition-colors"><Edit className="w-4 h-4" /></button>
+                    <button className="text-gray-500 hover:text-red-400 transition-colors"><Trash2 className="w-4 h-4" /></button>
                   </td>
                 </tr>
               ))}
@@ -176,34 +176,34 @@ function InviteModal({ onClose, onSuccess }: any) {
 
   return (
     <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
-      <div className="bg-slate-900 border border-slate-700 rounded-xl max-w-md w-full mx-4">
-        <div className="p-6 border-b border-slate-700">
-          <h2 className="text-xl font-bold text-white">Invite New User</h2>
+      <div className="bg-white border border-gray-200 rounded-xl max-w-md w-full mx-4">
+        <div className="p-6 border-b border-gray-200">
+          <h2 className="text-xl font-bold text-gray-900">Invite New User</h2>
         </div>
         <form onSubmit={handleSubmit} className="p-6 space-y-4">
           <div>
-            <label className="block text-sm font-medium text-slate-300 mb-2">Email Address *</label>
+            <label className="block text-sm font-medium text-gray-600 mb-2">Email Address *</label>
             <input type="email" required value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              className="w-full px-4 py-2 bg-slate-800 border border-slate-600 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-2 bg-gray-100 border border-gray-300 text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="user@company.com" />
           </div>
           <div>
-            <label className="block text-sm font-medium text-slate-300 mb-2">Role</label>
+            <label className="block text-sm font-medium text-gray-600 mb-2">Role</label>
             <select value={formData.role} onChange={(e) => setFormData({ ...formData, role: e.target.value })}
-              className="w-full px-4 py-2 bg-slate-800 border border-slate-600 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+              className="w-full px-4 py-2 bg-gray-100 border border-gray-300 text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
               <option value="viewer">Viewer - Can view partnerships</option>
               <option value="member">Member - Can edit partnerships</option>
               <option value="admin">Admin - Full access</option>
             </select>
           </div>
           <div>
-            <label className="block text-sm font-medium text-slate-300 mb-2">Message (optional)</label>
+            <label className="block text-sm font-medium text-gray-600 mb-2">Message (optional)</label>
             <textarea value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} rows={3}
-              className="w-full px-4 py-2 bg-slate-800 border border-slate-600 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-2 bg-gray-100 border border-gray-300 text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Welcome to our partnership team!" />
           </div>
           <div className="flex justify-end space-x-3 pt-4">
-            <button type="button" onClick={onClose} className="px-4 py-2 border border-slate-600 text-slate-300 rounded-lg hover:bg-slate-800">Cancel</button>
+            <button type="button" onClick={onClose} className="px-4 py-2 border border-gray-300 text-gray-600 rounded-lg hover:bg-gray-100">Cancel</button>
             <button type="submit" disabled={submitting} className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg disabled:opacity-50">
               {submitting ? 'Sending...' : 'Send Invitation'}
             </button>

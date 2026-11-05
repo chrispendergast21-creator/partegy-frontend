@@ -55,17 +55,17 @@ export default function IntegrationsPage() {
   const connectedCount = availableIntegrations.filter(i => getStatus(i.type)?.enabled).length;
 
   return (
-    <div className="min-h-screen bg-slate-950">
+    <div className="min-h-screen bg-gray-50">
       <PageNavigation />
       <main className="max-w-7xl mx-auto px-4 sm:px-8 py-6 sm:py-8 space-y-6 sm:space-y-8">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
-            <h1 className="text-2xl sm:text-3xl font-bold text-white">Integrations</h1>
-            <p className="text-slate-400 mt-1 text-sm sm:text-base">Connect Partegy to your existing systems</p>
+            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Integrations</h1>
+            <p className="text-gray-500 mt-1 text-sm sm:text-base">Connect Partegy to your existing systems</p>
           </div>
-          <div className="bg-slate-900 border border-slate-700 rounded-xl px-6 py-3 text-center self-start sm:self-auto">
-            <div className="text-2xl font-bold text-white">{connectedCount}/{availableIntegrations.length}</div>
-            <div className="text-slate-400 text-sm">Connected</div>
+          <div className="bg-white border border-gray-200 rounded-xl px-6 py-3 text-center self-start sm:self-auto">
+            <div className="text-2xl font-bold text-gray-900">{connectedCount}/{availableIntegrations.length}</div>
+            <div className="text-gray-500 text-sm">Connected</div>
           </div>
         </div>
 
@@ -74,19 +74,19 @@ export default function IntegrationsPage() {
           const categoryIntegrations = availableIntegrations.filter(i => i.category === category);
           return (
             <div key={category}>
-              <h2 className="text-lg font-semibold text-slate-300 mb-4">{category}</h2>
+              <h2 className="text-lg font-semibold text-gray-600 mb-4">{category}</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {categoryIntegrations.map(integration => {
                   const status = getStatus(integration.type);
                   const isConnected = status?.enabled;
                   return (
-                    <div key={integration.type} className={`bg-slate-900 border rounded-xl p-6 transition-colors ${isConnected ? 'border-emerald-500/30' : 'border-slate-700'}`}>
+                    <div key={integration.type} className={`bg-white border rounded-xl p-6 transition-colors ${isConnected ? 'border-emerald-500/30' : 'border-gray-200'}`}>
                       <div className="flex items-start justify-between mb-4">
                         <div className="flex items-center space-x-3">
                           <div className="text-3xl">{integration.logo}</div>
                           <div>
-                            <h3 className="text-white font-semibold">{integration.name}</h3>
-                            <span className="text-slate-500 text-xs">{integration.category}</span>
+                            <h3 className="text-gray-900 font-semibold">{integration.name}</h3>
+                            <span className="text-gray-400 text-xs">{integration.category}</span>
                           </div>
                         </div>
                         {isConnected && (
@@ -95,20 +95,20 @@ export default function IntegrationsPage() {
                           </span>
                         )}
                       </div>
-                      <p className="text-slate-400 text-sm mb-6">{integration.description}</p>
+                      <p className="text-gray-500 text-sm mb-6">{integration.description}</p>
                       {isConnected ? (
                         <div className="space-y-3">
                           {status?.last_sync && (
                             <div className="flex justify-between text-sm">
-                              <span className="text-slate-400">Last synced</span>
-                              <span className="text-white">{new Date(status.last_sync).toLocaleDateString()}</span>
+                              <span className="text-gray-500">Last synced</span>
+                              <span className="text-gray-900">{new Date(status.last_sync).toLocaleDateString()}</span>
                             </div>
                           )}
                           <div className="flex space-x-2">
                             <button onClick={() => handleSync(status.id)} className="flex-1 flex items-center justify-center space-x-2 px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm rounded-lg transition-colors">
                               <RefreshCw className="w-3 h-3" /><span>Sync Now</span>
                             </button>
-                            <button onClick={() => handleToggle(status.id, isConnected)} className="px-3 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-sm rounded-lg transition-colors">
+                            <button onClick={() => handleToggle(status.id, isConnected)} className="px-3 py-2 bg-gray-100 hover:bg-gray-200 text-gray-600 text-sm rounded-lg transition-colors">
                               <Settings className="w-4 h-4" />
                             </button>
                           </div>
@@ -165,19 +165,19 @@ function ConnectModal({ type, onClose, onSuccess }: any) {
 
   return (
     <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
-      <div className="bg-slate-900 border border-slate-700 rounded-xl max-w-md w-full mx-4">
-        <div className="p-6 border-b border-slate-700 flex items-center justify-between">
-          <h3 className="text-xl font-bold text-white">Connect {type}</h3>
-          <button onClick={onClose} className="text-slate-400 hover:text-white"><X className="w-5 h-5" /></button>
+      <div className="bg-white border border-gray-200 rounded-xl max-w-md w-full mx-4">
+        <div className="p-6 border-b border-gray-200 flex items-center justify-between">
+          <h3 className="text-xl font-bold text-gray-900">Connect {type}</h3>
+          <button onClick={onClose} className="text-gray-500 hover:text-gray-900"><X className="w-5 h-5" /></button>
         </div>
         <div className="p-6 space-y-4">
           {getFields().map(field => (
             <div key={field}>
-              <label className="block text-sm font-medium text-slate-300 mb-2">{field.replace(/_/g, ' ').toUpperCase()}</label>
+              <label className="block text-sm font-medium text-gray-600 mb-2">{field.replace(/_/g, ' ').toUpperCase()}</label>
               <input type={field.includes('secret') ? 'password' : 'text'}
                 value={credentials[field as keyof typeof credentials]}
                 onChange={(e) => setCredentials({ ...credentials, [field]: e.target.value })}
-                className="w-full px-4 py-2 bg-slate-800 border border-slate-600 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2 bg-gray-100 border border-gray-300 text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder={`Enter ${field.replace(/_/g, ' ')}`} />
             </div>
           ))}
@@ -185,8 +185,8 @@ function ConnectModal({ type, onClose, onSuccess }: any) {
             <p className="text-blue-300 text-sm">In production, this would redirect to the provider's OAuth flow.</p>
           </div>
         </div>
-        <div className="p-6 border-t border-slate-700 flex space-x-3">
-          <button onClick={onClose} className="flex-1 px-4 py-2 bg-slate-800 border border-slate-600 text-slate-300 rounded-lg hover:bg-slate-700">Cancel</button>
+        <div className="p-6 border-t border-gray-200 flex space-x-3">
+          <button onClick={onClose} className="flex-1 px-4 py-2 bg-gray-100 border border-gray-300 text-gray-600 rounded-lg hover:bg-gray-200">Cancel</button>
           <button onClick={handleConnect} disabled={loading} className="flex-1 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg disabled:opacity-50">
             {loading ? 'Connecting...' : 'Connect'}
           </button>

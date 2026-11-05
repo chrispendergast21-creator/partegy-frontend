@@ -107,39 +107,39 @@ export default function PartnershipDetailPage() {
   ];
 
   if (loading) return (
-    <div className="min-h-screen bg-slate-950 flex items-center justify-center">
-      <div className="text-white text-xl">Loading...</div>
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="text-gray-900 text-xl">Loading...</div>
     </div>
   );
 
   if (!partnership) return (
-    <div className="min-h-screen bg-slate-950 flex items-center justify-center">
-      <div className="text-white text-xl">Partnership not found</div>
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="text-gray-900 text-xl">Partnership not found</div>
     </div>
   );
 
   return (
-    <div className="min-h-screen bg-slate-950">
+    <div className="min-h-screen bg-gray-50">
       <PageNavigation />
 
       <main className="max-w-7xl mx-auto px-8 py-8">
         {/* Back + Title */}
         <div className="flex items-center space-x-4 mb-8">
-          <button onClick={() => router.push('/partnerships')} className="p-2 text-slate-400 hover:bg-slate-800 rounded-lg transition-colors">
+          <button onClick={() => router.push('/partnerships')} className="p-2 text-gray-500 hover:bg-gray-100 rounded-lg transition-colors">
             <ArrowLeft className="w-6 h-6" />
           </button>
           <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${getHealthColor(partnership.health)} flex items-center justify-center`}>
-            <span className="text-xl font-bold text-white">{partnership.name.charAt(0)}</span>
+            <span className="text-xl font-bold text-gray-900">{partnership.name.charAt(0)}</span>
           </div>
           <div>
-            <h1 className="text-3xl font-bold text-white">{partnership.name}</h1>
-            <p className="text-slate-400 mt-1">{partnership.partnership_type} • {partnership.tier} Tier • <span className="text-emerald-400 capitalize">{partnership.health}</span></p>
+            <h1 className="text-3xl font-bold text-gray-900">{partnership.name}</h1>
+            <p className="text-gray-500 mt-1">{partnership.partnership_type} • {partnership.tier} Tier • <span className="text-emerald-400 capitalize">{partnership.health}</span></p>
           </div>
           <div className="ml-auto flex items-center space-x-3">
-            <button className="flex items-center space-x-2 px-4 py-2 bg-slate-800 border border-slate-700 text-slate-300 rounded-lg hover:bg-slate-700 transition-colors">
+            <button className="flex items-center space-x-2 px-4 py-2 bg-gray-100 border border-gray-200 text-gray-600 rounded-lg hover:bg-gray-200 transition-colors">
               <Bell className="w-4 h-4" /><span>Follow</span>
             </button>
-            <button className="flex items-center space-x-2 px-4 py-2 bg-slate-800 border border-slate-700 text-slate-300 rounded-lg hover:bg-slate-700 transition-colors">
+            <button className="flex items-center space-x-2 px-4 py-2 bg-gray-100 border border-gray-200 text-gray-600 rounded-lg hover:bg-gray-200 transition-colors">
               <Share className="w-4 h-4" /><span>Share</span>
             </button>
             <button className="flex items-center space-x-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors">
@@ -154,37 +154,37 @@ export default function PartnershipDetailPage() {
             <div>
               <div className="text-6xl font-bold mb-2">{partnership.health_score}</div>
               <div className="text-xl font-semibold uppercase tracking-wide mb-2">Overall Health Score</div>
-              <p className="text-white/80 max-w-md">{partnership.strategic_objective}</p>
+              <p className="text-gray-900/80 max-w-md">{partnership.strategic_objective}</p>
             </div>
             <div className="grid grid-cols-3 gap-8 text-center">
               <div>
                 <div className="text-3xl font-bold">${((partnership.revenue || 0) / 1000000).toFixed(1)}M</div>
-                <div className="text-white/80 text-sm">Annual Revenue</div>
+                <div className="text-gray-900/80 text-sm">Annual Revenue</div>
               </div>
               <div>
                 <div className="text-3xl font-bold">${((partnership.pipeline || 0) / 1000000).toFixed(1)}M</div>
-                <div className="text-white/80 text-sm">Pipeline</div>
+                <div className="text-gray-900/80 text-sm">Pipeline</div>
               </div>
               <div>
                 <div className="text-3xl font-bold">{partnership.days_to_milestone}</div>
-                <div className="text-white/80 text-sm">Days to Milestone</div>
+                <div className="text-gray-900/80 text-sm">Days to Milestone</div>
               </div>
             </div>
           </div>
         </div>
 
         {/* Tabs */}
-        <div className="bg-slate-900 border border-slate-700 rounded-xl p-2 mb-8 overflow-x-auto">
+        <div className="bg-white border border-gray-200 rounded-xl p-2 mb-8 overflow-x-auto">
           <div className="flex space-x-1 min-w-max">
             {tabs.map((tab) => (
               <button key={tab.id} onClick={() => setActiveTab(tab.id)}
                 className={`flex items-center space-x-3 px-5 py-3 rounded-lg transition-all min-w-max ${
-                  activeTab === tab.id ? 'bg-blue-600 text-white' : 'text-slate-400 hover:text-white hover:bg-slate-800'
+                  activeTab === tab.id ? 'bg-blue-600 text-white' : 'text-gray-500 hover:text-gray-900 hover:bg-gray-100'
                 }`}>
                 <tab.icon className="w-4 h-4" />
                 <div className="text-left">
                   <div className="font-medium text-sm">{tab.name}</div>
-                  <div className={`text-xs ${activeTab === tab.id ? 'text-blue-200' : 'text-slate-500'}`}>{tab.description}</div>
+                  <div className={`text-xs ${activeTab === tab.id ? 'text-blue-200' : 'text-gray-400'}`}>{tab.description}</div>
                 </div>
               </button>
             ))}
@@ -192,12 +192,12 @@ export default function PartnershipDetailPage() {
         </div>
 
         {/* Tab Content */}
-        <div className="bg-slate-900 border border-slate-700 rounded-xl p-8">
+        <div className="bg-white border border-gray-200 rounded-xl p-8">
 
           {/* OVERVIEW */}
           {activeTab === 'overview' && (
             <div className="space-y-8">
-              <h2 className="text-2xl font-bold text-white">Partnership Overview</h2>
+              <h2 className="text-2xl font-bold text-gray-900">Partnership Overview</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="space-y-4">
                   <InfoItem label="Partnership Type" value={partnership.partnership_type} />
@@ -221,29 +221,29 @@ export default function PartnershipDetailPage() {
           {/* HEALTH ANALYSIS */}
           {activeTab === 'health' && (
             <div className="space-y-6">
-              <h2 className="text-2xl font-bold text-white">6-Dimension Health Analysis</h2>
+              <h2 className="text-2xl font-bold text-gray-900">6-Dimension Health Analysis</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {healthDimensions.map((dim) => (
-                  <div key={dim.name} className="bg-slate-800 border border-slate-700 rounded-xl p-6">
+                  <div key={dim.name} className="bg-gray-100 border border-gray-200 rounded-xl p-6">
                     <div className="flex items-center justify-between mb-4">
-                      <h3 className="text-white font-semibold">{dim.name}</h3>
+                      <h3 className="text-gray-900 font-semibold">{dim.name}</h3>
                       <div className="flex items-center space-x-2">
                         {dim.trend === 'up' && <TrendingUp className="w-4 h-4 text-emerald-400" />}
                         {dim.trend === 'down' && <TrendingDown className="w-4 h-4 text-red-400" />}
-                        {dim.trend === 'stable' && <Clock className="w-4 h-4 text-slate-400" />}
+                        {dim.trend === 'stable' && <Clock className="w-4 h-4 text-gray-500" />}
                         <span className={`text-2xl font-bold ${dim.score >= 80 ? 'text-emerald-400' : dim.score >= 65 ? 'text-amber-400' : 'text-red-400'}`}>
                           {dim.score}
                         </span>
                       </div>
                     </div>
-                    <div className="w-full bg-slate-700 rounded-full h-2 mb-3">
+                    <div className="w-full bg-gray-200 rounded-full h-2 mb-3">
                       <div
                         className={`h-2 rounded-full ${dim.score >= 80 ? 'bg-emerald-400' : dim.score >= 65 ? 'bg-amber-400' : 'bg-red-400'}`}
                         style={{ width: `${dim.score}%` }}
                       ></div>
                     </div>
-                    <p className="text-slate-400 text-sm mb-2">{dim.description}</p>
-                    <p className="text-slate-500 text-xs">{dim.details}</p>
+                    <p className="text-gray-500 text-sm mb-2">{dim.description}</p>
+                    <p className="text-gray-400 text-xs">{dim.details}</p>
                   </div>
                 ))}
               </div>
@@ -254,17 +254,17 @@ export default function PartnershipDetailPage() {
           {activeTab === 'okrs' && (
             <div className="space-y-6">
               <div className="flex items-center justify-between">
-                <h2 className="text-2xl font-bold text-white">OKRs & Goals</h2>
+                <h2 className="text-2xl font-bold text-gray-900">OKRs & Goals</h2>
                 <button className="flex items-center space-x-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors text-sm">
                   <Target className="w-4 h-4" /><span>Add OKR</span>
                 </button>
               </div>
               {okrs.map((okr, idx) => (
-                <div key={idx} className="bg-slate-800 border border-slate-700 rounded-xl p-6">
+                <div key={idx} className="bg-gray-100 border border-gray-200 rounded-xl p-6">
                   <div className="flex items-start justify-between mb-6">
                     <div>
-                      <h3 className="text-white font-bold text-lg">{okr.objective}</h3>
-                      <div className="flex items-center space-x-4 mt-2 text-sm text-slate-400">
+                      <h3 className="text-gray-900 font-bold text-lg">{okr.objective}</h3>
+                      <div className="flex items-center space-x-4 mt-2 text-sm text-gray-500">
                         <span>Owner: {okr.owner}</span>
                         <span>Due: {okr.dueDate}</span>
                       </div>
@@ -273,10 +273,10 @@ export default function PartnershipDetailPage() {
                       <div className={`text-2xl font-bold ${okr.progress >= 80 ? 'text-emerald-400' : okr.progress >= 60 ? 'text-amber-400' : 'text-red-400'}`}>
                         {okr.progress}%
                       </div>
-                      <div className="text-slate-400 text-sm">Overall Progress</div>
+                      <div className="text-gray-500 text-sm">Overall Progress</div>
                     </div>
                   </div>
-                  <div className="w-full bg-slate-700 rounded-full h-2 mb-6">
+                  <div className="w-full bg-gray-200 rounded-full h-2 mb-6">
                     <div className={`h-2 rounded-full ${okr.progress >= 80 ? 'bg-emerald-400' : okr.progress >= 60 ? 'bg-amber-400' : 'bg-red-400'}`}
                       style={{ width: `${okr.progress}%` }}></div>
                   </div>
@@ -284,10 +284,10 @@ export default function PartnershipDetailPage() {
                     {okr.keyResults.map((kr, kIdx) => {
                       const pct = Math.min(100, (kr.current / kr.target) * 100);
                       return (
-                        <div key={kIdx} className="bg-slate-700/50 rounded-lg p-4">
+                        <div key={kIdx} className="bg-gray-200/50 rounded-lg p-4">
                           <div className="flex items-center justify-between mb-2">
-                            <span className="text-slate-300 text-sm">{kr.description}</span>
-                            <span className="text-white font-semibold text-sm">
+                            <span className="text-gray-600 text-sm">{kr.description}</span>
+                            <span className="text-gray-900 font-semibold text-sm">
                               {kr.unit === '$' ? `$${(kr.current / 1000000).toFixed(1)}M / $${(kr.target / 1000000).toFixed(1)}M` : `${kr.current} / ${kr.target} ${kr.unit}`}
                             </span>
                           </div>
@@ -311,22 +311,22 @@ export default function PartnershipDetailPage() {
               <div className="bg-red-950/20 border border-red-900/50 rounded-xl p-6">
                 <div className="flex items-center space-x-3 mb-4">
                   <Brain className="w-5 h-5 text-red-400" />
-                  <h3 className="text-white font-bold">Relationship Intelligence Signals</h3>
+                  <h3 className="text-gray-900 font-bold">Relationship Intelligence Signals</h3>
                   <span className="px-2 py-1 bg-red-500/20 text-red-400 text-xs rounded-full">2 alerts</span>
                 </div>
                 <div className="space-y-3">
                   <div className="flex items-start space-x-3 bg-red-950/30 rounded-lg p-4">
                     <AlertCircle className="w-4 h-4 text-red-400 mt-0.5 flex-shrink-0" />
                     <div>
-                      <div className="text-white text-sm font-medium">Marketing contact departed — no replacement identified</div>
-                      <div className="text-slate-400 text-xs mt-1">Lisa Park left Apex Dynamics 47 days ago. GTM activities may be on hold. Recommend identifying new marketing relationship owner.</div>
+                      <div className="text-gray-900 text-sm font-medium">Marketing contact departed — no replacement identified</div>
+                      <div className="text-gray-500 text-xs mt-1">Lisa Park left Apex Dynamics 47 days ago. GTM activities may be on hold. Recommend identifying new marketing relationship owner.</div>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3 bg-amber-950/30 rounded-lg p-4">
                     <Clock className="w-4 h-4 text-amber-400 mt-0.5 flex-shrink-0" />
                     <div>
-                      <div className="text-white text-sm font-medium">Executive sponsor has not engaged in 61 days</div>
-                      <div className="text-slate-400 text-xs mt-1">No recorded interaction with John Smith since February 14. Executive relationships require 30-day minimum touchpoint cadence.</div>
+                      <div className="text-gray-900 text-sm font-medium">Executive sponsor has not engaged in 61 days</div>
+                      <div className="text-gray-500 text-xs mt-1">No recorded interaction with John Smith since February 14. Executive relationships require 30-day minimum touchpoint cadence.</div>
                     </div>
                   </div>
                 </div>
@@ -336,8 +336,8 @@ export default function PartnershipDetailPage() {
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <div>
-                    <h3 className="text-white font-bold text-lg">Your Relationship Owners</h3>
-                    <p className="text-slate-400 text-sm">Internal team members responsible for this partnership</p>
+                    <h3 className="text-gray-900 font-bold text-lg">Your Relationship Owners</h3>
+                    <p className="text-gray-500 text-sm">Internal team members responsible for this partnership</p>
                   </div>
                   <button className="flex items-center space-x-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors text-sm">
                     <Users className="w-4 h-4" /><span>Add Owner</span>
@@ -348,30 +348,30 @@ export default function PartnershipDetailPage() {
                     { name: 'Chris Pendergast', role: 'Executive Sponsor', type: 'Executive', health: 92, lastContact: '2 days ago', cadence: 'Monthly', status: 'active', initials: 'CP' },
                     { name: 'Amanda Torres', role: 'Partnership Manager', type: 'Operational', health: 78, lastContact: '5 days ago', cadence: 'Weekly', status: 'active', initials: 'AT' },
                   ].map((owner, idx) => (
-                    <div key={idx} className="bg-slate-800 border border-slate-700 rounded-xl p-5 hover:border-blue-500 transition-colors">
+                    <div key={idx} className="bg-gray-100 border border-gray-200 rounded-xl p-5 hover:border-blue-500 transition-colors">
                       <div className="flex items-start justify-between mb-4">
                         <div className="flex items-center space-x-3">
                           <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
-                            <span className="text-white font-bold text-sm">{owner.initials}</span>
+                            <span className="text-gray-900 font-bold text-sm">{owner.initials}</span>
                           </div>
                           <div>
-                            <div className="text-white font-semibold text-sm">{owner.name}</div>
-                            <div className="text-slate-400 text-xs">{owner.role}</div>
+                            <div className="text-gray-900 font-semibold text-sm">{owner.name}</div>
+                            <div className="text-gray-500 text-xs">{owner.role}</div>
                           </div>
                         </div>
                         <span className="px-2 py-1 bg-blue-500/20 text-blue-300 text-xs rounded-full">{owner.type}</span>
                       </div>
                       <div className="space-y-3">
                         <div className="flex items-center justify-between">
-                          <span className="text-slate-400 text-xs">Relationship Health</span>
+                          <span className="text-gray-500 text-xs">Relationship Health</span>
                           <span className={`text-sm font-bold ${owner.health >= 80 ? 'text-emerald-400' : owner.health >= 60 ? 'text-amber-400' : 'text-red-400'}`}>{owner.health}%</span>
                         </div>
-                        <div className="w-full bg-slate-700 rounded-full h-1.5">
+                        <div className="w-full bg-gray-200 rounded-full h-1.5">
                           <div className={`h-1.5 rounded-full ${owner.health >= 80 ? 'bg-emerald-400' : owner.health >= 60 ? 'bg-amber-400' : 'bg-red-400'}`} style={{ width: owner.health + '%' }}></div>
                         </div>
                         <div className="flex items-center justify-between text-xs">
-                          <span className="text-slate-500">Last contact: {owner.lastContact}</span>
-                          <span className="text-slate-500">Cadence: {owner.cadence}</span>
+                          <span className="text-gray-400">Last contact: {owner.lastContact}</span>
+                          <span className="text-gray-400">Cadence: {owner.cadence}</span>
                         </div>
                       </div>
                     </div>
@@ -383,10 +383,10 @@ export default function PartnershipDetailPage() {
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <div>
-                    <h3 className="text-white font-bold text-lg">Partner Contacts</h3>
-                    <p className="text-slate-400 text-sm">Key contacts at Apex Dynamics</p>
+                    <h3 className="text-gray-900 font-bold text-lg">Partner Contacts</h3>
+                    <p className="text-gray-500 text-sm">Key contacts at Apex Dynamics</p>
                   </div>
-                  <button className="flex items-center space-x-2 px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg transition-colors text-sm border border-slate-600">
+                  <button className="flex items-center space-x-2 px-4 py-2 bg-gray-200 hover:bg-slate-600 text-gray-900 rounded-lg transition-colors text-sm border border-gray-300">
                     <Users className="w-4 h-4" /><span>Add Contact</span>
                   </button>
                 </div>
@@ -397,15 +397,15 @@ export default function PartnershipDetailPage() {
                     { name: 'Michael Chen', role: 'Technical Lead', type: 'Technical', email: 'michael@apexdynamics.com', phone: '+1 (555) 345-6789', health: 68, lastContact: '3 days ago', status: 'active', initials: 'MC', primary: false, ownedBy: 'Amanda Torres', ownerInitials: 'AT' },
                     { name: 'Lisa Park', role: 'Marketing Manager', type: 'Marketing', email: '', phone: '', health: 0, lastContact: 'Departed', status: 'departed', initials: 'LP', primary: false, ownedBy: 'Unassigned', ownerInitials: '?' },
                   ].map((contact, idx) => (
-                    <div key={idx} className={`bg-slate-800 border rounded-xl p-5 transition-colors ${contact.status === 'departed' ? 'border-red-900/50 opacity-60' : contact.status === 'stale' ? 'border-amber-900/50' : 'border-slate-700 hover:border-blue-500'}`}>
+                    <div key={idx} className={`bg-gray-100 border rounded-xl p-5 transition-colors ${contact.status === 'departed' ? 'border-red-900/50 opacity-60' : contact.status === 'stale' ? 'border-amber-900/50' : 'border-gray-200 hover:border-blue-500'}`}>
                       <div className="flex items-start justify-between mb-3">
                         <div className="flex items-center space-x-3">
                           <div className={`w-10 h-10 rounded-full flex items-center justify-center ${contact.status === 'departed' ? 'bg-red-900/50' : 'bg-slate-600'}`}>
-                            <span className="text-white font-bold text-sm">{contact.initials}</span>
+                            <span className="text-gray-900 font-bold text-sm">{contact.initials}</span>
                           </div>
                           <div>
-                            <div className="text-white font-semibold text-sm">{contact.name}</div>
-                            <div className="text-slate-400 text-xs">{contact.role}</div>
+                            <div className="text-gray-900 font-semibold text-sm">{contact.name}</div>
+                            <div className="text-gray-500 text-xs">{contact.role}</div>
                           </div>
                         </div>
                         <div className="flex flex-col items-end gap-1">
@@ -414,14 +414,14 @@ export default function PartnershipDetailPage() {
                           {contact.status === 'stale' && <span className="px-2 py-0.5 bg-amber-500/20 text-amber-400 text-xs rounded-full">Stale</span>}
                         </div>
                       </div>
-                      <span className="inline-block px-2 py-0.5 bg-slate-700 text-slate-300 text-xs rounded-full mb-3">{contact.type}</span>
-                      <div className="flex items-center space-x-2 mb-3 p-2 bg-slate-700/50 rounded-lg">
+                      <span className="inline-block px-2 py-0.5 bg-gray-200 text-gray-600 text-xs rounded-full mb-3">{contact.type}</span>
+                      <div className="flex items-center space-x-2 mb-3 p-2 bg-gray-200/50 rounded-lg">
                         <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-white flex-shrink-0 ${contact.ownedBy === 'Unassigned' ? 'bg-slate-600' : 'bg-blue-600'}`}>
                           {contact.ownerInitials}
                         </div>
                         <div>
-                          <div className="text-xs text-slate-500">Relationship owner</div>
-                          <div className={`text-xs font-medium ${contact.ownedBy === 'Unassigned' ? 'text-red-400' : 'text-white'}`}>{contact.ownedBy}</div>
+                          <div className="text-xs text-gray-400">Relationship owner</div>
+                          <div className={`text-xs font-medium ${contact.ownedBy === 'Unassigned' ? 'text-red-400' : 'text-gray-900'}`}>{contact.ownedBy}</div>
                         </div>
                         {contact.ownedBy === 'Unassigned' && (
                           <button className="ml-auto text-xs text-blue-400 hover:text-blue-300 whitespace-nowrap">Assign</button>
@@ -429,22 +429,22 @@ export default function PartnershipDetailPage() {
                       </div>
                       {contact.status !== 'departed' && (
                         <div className="space-y-2 mb-3">
-                          {contact.email && <div className="flex items-center space-x-2 text-slate-400 text-xs"><Mail className="w-3 h-3" /><span>{contact.email}</span></div>}
-                          {contact.phone && <div className="flex items-center space-x-2 text-slate-400 text-xs"><Phone className="w-3 h-3" /><span>{contact.phone}</span></div>}
+                          {contact.email && <div className="flex items-center space-x-2 text-gray-500 text-xs"><Mail className="w-3 h-3" /><span>{contact.email}</span></div>}
+                          {contact.phone && <div className="flex items-center space-x-2 text-gray-500 text-xs"><Phone className="w-3 h-3" /><span>{contact.phone}</span></div>}
                         </div>
                       )}
                       {contact.status === 'departed' ? (
                         <div className="text-red-400 text-xs">Contact has left the organization. No replacement identified.</div>
                       ) : (
-                        <div className="border-t border-slate-700 pt-3">
+                        <div className="border-t border-gray-200 pt-3">
                           <div className="flex items-center justify-between mb-1">
-                            <span className="text-slate-400 text-xs">Relationship Health</span>
+                            <span className="text-gray-500 text-xs">Relationship Health</span>
                             <span className={`text-xs font-bold ${contact.health >= 80 ? 'text-emerald-400' : contact.health >= 60 ? 'text-amber-400' : 'text-red-400'}`}>{contact.health}%</span>
                           </div>
-                          <div className="w-full bg-slate-700 rounded-full h-1 mb-2">
+                          <div className="w-full bg-gray-200 rounded-full h-1 mb-2">
                             <div className={`h-1 rounded-full ${contact.health >= 80 ? 'bg-emerald-400' : contact.health >= 60 ? 'bg-amber-400' : 'bg-red-400'}`} style={{ width: contact.health + '%' }}></div>
                           </div>
-                          <div className="text-slate-500 text-xs">Last contact: {contact.lastContact}</div>
+                          <div className="text-gray-400 text-xs">Last contact: {contact.lastContact}</div>
                         </div>
                       )}
                     </div>
@@ -453,12 +453,12 @@ export default function PartnershipDetailPage() {
               </div>
 
               {/* Notification Settings */}
-              <div className="bg-slate-800 border border-slate-700 rounded-xl p-6">
+              <div className="bg-gray-100 border border-gray-200 rounded-xl p-6">
                 <div className="flex items-center space-x-3 mb-6">
                   <Bell className="w-5 h-5 text-blue-400" />
                   <div>
-                    <h3 className="text-white font-bold text-lg">Notification Settings</h3>
-                    <p className="text-slate-400 text-sm">Configure relationship update reminders for your team</p>
+                    <h3 className="text-gray-900 font-bold text-lg">Notification Settings</h3>
+                    <p className="text-gray-500 text-sm">Configure relationship update reminders for your team</p>
                   </div>
                 </div>
                 <div className="space-y-4">
@@ -466,19 +466,19 @@ export default function PartnershipDetailPage() {
                     { owner: 'Chris Pendergast', role: 'Executive Sponsor', cadence: 'Monthly', nextReminder: 'June 15, 2026', active: true },
                     { owner: 'Amanda Torres', role: 'Partnership Manager', cadence: 'Weekly', nextReminder: 'June 3, 2026', active: true },
                   ].map((notif, idx) => (
-                    <div key={idx} className="flex items-center justify-between p-4 bg-slate-700/50 rounded-xl">
+                    <div key={idx} className="flex items-center justify-between p-4 bg-gray-200/50 rounded-xl">
                       <div className="flex items-center space-x-4">
                         <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">{notif.owner.split(' ').map(n => n[0]).join('')}</span>
+                          <span className="text-gray-900 text-xs font-bold">{notif.owner.split(' ').map(n => n[0]).join('')}</span>
                         </div>
                         <div>
-                          <div className="text-white text-sm font-medium">{notif.owner}</div>
-                          <div className="text-slate-400 text-xs">{notif.role} — update every {notif.cadence.toLowerCase()}</div>
-                          <div className="text-slate-500 text-xs">Next reminder: {notif.nextReminder}</div>
+                          <div className="text-gray-900 text-sm font-medium">{notif.owner}</div>
+                          <div className="text-gray-500 text-xs">{notif.role} — update every {notif.cadence.toLowerCase()}</div>
+                          <div className="text-gray-400 text-xs">Next reminder: {notif.nextReminder}</div>
                         </div>
                       </div>
                       <div className="flex items-center space-x-3">
-                        <select defaultValue={notif.cadence} className="bg-slate-600 border border-slate-500 text-white text-xs rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <select defaultValue={notif.cadence} className="bg-slate-600 border border-slate-500 text-gray-900 text-xs rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-blue-500">
                           <option>Weekly</option>
                           <option>Bi-weekly</option>
                           <option>Monthly</option>
@@ -490,7 +490,7 @@ export default function PartnershipDetailPage() {
                       </div>
                     </div>
                   ))}
-                  <button className="w-full py-3 border border-dashed border-slate-600 text-slate-400 hover:text-white hover:border-slate-400 rounded-xl text-sm transition-colors">
+                  <button className="w-full py-3 border border-dashed border-gray-300 text-gray-500 hover:text-gray-900 hover:border-slate-400 rounded-xl text-sm transition-colors">
                     + Add notification rule
                   </button>
                 </div>
@@ -504,117 +504,117 @@ export default function PartnershipDetailPage() {
           {activeTab === 'sales' && (
             <div className="space-y-8">
               <div className="flex items-center justify-between">
-                <h2 className="text-2xl font-bold text-white">Sales Resources</h2>
+                <h2 className="text-2xl font-bold text-gray-900">Sales Resources</h2>
               </div>
 
               {/* Company Overview */}
-              <div className="bg-slate-800 border border-slate-700 rounded-xl p-6">
+              <div className="bg-gray-100 border border-gray-200 rounded-xl p-6">
                 <div className="flex items-center space-x-3 mb-4">
                   <div className="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">
                     <Target className="w-5 h-5 text-blue-400" />
                   </div>
                   <div>
-                    <h3 className="text-white font-bold text-lg">Company Overview</h3>
-                    <p className="text-slate-400 text-sm">What you need to know before a call</p>
+                    <h3 className="text-gray-900 font-bold text-lg">Company Overview</h3>
+                    <p className="text-gray-500 text-sm">What you need to know before a call</p>
                   </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="bg-slate-700/50 rounded-lg p-4"><div className="text-slate-400 text-xs uppercase tracking-wide mb-1">Industry</div><div className="text-white font-medium">Enterprise Technology</div></div>
-                  <div className="bg-slate-700/50 rounded-lg p-4"><div className="text-slate-400 text-xs uppercase tracking-wide mb-1">Company Size</div><div className="text-white font-medium">500-1,000 employees</div></div>
-                  <div className="bg-slate-700/50 rounded-lg p-4"><div className="text-slate-400 text-xs uppercase tracking-wide mb-1">HQ</div><div className="text-white font-medium">San Francisco, CA</div></div>
-                  <div className="bg-slate-700/50 rounded-lg p-4"><div className="text-slate-400 text-xs uppercase tracking-wide mb-1">Target Market</div><div className="text-white font-medium">Mid-market and Enterprise</div></div>
+                  <div className="bg-gray-200/50 rounded-lg p-4"><div className="text-gray-500 text-xs uppercase tracking-wide mb-1">Industry</div><div className="text-gray-900 font-medium">Enterprise Technology</div></div>
+                  <div className="bg-gray-200/50 rounded-lg p-4"><div className="text-gray-500 text-xs uppercase tracking-wide mb-1">Company Size</div><div className="text-gray-900 font-medium">500-1,000 employees</div></div>
+                  <div className="bg-gray-200/50 rounded-lg p-4"><div className="text-gray-500 text-xs uppercase tracking-wide mb-1">HQ</div><div className="text-gray-900 font-medium">San Francisco, CA</div></div>
+                  <div className="bg-gray-200/50 rounded-lg p-4"><div className="text-gray-500 text-xs uppercase tracking-wide mb-1">Target Market</div><div className="text-gray-900 font-medium">Mid-market and Enterprise</div></div>
                 </div>
               </div>
 
               {/* Positioning */}
-              <div className="bg-slate-800 border border-slate-700 rounded-xl p-6">
+              <div className="bg-gray-100 border border-gray-200 rounded-xl p-6">
                 <div className="flex items-center space-x-3 mb-4">
                   <div className="w-10 h-10 bg-emerald-500/20 rounded-lg flex items-center justify-center">
                     <TrendingUp className="w-5 h-5 text-emerald-400" />
                   </div>
                   <div>
-                    <h3 className="text-white font-bold text-lg">How to Position Partegy</h3>
-                    <p className="text-slate-400 text-sm">Tailored messaging for this partner</p>
+                    <h3 className="text-gray-900 font-bold text-lg">How to Position Partegy</h3>
+                    <p className="text-gray-500 text-sm">Tailored messaging for this partner</p>
                   </div>
                 </div>
                 <div className="space-y-4">
                   <div className="border border-blue-500/30 bg-blue-950/20 rounded-xl p-4">
-                    <div className="text-xs font-bold uppercase tracking-wide text-slate-400 mb-2">Elevator Pitch</div>
-                    <p className="text-slate-300 text-sm leading-relaxed">Partegy gives your partnership team a single governance layer — health scoring, behavioral signals, and executive-level visibility — so nothing falls through the cracks and leadership always knows what is at risk.</p>
+                    <div className="text-xs font-bold uppercase tracking-wide text-gray-500 mb-2">Elevator Pitch</div>
+                    <p className="text-gray-600 text-sm leading-relaxed">Partegy gives your partnership team a single governance layer — health scoring, behavioral signals, and executive-level visibility — so nothing falls through the cracks and leadership always knows what is at risk.</p>
                   </div>
                   <div className="border border-amber-500/30 bg-amber-950/20 rounded-xl p-4">
-                    <div className="text-xs font-bold uppercase tracking-wide text-slate-400 mb-2">Their Pain Points</div>
-                    <p className="text-slate-300 text-sm leading-relaxed">Partners at this tier typically struggle with inconsistent QBR preparation, lack of exec visibility into partnership health, and no early warning system before relationships go cold.</p>
+                    <div className="text-xs font-bold uppercase tracking-wide text-gray-500 mb-2">Their Pain Points</div>
+                    <p className="text-gray-600 text-sm leading-relaxed">Partners at this tier typically struggle with inconsistent QBR preparation, lack of exec visibility into partnership health, and no early warning system before relationships go cold.</p>
                   </div>
                   <div className="border border-emerald-500/30 bg-emerald-950/20 rounded-xl p-4">
-                    <div className="text-xs font-bold uppercase tracking-wide text-slate-400 mb-2">Key Value Props</div>
-                    <p className="text-slate-300 text-sm leading-relaxed">Proprietary health scoring across 6 dimensions, AI-powered early warning signals, executive risk matrix, and behavioral intelligence — all in one governed platform.</p>
+                    <div className="text-xs font-bold uppercase tracking-wide text-gray-500 mb-2">Key Value Props</div>
+                    <p className="text-gray-600 text-sm leading-relaxed">Proprietary health scoring across 6 dimensions, AI-powered early warning signals, executive risk matrix, and behavioral intelligence — all in one governed platform.</p>
                   </div>
                   <div className="border border-purple-500/30 bg-purple-950/20 rounded-xl p-4">
-                    <div className="text-xs font-bold uppercase tracking-wide text-slate-400 mb-2">Objection Handling</div>
-                    <p className="text-slate-300 text-sm leading-relaxed">We already use Salesforce/HubSpot — Partegy governs partnerships, not pipeline. CRMs track revenue, not relationship health, executive engagement, or strategic alignment.</p>
+                    <div className="text-xs font-bold uppercase tracking-wide text-gray-500 mb-2">Objection Handling</div>
+                    <p className="text-gray-600 text-sm leading-relaxed">We already use Salesforce/HubSpot — Partegy governs partnerships, not pipeline. CRMs track revenue, not relationship health, executive engagement, or strategic alignment.</p>
                   </div>
                 </div>
               </div>
 
               {/* Marketing PDFs */}
-              <div className="bg-slate-800 border border-slate-700 rounded-xl p-6">
+              <div className="bg-gray-100 border border-gray-200 rounded-xl p-6">
                 <div className="flex items-center space-x-3 mb-6">
                   <div className="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center">
                     <FileText className="w-5 h-5 text-purple-400" />
                   </div>
                   <div>
-                    <h3 className="text-white font-bold text-lg">Marketing Materials</h3>
-                    <p className="text-slate-400 text-sm">PDFs and decks ready to share</p>
+                    <h3 className="text-gray-900 font-bold text-lg">Marketing Materials</h3>
+                    <p className="text-gray-500 text-sm">PDFs and decks ready to share</p>
                   </div>
                 </div>
                 <div className="space-y-3">
-                  <div className="bg-slate-700/50 border border-slate-600 rounded-xl p-4 flex items-center justify-between hover:border-blue-500 transition-colors">
+                  <div className="bg-gray-200/50 border border-gray-300 rounded-xl p-4 flex items-center justify-between hover:border-blue-500 transition-colors">
                     <div className="flex items-center space-x-4">
                       <div className="w-10 h-10 rounded-lg bg-red-500/20 text-red-400 flex items-center justify-center text-xs font-bold">PDF</div>
-                      <div><div className="text-white font-medium text-sm">Partegy One-Pager.pdf</div><div className="text-slate-400 text-xs mt-0.5">High-level overview for executive intro meetings</div></div>
+                      <div><div className="text-gray-900 font-medium text-sm">Partegy One-Pager.pdf</div><div className="text-gray-500 text-xs mt-0.5">High-level overview for executive intro meetings</div></div>
                     </div>
-                    <Download className="w-4 h-4 text-slate-400 hover:text-white" />
+                    <Download className="w-4 h-4 text-gray-500 hover:text-gray-900" />
                   </div>
-                  <div className="bg-slate-700/50 border border-slate-600 rounded-xl p-4 flex items-center justify-between hover:border-blue-500 transition-colors">
+                  <div className="bg-gray-200/50 border border-gray-300 rounded-xl p-4 flex items-center justify-between hover:border-blue-500 transition-colors">
                     <div className="flex items-center space-x-4">
                       <div className="w-10 h-10 rounded-lg bg-red-500/20 text-red-400 flex items-center justify-center text-xs font-bold">PDF</div>
-                      <div><div className="text-white font-medium text-sm">Partnership Governance Overview.pdf</div><div className="text-slate-400 text-xs mt-0.5">Deep dive into how Partegy governs partnerships</div></div>
+                      <div><div className="text-gray-900 font-medium text-sm">Partnership Governance Overview.pdf</div><div className="text-gray-500 text-xs mt-0.5">Deep dive into how Partegy governs partnerships</div></div>
                     </div>
-                    <Download className="w-4 h-4 text-slate-400 hover:text-white" />
+                    <Download className="w-4 h-4 text-gray-500 hover:text-gray-900" />
                   </div>
-                  <div className="bg-slate-700/50 border border-slate-600 rounded-xl p-4 flex items-center justify-between hover:border-blue-500 transition-colors">
+                  <div className="bg-gray-200/50 border border-gray-300 rounded-xl p-4 flex items-center justify-between hover:border-blue-500 transition-colors">
                     <div className="flex items-center space-x-4">
                       <div className="w-10 h-10 rounded-lg bg-orange-500/20 text-orange-400 flex items-center justify-center text-xs font-bold">PPT</div>
-                      <div><div className="text-white font-medium text-sm">Executive Demo Deck.pptx</div><div className="text-slate-400 text-xs mt-0.5">Slide deck for live demos with leadership</div></div>
+                      <div><div className="text-gray-900 font-medium text-sm">Executive Demo Deck.pptx</div><div className="text-gray-500 text-xs mt-0.5">Slide deck for live demos with leadership</div></div>
                     </div>
-                    <Download className="w-4 h-4 text-slate-400 hover:text-white" />
+                    <Download className="w-4 h-4 text-gray-500 hover:text-gray-900" />
                   </div>
-                  <div className="bg-slate-700/50 border border-slate-600 rounded-xl p-4 flex items-center justify-between hover:border-blue-500 transition-colors">
+                  <div className="bg-gray-200/50 border border-gray-300 rounded-xl p-4 flex items-center justify-between hover:border-blue-500 transition-colors">
                     <div className="flex items-center space-x-4">
                       <div className="w-10 h-10 rounded-lg bg-red-500/20 text-red-400 flex items-center justify-center text-xs font-bold">PDF</div>
-                      <div><div className="text-white font-medium text-sm">Competitive Comparison.pdf</div><div className="text-slate-400 text-xs mt-0.5">How Partegy compares to CRM, PRM, and spreadsheets</div></div>
+                      <div><div className="text-gray-900 font-medium text-sm">Competitive Comparison.pdf</div><div className="text-gray-500 text-xs mt-0.5">How Partegy compares to CRM, PRM, and spreadsheets</div></div>
                     </div>
-                    <Download className="w-4 h-4 text-slate-400 hover:text-white" />
+                    <Download className="w-4 h-4 text-gray-500 hover:text-gray-900" />
                   </div>
                 </div>
               </div>
 
               {/* Useful Links */}
-              <div className="bg-slate-800 border border-slate-700 rounded-xl p-6">
-                <h3 className="text-white font-bold text-lg mb-4">Useful Links</h3>
+              <div className="bg-gray-100 border border-gray-200 rounded-xl p-6">
+                <h3 className="text-gray-900 font-bold text-lg mb-4">Useful Links</h3>
                 <div className="space-y-3">
-                  <a href="https://partegy.co/landing" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between p-3 bg-slate-700/50 rounded-lg hover:bg-slate-700 transition-colors group">
-                    <span className="text-slate-300 text-sm group-hover:text-white">Partegy Landing Page</span>
-                    <ArrowLeft className="w-4 h-4 text-slate-500 rotate-180 group-hover:text-blue-400" />
+                  <a href="https://partegy.co/landing" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between p-3 bg-gray-200/50 rounded-lg hover:bg-gray-200 transition-colors group">
+                    <span className="text-gray-600 text-sm group-hover:text-gray-900">Partegy Landing Page</span>
+                    <ArrowLeft className="w-4 h-4 text-gray-400 rotate-180 group-hover:text-blue-400" />
                   </a>
-                  <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between p-3 bg-slate-700/50 rounded-lg hover:bg-slate-700 transition-colors group">
-                    <span className="text-slate-300 text-sm group-hover:text-white">Partner Website</span>
-                    <ArrowLeft className="w-4 h-4 text-slate-500 rotate-180 group-hover:text-blue-400" />
+                  <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between p-3 bg-gray-200/50 rounded-lg hover:bg-gray-200 transition-colors group">
+                    <span className="text-gray-600 text-sm group-hover:text-gray-900">Partner Website</span>
+                    <ArrowLeft className="w-4 h-4 text-gray-400 rotate-180 group-hover:text-blue-400" />
                   </a>
-                  <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between p-3 bg-slate-700/50 rounded-lg hover:bg-slate-700 transition-colors group">
-                    <span className="text-slate-300 text-sm group-hover:text-white">LinkedIn Company Page</span>
-                    <ArrowLeft className="w-4 h-4 text-slate-500 rotate-180 group-hover:text-blue-400" />
+                  <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between p-3 bg-gray-200/50 rounded-lg hover:bg-gray-200 transition-colors group">
+                    <span className="text-gray-600 text-sm group-hover:text-gray-900">LinkedIn Company Page</span>
+                    <ArrowLeft className="w-4 h-4 text-gray-400 rotate-180 group-hover:text-blue-400" />
                   </a>
                 </div>
               </div>
@@ -625,21 +625,21 @@ export default function PartnershipDetailPage() {
           {activeTab === 'documents' && (
             <div className="space-y-6">
               <div className="flex items-center justify-between">
-                <h2 className="text-2xl font-bold text-white">Documents</h2>
+                <h2 className="text-2xl font-bold text-gray-900">Documents</h2>
                 <button className="flex items-center space-x-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors text-sm">
                   <FileText className="w-4 h-4" /><span>Upload Document</span>
                 </button>
               </div>
               <div className="space-y-3">
                 {documents.map((doc, idx) => (
-                  <div key={idx} className="bg-slate-800 border border-slate-700 rounded-xl p-5 flex items-center justify-between hover:border-blue-500 transition-colors cursor-pointer">
+                  <div key={idx} className="bg-gray-100 border border-gray-200 rounded-xl p-5 flex items-center justify-between hover:border-blue-500 transition-colors cursor-pointer">
                     <div className="flex items-center space-x-4">
                       <div className="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">
                         <FileText className="w-5 h-5 text-blue-400" />
                       </div>
                       <div>
-                        <div className="text-white font-medium">{doc.name}</div>
-                        <div className="text-slate-400 text-sm">{doc.type} • {doc.size} • {doc.date}</div>
+                        <div className="text-gray-900 font-medium">{doc.name}</div>
+                        <div className="text-gray-500 text-sm">{doc.type} • {doc.size} • {doc.date}</div>
                       </div>
                     </div>
                     <span className={`px-3 py-1 text-xs font-semibold rounded-full ${
@@ -657,63 +657,63 @@ export default function PartnershipDetailPage() {
           {/* AI INSIGHTS */}
           {activeTab === 'ai-insights' && (
             <div className="space-y-6">
-              <h2 className="text-2xl font-bold text-white">AI Insights</h2>
+              <h2 className="text-2xl font-bold text-gray-900">AI Insights</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-slate-800 border border-blue-500/30 rounded-xl p-6">
+                <div className="bg-gray-100 border border-blue-500/30 rounded-xl p-6">
                   <div className="flex items-center space-x-3 mb-4">
                     <div className="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">
                       <Brain className="w-5 h-5 text-blue-400" />
                     </div>
                     <div>
-                      <div className="text-white font-semibold">Predictive Health Score</div>
-                      <div className="text-slate-400 text-sm">30-day forecast</div>
+                      <div className="text-gray-900 font-semibold">Predictive Health Score</div>
+                      <div className="text-gray-500 text-sm">30-day forecast</div>
                     </div>
                   </div>
                   <div className="text-4xl font-bold text-blue-400 mb-2">91</div>
-                  <p className="text-slate-400 text-sm">Based on current engagement trends and revenue trajectory, health score is projected to improve by 4 points over the next 30 days.</p>
+                  <p className="text-gray-500 text-sm">Based on current engagement trends and revenue trajectory, health score is projected to improve by 4 points over the next 30 days.</p>
                 </div>
 
-                <div className="bg-slate-800 border border-emerald-500/30 rounded-xl p-6">
+                <div className="bg-gray-100 border border-emerald-500/30 rounded-xl p-6">
                   <div className="flex items-center space-x-3 mb-4">
                     <div className="w-10 h-10 bg-emerald-500/20 rounded-lg flex items-center justify-center">
                       <TrendingUp className="w-5 h-5 text-emerald-400" />
                     </div>
                     <div>
-                      <div className="text-white font-semibold">Expansion Signal</div>
-                      <div className="text-slate-400 text-sm">Growth opportunity detected</div>
+                      <div className="text-gray-900 font-semibold">Expansion Signal</div>
+                      <div className="text-gray-500 text-sm">Growth opportunity detected</div>
                     </div>
                   </div>
                   <div className="text-4xl font-bold text-emerald-400 mb-2">High</div>
-                  <p className="text-slate-400 text-sm">This partnership shows strong indicators for expansion into APAC markets based on engagement patterns and revenue growth velocity.</p>
+                  <p className="text-gray-500 text-sm">This partnership shows strong indicators for expansion into APAC markets based on engagement patterns and revenue growth velocity.</p>
                 </div>
 
-                <div className="bg-slate-800 border border-amber-500/30 rounded-xl p-6">
+                <div className="bg-gray-100 border border-amber-500/30 rounded-xl p-6">
                   <div className="flex items-center space-x-3 mb-4">
                     <div className="w-10 h-10 bg-amber-500/20 rounded-lg flex items-center justify-center">
                       <AlertCircle className="w-5 h-5 text-amber-400" />
                     </div>
                     <div>
-                      <div className="text-white font-semibold">Risk Detection</div>
-                      <div className="text-slate-400 text-sm">Early warning signals</div>
+                      <div className="text-gray-900 font-semibold">Risk Detection</div>
+                      <div className="text-gray-500 text-sm">Early warning signals</div>
                     </div>
                   </div>
                   <div className="text-4xl font-bold text-amber-400 mb-2">Low</div>
-                  <p className="text-slate-400 text-sm">Operational excellence score declined 5 points. Monitor delivery SLAs in European region to prevent further deterioration.</p>
+                  <p className="text-gray-500 text-sm">Operational excellence score declined 5 points. Monitor delivery SLAs in European region to prevent further deterioration.</p>
                 </div>
 
-                <div className="bg-slate-800 border border-purple-500/30 rounded-xl p-6">
+                <div className="bg-gray-100 border border-purple-500/30 rounded-xl p-6">
                   <div className="flex items-center space-x-3 mb-4">
                     <div className="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center">
                       <CheckCircle className="w-5 h-5 text-purple-400" />
                     </div>
                     <div>
-                      <div className="text-white font-semibold">Recommended Actions</div>
-                      <div className="text-slate-400 text-sm">AI-generated playbook</div>
+                      <div className="text-gray-900 font-semibold">Recommended Actions</div>
+                      <div className="text-gray-500 text-sm">AI-generated playbook</div>
                     </div>
                   </div>
                   <ul className="space-y-2">
                     {['Schedule executive alignment call before Q2 review', 'Address EU delivery delays within 2 weeks', 'Propose APAC expansion roadmap in next QBR'].map((action, i) => (
-                      <li key={i} className="flex items-start space-x-2 text-sm text-slate-300">
+                      <li key={i} className="flex items-start space-x-2 text-sm text-gray-600">
                         <CheckCircle className="w-4 h-4 text-purple-400 mt-0.5 flex-shrink-0" />
                         <span>{action}</span>
                       </li>
@@ -732,8 +732,8 @@ export default function PartnershipDetailPage() {
 function InfoItem({ label, value }: any) {
   return (
     <div>
-      <div className="text-sm text-slate-400 mb-1">{label}</div>
-      <div className="font-semibold text-white capitalize">{value}</div>
+      <div className="text-sm text-gray-500 mb-1">{label}</div>
+      <div className="font-semibold text-gray-900 capitalize">{value}</div>
     </div>
   );
 }

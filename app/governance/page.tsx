@@ -72,25 +72,25 @@ export default function GovernanceDashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950">
+    <div className="min-h-screen bg-gray-50">
       <PageNavigation />
       <main className="max-w-7xl mx-auto px-4 sm:px-8 py-8 space-y-6">
 
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
-            <h1 className="text-2xl sm:text-3xl font-bold text-white">Governance Dashboard</h1>
-            <p className="text-slate-400 text-sm mt-1">Strategic Partnership Behavioral Intelligence</p>
+            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Governance Dashboard</h1>
+            <p className="text-gray-500 text-sm mt-1">Strategic Partnership Behavioral Intelligence</p>
           </div>
           <div className="flex items-center space-x-3">
             <select value={activeFilter} onChange={e => setActiveFilter(e.target.value)}
-              className="bg-slate-800 border border-slate-700 text-white text-sm rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+              className="bg-gray-100 border border-gray-200 text-gray-900 text-sm rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
               <option>All Partnerships</option>
               {partners.map(p => <option key={p}>{p}</option>)}
             </select>
-            <div className="flex items-center space-x-2 bg-slate-800 border border-slate-700 rounded-lg px-3 py-2">
+            <div className="flex items-center space-x-2 bg-gray-100 border border-gray-200 rounded-lg px-3 py-2">
               <Activity className="w-4 h-4 text-emerald-400 animate-pulse" />
-              <span className="text-slate-300 text-sm">Live</span>
+              <span className="text-gray-600 text-sm">Live</span>
             </div>
           </div>
         </div>
@@ -99,8 +99,8 @@ export default function GovernanceDashboard() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
           {/* Health Overview */}
-          <div className="bg-slate-900 border border-slate-800 rounded-xl p-6">
-            <div className="text-xs font-bold uppercase tracking-wide text-slate-400 mb-4">Partnership Health Overview</div>
+          <div className="bg-white border border-gray-200 rounded-xl p-6">
+            <div className="text-xs font-bold uppercase tracking-wide text-gray-500 mb-4">Partnership Health Overview</div>
             <div className="flex items-center justify-center mb-6">
               <div className="relative w-36 h-36">
                 <svg viewBox="0 0 120 120" className="w-full h-full -rotate-90">
@@ -109,7 +109,7 @@ export default function GovernanceDashboard() {
                     strokeDasharray={`${2 * Math.PI * 50 * 0.83} ${2 * Math.PI * 50}`} strokeLinecap="round" />
                 </svg>
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <div className="text-3xl font-bold text-white">83</div>
+                  <div className="text-3xl font-bold text-gray-900">83</div>
                   <div className="text-emerald-400 text-xs font-semibold">Healthy</div>
                 </div>
               </div>
@@ -123,37 +123,37 @@ export default function GovernanceDashboard() {
                 { label: 'Execution Velocity', score: 68, color: 'bg-orange-400' },
               ].map((dim) => (
                 <div key={dim.label} className="flex items-center space-x-3">
-                  <div className="text-slate-400 text-xs w-32 flex-shrink-0">{dim.label}</div>
-                  <div className="flex-1 bg-slate-800 rounded-full h-1.5">
+                  <div className="text-gray-500 text-xs w-32 flex-shrink-0">{dim.label}</div>
+                  <div className="flex-1 bg-gray-100 rounded-full h-1.5">
                     <div className={`h-1.5 rounded-full ${dim.color}`} style={{ width: `${dim.score}%` }}></div>
                   </div>
-                  <div className="text-slate-300 text-xs w-6 text-right">{dim.score}</div>
+                  <div className="text-gray-600 text-xs w-6 text-right">{dim.score}</div>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Behavioral Risk Matrix */}
-          <div className="bg-slate-900 border border-slate-800 rounded-xl p-6">
-            <div className="text-xs font-bold uppercase tracking-wide text-slate-400 mb-4">Behavioral Risk Assessment</div>
+          <div className="bg-white border border-gray-200 rounded-xl p-6">
+            <div className="text-xs font-bold uppercase tracking-wide text-gray-500 mb-4">Behavioral Risk Assessment</div>
             <div className="overflow-x-auto">
               <table className="w-full text-xs">
                 <thead>
                   <tr>
-                    <th className="text-left text-slate-500 pb-3 font-medium">Partner</th>
-                    <th className="text-center text-slate-500 pb-3 font-medium">Trust</th>
-                    <th className="text-center text-slate-500 pb-3 font-medium">Engage</th>
-                    <th className="text-center text-slate-500 pb-3 font-medium">Align</th>
-                    <th className="text-center text-slate-500 pb-3 font-medium">Velocity</th>
-                    <th className="text-center text-slate-500 pb-3 font-medium">Trend</th>
+                    <th className="text-left text-gray-400 pb-3 font-medium">Partner</th>
+                    <th className="text-center text-gray-400 pb-3 font-medium">Trust</th>
+                    <th className="text-center text-gray-400 pb-3 font-medium">Engage</th>
+                    <th className="text-center text-gray-400 pb-3 font-medium">Align</th>
+                    <th className="text-center text-gray-400 pb-3 font-medium">Velocity</th>
+                    <th className="text-center text-gray-400 pb-3 font-medium">Trend</th>
                   </tr>
                 </thead>
                 <tbody>
                   {riskMatrix.map((row) => {
                     const isRisk = [row.trust, row.engagement, row.alignment, row.velocity].filter(v => v === 'low').length >= 2;
                     return (
-                      <tr key={row.partner} className="border-t border-slate-800">
-                        <td className="py-2 text-slate-300 pr-2 whitespace-nowrap">{row.partner.split(' ')[0]}</td>
+                      <tr key={row.partner} className="border-t border-gray-200">
+                        <td className="py-2 text-gray-600 pr-2 whitespace-nowrap">{row.partner.split(' ')[0]}</td>
                         {[row.trust, row.engagement, row.alignment, row.velocity].map((val, i) => (
                           <td key={i} className="py-2 text-center">
                             <span className={`px-1.5 py-0.5 rounded text-xs font-medium ${getCell(val)}`}>
@@ -173,20 +173,20 @@ export default function GovernanceDashboard() {
                 </tbody>
               </table>
             </div>
-            <div className="mt-4 pt-4 border-t border-slate-800 flex items-center space-x-4 text-xs">
-              <div className="flex items-center space-x-1"><div className="w-2 h-2 rounded bg-emerald-500"></div><span className="text-slate-400">High</span></div>
-              <div className="flex items-center space-x-1"><div className="w-2 h-2 rounded bg-amber-500"></div><span className="text-slate-400">Medium</span></div>
-              <div className="flex items-center space-x-1"><div className="w-2 h-2 rounded bg-red-500"></div><span className="text-slate-400">Low</span></div>
+            <div className="mt-4 pt-4 border-t border-gray-200 flex items-center space-x-4 text-xs">
+              <div className="flex items-center space-x-1"><div className="w-2 h-2 rounded bg-emerald-500"></div><span className="text-gray-500">High</span></div>
+              <div className="flex items-center space-x-1"><div className="w-2 h-2 rounded bg-amber-500"></div><span className="text-gray-500">Medium</span></div>
+              <div className="flex items-center space-x-1"><div className="w-2 h-2 rounded bg-red-500"></div><span className="text-gray-500">Low</span></div>
             </div>
           </div>
 
           {/* Alliance Maturity */}
-          <div className="bg-slate-900 border border-slate-800 rounded-xl p-6">
-            <div className="text-xs font-bold uppercase tracking-wide text-slate-400 mb-4">Key Alliance Maturity</div>
+          <div className="bg-white border border-gray-200 rounded-xl p-6">
+            <div className="text-xs font-bold uppercase tracking-wide text-gray-500 mb-4">Key Alliance Maturity</div>
             <div className="space-y-5">
               {maturityData.map((p) => (
                 <div key={p.partner}>
-                  <div className="text-slate-300 text-xs mb-2">{p.partner}</div>
+                  <div className="text-gray-600 text-xs mb-2">{p.partner}</div>
                   <div className="flex h-5 rounded-lg overflow-hidden gap-0.5">
                     <div className="bg-slate-600" style={{ width: `${p.initiating}%` }}></div>
                     <div className="bg-blue-500" style={{ width: `${p.defined}%` }}></div>
@@ -205,7 +205,7 @@ export default function GovernanceDashboard() {
               ].map(l => (
                 <div key={l.label} className="flex items-center space-x-2">
                   <div className={`w-3 h-3 rounded ${l.color}`}></div>
-                  <span className="text-slate-400">{l.label}</span>
+                  <span className="text-gray-500">{l.label}</span>
                 </div>
               ))}
             </div>
@@ -216,11 +216,11 @@ export default function GovernanceDashboard() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
           {/* Sentiment */}
-          <div className="bg-slate-900 border border-slate-800 rounded-xl p-6">
-            <div className="text-xs font-bold uppercase tracking-wide text-slate-400 mb-4">Interaction Patterns & Climate</div>
+          <div className="bg-white border border-gray-200 rounded-xl p-6">
+            <div className="text-xs font-bold uppercase tracking-wide text-gray-500 mb-4">Interaction Patterns & Climate</div>
             <div className="grid grid-cols-2 gap-6 mb-6">
               <div>
-                <div className="text-xs text-slate-500 mb-3">Positive Signals</div>
+                <div className="text-xs text-gray-400 mb-3">Positive Signals</div>
                 <div className="space-y-1">
                   {['Transparency', 'Innovation', 'Collaboration', 'Trust', 'Alignment'].map((kw, i) => (
                     <div key={kw} className="text-emerald-400 font-bold" style={{ fontSize: `${16 - i * 2}px` }}>{kw}</div>
@@ -228,7 +228,7 @@ export default function GovernanceDashboard() {
                 </div>
               </div>
               <div>
-                <div className="text-xs text-slate-500 mb-3">Risk Signals</div>
+                <div className="text-xs text-gray-400 mb-3">Risk Signals</div>
                 <div className="space-y-1">
                   {['Delays', 'Misaligned', 'Conflict', 'Resource Gaps', 'Friction'].map((kw, i) => (
                     <div key={kw} className="text-red-400 font-bold" style={{ fontSize: `${16 - i * 2}px` }}>{kw}</div>
@@ -236,7 +236,7 @@ export default function GovernanceDashboard() {
                 </div>
               </div>
             </div>
-            <div className="text-xs text-slate-500 mb-2">Sentiment Trends (Monthly)</div>
+            <div className="text-xs text-gray-400 mb-2">Sentiment Trends (Monthly)</div>
             <svg viewBox={`0 0 400 ${chartH}`} className="w-full h-20">
               <polyline
                 points={positiveData.map((v, i) => `${i * 50},${chartH - (v / 100) * chartH}`).join(' ')}
@@ -249,14 +249,14 @@ export default function GovernanceDashboard() {
               {sentimentMonths.map(m => <span key={m} className="text-slate-600 text-xs">{m}</span>)}
             </div>
             <div className="flex items-center space-x-4 text-xs">
-              <div className="flex items-center space-x-1"><div className="w-3 h-0.5 bg-emerald-400"></div><span className="text-slate-400">Positive</span></div>
-              <div className="flex items-center space-x-1"><div className="w-3 h-0.5 bg-red-400"></div><span className="text-slate-400">Risk</span></div>
+              <div className="flex items-center space-x-1"><div className="w-3 h-0.5 bg-emerald-400"></div><span className="text-gray-500">Positive</span></div>
+              <div className="flex items-center space-x-1"><div className="w-3 h-0.5 bg-red-400"></div><span className="text-gray-500">Risk</span></div>
             </div>
           </div>
 
           {/* Communication Flow */}
-          <div className="bg-slate-900 border border-slate-800 rounded-xl p-6">
-            <div className="text-xs font-bold uppercase tracking-wide text-slate-400 mb-4">Communication Flow Analysis</div>
+          <div className="bg-white border border-gray-200 rounded-xl p-6">
+            <div className="text-xs font-bold uppercase tracking-wide text-gray-500 mb-4">Communication Flow Analysis</div>
             <svg viewBox="0 0 560 240" className="w-full h-48">
               {commsEdges.map((edge, i) => {
                 const from = getNodeById(edge.from);
@@ -276,9 +276,9 @@ export default function GovernanceDashboard() {
               ))}
             </svg>
             <div className="flex items-center space-x-4 mt-2 text-xs">
-              <div className="flex items-center space-x-1"><div className="w-3 h-3 rounded-full bg-emerald-500 opacity-70"></div><span className="text-slate-400">High Flow</span></div>
-              <div className="flex items-center space-x-1"><div className="w-3 h-3 rounded-full bg-amber-500 opacity-70"></div><span className="text-slate-400">Medium Flow</span></div>
-              <div className="flex items-center space-x-1"><div className="w-3 h-3 rounded-full bg-red-500 opacity-70"></div><span className="text-slate-400">Bottleneck</span></div>
+              <div className="flex items-center space-x-1"><div className="w-3 h-3 rounded-full bg-emerald-500 opacity-70"></div><span className="text-gray-500">High Flow</span></div>
+              <div className="flex items-center space-x-1"><div className="w-3 h-3 rounded-full bg-amber-500 opacity-70"></div><span className="text-gray-500">Medium Flow</span></div>
+              <div className="flex items-center space-x-1"><div className="w-3 h-3 rounded-full bg-red-500 opacity-70"></div><span className="text-gray-500">Bottleneck</span></div>
             </div>
           </div>
         </div>
@@ -287,8 +287,8 @@ export default function GovernanceDashboard() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
           {/* Strategic Alignment */}
-          <div className="bg-slate-900 border border-slate-800 rounded-xl p-6">
-            <div className="text-xs font-bold uppercase tracking-wide text-slate-400 mb-4">Strategic Alignment Tracker</div>
+          <div className="bg-white border border-gray-200 rounded-xl p-6">
+            <div className="text-xs font-bold uppercase tracking-wide text-gray-500 mb-4">Strategic Alignment Tracker</div>
             <div className="space-y-4">
               {[
                 { label: 'Product Development', values: [40, 55, 60, 70, 72], color: '#3b82f6' },
@@ -297,8 +297,8 @@ export default function GovernanceDashboard() {
               ].map((track) => (
                 <div key={track.label}>
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-slate-400 text-xs">{track.label}</span>
-                    <span className="text-white text-xs font-bold">{track.values[track.values.length - 1]}%</span>
+                    <span className="text-gray-500 text-xs">{track.label}</span>
+                    <span className="text-gray-900 text-xs font-bold">{track.values[track.values.length - 1]}%</span>
                   </div>
                   <svg viewBox="0 0 200 40" className="w-full h-8">
                     <polyline
@@ -311,16 +311,16 @@ export default function GovernanceDashboard() {
           </div>
 
           {/* Milestones */}
-          <div className="bg-slate-900 border border-slate-800 rounded-xl p-6">
-            <div className="text-xs font-bold uppercase tracking-wide text-slate-400 mb-4">Upcoming Milestones & Reviews</div>
+          <div className="bg-white border border-gray-200 rounded-xl p-6">
+            <div className="text-xs font-bold uppercase tracking-wide text-gray-500 mb-4">Upcoming Milestones & Reviews</div>
             <div className="space-y-3">
               {milestones.map((m, idx) => (
-                <div key={idx} className={`flex items-center justify-between p-3 rounded-lg border ${m.urgent ? 'border-amber-900/50 bg-amber-950/20' : 'border-slate-800 bg-slate-800/50'}`}>
+                <div key={idx} className={`flex items-center justify-between p-3 rounded-lg border ${m.urgent ? 'border-amber-900/50 bg-amber-950/20' : 'border-gray-200 bg-gray-100/80'}`}>
                   <div className="flex items-center space-x-3">
                     <div className={`w-2 h-2 rounded-full flex-shrink-0 ${m.urgent ? 'bg-amber-400' : 'bg-blue-400'}`}></div>
                     <div>
-                      <div className="text-white text-sm font-medium">{m.name}</div>
-                      <div className="text-slate-500 text-xs">{m.date}</div>
+                      <div className="text-gray-900 text-sm font-medium">{m.name}</div>
+                      <div className="text-gray-400 text-xs">{m.date}</div>
                     </div>
                   </div>
                   {m.urgent && <span className="text-xs text-amber-400 bg-amber-950 px-2 py-0.5 rounded-full">Urgent</span>}
@@ -330,8 +330,8 @@ export default function GovernanceDashboard() {
           </div>
 
           {/* Alerts */}
-          <div className="bg-slate-900 border border-slate-800 rounded-xl p-6">
-            <div className="text-xs font-bold uppercase tracking-wide text-slate-400 mb-4">Behavioral Insights Alerts</div>
+          <div className="bg-white border border-gray-200 rounded-xl p-6">
+            <div className="text-xs font-bold uppercase tracking-wide text-gray-500 mb-4">Behavioral Insights Alerts</div>
             <div className="space-y-4">
               {alerts.map((alert, idx) => (
                 <div key={idx} className={`p-4 rounded-lg border-l-4 ${
@@ -348,7 +348,7 @@ export default function GovernanceDashboard() {
                       alert.type === 'warning' ? 'text-amber-400' : 'text-blue-400'
                     }`}>{alert.title}</span>
                   </div>
-                  <p className="text-slate-400 text-xs leading-relaxed">{alert.desc}</p>
+                  <p className="text-gray-500 text-xs leading-relaxed">{alert.desc}</p>
                 </div>
               ))}
             </div>
