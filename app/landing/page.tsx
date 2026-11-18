@@ -54,10 +54,10 @@ export default function LandingPage() {
               <span>Now in early access — limited spots available</span>
             </div>
             <h1 className="text-5xl sm:text-6xl font-bold leading-tight tracking-tight mb-6" style={{color: '#0B3D91'}}>
-              Partnership governance,<br />built for executives.
+              Partnerships drive growth. But they're rarely governed like strategic assets.
             </h1>
             <p className="text-xl text-gray-500 leading-relaxed mb-10 max-w-2xl mx-auto">
-              Partegy gives leadership teams consistent visibility across their partnership portfolio — health scoring, behavioral intelligence, and risk signals, all in one platform.
+              Partegy gives leaders visibility into partnership performance, strategy execution, and ecosystem health — so they know where to invest and when to intervene.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <button onClick={handleWatchDemo}
@@ -112,10 +112,10 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto px-6 sm:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold mb-4" style={{color: '#0B3D91'}}>
-              Partnerships drive revenue.<br />Most companies can't govern them.
+              Partnerships generate billions in revenue — but most companies can't govern them.
             </h2>
             <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-              Partner ecosystems have become a major growth engine — yet most organizations lack the infrastructure to manage them at scale.
+              Partner ecosystems have become a major growth engine for enterprise companies.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -146,10 +146,10 @@ export default function LandingPage() {
                 <span>Health Scoring</span>
               </div>
               <h3 className="text-3xl font-bold mb-4" style={{color: '#0B3D91'}}>
-                Give leadership answers, not spreadsheets.
+                Stop managing $100M relationships in $0 spreadsheets.
               </h3>
               <p className="text-gray-500 text-lg leading-relaxed mb-6">
-                Partegy's proprietary 6-dimension health score gives executives a single number that reflects the true state of each partnership — not just revenue, but engagement, alignment, risk, and execution velocity.
+                Our patented Partnership Intelligence system treats partnerships as structured, measurable, and enduring organizational assets — synthesizing engagement density, execution velocity, and mutual value exchange into a single predictive signal.
               </p>
               <ul className="space-y-3">
                 {['6-dimension behavioral health scoring', 'Real-time portfolio risk matrix', 'Executive-ready dashboards'].map(item => (
@@ -189,10 +189,10 @@ export default function LandingPage() {
                 <span>Behavioral Intelligence</span>
               </div>
               <h3 className="text-3xl font-bold mb-4" style={{color: '#0B3D91'}}>
-                Know what's at risk before it costs you.
+                Most tools stop at the plan. Others stop at the task.
               </h3>
               <p className="text-gray-500 text-lg leading-relaxed mb-6">
-                Partegy's AI-powered early warning system detects engagement drift, stalled initiatives, and concentration risk — surfacing signals weeks before they become problems.
+                Partegy is the only system that explicitly links high-level strategic intent to day-to-day outcomes — detecting engagement drift, stalled initiatives, and concentration risk before they become problems.
               </p>
               <ul className="space-y-3">
                 {['AI-detected relationship signals', 'Proactive risk alerts', 'Predictive partnership intelligence'].map(item => (
@@ -214,10 +214,10 @@ export default function LandingPage() {
                 <span>Relationship Intelligence</span>
               </div>
               <h3 className="text-3xl font-bold mb-4" style={{color: '#0B3D91'}}>
-                Map every relationship. Own every outcome.
+                Give leadership the answers they're asking for.
               </h3>
               <p className="text-gray-500 text-lg leading-relaxed mb-6">
-                Track who on your team owns each partner relationship, monitor engagement health, and get notified when relationships go cold — before it impacts revenue.
+                Partegy enables leadership teams to manage partnerships as a strategic portfolio — knowing which partnerships deserve more investment, which initiatives are delivering, and where to intervene before revenue is impacted.
               </p>
               <ul className="space-y-3">
                 {['Relationship owner mapping', 'Configurable notification cadences', 'Departed contact alerts'].map(item => (
@@ -295,7 +295,7 @@ export default function LandingPage() {
             See your ecosystem's true health.
           </h2>
           <p className="text-xl text-blue-100 mb-10 leading-relaxed">
-            Get early access to see how Partegy helps leaders govern strategic partnerships like assets.
+            Get a sample Partnership Health Audit to see what governance looks like for your portfolio.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button onClick={handleWatchDemo}
