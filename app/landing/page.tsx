@@ -43,14 +43,14 @@ export default function LandingPage() {
       <section className="py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-6 sm:px-8">
           <div className="max-w-3xl mx-auto text-center mb-16">
-            <h1 className="text-5xl sm:text-6xl font-bold leading-tight tracking-tight mb-4" style={{color: '#0B3D91'}}>
-              Partnerships drive growth. But they're rarely governed like strategic assets.
-            </h1>
             <div className="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full text-sm font-medium mb-6 border"
               style={{backgroundColor: '#EFF6FF', borderColor: '#BFDBFE', color: '#1E40AF'}}>
               <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse inline-block"></span>
               <span>Now in early access — limited spots available</span>
             </div>
+            <h1 className="text-5xl sm:text-6xl font-bold leading-tight tracking-tight mb-4" style={{color: '#0B3D91'}}>
+              Partnerships drive growth. But they're rarely governed like strategic assets.
+            </h1>
             <p className="text-xl text-gray-500 leading-relaxed mb-10 max-w-2xl mx-auto">
               Partegy gives leaders visibility into partnership performance, strategy execution, and ecosystem health — so they know where to invest and when to intervene.
             </p>
