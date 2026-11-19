@@ -25,6 +25,11 @@ export default function LandingPage() {
           <div className="flex items-center">
             <img src="/partegy-logo.png" alt="Partegy" className="h-12 w-auto" />
           </div>
+          <div className="hidden sm:flex items-center space-x-2 px-3 py-1.5 rounded-full text-xs font-medium border"
+            style={{backgroundColor: '#EFF6FF', borderColor: '#BFDBFE', color: '#1E40AF'}}>
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse inline-block"></span>
+            <span>Now in early access — limited spots available</span>
+          </div>
           <div className="flex items-center space-x-3">
             <button onClick={handleWatchDemo}
               className="hidden sm:block text-sm font-medium px-4 py-2 rounded-lg border border-gray-200 text-gray-700 hover:bg-gray-50 transition-colors">
