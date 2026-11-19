@@ -7,6 +7,10 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'Partegy | Partnership Governance Platform',
   description: 'Govern strategic partnerships using proprietary health scoring, behavioral intelligence, and executive-level ecosystem visibility.',
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
 }
 
 export const viewport: Viewport = {
