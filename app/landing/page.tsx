@@ -90,18 +90,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* LOGO STRIP */}
-      <section className="py-12 border-y border-gray-100 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8">
-          <p className="text-center text-sm font-medium text-gray-400 uppercase tracking-widest mb-8">Trusted by partnership teams at</p>
-          <div className="flex flex-wrap items-center justify-center gap-12">
-            {['Workday Impl Co', 'Enterprise Corp', 'Global Ventures', 'TechScale Inc', 'Alliance Group'].map(name => (
-              <span key={name} className="text-gray-300 font-bold text-lg tracking-tight">{name}</span>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* STATS */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-6 sm:px-8">
