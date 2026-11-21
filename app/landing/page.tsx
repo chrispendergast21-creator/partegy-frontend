@@ -26,11 +26,7 @@ export default function LandingPage() {
             <img src="/partegy-logo.png" alt="Partegy" className="h-12 w-auto" />
           </div>
           <div className="flex items-center space-x-3">
-            <button onClick={handleWatchDemo}
-              className="hidden sm:block text-sm font-medium px-4 py-2 rounded-lg border border-gray-200 text-gray-700 hover:bg-gray-50 transition-colors">
-              Sign In
-            </button>
-            <button onClick={handleWatchDemo}
+<button onClick={handleWatchDemo}
               className="text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors"
               style={{backgroundColor: '#0B3D91'}}>
               Request Early Access
