@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { ArrowRight, Play, CheckCircle } from 'lucide-react';
-import LeadCaptureModal from '../../components/LeadCaptureModal';
+import LeadCaptureModal from '../components/LeadCaptureModal';
 
 export default function LandingPage() {
   const [modalOpen, setModalOpen] = useState(false);
