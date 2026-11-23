@@ -88,30 +88,43 @@ export default function LandingPage() {
       {/* SECTION 2 — THE PROBLEM */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 sm:px-8">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-6" style={{color: '#0B3D91'}}>
-              Partnerships drive growth. But do you really know which ones are delivering value?
-            </h2>
-            <p className="text-lg text-gray-500 leading-relaxed mb-12">
-              Organizations invest significant time, resources, and capital into strategic partnerships. Yet many leadership teams lack a consistent, objective way to understand how those relationships are actually performing.
-            </p>
-            <p className="text-base text-gray-500 italic mb-10">Revenue and pipeline reveal commercial outcomes, but they don't tell the full story.</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
-              {[
-                { q: 'Are your partnerships strategically aligned?', a: 'A relationship can generate revenue while drifting away from the priorities that made it strategically important.' },
-                { q: 'Are your joint business plans translating into execution?', a: 'Shared goals mean little without accountability, measurable progress, and follow-through.' },
-                { q: 'Can you identify risk before performance declines?', a: 'Disengagement, stalled initiatives, and shifting priorities can go unnoticed until they affect business outcomes.' },
-                { q: 'Do you know where to focus your next investment?', a: 'Without a complete view of partnership health, leaders are left making resource allocation decisions with incomplete information.' },
-              ].map((item, idx) => (
-                <div key={idx} className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
-                  <p className="font-semibold text-gray-900 mb-2">{item.q}</p>
-                  <p className="text-gray-500 text-sm leading-relaxed">{item.a}</p>
-                </div>
-              ))}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 className="text-3xl sm:text-4xl font-bold mb-6" style={{color: '#0B3D91'}}>
+                Partnerships drive growth. But do you really know which ones are delivering value?
+              </h2>
+              <p className="text-lg text-gray-500 leading-relaxed mb-6">
+                Organizations invest significant time, resources, and capital into strategic partnerships. Yet many leadership teams lack a consistent, objective way to understand how those relationships are actually performing.
+              </p>
+              <p className="text-base text-gray-500 italic mb-8">Revenue and pipeline reveal commercial outcomes, but they don't tell the full story.</p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                {[
+                  { q: 'Are your partnerships strategically aligned?', a: 'A relationship can generate revenue while drifting away from the priorities that made it strategically important.' },
+                  { q: 'Are your joint business plans translating into execution?', a: 'Shared goals mean little without accountability, measurable progress, and follow-through.' },
+                  { q: 'Can you identify risk before performance declines?', a: 'Disengagement, stalled initiatives, and shifting priorities can go unnoticed until they affect business outcomes.' },
+                  { q: 'Do you know where to focus your next investment?', a: 'Without a complete view of partnership health, leaders are left making resource allocation decisions with incomplete information.' },
+                ].map((item, idx) => (
+                  <div key={idx} className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
+                    <p className="font-semibold text-gray-900 mb-2 text-sm">{item.q}</p>
+                    <p className="text-gray-500 text-sm leading-relaxed">{item.a}</p>
+                  </div>
+                ))}
+              </div>
+              <p className="text-lg font-semibold" style={{color: '#0B3D91'}}>
+                You can't optimize what you can't objectively evaluate.
+              </p>
             </div>
-            <p className="text-xl font-semibold text-center" style={{color: '#0B3D91'}}>
-              You can't optimize what you can't objectively evaluate.
-            </p>
+            <div className="relative">
+              <div className="absolute inset-0 rounded-2xl blur-2xl opacity-10" style={{background: 'linear-gradient(135deg, #0B3D91, #2EC4D2)'}}></div>
+              <div className="relative bg-white border border-gray-200 rounded-2xl shadow-xl overflow-hidden">
+                <div className="bg-gray-50 border-b border-gray-100 px-4 py-2.5 flex items-center space-x-2">
+                  <div className="w-2.5 h-2.5 rounded-full bg-red-400"></div>
+                  <div className="w-2.5 h-2.5 rounded-full bg-amber-400"></div>
+                  <div className="w-2.5 h-2.5 rounded-full bg-emerald-400"></div>
+                </div>
+                <img src="/partnership-dashboard1.png" alt="Partnership Detail View" className="w-full h-auto" />
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -197,22 +210,15 @@ export default function LandingPage() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-6 sm:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="order-2 lg:order-1 bg-gray-50 rounded-2xl border border-gray-200 p-8">
-              <div className="space-y-4">
-                {[
-                  { step: 'Align on what matters.', desc: 'Establish shared strategic objectives and define the priorities that will drive partnership success.' },
-                  { step: 'Turn priorities into action.', desc: 'Translate business plans into initiatives, milestones, commitments, and measurable outcomes.' },
-                  { step: 'Maintain accountability.', desc: 'Track progress, identify stalled activities, and keep teams focused on shared objectives.' },
-                  { step: 'Connect execution to partnership health.', desc: 'Understand how progress against strategic commitments contributes to the broader health of the relationship.' },
-                ].map((item, idx) => (
-                  <div key={idx} className="flex items-start space-x-4 p-4 bg-white rounded-xl border border-gray-100">
-                    <div className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 text-white text-xs font-bold" style={{backgroundColor: '#0B3D91'}}>{idx + 1}</div>
-                    <div>
-                      <p className="font-semibold text-gray-800 text-sm">{item.step}</p>
-                      <p className="text-gray-500 text-sm mt-1">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
+            <div className="order-2 lg:order-1 relative">
+              <div className="absolute inset-0 rounded-2xl blur-2xl opacity-10" style={{background: 'linear-gradient(135deg, #0B3D91, #2EC4D2)'}}></div>
+              <div className="relative bg-white border border-gray-200 rounded-2xl shadow-xl overflow-hidden">
+                <div className="bg-gray-50 border-b border-gray-100 px-4 py-2.5 flex items-center space-x-2">
+                  <div className="w-2.5 h-2.5 rounded-full bg-red-400"></div>
+                  <div className="w-2.5 h-2.5 rounded-full bg-amber-400"></div>
+                  <div className="w-2.5 h-2.5 rounded-full bg-emerald-400"></div>
+                </div>
+                <img src="/partner-view.png" alt="Partner Portal View" className="w-full h-auto" />
               </div>
             </div>
             <div className="order-1 lg:order-2">
@@ -226,7 +232,23 @@ export default function LandingPage() {
               <p className="text-gray-500 leading-relaxed mb-6">
                 Strategic partnerships begin with shared ambition. But too often, joint business plans are created, reviewed periodically, and disconnected from day-to-day execution. Partegy brings partnership strategy and execution together.
               </p>
-              <p className="text-gray-700 font-semibold italic">
+              <div className="space-y-3 mb-6">
+                {[
+                  { step: 'Align on what matters.', desc: 'Establish shared strategic objectives and define the priorities that will drive partnership success.' },
+                  { step: 'Turn priorities into action.', desc: 'Translate business plans into initiatives, milestones, commitments, and measurable outcomes.' },
+                  { step: 'Maintain accountability.', desc: 'Track progress, identify stalled activities, and keep teams focused on shared objectives.' },
+                  { step: 'Connect execution to partnership health.', desc: 'Understand how progress against strategic commitments contributes to the broader health of the relationship.' },
+                ].map((item, idx) => (
+                  <div key={idx} className="flex items-start space-x-3">
+                    <div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 text-white text-xs font-bold mt-0.5" style={{backgroundColor: '#0B3D91'}}>{idx + 1}</div>
+                    <div>
+                      <span className="font-semibold text-gray-800 text-sm">{item.step}</span>
+                      <span className="text-gray-500 text-sm"> {item.desc}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <p className="text-gray-700 font-semibold italic text-sm">
                 Partnership strategy shouldn't be an annual exercise. It should be a continuously managed business priority.
               </p>
             </div>
@@ -288,29 +310,47 @@ export default function LandingPage() {
 
       {/* SECTION 7 — EXECUTIVE PORTFOLIO INTELLIGENCE */}
       <section className="py-20">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 text-center">
-          <div className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold mb-6 uppercase tracking-widest"
-            style={{backgroundColor: '#EFF6FF', color: '#1E40AF'}}>
-            The Executive View
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4" style={{color: '#0B3D91'}}>Your partnership portfolio. Finally, a clearer picture.</h2>
-          <p className="text-gray-500 text-lg leading-relaxed max-w-2xl mx-auto mb-12">
-            Every strategic partnership represents an investment of organizational time, resources, and opportunity. Partegy helps leadership teams move beyond individual relationship updates to understand the health and performance of their partnership portfolio.
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            {[
-              { q: 'Which partnerships are performing well?', a: 'Identify relationships demonstrating strong health, execution, and strategic alignment.' },
-              { q: 'Which partnerships need intervention?', a: 'Surface relationships experiencing declining health, execution challenges, or emerging risks.' },
-              { q: 'Where are opportunities being overlooked?', a: 'Recognize partnerships with promising strategic potential that may require additional attention.' },
-              { q: 'Where should we focus our resources?', a: 'Use a more complete understanding of partnership performance to inform portfolio priorities and investment discussions.' },
-            ].map((item, idx) => (
-              <div key={idx} className="text-left bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
-                <p className="font-semibold text-gray-900 mb-2 text-sm">{item.q}</p>
-                <p className="text-gray-500 text-sm leading-relaxed">{item.a}</p>
+        <div className="max-w-7xl mx-auto px-6 sm:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <div className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold mb-6 uppercase tracking-widest"
+                style={{backgroundColor: '#EFF6FF', color: '#1E40AF'}}>
+                The Executive View
               </div>
-            ))}
+              <h2 className="text-3xl sm:text-4xl font-bold mb-4" style={{color: '#0B3D91'}}>Your partnership portfolio. Finally, a clearer picture.</h2>
+              <p className="text-gray-500 leading-relaxed mb-8">
+                Every strategic partnership represents an investment of organizational time, resources, and opportunity. Partegy helps leadership teams move beyond individual relationship updates to understand the health and performance of their partnership portfolio.
+              </p>
+              <div className="space-y-4 mb-8">
+                {[
+                  { q: 'Which partnerships are performing well?', a: 'Identify relationships demonstrating strong health, execution, and strategic alignment.' },
+                  { q: 'Which partnerships need intervention?', a: 'Surface relationships experiencing declining health, execution challenges, or emerging risks.' },
+                  { q: 'Where are opportunities being overlooked?', a: 'Recognize partnerships with promising strategic potential that may require additional attention.' },
+                  { q: 'Where should we focus our resources?', a: 'Use a more complete understanding of partnership performance to inform portfolio priorities and investment discussions.' },
+                ].map((item, idx) => (
+                  <div key={idx} className="flex items-start space-x-3">
+                    <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{color: '#2EC4D2'}} />
+                    <div>
+                      <span className="font-semibold text-gray-800 text-sm">{item.q}</span>
+                      <span className="text-gray-500 text-sm"> {item.a}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <p className="text-gray-700 font-semibold italic text-sm">Better partnership intelligence leads to more intentional partnership investments.</p>
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 rounded-2xl blur-2xl opacity-10" style={{background: 'linear-gradient(135deg, #0B3D91, #2EC4D2)'}}></div>
+              <div className="relative bg-white border border-gray-200 rounded-2xl shadow-xl overflow-hidden">
+                <div className="bg-gray-50 border-b border-gray-100 px-4 py-2.5 flex items-center space-x-2">
+                  <div className="w-2.5 h-2.5 rounded-full bg-red-400"></div>
+                  <div className="w-2.5 h-2.5 rounded-full bg-amber-400"></div>
+                  <div className="w-2.5 h-2.5 rounded-full bg-emerald-400"></div>
+                </div>
+                <img src="/portfolio-view.png" alt="Executive Portfolio Dashboard" className="w-full h-auto" />
+              </div>
+            </div>
           </div>
-          <p className="text-gray-700 font-semibold italic">Better partnership intelligence leads to more intentional partnership investments.</p>
         </div>
       </section>
 
