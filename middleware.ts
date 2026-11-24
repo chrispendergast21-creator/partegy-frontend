@@ -6,7 +6,7 @@ const COOKIE_NAME = 'partegy_auth';
 
 // Routes that are publicly accessible
 const PUBLIC_ROUTES = [
-  '/landing',
+  '/',
   '/login',
   '/api/auth',
   '/_next',
